@@ -1,0 +1,773 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Changes prior to Version 1.00 captured in file
+        "Historical Changes.txt
+
+     ICH eCTD DTD
+     Version 1.0 - March 6, 2002
+     Version 3.0 - Sept 11, 2002
+     Version 3.0 - Oct 1, 2002
+     Version 3.0 - Oct 8, 2002
+     Version 3.1 - Nov 11, 2003
+	Version 3.2 - Nov 21, 2003
+
+Changes in version 3.1
+-	ID was changed to REQUIRED in the following four locations:
+		<!ENTITY % att " ID       ID     #REQUIRED
+             xml:lang CDATA  #IMPLIED">
+             
+          <!ELEMENT leaf (title, link-text?)>
+			<!ATTLIST leaf
+				ID ID #REQUIRED  <attlist continues>
+
+		<!ELEMENT xref EMPTY>
+			<!ATTLIST xref
+				ID ID #REQUIRED  <attlist continues>
+				
+		<!ELEMENT node-extension (title, (leaf | node-extension)+)>
+			<!ATTLIST node-extension
+				ID ID #REQUIRED
+				xml:lang CDATA #IMPLIED>		
+
+
+Changes in version 3.2
+
+-	Indication attribute was changed to REQUIRED in the following two locations: 
+		<!ATTLIST m2-7-3-summary-of-clinical-efficacy
+		%att; 
+		indication CDATA #REQUIRED
+
+		<!ATTLIST m5-3-5-reports-of-efficacy-and-safety-studies
+		%att; 
+		indication CDATA #REQUIRED
+
+-	Since ID is only needed for files referenced in a LEAF, changed ID back to IMPLIED for:  
+		<!ENTITY % att " ID       ID     #REQUIRED
+   			xml:lang CDATA  #IMPLIED">
+
+		<!ELEMENT node-extension (title, (leaf | node-extension)+)>
+		<!ATTLIST node-extension
+			ID ID #REQUIRED
+			xml:lang CDATA #IMPLIED>
+
+
+	
+End of changes		
+-->
+<!ENTITY % att " ID       ID     #IMPLIED
+   xml:lang CDATA  #IMPLIED">
+<!-- ============================================================= -->
+<!-- Top-level element -->
+<!-- ============================================================= -->
+<!ELEMENT ectd:ectd (m1-administrative-information-and-prescribing-information?, m2-common-technical-document-summaries?, m3-quality?, m4-nonclinical-study-reports?, m5-clinical-study-reports?)>
+<!ATTLIST ectd:ectd
+	xmlns:ectd CDATA #FIXED "http://www.ich.org/ectd"
+	xmlns:xlink CDATA #FIXED "http://www.w3c.org/1999/xlink"
+	xml:lang CDATA #IMPLIED
+	dtd-version CDATA #FIXED "3.2"
+>
+<!-- ============================================================= -->
+<!-- Leaf content -->
+<!-- ============================================================= -->
+<!ELEMENT leaf (title, link-text?)>
+<!ATTLIST leaf
+	ID ID #REQUIRED
+	application-version CDATA #IMPLIED
+	version CDATA #IMPLIED
+	font-library CDATA #IMPLIED
+	operation (new | append | replace | delete) #REQUIRED
+	modified-file CDATA #IMPLIED
+	checksum CDATA #REQUIRED
+	checksum-type CDATA #REQUIRED
+	keywords CDATA #IMPLIED
+	xmlns:xlink CDATA #FIXED "http://www.w3c.org/1999/xlink"
+	xlink:type CDATA #FIXED "simple"
+	xlink:role CDATA #IMPLIED
+	xlink:href CDATA #IMPLIED
+	xlink:show (new | replace | embed | other | none) #IMPLIED
+	xlink:actuate (onLoad | onRequest | other | none) #IMPLIED
+	xml:lang CDATA #IMPLIED
+>
+<!ELEMENT title (#PCDATA)>
+<!ATTLIST title
+	ID ID #IMPLIED
+>
+<!ELEMENT link-text (#PCDATA | xref)*>
+<!ATTLIST link-text
+	ID ID #IMPLIED
+>
+<!ELEMENT xref EMPTY>
+<!ATTLIST xref
+	ID ID #REQUIRED
+	xmlns:xlink CDATA #FIXED "http://www.w3c.org/1999/xlink"
+	xlink:type CDATA #FIXED "simple"
+	xlink:role CDATA #IMPLIED
+	xlink:title CDATA #REQUIRED
+	xlink:href CDATA #REQUIRED
+	xlink:show (new | replace | embed | other | none) #IMPLIED
+	xlink:actuate (onLoad | onRequest | other | none) #IMPLIED
+>
+<!ELEMENT node-extension (title, (leaf | node-extension)+)>
+<!ATTLIST node-extension
+	ID ID #IMPLIED
+	xml:lang CDATA #IMPLIED
+>
+<!-- ============================================================= -->
+<!-- CTD Backbone structures -->
+<!-- ============================================================= -->
+<!ELEMENT m1-administrative-information-and-prescribing-information (leaf*)>
+<!ATTLIST m1-administrative-information-and-prescribing-information
+	%att; 
+>
+<!ELEMENT m2-common-technical-document-summaries (leaf*, m2-2-introduction?, m2-3-quality-overall-summary?, m2-4-nonclinical-overview?, m2-5-clinical-overview?, m2-6-nonclinical-written-and-tabulated-summaries?, m2-7-clinical-summary?)>
+<!ATTLIST m2-common-technical-document-summaries
+	%att; 
+>
+<!ELEMENT m2-2-introduction ((leaf | node-extension)*)>
+<!ATTLIST m2-2-introduction
+	%att; 
+>
+<!ELEMENT m2-3-quality-overall-summary (leaf*, m2-3-introduction?, m2-3-s-drug-substance*, m2-3-p-drug-product*, m2-3-a-appendices?, m2-3-r-regional-information?)>
+<!ATTLIST m2-3-quality-overall-summary
+	%att; 
+>
+<!ELEMENT m2-3-introduction ((leaf | node-extension)*)>
+<!ATTLIST m2-3-introduction
+	%att; 
+>
+<!ELEMENT m2-3-s-drug-substance ((leaf | node-extension)*)>
+<!ATTLIST m2-3-s-drug-substance
+	%att; 
+	substance CDATA #REQUIRED
+	manufacturer CDATA #REQUIRED
+>
+<!ELEMENT m2-3-p-drug-product ((leaf | node-extension)*)>
+<!ATTLIST m2-3-p-drug-product
+	%att; 
+	product-name CDATA #IMPLIED
+	dosageform CDATA #IMPLIED
+	manufacturer CDATA #IMPLIED
+>
+<!ELEMENT m2-3-a-appendices ((leaf | node-extension)*)>
+<!ATTLIST m2-3-a-appendices
+	%att; 
+>
+<!ELEMENT m2-3-r-regional-information ((leaf | node-extension)*)>
+<!ATTLIST m2-3-r-regional-information
+	%att; 
+>
+<!ELEMENT m2-4-nonclinical-overview ((leaf | node-extension)*)>
+<!ATTLIST m2-4-nonclinical-overview
+	%att; 
+>
+<!ELEMENT m2-5-clinical-overview ((leaf | node-extension)*)>
+<!ATTLIST m2-5-clinical-overview
+	%att; 
+>
+<!ELEMENT m2-6-nonclinical-written-and-tabulated-summaries (leaf*, m2-6-1-introduction?, m2-6-2-pharmacology-written-summary?, m2-6-3-pharmacology-tabulated-summary?, m2-6-4-pharmacokinetics-written-summary?, m2-6-5-pharmacokinetics-tabulated-summary?, m2-6-6-toxicology-written-summary?, m2-6-7-toxicology-tabulated-summary?)>
+<!ATTLIST m2-6-nonclinical-written-and-tabulated-summaries
+	%att; 
+>
+<!ELEMENT m2-6-1-introduction ((leaf | node-extension)*)>
+<!ATTLIST m2-6-1-introduction
+	%att; 
+>
+<!ELEMENT m2-6-2-pharmacology-written-summary ((leaf | node-extension)*)>
+<!ATTLIST m2-6-2-pharmacology-written-summary
+	%att; 
+>
+<!ELEMENT m2-6-3-pharmacology-tabulated-summary ((leaf | node-extension)*)>
+<!ATTLIST m2-6-3-pharmacology-tabulated-summary
+	%att; 
+>
+<!ELEMENT m2-6-4-pharmacokinetics-written-summary ((leaf | node-extension)*)>
+<!ATTLIST m2-6-4-pharmacokinetics-written-summary
+	%att; 
+>
+<!ELEMENT m2-6-5-pharmacokinetics-tabulated-summary ((leaf | node-extension)*)>
+<!ATTLIST m2-6-5-pharmacokinetics-tabulated-summary
+	%att; 
+>
+<!ELEMENT m2-6-6-toxicology-written-summary ((leaf | node-extension)*)>
+<!ATTLIST m2-6-6-toxicology-written-summary
+	%att; 
+>
+<!ELEMENT m2-6-7-toxicology-tabulated-summary ((leaf | node-extension)*)>
+<!ATTLIST m2-6-7-toxicology-tabulated-summary
+	%att; 
+>
+<!ELEMENT m2-7-clinical-summary (leaf*, m2-7-1-summary-of-biopharmaceutic-studies-and-associated-analytical-methods?, m2-7-2-summary-of-clinical-pharmacology-studies?, m2-7-3-summary-of-clinical-efficacy*, m2-7-4-summary-of-clinical-safety?, m2-7-5-literature-references?, m2-7-6-synopses-of-individual-studies?)>
+<!ATTLIST m2-7-clinical-summary
+	%att; 
+>
+<!ELEMENT m2-7-1-summary-of-biopharmaceutic-studies-and-associated-analytical-methods ((leaf | node-extension)*)>
+<!ATTLIST m2-7-1-summary-of-biopharmaceutic-studies-and-associated-analytical-methods
+	%att; 
+>
+<!ELEMENT m2-7-2-summary-of-clinical-pharmacology-studies ((leaf | node-extension)*)>
+<!ATTLIST m2-7-2-summary-of-clinical-pharmacology-studies
+	%att; 
+>
+<!ELEMENT m2-7-3-summary-of-clinical-efficacy ((leaf | node-extension)*)>
+<!ATTLIST m2-7-3-summary-of-clinical-efficacy
+	%att; 
+	indication CDATA #REQUIRED
+>
+<!ELEMENT m2-7-4-summary-of-clinical-safety ((leaf | node-extension)*)>
+<!ATTLIST m2-7-4-summary-of-clinical-safety
+	%att; 
+>
+<!ELEMENT m2-7-5-literature-references ((leaf | node-extension)*)>
+<!ATTLIST m2-7-5-literature-references
+	%att; 
+>
+<!ELEMENT m2-7-6-synopses-of-individual-studies ((leaf | node-extension)*)>
+<!ATTLIST m2-7-6-synopses-of-individual-studies
+	%att; 
+>
+<!ELEMENT m3-quality (leaf*, m3-2-body-of-data?, m3-3-literature-references?)>
+<!ATTLIST m3-quality
+	%att; 
+>
+<!ELEMENT m3-2-body-of-data (leaf*, m3-2-s-drug-substance*, m3-2-p-drug-product*, m3-2-a-appendices?, m3-2-r-regional-information?)>
+<!ATTLIST m3-2-body-of-data
+	%att; 
+>
+<!ELEMENT m3-2-s-drug-substance (leaf*, m3-2-s-1-general-information?, m3-2-s-2-manufacture?, m3-2-s-3-characterisation?, m3-2-s-4-control-of-drug-substance?, m3-2-s-5-reference-standards-or-materials?, m3-2-s-6-container-closure-system?, m3-2-s-7-stability?)>
+<!ATTLIST m3-2-s-drug-substance
+	%att; 
+	substance CDATA #REQUIRED
+	manufacturer CDATA #REQUIRED
+>
+<!ELEMENT m3-2-s-1-general-information (leaf*, m3-2-s-1-1-nomenclature?, m3-2-s-1-2-structure?, m3-2-s-1-3-general-properties?)>
+<!ATTLIST m3-2-s-1-general-information
+	%att; 
+>
+<!ELEMENT m3-2-s-1-1-nomenclature ((leaf | node-extension)*)>
+<!ATTLIST m3-2-s-1-1-nomenclature
+	%att; 
+>
+<!ELEMENT m3-2-s-1-2-structure ((leaf | node-extension)*)>
+<!ATTLIST m3-2-s-1-2-structure
+	%att; 
+>
+<!ELEMENT m3-2-s-1-3-general-properties ((leaf | node-extension)*)>
+<!ATTLIST m3-2-s-1-3-general-properties
+	%att; 
+>
+<!ELEMENT m3-2-s-2-manufacture (leaf*, m3-2-s-2-1-manufacturer?, m3-2-s-2-2-description-of-manufacturing-process-and-process-controls?, m3-2-s-2-3-control-of-materials?, m3-2-s-2-4-controls-of-critical-steps-and-intermediates?, m3-2-s-2-5-process-validation-and-or-evaluation?, m3-2-s-2-6-manufacturing-process-development?)>
+<!ATTLIST m3-2-s-2-manufacture
+	%att; 
+>
+<!ELEMENT m3-2-s-2-1-manufacturer ((leaf | node-extension)*)>
+<!ATTLIST m3-2-s-2-1-manufacturer
+	%att; 
+>
+<!ELEMENT m3-2-s-2-2-description-of-manufacturing-process-and-process-controls ((leaf | node-extension)*)>
+<!ATTLIST m3-2-s-2-2-description-of-manufacturing-process-and-process-controls
+	%att; 
+>
+<!ELEMENT m3-2-s-2-3-control-of-materials ((leaf | node-extension)*)>
+<!ATTLIST m3-2-s-2-3-control-of-materials
+	%att; 
+>
+<!ELEMENT m3-2-s-2-4-controls-of-critical-steps-and-intermediates ((leaf | node-extension)*)>
+<!ATTLIST m3-2-s-2-4-controls-of-critical-steps-and-intermediates
+	%att; 
+>
+<!ELEMENT m3-2-s-2-5-process-validation-and-or-evaluation ((leaf | node-extension)*)>
+<!ATTLIST m3-2-s-2-5-process-validation-and-or-evaluation
+	%att; 
+>
+<!ELEMENT m3-2-s-2-6-manufacturing-process-development ((leaf | node-extension)*)>
+<!ATTLIST m3-2-s-2-6-manufacturing-process-development
+	%att; 
+>
+<!ELEMENT m3-2-s-3-characterisation (leaf*, m3-2-s-3-1-elucidation-of-structure-and-other-characteristics?, m3-2-s-3-2-impurities?)>
+<!ATTLIST m3-2-s-3-characterisation
+	%att; 
+>
+<!ELEMENT m3-2-s-3-1-elucidation-of-structure-and-other-characteristics ((leaf | node-extension)*)>
+<!ATTLIST m3-2-s-3-1-elucidation-of-structure-and-other-characteristics
+	%att; 
+>
+<!ELEMENT m3-2-s-3-2-impurities ((leaf | node-extension)*)>
+<!ATTLIST m3-2-s-3-2-impurities
+	%att; 
+>
+<!ELEMENT m3-2-s-4-control-of-drug-substance (leaf*, m3-2-s-4-1-specification?, m3-2-s-4-2-analytical-procedures?, m3-2-s-4-3-validation-of-analytical-procedures?, m3-2-s-4-4-batch-analyses?, m3-2-s-4-5-justification-of-specification?)>
+<!ATTLIST m3-2-s-4-control-of-drug-substance
+	%att; 
+>
+<!ELEMENT m3-2-s-4-1-specification ((leaf | node-extension)*)>
+<!ATTLIST m3-2-s-4-1-specification
+	%att; 
+>
+<!ELEMENT m3-2-s-4-2-analytical-procedures ((leaf | node-extension)*)>
+<!ATTLIST m3-2-s-4-2-analytical-procedures
+	%att; 
+>
+<!ELEMENT m3-2-s-4-3-validation-of-analytical-procedures ((leaf | node-extension)*)>
+<!ATTLIST m3-2-s-4-3-validation-of-analytical-procedures
+	%att; 
+>
+<!ELEMENT m3-2-s-4-4-batch-analyses ((leaf | node-extension)*)>
+<!ATTLIST m3-2-s-4-4-batch-analyses
+	%att; 
+>
+<!ELEMENT m3-2-s-4-5-justification-of-specification ((leaf | node-extension)*)>
+<!ATTLIST m3-2-s-4-5-justification-of-specification
+	%att; 
+>
+<!ELEMENT m3-2-s-5-reference-standards-or-materials ((leaf | node-extension)*)>
+<!ATTLIST m3-2-s-5-reference-standards-or-materials
+	%att; 
+>
+<!ELEMENT m3-2-s-6-container-closure-system ((leaf | node-extension)*)>
+<!ATTLIST m3-2-s-6-container-closure-system
+	%att; 
+>
+<!ELEMENT m3-2-s-7-stability (leaf*, m3-2-s-7-1-stability-summary-and-conclusions?, m3-2-s-7-2-post-approval-stability-protocol-and-stability-commitment?, m3-2-s-7-3-stability-data?)>
+<!ATTLIST m3-2-s-7-stability
+	%att; 
+>
+<!ELEMENT m3-2-s-7-1-stability-summary-and-conclusions ((leaf | node-extension)*)>
+<!ATTLIST m3-2-s-7-1-stability-summary-and-conclusions
+	%att; 
+>
+<!ELEMENT m3-2-s-7-2-post-approval-stability-protocol-and-stability-commitment ((leaf | node-extension)*)>
+<!ATTLIST m3-2-s-7-2-post-approval-stability-protocol-and-stability-commitment
+	%att; 
+>
+<!ELEMENT m3-2-s-7-3-stability-data ((leaf | node-extension)*)>
+<!ATTLIST m3-2-s-7-3-stability-data
+	%att; 
+>
+<!ELEMENT m3-2-p-drug-product (leaf*, m3-2-p-1-description-and-composition-of-the-drug-product?, m3-2-p-2-pharmaceutical-development?, m3-2-p-3-manufacture?, m3-2-p-4-control-of-excipients*, m3-2-p-5-control-of-drug-product?, m3-2-p-6-reference-standards-or-materials?, m3-2-p-7-container-closure-system?, m3-2-p-8-stability?)>
+<!ATTLIST m3-2-p-drug-product
+	%att; 
+	product-name CDATA #IMPLIED
+	dosageform CDATA #IMPLIED
+	manufacturer CDATA #IMPLIED
+>
+<!ELEMENT m3-2-p-1-description-and-composition-of-the-drug-product ((leaf | node-extension)*)>
+<!ATTLIST m3-2-p-1-description-and-composition-of-the-drug-product
+	%att; 
+>
+<!ELEMENT m3-2-p-2-pharmaceutical-development ((leaf | node-extension)*)>
+<!ATTLIST m3-2-p-2-pharmaceutical-development
+	%att; 
+>
+<!ELEMENT m3-2-p-3-manufacture (leaf*, m3-2-p-3-1-manufacturers?, m3-2-p-3-2-batch-formula?, m3-2-p-3-3-description-of-manufacturing-process-and-process-controls?, m3-2-p-3-4-controls-of-critical-steps-and-intermediates?, m3-2-p-3-5-process-validation-and-or-evaluation?)>
+<!ATTLIST m3-2-p-3-manufacture
+	%att; 
+>
+<!ELEMENT m3-2-p-3-1-manufacturers ((leaf | node-extension)*)>
+<!ATTLIST m3-2-p-3-1-manufacturers
+	%att; 
+>
+<!ELEMENT m3-2-p-3-2-batch-formula ((leaf | node-extension)*)>
+<!ATTLIST m3-2-p-3-2-batch-formula
+	%att; 
+>
+<!ELEMENT m3-2-p-3-3-description-of-manufacturing-process-and-process-controls ((leaf | node-extension)*)>
+<!ATTLIST m3-2-p-3-3-description-of-manufacturing-process-and-process-controls
+	%att; 
+>
+<!ELEMENT m3-2-p-3-4-controls-of-critical-steps-and-intermediates ((leaf | node-extension)*)>
+<!ATTLIST m3-2-p-3-4-controls-of-critical-steps-and-intermediates
+	%att; 
+>
+<!ELEMENT m3-2-p-3-5-process-validation-and-or-evaluation ((leaf | node-extension)*)>
+<!ATTLIST m3-2-p-3-5-process-validation-and-or-evaluation
+	%att; 
+>
+<!ELEMENT m3-2-p-4-control-of-excipients (leaf*, m3-2-p-4-1-specifications?, m3-2-p-4-2-analytical-procedures?, m3-2-p-4-3-validation-of-analytical-procedures?, m3-2-p-4-4-justification-of-specifications?, m3-2-p-4-5-excipients-of-human-or-animal-origin?, m3-2-p-4-6-novel-excipients?)>
+<!ATTLIST m3-2-p-4-control-of-excipients
+	%att; 
+	excipient CDATA #IMPLIED
+>
+<!ELEMENT m3-2-p-4-1-specifications ((leaf | node-extension)*)>
+<!ATTLIST m3-2-p-4-1-specifications
+	%att; 
+>
+<!ELEMENT m3-2-p-4-2-analytical-procedures ((leaf | node-extension)*)>
+<!ATTLIST m3-2-p-4-2-analytical-procedures
+	%att; 
+>
+<!ELEMENT m3-2-p-4-3-validation-of-analytical-procedures ((leaf | node-extension)*)>
+<!ATTLIST m3-2-p-4-3-validation-of-analytical-procedures
+	%att; 
+>
+<!ELEMENT m3-2-p-4-4-justification-of-specifications ((leaf | node-extension)*)>
+<!ATTLIST m3-2-p-4-4-justification-of-specifications
+	%att; 
+>
+<!ELEMENT m3-2-p-4-5-excipients-of-human-or-animal-origin ((leaf | node-extension)*)>
+<!ATTLIST m3-2-p-4-5-excipients-of-human-or-animal-origin
+	%att; 
+>
+<!ELEMENT m3-2-p-4-6-novel-excipients ((leaf | node-extension)*)>
+<!ATTLIST m3-2-p-4-6-novel-excipients
+	%att; 
+>
+<!ELEMENT m3-2-p-5-control-of-drug-product (leaf*, m3-2-p-5-1-specifications?, m3-2-p-5-2-analytical-procedures?, m3-2-p-5-3-validation-of-analytical-procedures?, m3-2-p-5-4-batch-analyses?, m3-2-p-5-5-characterisation-of-impurities?, m3-2-p-5-6-justification-of-specifications?)>
+<!ATTLIST m3-2-p-5-control-of-drug-product
+	%att; 
+>
+<!ELEMENT m3-2-p-5-1-specifications ((leaf | node-extension)*)>
+<!ATTLIST m3-2-p-5-1-specifications
+	%att; 
+>
+<!ELEMENT m3-2-p-5-2-analytical-procedures ((leaf | node-extension)*)>
+<!ATTLIST m3-2-p-5-2-analytical-procedures
+	%att; 
+>
+<!ELEMENT m3-2-p-5-3-validation-of-analytical-procedures ((leaf | node-extension)*)>
+<!ATTLIST m3-2-p-5-3-validation-of-analytical-procedures
+	%att; 
+>
+<!ELEMENT m3-2-p-5-4-batch-analyses ((leaf | node-extension)*)>
+<!ATTLIST m3-2-p-5-4-batch-analyses
+	%att; 
+>
+<!ELEMENT m3-2-p-5-5-characterisation-of-impurities ((leaf | node-extension)*)>
+<!ATTLIST m3-2-p-5-5-characterisation-of-impurities
+	%att; 
+>
+<!ELEMENT m3-2-p-5-6-justification-of-specifications ((leaf | node-extension)*)>
+<!ATTLIST m3-2-p-5-6-justification-of-specifications
+	%att; 
+>
+<!ELEMENT m3-2-p-6-reference-standards-or-materials ((leaf | node-extension)*)>
+<!ATTLIST m3-2-p-6-reference-standards-or-materials
+	%att; 
+>
+<!ELEMENT m3-2-p-7-container-closure-system ((leaf | node-extension)*)>
+<!ATTLIST m3-2-p-7-container-closure-system
+	%att; 
+>
+<!ELEMENT m3-2-p-8-stability (leaf*, m3-2-p-8-1-stability-summary-and-conclusion?, m3-2-p-8-2-post-approval-stability-protocol-and-stability-commitment?, m3-2-p-8-3-stability-data?)>
+<!ATTLIST m3-2-p-8-stability
+	%att; 
+>
+<!ELEMENT m3-2-p-8-1-stability-summary-and-conclusion ((leaf | node-extension)*)>
+<!ATTLIST m3-2-p-8-1-stability-summary-and-conclusion
+	%att; 
+>
+<!ELEMENT m3-2-p-8-2-post-approval-stability-protocol-and-stability-commitment ((leaf | node-extension)*)>
+<!ATTLIST m3-2-p-8-2-post-approval-stability-protocol-and-stability-commitment
+	%att; 
+>
+<!ELEMENT m3-2-p-8-3-stability-data ((leaf | node-extension)*)>
+<!ATTLIST m3-2-p-8-3-stability-data
+	%att; 
+>
+<!ELEMENT m3-2-a-appendices (leaf*, m3-2-a-1-facilities-and-equipment*, m3-2-a-2-adventitious-agents-safety-evaluation*, m3-2-a-3-excipients?)>
+<!ATTLIST m3-2-a-appendices
+	%att; 
+>
+<!ELEMENT m3-2-a-1-facilities-and-equipment ((leaf | node-extension)*)>
+<!ATTLIST m3-2-a-1-facilities-and-equipment
+	%att; 
+	manufacturer CDATA #IMPLIED
+	substance CDATA #IMPLIED
+	dosageform CDATA #IMPLIED
+	product-name CDATA #IMPLIED
+>
+<!ELEMENT m3-2-a-2-adventitious-agents-safety-evaluation ((leaf | node-extension)*)>
+<!ATTLIST m3-2-a-2-adventitious-agents-safety-evaluation
+	%att; 
+	manufacturer CDATA #IMPLIED
+	substance CDATA #IMPLIED
+	dosageform CDATA #IMPLIED
+	product-name CDATA #IMPLIED
+>
+<!ELEMENT m3-2-a-3-excipients ((leaf | node-extension)*)>
+<!ATTLIST m3-2-a-3-excipients
+	%att; 
+>
+<!ELEMENT m3-2-r-regional-information ((leaf | node-extension)*)>
+<!ATTLIST m3-2-r-regional-information
+	%att; 
+>
+<!ELEMENT m3-3-literature-references ((leaf | node-extension)*)>
+<!ATTLIST m3-3-literature-references
+	%att; 
+>
+<!ELEMENT m4-nonclinical-study-reports (leaf*, m4-2-study-reports?, m4-3-literature-references?)>
+<!ATTLIST m4-nonclinical-study-reports
+	%att; 
+>
+<!ELEMENT m4-2-study-reports (leaf*, m4-2-1-pharmacology?, m4-2-2-pharmacokinetics?, m4-2-3-toxicology?)>
+<!ATTLIST m4-2-study-reports
+	%att; 
+>
+<!ELEMENT m4-2-1-pharmacology (leaf*, m4-2-1-1-primary-pharmacodynamics?, m4-2-1-2-secondary-pharmacodynamics?, m4-2-1-3-safety-pharmacology?, m4-2-1-4-pharmacodynamic-drug-interactions?)>
+<!ATTLIST m4-2-1-pharmacology
+	%att; 
+>
+<!ELEMENT m4-2-1-1-primary-pharmacodynamics ((leaf | node-extension)*)>
+<!ATTLIST m4-2-1-1-primary-pharmacodynamics
+	%att; 
+>
+<!ELEMENT m4-2-1-2-secondary-pharmacodynamics ((leaf | node-extension)*)>
+<!ATTLIST m4-2-1-2-secondary-pharmacodynamics
+	%att; 
+>
+<!ELEMENT m4-2-1-3-safety-pharmacology ((leaf | node-extension)*)>
+<!ATTLIST m4-2-1-3-safety-pharmacology
+	%att; 
+>
+<!ELEMENT m4-2-1-4-pharmacodynamic-drug-interactions ((leaf | node-extension)*)>
+<!ATTLIST m4-2-1-4-pharmacodynamic-drug-interactions
+	%att; 
+>
+<!ELEMENT m4-2-2-pharmacokinetics (leaf*, m4-2-2-1-analytical-methods-and-validation-reports?, m4-2-2-2-absorption?, m4-2-2-3-distribution?, m4-2-2-4-metabolism?, m4-2-2-5-excretion?, m4-2-2-6-pharmacokinetic-drug-interactions?, m4-2-2-7-other-pharmacokinetic-studies?)>
+<!ATTLIST m4-2-2-pharmacokinetics
+	%att; 
+>
+<!ELEMENT m4-2-2-1-analytical-methods-and-validation-reports ((leaf | node-extension)*)>
+<!ATTLIST m4-2-2-1-analytical-methods-and-validation-reports
+	%att; 
+>
+<!ELEMENT m4-2-2-2-absorption ((leaf | node-extension)*)>
+<!ATTLIST m4-2-2-2-absorption
+	%att; 
+>
+<!ELEMENT m4-2-2-3-distribution ((leaf | node-extension)*)>
+<!ATTLIST m4-2-2-3-distribution
+	%att; 
+>
+<!ELEMENT m4-2-2-4-metabolism ((leaf | node-extension)*)>
+<!ATTLIST m4-2-2-4-metabolism
+	%att; 
+>
+<!ELEMENT m4-2-2-5-excretion ((leaf | node-extension)*)>
+<!ATTLIST m4-2-2-5-excretion
+	%att; 
+>
+<!ELEMENT m4-2-2-6-pharmacokinetic-drug-interactions ((leaf | node-extension)*)>
+<!ATTLIST m4-2-2-6-pharmacokinetic-drug-interactions
+	%att; 
+>
+<!ELEMENT m4-2-2-7-other-pharmacokinetic-studies ((leaf | node-extension)*)>
+<!ATTLIST m4-2-2-7-other-pharmacokinetic-studies
+	%att; 
+>
+<!ELEMENT m4-2-3-toxicology (leaf*, m4-2-3-1-single-dose-toxicity?, m4-2-3-2-repeat-dose-toxicity?, m4-2-3-3-genotoxicity?, m4-2-3-4-carcinogenicity?, m4-2-3-5-reproductive-and-developmental-toxicity?, m4-2-3-6-local-tolerance?, m4-2-3-7-other-toxicity-studies?)>
+<!ATTLIST m4-2-3-toxicology
+	%att; 
+>
+<!ELEMENT m4-2-3-1-single-dose-toxicity ((leaf | node-extension)*)>
+<!ATTLIST m4-2-3-1-single-dose-toxicity
+	%att; 
+>
+<!ELEMENT m4-2-3-2-repeat-dose-toxicity ((leaf | node-extension)*)>
+<!ATTLIST m4-2-3-2-repeat-dose-toxicity
+	%att; 
+>
+<!ELEMENT m4-2-3-3-genotoxicity (leaf*, m4-2-3-3-1-in-vitro?, m4-2-3-3-2-in-vivo?)>
+<!ATTLIST m4-2-3-3-genotoxicity
+	%att; 
+>
+<!ELEMENT m4-2-3-3-1-in-vitro ((leaf | node-extension)*)>
+<!ATTLIST m4-2-3-3-1-in-vitro
+	%att; 
+>
+<!ELEMENT m4-2-3-3-2-in-vivo ((leaf | node-extension)*)>
+<!ATTLIST m4-2-3-3-2-in-vivo
+	%att; 
+>
+<!ELEMENT m4-2-3-4-carcinogenicity (leaf*, m4-2-3-4-1-long-term-studies?, m4-2-3-4-2-short-or-medium-term-studies?, m4-2-3-4-3-other-studies?)>
+<!ATTLIST m4-2-3-4-carcinogenicity
+	%att; 
+>
+<!ELEMENT m4-2-3-4-1-long-term-studies ((leaf | node-extension)*)>
+<!ATTLIST m4-2-3-4-1-long-term-studies
+	%att; 
+>
+<!ELEMENT m4-2-3-4-2-short-or-medium-term-studies ((leaf | node-extension)*)>
+<!ATTLIST m4-2-3-4-2-short-or-medium-term-studies
+	%att; 
+>
+<!ELEMENT m4-2-3-4-3-other-studies ((leaf | node-extension)*)>
+<!ATTLIST m4-2-3-4-3-other-studies
+	%att; 
+>
+<!ELEMENT m4-2-3-5-reproductive-and-developmental-toxicity (leaf*, m4-2-3-5-1-fertility-and-early-embryonic-development?, m4-2-3-5-2-embryo-fetal-development?, m4-2-3-5-3-prenatal-and-postnatal-development-including-maternal-function?, m4-2-3-5-4-studies-in-which-the-offspring-juvenile-animals-are-dosed-and-or-further-evaluated?)>
+<!ATTLIST m4-2-3-5-reproductive-and-developmental-toxicity
+	%att; 
+>
+<!ELEMENT m4-2-3-5-1-fertility-and-early-embryonic-development ((leaf | node-extension)*)>
+<!ATTLIST m4-2-3-5-1-fertility-and-early-embryonic-development
+	%att; 
+>
+<!ELEMENT m4-2-3-5-2-embryo-fetal-development ((leaf | node-extension)*)>
+<!ATTLIST m4-2-3-5-2-embryo-fetal-development
+	%att; 
+>
+<!ELEMENT m4-2-3-5-3-prenatal-and-postnatal-development-including-maternal-function ((leaf | node-extension)*)>
+<!ATTLIST m4-2-3-5-3-prenatal-and-postnatal-development-including-maternal-function
+	%att; 
+>
+<!ELEMENT m4-2-3-5-4-studies-in-which-the-offspring-juvenile-animals-are-dosed-and-or-further-evaluated ((leaf | node-extension)*)>
+<!ATTLIST m4-2-3-5-4-studies-in-which-the-offspring-juvenile-animals-are-dosed-and-or-further-evaluated
+	%att; 
+>
+<!ELEMENT m4-2-3-6-local-tolerance ((leaf | node-extension)*)>
+<!ATTLIST m4-2-3-6-local-tolerance
+	%att; 
+>
+<!ELEMENT m4-2-3-7-other-toxicity-studies (leaf*, m4-2-3-7-1-antigenicity?, m4-2-3-7-2-immunotoxicity?, m4-2-3-7-3-mechanistic-studies?, m4-2-3-7-4-dependence?, m4-2-3-7-5-metabolites?, m4-2-3-7-6-impurities?, m4-2-3-7-7-other?)>
+<!ATTLIST m4-2-3-7-other-toxicity-studies
+	%att; 
+>
+<!ELEMENT m4-2-3-7-1-antigenicity ((leaf | node-extension)*)>
+<!ATTLIST m4-2-3-7-1-antigenicity
+	%att; 
+>
+<!ELEMENT m4-2-3-7-2-immunotoxicity ((leaf | node-extension)*)>
+<!ATTLIST m4-2-3-7-2-immunotoxicity
+	%att; 
+>
+<!ELEMENT m4-2-3-7-3-mechanistic-studies ((leaf | node-extension)*)>
+<!ATTLIST m4-2-3-7-3-mechanistic-studies
+	%att; 
+>
+<!ELEMENT m4-2-3-7-4-dependence ((leaf | node-extension)*)>
+<!ATTLIST m4-2-3-7-4-dependence
+	%att; 
+>
+<!ELEMENT m4-2-3-7-5-metabolites ((leaf | node-extension)*)>
+<!ATTLIST m4-2-3-7-5-metabolites
+	%att; 
+>
+<!ELEMENT m4-2-3-7-6-impurities ((leaf | node-extension)*)>
+<!ATTLIST m4-2-3-7-6-impurities
+	%att; 
+>
+<!ELEMENT m4-2-3-7-7-other ((leaf | node-extension)*)>
+<!ATTLIST m4-2-3-7-7-other
+	%att; 
+>
+<!ELEMENT m4-3-literature-references ((leaf | node-extension)*)>
+<!ATTLIST m4-3-literature-references
+	%att; 
+>
+<!ELEMENT m5-clinical-study-reports (leaf*, m5-2-tabular-listing-of-all-clinical-studies?, m5-3-clinical-study-reports?, m5-4-literature-references?)>
+<!ATTLIST m5-clinical-study-reports
+	%att; 
+>
+<!ELEMENT m5-2-tabular-listing-of-all-clinical-studies ((leaf | node-extension)*)>
+<!ATTLIST m5-2-tabular-listing-of-all-clinical-studies
+	%att; 
+>
+<!ELEMENT m5-3-clinical-study-reports (leaf*, m5-3-1-reports-of-biopharmaceutic-studies?, m5-3-2-reports-of-studies-pertinent-to-pharmacokinetics-using-human-biomaterials?, m5-3-3-reports-of-human-pharmacokinetics-pk-studies?, m5-3-4-reports-of-human-pharmacodynamics-pd-studies?, m5-3-5-reports-of-efficacy-and-safety-studies*, m5-3-6-reports-of-postmarketing-experience?, m5-3-7-case-report-forms-and-individual-patient-listings?)>
+<!ATTLIST m5-3-clinical-study-reports
+	%att; 
+>
+<!ELEMENT m5-3-1-reports-of-biopharmaceutic-studies (leaf*, m5-3-1-1-bioavailability-study-reports?, m5-3-1-2-comparative-ba-and-bioequivalence-study-reports?, m5-3-1-3-in-vitro-in-vivo-correlation-study-reports?, m5-3-1-4-reports-of-bioanalytical-and-analytical-methods-for-human-studies?)>
+<!ATTLIST m5-3-1-reports-of-biopharmaceutic-studies
+	%att; 
+>
+<!ELEMENT m5-3-1-1-bioavailability-study-reports ((leaf | node-extension)*)>
+<!ATTLIST m5-3-1-1-bioavailability-study-reports
+	%att; 
+>
+<!ELEMENT m5-3-1-2-comparative-ba-and-bioequivalence-study-reports ((leaf | node-extension)*)>
+<!ATTLIST m5-3-1-2-comparative-ba-and-bioequivalence-study-reports
+	%att; 
+>
+<!ELEMENT m5-3-1-3-in-vitro-in-vivo-correlation-study-reports ((leaf | node-extension)*)>
+<!ATTLIST m5-3-1-3-in-vitro-in-vivo-correlation-study-reports
+	%att; 
+>
+<!ELEMENT m5-3-1-4-reports-of-bioanalytical-and-analytical-methods-for-human-studies ((leaf | node-extension)*)>
+<!ATTLIST m5-3-1-4-reports-of-bioanalytical-and-analytical-methods-for-human-studies
+	%att; 
+>
+<!ELEMENT m5-3-2-reports-of-studies-pertinent-to-pharmacokinetics-using-human-biomaterials (leaf*, m5-3-2-1-plasma-protein-binding-study-reports?, m5-3-2-2-reports-of-hepatic-metabolism-and-drug-interaction-studies?, m5-3-2-3-reports-of-studies-using-other-human-biomaterials?)>
+<!ATTLIST m5-3-2-reports-of-studies-pertinent-to-pharmacokinetics-using-human-biomaterials
+	%att; 
+>
+<!ELEMENT m5-3-2-1-plasma-protein-binding-study-reports ((leaf | node-extension)*)>
+<!ATTLIST m5-3-2-1-plasma-protein-binding-study-reports
+	%att; 
+>
+<!ELEMENT m5-3-2-2-reports-of-hepatic-metabolism-and-drug-interaction-studies ((leaf | node-extension)*)>
+<!ATTLIST m5-3-2-2-reports-of-hepatic-metabolism-and-drug-interaction-studies
+	%att; 
+>
+<!ELEMENT m5-3-2-3-reports-of-studies-using-other-human-biomaterials ((leaf | node-extension)*)>
+<!ATTLIST m5-3-2-3-reports-of-studies-using-other-human-biomaterials
+	%att; 
+>
+<!ELEMENT m5-3-3-reports-of-human-pharmacokinetics-pk-studies (leaf*, m5-3-3-1-healthy-subject-pk-and-initial-tolerability-study-reports?, m5-3-3-2-patient-pk-and-initial-tolerability-study-reports?, m5-3-3-3-intrinsic-factor-pk-study-reports?, m5-3-3-4-extrinsic-factor-pk-study-reports?, m5-3-3-5-population-pk-study-reports?)>
+<!ATTLIST m5-3-3-reports-of-human-pharmacokinetics-pk-studies
+	%att; 
+>
+<!ELEMENT m5-3-3-1-healthy-subject-pk-and-initial-tolerability-study-reports ((leaf | node-extension)*)>
+<!ATTLIST m5-3-3-1-healthy-subject-pk-and-initial-tolerability-study-reports
+	%att; 
+>
+<!ELEMENT m5-3-3-2-patient-pk-and-initial-tolerability-study-reports ((leaf | node-extension)*)>
+<!ATTLIST m5-3-3-2-patient-pk-and-initial-tolerability-study-reports
+	%att; 
+>
+<!ELEMENT m5-3-3-3-intrinsic-factor-pk-study-reports ((leaf | node-extension)*)>
+<!ATTLIST m5-3-3-3-intrinsic-factor-pk-study-reports
+	%att; 
+>
+<!ELEMENT m5-3-3-4-extrinsic-factor-pk-study-reports ((leaf | node-extension)*)>
+<!ATTLIST m5-3-3-4-extrinsic-factor-pk-study-reports
+	%att; 
+>
+<!ELEMENT m5-3-3-5-population-pk-study-reports ((leaf | node-extension)*)>
+<!ATTLIST m5-3-3-5-population-pk-study-reports
+	%att; 
+>
+<!ELEMENT m5-3-4-reports-of-human-pharmacodynamics-pd-studies (leaf*, m5-3-4-1-healthy-subject-pd-and-pk-pd-study-reports?, m5-3-4-2-patient-pd-and-pk-pd-study-reports?)>
+<!ATTLIST m5-3-4-reports-of-human-pharmacodynamics-pd-studies
+	%att; 
+>
+<!ELEMENT m5-3-4-1-healthy-subject-pd-and-pk-pd-study-reports ((leaf | node-extension)*)>
+<!ATTLIST m5-3-4-1-healthy-subject-pd-and-pk-pd-study-reports
+	%att; 
+>
+<!ELEMENT m5-3-4-2-patient-pd-and-pk-pd-study-reports ((leaf | node-extension)*)>
+<!ATTLIST m5-3-4-2-patient-pd-and-pk-pd-study-reports
+	%att; 
+>
+<!ELEMENT m5-3-5-reports-of-efficacy-and-safety-studies (leaf*, m5-3-5-1-study-reports-of-controlled-clinical-studies-pertinent-to-the-claimed-indication?, m5-3-5-2-study-reports-of-uncontrolled-clinical-studies?, m5-3-5-3-reports-of-analyses-of-data-from-more-than-one-study?, m5-3-5-4-other-study-reports?)>
+<!ATTLIST m5-3-5-reports-of-efficacy-and-safety-studies
+	%att; 
+	indication CDATA #REQUIRED
+>
+<!ELEMENT m5-3-5-1-study-reports-of-controlled-clinical-studies-pertinent-to-the-claimed-indication ((leaf | node-extension)*)>
+<!ATTLIST m5-3-5-1-study-reports-of-controlled-clinical-studies-pertinent-to-the-claimed-indication
+	%att; 
+>
+<!ELEMENT m5-3-5-2-study-reports-of-uncontrolled-clinical-studies ((leaf | node-extension)*)>
+<!ATTLIST m5-3-5-2-study-reports-of-uncontrolled-clinical-studies
+	%att; 
+>
+<!ELEMENT m5-3-5-3-reports-of-analyses-of-data-from-more-than-one-study ((leaf | node-extension)*)>
+<!ATTLIST m5-3-5-3-reports-of-analyses-of-data-from-more-than-one-study
+	%att; 
+>
+<!ELEMENT m5-3-5-4-other-study-reports ((leaf | node-extension)*)>
+<!ATTLIST m5-3-5-4-other-study-reports
+	%att; 
+>
+<!ELEMENT m5-3-6-reports-of-postmarketing-experience ((leaf | node-extension)*)>
+<!ATTLIST m5-3-6-reports-of-postmarketing-experience
+	%att; 
+>
+<!ELEMENT m5-3-7-case-report-forms-and-individual-patient-listings ((leaf | node-extension)*)>
+<!ATTLIST m5-3-7-case-report-forms-and-individual-patient-listings
+	%att; 
+>
+<!ELEMENT m5-4-literature-references ((leaf | node-extension)*)>
+<!ATTLIST m5-4-literature-references
+	%att; 
+>

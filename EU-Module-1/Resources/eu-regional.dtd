@@ -1,0 +1,183 @@
+<!--
+PUBLIC "-//EU//DTD eCTD EU Backbone 2.0//EN"
+In the eCTD File Organisation: "util/dtd/eu-regional.dtd"
+
+August 2009
+
+Contributors:
+   ANSM (Aziz Diop)
+   EMA (Laurent Desqueper)
+   MEB (C.A. van Belkum)
+   
+February 2013
+
+Contributors:
+	EMA (Antonios Yfantis)
+
+Meaning or value of the  suffixes:
+   ?  : element must appear 0 or 1 time
+   *  : element must appear 0 or more time
+   +  : element must appear 1 or more times
+   <none>: element must appear once and only once
+-->
+
+<!-- General declarations, external modules references................... -->
+<!ENTITY % countries "(at|be|bg|common|cy|cz|de|dk|ee|el|es|ema|fi|fr|hr|hu|ie|is|it|li|lt|lu|lv|mt|nl|no|pl|pt|ro|se|si|sk|uk)">
+<!ENTITY % languages "(bg|cs|da|de|el|en|es|et|fi|fr|hr|hu|is|it|lt|lv|mt|nl|no|pl|pt|ro|sk|sl|sv)">
+
+<!ENTITY % leaf-node "(( leaf | node-extension )*)">
+
+<!ENTITY % envelope-module SYSTEM "eu-envelope.mod" >
+%envelope-module;
+
+<!ENTITY % leaf-module SYSTEM "eu-leaf.mod" >
+%leaf-module;
+
+<!ELEMENT specific (
+   %leaf-node;
+)>
+<!ATTLIST specific
+   country %countries; #REQUIRED
+>
+<!ELEMENT pi-doc (
+   %leaf-node;
+)>
+<!ATTLIST pi-doc
+   xml:lang %languages; #REQUIRED
+   type     (spc|annex2|outer|interpack|impack|other|pl|combined) #REQUIRED
+   country  %countries;    #REQUIRED
+>
+
+<!-- Root element ..................................................... -->
+<!ELEMENT eu:eu-backbone (
+   eu-envelope, 
+   m1-eu
+)>
+
+<!ATTLIST eu:eu-backbone
+   xmlns:eu       CDATA #FIXED   "http://europa.eu.int"
+   xmlns:xlink    CDATA #FIXED   "http://www.w3c.org/1999/xlink"
+   xml:lang       CDATA #IMPLIED
+   dtd-version    CDATA #FIXED   "2.0"
+>
+
+<!-- ................................................................... -->
+<!ELEMENT m1-eu (
+   m1-0-cover,
+   m1-2-form?,
+   m1-3-pi?,
+   m1-4-expert?,
+   m1-5-specific?,
+   m1-6-environrisk?,
+   m1-7-orphan?,
+   m1-8-pharmacovigilance?,
+   m1-9-clinical-trials?,
+   m1-10-paediatrics?,
+   m1-responses?,
+   m1-additional-data?
+)>
+
+<!-- ................................................................... -->
+<!ELEMENT m1-0-cover (
+   specific+
+)>
+
+<!-- ................................................................... -->
+<!ELEMENT m1-2-form (
+   specific+
+)>
+
+<!-- ................................................................... -->
+<!ELEMENT m1-3-pi (
+   m1-3-1-spc-label-pl?,
+   m1-3-2-mockup?,
+   m1-3-3-specimen?,
+   m1-3-4-consultation?,
+   m1-3-5-approved?,
+   m1-3-6-braille?
+)>
+
+<!ELEMENT m1-3-1-spc-label-pl (
+   pi-doc+
+)>
+
+<!ELEMENT m1-3-2-mockup (
+   specific+
+)>
+<!ELEMENT m1-3-3-specimen (
+   specific+
+)>
+<!ELEMENT m1-3-4-consultation (
+   specific+
+)>
+<!ELEMENT m1-3-5-approved (
+   specific+
+)>
+<!ELEMENT m1-3-6-braille (
+   %leaf-node;
+)>
+
+<!-- ................................................................... -->
+<!ELEMENT m1-4-expert (
+   m1-4-1-quality?, 
+   m1-4-2-non-clinical?, 
+   m1-4-3-clinical?
+)> 
+
+<!ELEMENT   m1-4-1-quality          %leaf-node;>
+<!ELEMENT   m1-4-2-non-clinical     %leaf-node;>
+<!ELEMENT   m1-4-3-clinical         %leaf-node;>
+
+<!-- ................................................................... -->
+<!ELEMENT m1-5-specific (
+    m1-5-1-bibliographic?,
+    m1-5-2-generic-hybrid-bio-similar?,
+    m1-5-3-data-market-exclusivity?,
+    m1-5-4-exceptional-circumstances?,
+    m1-5-5-conditional-ma?
+)>
+
+<!ELEMENT m1-5-1-bibliographic                        %leaf-node;>
+<!ELEMENT m1-5-2-generic-hybrid-bio-similar            %leaf-node;>
+<!ELEMENT m1-5-3-data-market-exclusivity                   %leaf-node;>
+<!ELEMENT m1-5-4-exceptional-circumstances            %leaf-node;>
+<!ELEMENT m1-5-5-conditional-ma  %leaf-node;>
+
+<!-- ................................................................... -->
+<!ELEMENT m1-6-environrisk (
+   (m1-6-1-non-gmo | m1-6-2-gmo)?
+)>
+<!ELEMENT   m1-6-1-non-gmo    %leaf-node;>
+<!ELEMENT   m1-6-2-gmo        %leaf-node;>
+
+<!-- ................................................................... -->
+<!ELEMENT m1-7-orphan (
+   m1-7-1-similarity?,
+   m1-7-2-market-exclusivity?
+)>
+<!ELEMENT   m1-7-1-similarity    %leaf-node;>
+<!ELEMENT   m1-7-2-market-exclusivity   %leaf-node;>
+
+<!-- ................................................................... -->
+<!ELEMENT m1-8-pharmacovigilance (
+   m1-8-1-pharmacovigilance-system?,
+   m1-8-2-risk-management-system?
+)>
+<!ELEMENT   m1-8-1-pharmacovigilance-system  %leaf-node;>
+<!ELEMENT   m1-8-2-risk-management-system    %leaf-node;>
+
+<!-- ................................................................... -->
+<!ELEMENT m1-9-clinical-trials   %leaf-node;>
+
+<!-- ................................................................... -->
+<!ELEMENT m1-10-paediatrics	%leaf-node;>
+
+<!-- ................................................................... -->
+<!ELEMENT m1-responses (
+   specific+
+)>
+
+<!-- ................................................................... -->
+<!ELEMENT m1-additional-data (
+   specific+
+)>
