@@ -1,5 +1,5 @@
 //eCTD indexer (EU Module 1)
-//Copyright 2007-2013 Ymir Vesteinsson, ymir@ectd.is
+//Copyright 2007-2016 Ymir Vesteinsson, ymir@ectd.is
 
 //This file is part of eCTD-indexer.
 
@@ -19,7 +19,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
+using System.Data; 
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -537,12 +537,26 @@ namespace WindowsApplication1
                 textBoxEUApp.Enabled = false;
             }
         }
+		private void checkBoxED_CheckedChanged(object sender, EventArgs e)
+		{
+			if (checkBoxED.Checked == true)
+			{
+				textBoxED.Enabled = true;
+				textBoxEDApp.Enabled = true;                
+			}
+			else
+			{
+				textBoxED.Enabled = false;
+				textBoxEDApp.Enabled = false;
+			}
+		}
 
         //enables the Mode and Number textboxes for variations and line extension type submissions
         //also enables the related sequence textbox if relevant (only for supplemental-info and corrigendum submissions)        
         private void comboBoxSubmType_SelectedIndexChanged(object sender, EventArgs e)
         {
             if ((comboBoxSubmType.Text == "var-type1a") || 
+				(comboBoxSubmType.Text == "var-type1ain") ||
                 (comboBoxSubmType.Text == "var-type1b") || 
                 (comboBoxSubmType.Text == "var-type2") || 
                 (comboBoxSubmType.Text == "var-nat") || 
@@ -569,8 +583,9 @@ namespace WindowsApplication1
 
         private void button1_Click(object sender, EventArgs e) //generates eu-regional.xml
         {
-            //string variables for EU envelope
-            string trackingNumber = textBoxTrackNo.Text;            
+			//string variables for EU envelope
+			string submissionIdentifier = this.label9.Text;
+			string trackingNumber = textBoxTrackNo.Text;            
             string applicant = "";
             string agency = "";            
             string inventedName = "";
@@ -590,6 +605,12 @@ namespace WindowsApplication1
             string sequencePath = textBoxSeqDir.Text;
             string applicationMode = comboBoxMode.Text;
             string appHighLevelNo = textBoxNumber.Text;
+
+			//generate new uuid if no uuid has been copied from a previous sequence (using the copy envelope button)
+			if (submissionIdentifier == ""){
+				submissionIdentifier = Guid.NewGuid ().ToString();
+				this.label9.Text = submissionIdentifier;
+			}
 
             //path to save output eu-regional.xml file
             string xmlOutput = m1euPath + Path.DirectorySeparatorChar+ "eu-regional.xml"; 
@@ -736,7 +757,7 @@ namespace WindowsApplication1
                 sr.WriteLine("<!-- Generated {0} using eCTD indexer - http://ectd.is -->", dt.ToString());
                 sr.WriteLine("<eu:eu-backbone xmlns:eu=\"http://europa.eu.int\"");
                 sr.WriteLine("      xmlns:xlink=\"http://www.w3c.org/1999/xlink\"");
-                sr.WriteLine("      xml:lang=\"en\" dtd-version=\"2.0\">");
+                sr.WriteLine("      xml:lang=\"en\" dtd-version=\"3.0.1\">");
                 sr.WriteLine("  <eu-envelope>");
 
                 foreach (Control control in this.Controls)
@@ -749,6 +770,10 @@ namespace WindowsApplication1
                             {
                                 envelopeCountry = "EMA";
                             }
+							if (((CheckBox)control).Tag.ToString() == "EDQM")
+							{
+								envelopeCountry = "EDQM";
+							}
                             else
                             {
                                 envelopeCountry = (((CheckBox)control).Tag.ToString().Substring(0, 2));
@@ -771,6 +796,7 @@ namespace WindowsApplication1
                             }
 
                             sr.WriteLine("      <envelope country=\"{0}\">", envelopeCountry.ToLower());
+							sr.WriteLine("        <identifier>{0}</identifier>", submissionIdentifier);
                             if (comboBoxMode.Enabled == true)
                             {
                                 sr.WriteLine("          <submission type=\"{0}\" mode=\"{1}\">", submType, applicationMode);
@@ -783,10 +809,11 @@ namespace WindowsApplication1
                             {
                                 sr.WriteLine("              <number>{0}</number>", appHighLevelNo);
                             }
-                            sr.WriteLine("              <tracking>");
+                            sr.WriteLine("              <procedure-tracking>");
                             sr.WriteLine("                  <number>{0}</number>", trackingNumber);
-                            sr.WriteLine("              </tracking>");
+                            sr.WriteLine("              </procedure-tracking>");
                             sr.WriteLine("          </submission>");
+							sr.WriteLine("          <submission-unit type=\"{0}\"></submission-unit>", comboBoxSubmUnit.Text);
                             sr.WriteLine("          <applicant>{0}</applicant>", applicant);
                             sr.WriteLine("          <agency code=\"{0}\"/>", agency);                            
                             sr.WriteLine("          <procedure type=\"{0}\"/>", procType);
@@ -903,7 +930,8 @@ namespace WindowsApplication1
                                 sr.WriteLine("                      <title>{0}</title>", m131identifier);
                                 sr.WriteLine("                  </leaf>");
                                 sr.WriteLine("              </pi-doc>");
-                                idcounter++;
+								idcounter++;
+								m131identifier = "";
                             }
                             if (filenameListArray[p,0].Contains("131-spclabelpl") == false && m131spcopen == true)
                             {
@@ -5184,7 +5212,7 @@ namespace WindowsApplication1
                 for (int p = 1; p < dirListArray.Length; p++)
                 {
                     dirDel.dirDeleter(dirListArray[p]);
-                }
+				} 
             }
         }
 
@@ -5546,6 +5574,12 @@ namespace WindowsApplication1
             XmlDocument mySourceDoc = new XmlDocument();
             mySourceDoc.Load(myReader);
             myReader.Close();
+
+			XmlNode uuidNode;
+			uuidNode = mySourceDoc.SelectSingleNode ("//identifier");
+			if (uuidNode != null) {
+				this.label9.Text = uuidNode.InnerText;
+			}
 
             XmlNodeList envelope;
             envelope = mySourceDoc.SelectNodes("//envelope");
