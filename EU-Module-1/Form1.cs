@@ -813,7 +813,7 @@ namespace WindowsApplication1
                             sr.WriteLine("                  <number>{0}</number>", trackingNumber);
                             sr.WriteLine("              </procedure-tracking>");
                             sr.WriteLine("          </submission>");
-							sr.WriteLine("          <submission-unit type=\"{0}\"></submission-unit>", comboBoxSubmUnit.Text);
+							sr.WriteLine("          <submission-unit type=\"{0}\"/>", comboBoxSubmUnit.Text);
                             sr.WriteLine("          <applicant>{0}</applicant>", applicant);
                             sr.WriteLine("          <agency code=\"{0}\"/>", agency);                            
                             sr.WriteLine("          <procedure type=\"{0}\"/>", procType);
