@@ -3,11 +3,11 @@
 <!--
 	EU Module 1 Style-Sheet
 
-	Version 2.0
-	February 2013
+	Version 3.0.1
+	May 2016
 -->
 
-<xsl:stylesheet version="1.0"
+<xsl:stylesheet version="3.1"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:eu="http://europa.eu.int" 
 	xmlns:xlink="http://www.w3c.org/1999/xlink">
@@ -53,9 +53,9 @@
 		<xsl:if test="position() != last()"><br/></xsl:if>
 	</xsl:template>
 	
-	<xsl:template match="*|@*" mode="agency">
+	<xsl:template match="*|@*" mode="agency"> 
 		<xsl:choose>
-			<xsl:when test="@code='AT-AGES'">Austria - AGES - PharmMed LCM</xsl:when>
+			<xsl:when test="@code='AT-BASG'">Austria - BASG- Austrian Federal Office for Safety in Health Care / Austrian Medicines and Medical Devices Agency</xsl:when>
 			<xsl:when test="@code='BE-FAMHP'">Belgium - Agence Fédérale des Médicaments et des Produits de Santé</xsl:when>
 			<xsl:when test="@code='BG-BDA'">Bulgaria - Bulgarian Drug Agency</xsl:when>
 			<xsl:when test="@code='CY-PHS'">Cyprus - Pharmaceutical Services, Ministry of Health</xsl:when>
@@ -66,11 +66,12 @@
 			<xsl:when test="@code='EE-SAM'">Estonia - State Agency of Medicines</xsl:when>
 			<xsl:when test="@code='EL-EOF'">Greece - EOF - National Drug Organisation</xsl:when>
 			<xsl:when test="@code='ES-AEMPS'">Spain - Agencia Española de Medicamentos y Productos Sanitarios</xsl:when>
+			<xsl:when test="@code='EU-EDQM'">EDQM - European Directorate for the Quality of Medicines &amp; HealthCare</xsl:when>
 			<xsl:when test="@code='FI-FIMEA'">Finland - Finnish Medicines Agency</xsl:when>
 			<xsl:when test="@code='FR-ANSM'">France - ANSM - Agence national de sécurité du médicament et des produits de santé</xsl:when>
-			<xsl:when test="@code='HR-HALMED'">Croatia - Croatian Agency for Medicinal Products and Medical Devices</xsl:when>
+			<xsl:when test="@code='HR-HALMED'">Croatia - Agency for Medicinal Products and Medical Devices of Croatia </xsl:when>
 			<xsl:when test="@code='HU-OGYI'">Hungary - National Institute for Quality and Organizational Development in Healthcare and Medicines, National Institute of Pharmacy</xsl:when>
-			<xsl:when test="@code='IE-IMB'">Ireland - Irish Medicines Board</xsl:when>
+			<xsl:when test="@code='IE-HPRA'">Ireland - The Health Products Regulatory Authority</xsl:when>
 			<xsl:when test="@code='IS-IMCA'">Iceland - Icelandic Medicines Control Agency</xsl:when>
 			<xsl:when test="@code='IT-AIFA'">Italy - Agenzia Italiana del Farmaco</xsl:when>
 			<xsl:when test="@code='LI-LLV'">Liechtenstein - Kontrollstelle für Arzneimittel beim Amt für Lebensmittelkontrolle und Veterinärwesen</xsl:when>
@@ -95,41 +96,66 @@
 	<xsl:template match="*|@*" mode="submission">
 		Type: 
 		<xsl:choose>
-			<xsl:when test="@type='initial-maa'">Initial Marketing Authorisation</xsl:when>
+			<xsl:when test="@type='maa'">Marketing Authorisation</xsl:when>
 			<xsl:when test="@type='var-type1a'">Variation Type IA</xsl:when>
+			<xsl:when test="@type='var-type1ain'">Variation Type IAin</xsl:when>
 			<xsl:when test="@type='var-type1b'">Variation Type IB</xsl:when>
 			<xsl:when test="@type='var-type2'">Variation Type II</xsl:when>
 			<xsl:when test="@type='var-nat'">National Variation</xsl:when>
 			<xsl:when test="@type='extension'">Extension</xsl:when>
+			<xsl:when test="@type='rup'">Repeat Use Procedure</xsl:when>
 			<xsl:when test="@type='psur'">Periodic Safety Update Report</xsl:when>
+			<xsl:when test="@type='psusa'">PSUR single assessment procedure</xsl:when>
+			<xsl:when test="@type='pam-sob'">Specific obligation related to a post-authorisation measure</xsl:when>
+			<xsl:when test="@type='pam-anx'">Annex II condition related to a post-authorisation measure</xsl:when>
+			<xsl:when test="@type='pam-mea'">Additional pharmacovigilance activity in the risk-management plan</xsl:when>
+			<xsl:when test="@type='pam-leg'">Legally binding measure related to a post-authorisation measure</xsl:when>
+			<xsl:when test="@type='pam-sda'">Cumulative review following a request originating from a PSUR or a signal evaluation</xsl:when>
+			<xsl:when test="@type='pam-capa'">Corrective Action/Preventive Action</xsl:when>
+			<xsl:when test="@type='pam-p45'">Paediatric submissions related to a post-authorisation measure (Par 45)</xsl:when>
+			<xsl:when test="@type='pam-p46'">Paediatric submissions related to a post-authorisation measure (Par 46)</xsl:when>
+			<xsl:when test="@type='pam-paes'">Submission of a post authorisation efficacy study</xsl:when>
+			<xsl:when test="@type='pam-rec'">Recommendation related to a post-authorisation measure </xsl:when>
+			<xsl:when test="@type='pass107n'">Submission of a post authorisation safety study protocol</xsl:when>
+			<xsl:when test="@type='pass107q'">Submission of a post authorisation safety study report</xsl:when>
 			<xsl:when test="@type='renewal'">Renewal</xsl:when>
-			<xsl:when test="@type='supplemental-info'">Supplemental Information</xsl:when>
-			<xsl:when test="@type='fum'">Follow-up Measure</xsl:when>
-			<xsl:when test="@type='specific-obligation'">Specific Obligation</xsl:when>
 			<xsl:when test="@type='asmf'">Active Substance Master File</xsl:when>
 			<xsl:when test="@type='pmf'">Plasma Master File</xsl:when>
-			<xsl:when test="@type='referral'">Referral</xsl:when>
+			<xsl:when test="@type='referral-20'">Referral under Article 20</xsl:when>
+			<xsl:when test="@type='referral-294'">Referral under Article 29(4)</xsl:when>
+			<xsl:when test="@type='referral-29p'">Referral under Article 29 paediatric</xsl:when>
+			<xsl:when test="@type='referral-30'">Referral under Article 30</xsl:when>
+			<xsl:when test="@type='referral-31'">Referral under Article 31</xsl:when>
+			<xsl:when test="@type='referral-35'">Referral under Article 35</xsl:when>
+			<xsl:when test="@type='referral-5-3'">Referral under Article 5(3)</xsl:when>
+			<xsl:when test="@type='referral-107i'">Referral under Article 107i</xsl:when>
+			<xsl:when test="@type='referral-16c1c'">Referral under Article 16c(1c)</xsl:when>
+			<xsl:when test="@type='referral-16c4'">Referral under Article 16c(4)</xsl:when>
 			<xsl:when test="@type='annual-reassessment'">Annual Reassessment</xsl:when>
 			<xsl:when test="@type='usr'">Urgent Safety Restriction</xsl:when>
-			<xsl:when test="@type='paed-article-29'">Paediatric Submission, Article 29</xsl:when>
-			<xsl:when test="@type='paed-article-46'">Paediatric Submission, Article 46</xsl:when>
+			<xsl:when test="@type='clin-data-pub-rp'">Clinical data for publication – Redacted Proposal</xsl:when>
+			<xsl:when test="@type='clin-data-pub-fv'">Clinical data for publication – Final Version</xsl:when>
+			<xsl:when test="@type='paed-7-8-30'">Paediatric Submission, Article 7, 8 or 30 of the Regulation</xsl:when>
+			<xsl:when test="@type='paed-29'">Paediatric Submission, Article 29</xsl:when>
+			<xsl:when test="@type='paed-45'">Paediatric Submission, Article 45</xsl:when>
+			<xsl:when test="@type='paed-46'">Paediatric Submission, Article 46</xsl:when>						
 			<xsl:when test="@type='article-58'">Article 58</xsl:when>
 			<xsl:when test="@type='notification-61-3'">Notification 61(3)</xsl:when>
 			<xsl:when test="@type='transfer-ma'">Transfer of Marketing Authorisation</xsl:when>
-			<xsl:when test="@type='corrigendum'">Corrigendum</xsl:when>
 			<xsl:when test="@type='lifting-suspension'">Lifting of a Suspension</xsl:when>
 			<xsl:when test="@type='withdrawal'">Withdrawal during Assessment or Withdrawal of MA</xsl:when>
-			<xsl:when test="@type='reformat'">Reformat with no Content Change</xsl:when>
+			<xsl:when test="@type='cep'">CEP application</xsl:when>
 			<xsl:when test="@type='rmp'">Risk Management Plan (outside any procedure)</xsl:when>
-		</xsl:choose>
+			<xsl:when test="@type='none'">The submission is not a regulatory activity</xsl:when>
+		</xsl:choose>		
 		<br/>
-		<xsl:if test="string-length(@mode) > 0">
+                <xsl:if test="string-length(@mode) > 0">
 			Mode: 
 			<xsl:choose>
 				<xsl:when test="@mode='single'">Single</xsl:when>
 				<xsl:when test="@mode='grouping'">Grouping</xsl:when>
 				<xsl:when test="@mode='worksharing'">Worksharing</xsl:when>
-			</xsl:choose>
+			</xsl:choose>		
 		</xsl:if>
 		<xsl:if test="string-length(number) > 0">
 			<br/>
@@ -137,18 +163,43 @@
 		</xsl:if>
 	</xsl:template>
 	
+	<xsl:template match="*|@*" mode="procedure-tracking">
+		<xsl:if test="string-length(number) > 0">
+			<br/>
+			Number: <xsl:apply-templates select="number"/>
+		</xsl:if>
+	</xsl:template>
+	
+	<xsl:template match="*|@*" mode="submission-unit">
+		<xsl:if test="string-length(@type) > 0">
+			Type: 
+			<xsl:choose>
+			<xsl:when test="@type='initial'">Initial submission to start any regulatory activity</xsl:when>
+			<xsl:when test="@type='validation-response'">For rectifying business validation issues</xsl:when>
+			<xsl:when test="@type='response'">Response to any kind of question</xsl:when>
+			<xsl:when test="@type='corrigendum'">Corrigendum</xsl:when>
+			<xsl:when test="@type='additional-info'">Other additional Information</xsl:when>
+			<xsl:when test="@type='closing'">Final documents in the centralised procedure</xsl:when>
+			<xsl:when test="@type='consolidating'">Consolidates the application after several information in the MRP or DCP handled outside the eCTD application</xsl:when>
+			<xsl:when test="@type='reformat'">Reformatting of an existing submission application</xsl:when>
+			</xsl:choose>
+		</xsl:if>
+		<br/>
+	</xsl:template>
+	
 	<xsl:template match="*|@*" mode="procedure">
 		<xsl:choose>
-			<xsl:when test="@type='centralised'">Centralised Procedure</xsl:when>
+			<xsl:when test="@type='centralised'">Centralised </xsl:when>
 			<xsl:when test="@type='national'">National Procedure</xsl:when>
 			<xsl:when test="@type='mutual-recognition'">Mutual Recognition Procedure (MRP)</xsl:when>
 			<xsl:when test="@type='decentralised'">Decentralised Procedure (DCP)</xsl:when>
 		</xsl:choose>
+		<br/>
 	</xsl:template>
 	
 	<xsl:template match="*|@*" mode="pidoc-type">
 		<xsl:choose>
-			<xsl:when test="@type='spc'">Summary of Product Characteristics (SPC)</xsl:when>
+			<xsl:when test="@type='spc'">Summary of Product Characteristics (SmPC)</xsl:when>
 			<xsl:when test="@type='outer'">Outer Packaging</xsl:when>
 			<xsl:when test="@type='interpack'">Internal Packaging</xsl:when>
 			<xsl:when test="@type='impack'">Immediate Packaging</xsl:when>
@@ -165,12 +216,20 @@
 					<td colspan="2"><h3>Envelope for <xsl:apply-templates select="./@country" mode="country"/></h3></td>
 				</tr>
 				<tr>
+					<td width="20%" valign="top">Identifier: </td>
+					<td><xsl:apply-templates select="identifier" mode="identifier"/></td>
+				</tr>
+				<tr>
 					<td width="20%" valign="top">Submission: </td>
 					<td><xsl:apply-templates select="submission" mode="submission"/></td>
 				</tr>
 				<tr>
-					<td valign="top">Tracking Number(s): </td>
-					<td><xsl:apply-templates select="submission/tracking/number" mode="line"/></td>
+					<td valign="top">Procedure Tracking Number(s): </td>
+					<td><xsl:apply-templates select="submission/procedure-tracking/number" mode="line"/></td>
+				</tr>
+				<tr>
+					<td width="20%" valign="top">Submission Unit: </td>
+					<td><xsl:apply-templates select="submission-unit" mode="submission-unit"/></td>
 				</tr>
 				<tr>
 					<td>Applicant: </td>
@@ -276,7 +335,7 @@
 		<table width="100%" cellpadding="2" cellspacing="0" border="1" style="font-size: 9pt">
 			<tr>
 				<th width="11%">Country</th>
-				<th width="11%">SPC</th>
+				<th width="11%">SmPC</th>
 				<th width="11%">Annex II</th>
 				<th width="11%">Outer Packaging</th>
 				<th width="11%">Intermediate Packaging</th>
@@ -318,7 +377,7 @@
 				<tr>
 					<td valign="top"><h4>1.3.1</h4></td>
 					<td>
-						<h4>SPC, Labelling and Package Leaflet</h4>
+						<h4>SmPC, Labelling and Package Leaflet</h4>
 						<xsl:apply-templates select="m1-3-pi/m1-3-1-spc-label-pl"/>
 					</td>
 				</tr>
