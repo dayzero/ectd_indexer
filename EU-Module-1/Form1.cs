@@ -1368,6 +1368,7 @@ namespace WindowsApplication1
                 if (m15open == true) sr.WriteLine("      </m1-5-specific>");
                 if (m16open == true) sr.WriteLine("      </m1-6-environrisk>");
                 if (m17open == true) sr.WriteLine("      </m1-7-orphan>");
+                if (m181open == true) sr.WriteLine("          </m1-8-1-pharmacovigilance-system>");
                 if (m18open == true) sr.WriteLine("      </m1-8-pharmacovigilance>");
                 if (m1additionalopen == true) sr.WriteLine("      </m1-additional-data>");
                 if (m1responsesopen == true) sr.WriteLine("      </m1-responses>");                
