@@ -915,7 +915,7 @@ namespace WindowsApplication1
                                 country = filePathList[filePathList.IndexOf("131-spclabelpl") + 1];
                                 language = filePathList[filePathList.IndexOf("131-spclabelpl") + 2];
                                 
-                                if (filenameListArray[p,0].Contains("-spc.")) m131identifier = "spc";
+                                if (filenameListArray[p,0].Contains("-spc.") || filenameListArray[p,0].Contains("-spc-")) m131identifier = "spc";
                                 if (filenameListArray[p,0].Contains("-annex2")) m131identifier = "annex2";
                                 if (filenameListArray[p,0].Contains("-outer")) m131identifier = "outer";
                                 if (filenameListArray[p,0].Contains("-interpack")) m131identifier = "interpack";
