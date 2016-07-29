@@ -26,7 +26,7 @@ using System.Windows.Forms;
 using System.Xml;
 using System.IO;
 
-namespace WindowsApplication1
+namespace eCTD_indexer
 {
     class XMLsort
     {

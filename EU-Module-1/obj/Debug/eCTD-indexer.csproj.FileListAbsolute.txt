@@ -1,0 +1,12 @@
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\bin\Debug\EU-Module-1.exe.manifest
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\bin\Debug\EU-Module-1.application
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\bin\Debug\EU-Module-1.exe
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\bin\Debug\EU-Module-1.pdb
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\obj\Debug\eCTD-indexer.csprojResolveAssemblyReference.cache
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\obj\Debug\eCTD-indexer.csproj.GenerateResource.Cache
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\obj\Debug\EU-Module-1.exe.manifest
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\obj\Debug\EU-Module-1.application
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\obj\Debug\EU-Module-1.exe
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\obj\Debug\EU-Module-1.pdb
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\obj\Debug\eCTD_indexer.Form1.resources
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\obj\Debug\eCTD_indexer.Properties.Resources.resources

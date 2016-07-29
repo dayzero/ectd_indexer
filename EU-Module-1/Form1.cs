@@ -28,7 +28,7 @@ using System.Reflection;
 using System.Security.Cryptography;
 using System.Xml;
 
-namespace WindowsApplication1
+namespace eCTD_indexer
 {
     public partial class Form1 : Form
     {
@@ -5536,17 +5536,17 @@ namespace WindowsApplication1
             rootDirectory.CreateSubdirectory("util");
             rootDirectory.CreateSubdirectory("util"+Path.DirectorySeparatorChar+"dtd");
             rootDirectory.CreateSubdirectory("util"+Path.DirectorySeparatorChar+"style");
-            sourceFile = WindowsApplication1.Properties.Resources.ich_ectd_3_2;
+            sourceFile = eCTD_indexer.Properties.Resources.ich_ectd_3_2;
             System.IO.File.WriteAllText(rootDirectory + ""+Path.DirectorySeparatorChar+"util"+Path.DirectorySeparatorChar+"dtd"+Path.DirectorySeparatorChar+"ich-ectd-3-2.dtd", sourceFile);
-            sourceFile = WindowsApplication1.Properties.Resources.ectd_2_0;
+            sourceFile = eCTD_indexer.Properties.Resources.ectd_2_0;
             System.IO.File.WriteAllText(rootDirectory + ""+Path.DirectorySeparatorChar+"util"+Path.DirectorySeparatorChar+"style"+Path.DirectorySeparatorChar+"ectd-2-0.xsl", sourceFile);
-            sourceFile = WindowsApplication1.Properties.Resources.eu_regional;
+            sourceFile = eCTD_indexer.Properties.Resources.eu_regional;
             System.IO.File.WriteAllText(rootDirectory + ""+Path.DirectorySeparatorChar+"util"+Path.DirectorySeparatorChar+"dtd"+Path.DirectorySeparatorChar+"eu-regional.dtd", sourceFile);
-            sourceFile = WindowsApplication1.Properties.Resources.eu_regional1;
+            sourceFile = eCTD_indexer.Properties.Resources.eu_regional1;
             System.IO.File.WriteAllText(rootDirectory + ""+Path.DirectorySeparatorChar+"util"+Path.DirectorySeparatorChar+"style"+Path.DirectorySeparatorChar+"eu-regional.xsl", sourceFile, Encoding.GetEncoding(1252));            
-            sourceFile = WindowsApplication1.Properties.Resources.eu_envelope;
+            sourceFile = eCTD_indexer.Properties.Resources.eu_envelope;
             System.IO.File.WriteAllText(rootDirectory + ""+Path.DirectorySeparatorChar+"util"+Path.DirectorySeparatorChar+"dtd"+Path.DirectorySeparatorChar+"eu-envelope.mod", sourceFile);
-            sourceFile = WindowsApplication1.Properties.Resources.eu_leaf;
+            sourceFile = eCTD_indexer.Properties.Resources.eu_leaf;
             System.IO.File.WriteAllText(rootDirectory + ""+Path.DirectorySeparatorChar+"util"+Path.DirectorySeparatorChar+"dtd"+Path.DirectorySeparatorChar+"eu-leaf.mod", sourceFile);
 
             DialogResult result;
@@ -5569,105 +5569,110 @@ namespace WindowsApplication1
             openFileDialog1.DefaultExt = "xml";
             openFileDialog1.Filter = "XML documents (*.xml)|*.xml";
             openFileDialog1.FileName = "eu-regional";
-            openFileDialog1.ShowDialog();
 
-            XmlTextReader myReader = new XmlTextReader(openFileDialog1.FileName);
-            XmlDocument mySourceDoc = new XmlDocument();
-            mySourceDoc.Load(myReader);
-            myReader.Close();
-
-			XmlNode uuidNode;
-			uuidNode = mySourceDoc.SelectSingleNode ("//identifier");
-			if (uuidNode != null) {
-				this.label9.Text = uuidNode.InnerText;
-			}
-
-            XmlNodeList envelope;
-            envelope = mySourceDoc.SelectNodes("//envelope");
-            if (envelope.Count > 0)
+            // Do the next steps only if the user clicks on OK. Otherwise there will be an FileNotFoundException.
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                foreach (Control control in this.Controls)
-                {
-                    if (control is CheckBox)
-                    {
-                        ((CheckBox)control).Checked = false;
-                    }
-                }
-                foreach (XmlNode countryEnvelope in envelope)
-                {
-                    string tagFinder = countryEnvelope.Attributes["country"].Value.ToUpper();
 
+                XmlTextReader myReader = new XmlTextReader(openFileDialog1.FileName);
+                XmlDocument mySourceDoc = new XmlDocument();
+                mySourceDoc.Load(myReader);
+                myReader.Close();
+
+                XmlNode uuidNode;
+                uuidNode = mySourceDoc.SelectSingleNode("//identifier");
+                if (uuidNode != null)
+                {
+                    this.label9.Text = uuidNode.InnerText;
+                }
+
+                XmlNodeList envelope;
+                envelope = mySourceDoc.SelectNodes("//envelope");
+                if (envelope.Count > 0)
+                {
                     foreach (Control control in this.Controls)
                     {
                         if (control is CheckBox)
                         {
-                            if (((CheckBox)control).Tag.ToString() == tagFinder)
-                            {
-                                ((CheckBox)control).Checked = true;
-                            }
+                            ((CheckBox)control).Checked = false;
                         }
+                    }
+                    foreach (XmlNode countryEnvelope in envelope)
+                    {
+                        string tagFinder = countryEnvelope.Attributes["country"].Value.ToUpper();
 
-                        if (control is TextBox)
+                        foreach (Control control in this.Controls)
                         {
-                            if (((TextBox)control).Name.ToString() == ("textBox" + tagFinder.ToString()))
+                            if (control is CheckBox)
                             {
-                                ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::invented-name").InnerText.ToString();
-                            }
-
-                            if (((TextBox)control).Name.ToString() == ("textBox" + tagFinder.ToString() + "App"))
-                            {
-                                ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::applicant").InnerText.ToString();
-                            }
-
-                            if ((countryEnvelope.ParentNode.ParentNode.Attributes["dtd-version"].InnerText.ToString()) != "1.3")
-                            {
-                                if (((TextBox)control).Name.ToString() == ("textBoxTrackNo"))
+                                if (((CheckBox)control).Tag.ToString() == tagFinder)
                                 {
-                                    if (countryEnvelope.SelectSingleNode("descendant::tracking").SelectSingleNode("descendant::number").InnerText.ToString() != null)
+                                    ((CheckBox)control).Checked = true;
+                                }
+                            }
+
+                            if (control is TextBox)
+                            {
+                                if (((TextBox)control).Name.ToString() == ("textBox" + tagFinder.ToString()))
+                                {
+                                    ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::invented-name").InnerText.ToString();
+                                }
+
+                                if (((TextBox)control).Name.ToString() == ("textBox" + tagFinder.ToString() + "App"))
+                                {
+                                    ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::applicant").InnerText.ToString();
+                                }
+
+                                if ((countryEnvelope.ParentNode.ParentNode.Attributes["dtd-version"].InnerText.ToString()) != "1.3")
+                                {
+                                    if (((TextBox)control).Name.ToString() == ("textBoxTrackNo"))
                                     {
-                                        ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::tracking").SelectSingleNode("descendant::number").InnerText.ToString();
+                                        if (countryEnvelope.SelectSingleNode("descendant::tracking").SelectSingleNode("descendant::number").InnerText.ToString() != null)
+                                        {
+                                            ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::tracking").SelectSingleNode("descendant::number").InnerText.ToString();
+                                        }
+                                    }
+
+                                    if (((TextBox)control).Name.ToString() == ("textBoxNumber"))
+                                    {
+                                        ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::number").InnerText.ToString();
                                     }
                                 }
 
-                                if (((TextBox)control).Name.ToString() == ("textBoxNumber"))
+                                if (((TextBox)control).Name.ToString() == ("textBoxINN"))
                                 {
-                                    ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::number").InnerText.ToString();
+                                    ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::inn").InnerText.ToString();
+                                }
+
+                                if (((TextBox)control).Name.ToString() == ("textBoxSubmDescr"))
+                                {
+                                    ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::submission-description").InnerText.ToString();
+                                }
+
+                                if (((TextBox)control).Name.ToString() == ("textBoxRelSeq"))
+                                {
+                                    ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::related-sequence").InnerText.ToString();
                                 }
                             }
 
-                            if (((TextBox)control).Name.ToString() == ("textBoxINN"))
+                            if (control is ComboBox)
                             {
-                                ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::inn").InnerText.ToString();
-                            }
-
-                            if (((TextBox)control).Name.ToString() == ("textBoxSubmDescr"))
-                            {
-                                ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::submission-description").InnerText.ToString();
-                            }
-
-                            if (((TextBox)control).Name.ToString() == ("textBoxRelSeq"))
-                            {
-                                ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::related-sequence").InnerText.ToString();
-                            }
-                        }
-
-                        if (control is ComboBox)
-                        {
-                            if (((ComboBox)control).Name.ToString() == ("comboBoxProcType"))
-                            {
-                                ((ComboBox)control).Text = countryEnvelope.SelectSingleNode("descendant::procedure").Attributes["type"].InnerText.ToString();                                
-                            }
-
-                            if (((ComboBox)control).Name.ToString() == ("comboBoxSubmType"))
-                            {
-                                ((ComboBox)control).Text = countryEnvelope.SelectSingleNode("descendant::submission").Attributes["type"].InnerText.ToString();
-                            }
-
-                            if ((countryEnvelope.ParentNode.ParentNode.Attributes["dtd-version"].InnerText.ToString()) != "1.3")
-                            {
-                                if (((ComboBox)control).Name.ToString() == ("comboBoxMode") && countryEnvelope.SelectSingleNode("descendant::submission").Attributes["mode"] != null)
+                                if (((ComboBox)control).Name.ToString() == ("comboBoxProcType"))
                                 {
-                                    ((ComboBox)control).Text = countryEnvelope.SelectSingleNode("descendant::submission").Attributes["mode"].InnerText.ToString();
+                                    ((ComboBox)control).Text = countryEnvelope.SelectSingleNode("descendant::procedure").Attributes["type"].InnerText.ToString();
+                                }
+
+                                if (((ComboBox)control).Name.ToString() == ("comboBoxSubmType"))
+                                {
+                                    ((ComboBox)control).Text = countryEnvelope.SelectSingleNode("descendant::submission").Attributes["type"].InnerText.ToString();
+                                }
+
+                                if ((countryEnvelope.ParentNode.ParentNode.Attributes["dtd-version"].InnerText.ToString()) != "1.3")
+                                {
+                                    if (((ComboBox)control).Name.ToString() == ("comboBoxMode") && countryEnvelope.SelectSingleNode("descendant::submission").Attributes["mode"] != null)
+                                    {
+                                        ((ComboBox)control).Text = countryEnvelope.SelectSingleNode("descendant::submission").Attributes["mode"].InnerText.ToString();
+                                    }
                                 }
                             }
                         }

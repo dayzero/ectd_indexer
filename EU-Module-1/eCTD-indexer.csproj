@@ -8,7 +8,7 @@
     <ProjectGuid>{B0D81A0C-DF2B-45B8-8A62-EB643CFA8DE0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WindowsApplication1</RootNamespace>
+    <RootNamespace>eCTD_indexer</RootNamespace>
     <AssemblyName>EU-Module-1</AssemblyName>
     <ManifestCertificateThumbprint>355B53D4EC7E8E0CFB652D84041F5CF94B7ACBA6</ManifestCertificateThumbprint>
     <ManifestKeyFile>eCTD-indexer_1_TemporaryKey.pfx</ManifestKeyFile>

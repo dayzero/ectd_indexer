@@ -28,7 +28,7 @@ using System.Xml;
 using System.Xml.XPath;
 
 
-namespace WindowsApplication1
+namespace eCTD_indexer
 {
     class CurrentDossier
     {
