@@ -174,7 +174,7 @@ namespace eCTD_indexer
             this.textBoxLVApp = new System.Windows.Forms.TextBox();
             this.folderButton2 = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btCreateFolderTree = new System.Windows.Forms.Button();
             this.fileButton1 = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.label2 = new System.Windows.Forms.Label();
@@ -1487,15 +1487,15 @@ namespace eCTD_indexer
             this.folderButton2.UseVisualStyleBackColor = true;
             this.folderButton2.Click += new System.EventHandler(this.folderButton2_Click);
             // 
-            // button5
+            // btCreateFolderTree
             // 
-            this.button5.Location = new System.Drawing.Point(17, 632);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(98, 23);
-            this.button5.TabIndex = 110;
-            this.button5.Text = "eCTD folder tree";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btCreateFolderTree.Location = new System.Drawing.Point(17, 632);
+            this.btCreateFolderTree.Name = "btCreateFolderTree";
+            this.btCreateFolderTree.Size = new System.Drawing.Size(98, 23);
+            this.btCreateFolderTree.TabIndex = 110;
+            this.btCreateFolderTree.Text = "eCTD folder tree";
+            this.btCreateFolderTree.UseVisualStyleBackColor = true;
+            this.btCreateFolderTree.Click += new System.EventHandler(this.btCreateFolderTree_Click);
             // 
             // fileButton1
             // 
@@ -1698,7 +1698,7 @@ namespace eCTD_indexer
             this.Controls.Add(this.textBoxRelSeq);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.fileButton1);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btCreateFolderTree);
             this.Controls.Add(this.folderButton2);
             this.Controls.Add(this.textBoxUKApp);
             this.Controls.Add(this.textBoxSEApp);
@@ -1831,7 +1831,7 @@ namespace eCTD_indexer
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "6";
-            this.Text = "eCTD indexer 2016-07 EU M1 v.3.0.2, eCTD v.3.2";
+            this.Text = "eCTD indexer 2016-07 EU M1 v.3.0.1, eCTD v.3.2";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1966,7 +1966,7 @@ namespace eCTD_indexer
         private System.Windows.Forms.TextBox textBoxLVApp;
         private System.Windows.Forms.Button folderButton2;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btCreateFolderTree;
         private System.Windows.Forms.Button fileButton1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label label2;
