@@ -54,7 +54,7 @@ namespace eCTD_indexer
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBoxSubmType = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btCreateEURegionalXML = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.textBoxINN = new System.Windows.Forms.TextBox();
@@ -63,13 +63,13 @@ namespace eCTD_indexer
             this.labelSubmissionUnit = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.textBoxMD5 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btCalculateMD5 = new System.Windows.Forms.Button();
             this.textBoxNewMD5 = new System.Windows.Forms.TextBox();
             this.textBoxSeqDir = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btGenerateIndexXML = new System.Windows.Forms.Button();
+            this.btDeleteEmptyDirectories = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.checkBoxAT = new System.Windows.Forms.CheckBox();
             this.checkBoxBE = new System.Windows.Forms.CheckBox();
@@ -172,10 +172,10 @@ namespace eCTD_indexer
             this.textBoxLTApp = new System.Windows.Forms.TextBox();
             this.textBoxLIApp = new System.Windows.Forms.TextBox();
             this.textBoxLVApp = new System.Windows.Forms.TextBox();
-            this.folderButton2 = new System.Windows.Forms.Button();
+            this.btSelectFolder = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.btCreateFolderTree = new System.Windows.Forms.Button();
-            this.fileButton1 = new System.Windows.Forms.Button();
+            this.btSelectFile = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxRelSeq = new System.Windows.Forms.TextBox();
@@ -187,7 +187,7 @@ namespace eCTD_indexer
             this.label8 = new System.Windows.Forms.Label();
             this.comboBoxMode = new System.Windows.Forms.ComboBox();
             this.labelSequence = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lSubmissionIdentifier = new System.Windows.Forms.Label();
             this.textBoxHRApp = new System.Windows.Forms.TextBox();
             this.textBoxHR = new System.Windows.Forms.TextBox();
             this.checkBoxHR = new System.Windows.Forms.CheckBox();
@@ -323,15 +323,15 @@ namespace eCTD_indexer
             this.comboBoxSubmType.Tag = "7";
             this.comboBoxSubmType.SelectedIndexChanged += new System.EventHandler(this.comboBoxSubmType_SelectedIndexChanged);
             // 
-            // button1
+            // btCreateEURegionalXML
             // 
-            this.button1.Location = new System.Drawing.Point(120, 632);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 111;
-            this.button1.Text = "eu-regional";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btCreateEURegionalXML.Location = new System.Drawing.Point(120, 632);
+            this.btCreateEURegionalXML.Name = "btCreateEURegionalXML";
+            this.btCreateEURegionalXML.Size = new System.Drawing.Size(75, 23);
+            this.btCreateEURegionalXML.TabIndex = 111;
+            this.btCreateEURegionalXML.Text = "eu-regional";
+            this.btCreateEURegionalXML.UseVisualStyleBackColor = true;
+            this.btCreateEURegionalXML.Click += new System.EventHandler(this.btCreateEURegionalXML_Click);
             // 
             // label7
             // 
@@ -400,15 +400,15 @@ namespace eCTD_indexer
             this.textBoxMD5.Size = new System.Drawing.Size(226, 20);
             this.textBoxMD5.TabIndex = 115;
             // 
-            // button2
+            // btCalculateMD5
             // 
-            this.button2.Location = new System.Drawing.Point(382, 632);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(51, 23);
-            this.button2.TabIndex = 117;
-            this.button2.Text = "MD5";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btCalculateMD5.Location = new System.Drawing.Point(382, 632);
+            this.btCalculateMD5.Name = "btCalculateMD5";
+            this.btCalculateMD5.Size = new System.Drawing.Size(51, 23);
+            this.btCalculateMD5.TabIndex = 117;
+            this.btCalculateMD5.Text = "MD5";
+            this.btCalculateMD5.UseVisualStyleBackColor = true;
+            this.btCalculateMD5.Click += new System.EventHandler(this.btCalculateMD5_Click);
             // 
             // textBoxNewMD5
             // 
@@ -443,25 +443,25 @@ namespace eCTD_indexer
             this.label17.TabIndex = 32;
             this.label17.Text = "Path to sequence directory (e.g. 0000):";
             // 
-            // button3
+            // btGenerateIndexXML
             // 
-            this.button3.Location = new System.Drawing.Point(201, 632);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 112;
-            this.button3.Text = "index.xml";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            this.btGenerateIndexXML.Location = new System.Drawing.Point(201, 632);
+            this.btGenerateIndexXML.Name = "btGenerateIndexXML";
+            this.btGenerateIndexXML.Size = new System.Drawing.Size(75, 23);
+            this.btGenerateIndexXML.TabIndex = 112;
+            this.btGenerateIndexXML.Text = "index.xml";
+            this.btGenerateIndexXML.UseVisualStyleBackColor = true;
+            this.btGenerateIndexXML.Click += new System.EventHandler(this.btGenerateIndexXML_Click);
             // 
-            // button4
+            // btDeleteEmptyDirectories
             // 
-            this.button4.Location = new System.Drawing.Point(282, 632);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 113;
-            this.button4.Text = "delete empty";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btDeleteEmptyDirectories.Location = new System.Drawing.Point(282, 632);
+            this.btDeleteEmptyDirectories.Name = "btDeleteEmptyDirectories";
+            this.btDeleteEmptyDirectories.Size = new System.Drawing.Size(75, 23);
+            this.btDeleteEmptyDirectories.TabIndex = 113;
+            this.btDeleteEmptyDirectories.Text = "delete empty";
+            this.btDeleteEmptyDirectories.UseVisualStyleBackColor = true;
+            this.btDeleteEmptyDirectories.Click += new System.EventHandler(this.btDeleteEmptyDirectories_Click);
             // 
             // label19
             // 
@@ -1477,15 +1477,15 @@ namespace eCTD_indexer
             this.textBoxLVApp.TabIndex = 74;
             this.textBoxLVApp.Tag = "LV";
             // 
-            // folderButton2
+            // btSelectFolder
             // 
-            this.folderButton2.Location = new System.Drawing.Point(333, 605);
-            this.folderButton2.Name = "folderButton2";
-            this.folderButton2.Size = new System.Drawing.Size(24, 23);
-            this.folderButton2.TabIndex = 109;
-            this.folderButton2.Text = "...";
-            this.folderButton2.UseVisualStyleBackColor = true;
-            this.folderButton2.Click += new System.EventHandler(this.folderButton2_Click);
+            this.btSelectFolder.Location = new System.Drawing.Point(333, 605);
+            this.btSelectFolder.Name = "btSelectFolder";
+            this.btSelectFolder.Size = new System.Drawing.Size(24, 23);
+            this.btSelectFolder.TabIndex = 109;
+            this.btSelectFolder.Text = "...";
+            this.btSelectFolder.UseVisualStyleBackColor = true;
+            this.btSelectFolder.Click += new System.EventHandler(this.btSelectFolder_Click);
             // 
             // btCreateFolderTree
             // 
@@ -1497,19 +1497,15 @@ namespace eCTD_indexer
             this.btCreateFolderTree.UseVisualStyleBackColor = true;
             this.btCreateFolderTree.Click += new System.EventHandler(this.btCreateFolderTree_Click);
             // 
-            // fileButton1
+            // btSelectFile
             // 
-            this.fileButton1.Location = new System.Drawing.Point(614, 604);
-            this.fileButton1.Name = "fileButton1";
-            this.fileButton1.Size = new System.Drawing.Size(26, 23);
-            this.fileButton1.TabIndex = 116;
-            this.fileButton1.Text = "...";
-            this.fileButton1.UseVisualStyleBackColor = true;
-            this.fileButton1.Click += new System.EventHandler(this.fileButton1_Click);
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.btSelectFile.Location = new System.Drawing.Point(614, 604);
+            this.btSelectFile.Name = "btSelectFile";
+            this.btSelectFile.Size = new System.Drawing.Size(26, 23);
+            this.btSelectFile.TabIndex = 116;
+            this.btSelectFile.Text = "...";
+            this.btSelectFile.UseVisualStyleBackColor = true;
+            this.btSelectFile.Click += new System.EventHandler(this.btSelectFile_Click);
             // 
             // label2
             // 
@@ -1606,13 +1602,13 @@ namespace eCTD_indexer
             this.labelSequence.TabIndex = 120;
             this.labelSequence.Text = "Identifier";
             // 
-            // label9
+            // lSubmissionIdentifier
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(425, 55);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(0, 13);
-            this.label9.TabIndex = 121;
+            this.lSubmissionIdentifier.AutoSize = true;
+            this.lSubmissionIdentifier.Location = new System.Drawing.Point(425, 55);
+            this.lSubmissionIdentifier.Name = "lSubmissionIdentifier";
+            this.lSubmissionIdentifier.Size = new System.Drawing.Size(0, 13);
+            this.lSubmissionIdentifier.TabIndex = 121;
             // 
             // textBoxHRApp
             // 
@@ -1685,7 +1681,7 @@ namespace eCTD_indexer
             this.Controls.Add(this.textBoxHRApp);
             this.Controls.Add(this.textBoxHR);
             this.Controls.Add(this.checkBoxHR);
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.lSubmissionIdentifier);
             this.Controls.Add(this.labelSequence);
             this.Controls.Add(this.comboBoxMode);
             this.Controls.Add(this.comboBoxSubmUnit);
@@ -1697,9 +1693,9 @@ namespace eCTD_indexer
             this.Controls.Add(this.button6);
             this.Controls.Add(this.textBoxRelSeq);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.fileButton1);
+            this.Controls.Add(this.btSelectFile);
             this.Controls.Add(this.btCreateFolderTree);
-            this.Controls.Add(this.folderButton2);
+            this.Controls.Add(this.btSelectFolder);
             this.Controls.Add(this.textBoxUKApp);
             this.Controls.Add(this.textBoxSEApp);
             this.Controls.Add(this.textBoxESApp);
@@ -1802,13 +1798,13 @@ namespace eCTD_indexer
             this.Controls.Add(this.checkBoxBE);
             this.Controls.Add(this.checkBoxAT);
             this.Controls.Add(this.label19);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btDeleteEmptyDirectories);
+            this.Controls.Add(this.btGenerateIndexXML);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.textBoxSeqDir);
             this.Controls.Add(this.textBoxNewMD5);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btCalculateMD5);
             this.Controls.Add(this.textBoxMD5);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.textBoxSubmDescr);
@@ -1817,7 +1813,7 @@ namespace eCTD_indexer
             this.Controls.Add(this.textBoxINN);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btCreateEURegionalXML);
             this.Controls.Add(this.comboBoxSubmType);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -1846,7 +1842,7 @@ namespace eCTD_indexer
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBoxSubmType;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btCreateEURegionalXML;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBoxINN;
@@ -1855,13 +1851,13 @@ namespace eCTD_indexer
 		private System.Windows.Forms.Label labelSubmissionUnit;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox textBoxMD5;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btCalculateMD5;
         private System.Windows.Forms.TextBox textBoxNewMD5;
         private System.Windows.Forms.TextBox textBoxSeqDir;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btGenerateIndexXML;
+        private System.Windows.Forms.Button btDeleteEmptyDirectories;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.CheckBox checkBoxAT;
         private System.Windows.Forms.CheckBox checkBoxBE;
@@ -1964,10 +1960,10 @@ namespace eCTD_indexer
         private System.Windows.Forms.TextBox textBoxLTApp;
         private System.Windows.Forms.TextBox textBoxLIApp;
         private System.Windows.Forms.TextBox textBoxLVApp;
-        private System.Windows.Forms.Button folderButton2;
+        private System.Windows.Forms.Button btSelectFolder;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Button btCreateFolderTree;
-        private System.Windows.Forms.Button fileButton1;
+        private System.Windows.Forms.Button btSelectFile;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxRelSeq;
@@ -1979,7 +1975,7 @@ namespace eCTD_indexer
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox comboBoxMode;
         private System.Windows.Forms.Label labelSequence;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lSubmissionIdentifier;
         private System.Windows.Forms.TextBox textBoxHRApp;
         private System.Windows.Forms.TextBox textBoxHR;
         private System.Windows.Forms.CheckBox checkBoxHR;
