@@ -67,6 +67,8 @@
     <Compile Include="CurrentDossier.cs">
     </Compile>
     <Compile Include="eCTD_Directories.cs" />
+    <Compile Include="eCTD_Files.cs" />
+    <Compile Include="GeneralArchitectureModule1\EU envelope.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,7 +100,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="XMLsort.cs">
+    <Compile Include="XML\Create.cs" />
+    <Compile Include="XML\Sort.cs">
     </Compile>
   </ItemGroup>
   <ItemGroup>
