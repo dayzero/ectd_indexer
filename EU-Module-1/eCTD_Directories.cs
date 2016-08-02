@@ -340,18 +340,16 @@ namespace eCTD_indexer
             }
 
             //pass root directory to dirLister
-            directories dir = new directories();
-            dirListArray = dir.dirLister(rootPath, 0, dirListArray);
+            dirListArray = this.dirLister(rootPath, 0, dirListArray);
 
             //order dirListArray alphabetically (to correct for webfolders), then reverse it
             Array.Sort(dirListArray);
             Array.Reverse(dirListArray);
 
             //pass reversed dirListArray to directoryDeleter
-            directoryDeleter dirDel = new directoryDeleter();
             for (int p = 1; p < dirListArray.Length; p++)
             {
-                dirDel.dirDeleter(dirListArray[p]);
+                this.dirDeleter(dirListArray[p]);
             } 
         }
 
@@ -377,6 +375,71 @@ namespace eCTD_indexer
             numberOfDirectories++;
 
             return numberOfDirectories;
+        }
+
+        /// <summary>
+        /// This method writes all names of all Sub-Directories into an Array.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="counter"></param>
+        /// <param name="allSubDirs"></param>
+        /// <returns></returns>
+        public string[] dirLister(string path, int counter, string[] allSubDirs)
+        {
+            try
+            {
+                DirectoryInfo di = new DirectoryInfo(path);
+                DirectoryInfo[] dirs = di.GetDirectories();
+
+                while (allSubDirs[counter] != "0") //to correct counter after jumping up from leaf directories
+                {
+                    counter++;
+                }
+
+                allSubDirs[counter] = di.FullName;
+                counter++;
+
+                if (dirs.Length > 0)
+                {
+                    for (int i = 0; i < dirs.Length; i++)
+                    {
+                        dirLister(dirs[i].FullName, counter, allSubDirs);
+                    }
+                }
+            }
+
+            catch (Exception)
+            {
+                //MessageBox.Show(e.ToString(), "The indexing process failed");
+            }
+
+            return allSubDirs;
+        }
+
+        /// <summary>
+        /// Deletes an empty directory. 
+        /// Works only if no files or subdirectories exists in 
+        /// the given directory.
+        /// </summary>
+        /// <param name="path"></param>
+        public void dirDeleter(string path)
+        {
+            try
+            {
+                DirectoryInfo di = new DirectoryInfo(path);
+                DirectoryInfo[] dirs = di.GetDirectories();
+                FileInfo[] files = di.GetFiles();
+
+                if (dirs.Length == 0 && files.Length == 0)
+                {
+                    di.Delete(false);
+                }
+            }
+
+            catch (Exception)
+            {
+                //MessageBox.Show(e.ToString(), "The delete process failed");
+            }
         }
     }
 }

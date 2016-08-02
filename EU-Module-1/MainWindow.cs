@@ -1,5 +1,5 @@
 // eCTD indexer (EU Module 1)
-// Copyright 2007-2016 Ymir Vesteinsson, ymir@ectd.is
+// Copyright 2007-2016 Ymir Vesteinsson, ymir@ectd.is and Copyright 2016 Quantentunnel (https://github.com/Quantentunnel)
 
 // This file is part of eCTD-indexer.
 
@@ -50,7 +50,7 @@ namespace eCTD_indexer
             // Initialize global variables
             this.dirs = new eCTD_Directories();
             this.files = new eCTD_Files();
-            this.XMLCreate = new XML.Create();
+            this.XMLCreate = new XML.Create(this.dirs);
         }
 
         // Global variables
@@ -59,7 +59,7 @@ namespace eCTD_indexer
         private XML.Create XMLCreate;
                 
 
-        #region enables/disables applicant and product name text boxes in line with country checkboxes
+        #region Event methods to enables/disables applicant and product name text boxes in line with country checkboxes
         private void checkBoxAT_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBoxAT.Checked == true)
@@ -646,6 +646,7 @@ namespace eCTD_indexer
                 }
             }
 
+            // Create the EURegional.xml file
             this.XMLCreate.EURegional(envelope, this.dirs, this.files);
         }
 
@@ -736,9 +737,10 @@ namespace eCTD_indexer
                 }
             }
 
+            // Create the directories
             this.dirs.Create(textBoxSeqDir.Text, memberStateList);
 
-
+            // Show the user the result if needed.
             DialogResult result = MessageBox.Show("Open directory: " + textBoxSeqDir.Text + "?", "Directory tree complete", MessageBoxButtons.YesNo); // rootDirectory.ToString()
             if (result == DialogResult.Yes)
             {
@@ -900,76 +902,5 @@ namespace eCTD_indexer
                 return "ERROR";
             }
         }        
-    }
-
-    public class directories
-    {
-        /// <summary>
-        /// This method writes all names of all Sub-Directories into an Array.
-        /// </summary>
-        /// <param name="path"></param>
-        /// <param name="counter"></param>
-        /// <param name="allSubDirs"></param>
-        /// <returns></returns>
-        public string[] dirLister(string path, int counter, string[] allSubDirs)
-        {
-            try
-            {
-                DirectoryInfo di = new DirectoryInfo(path);
-                DirectoryInfo[] dirs = di.GetDirectories();
-
-                while (allSubDirs[counter] != "0") //to correct counter after jumping up from leaf directories
-                {
-                    counter++;
-                }
-
-                allSubDirs[counter] = di.FullName;
-                counter++;
-
-                if (dirs.Length > 0)
-                {
-                    for (int i = 0; i < dirs.Length; i++)
-                    {
-                        dirLister(dirs[i].FullName, counter, allSubDirs);
-                    }
-                }
-            }
-
-            catch (Exception e)
-            {
-                MessageBox.Show(e.ToString(), "The indexing process failed");
-            }
-
-            return allSubDirs;
-        }
-    }
-
-    public class directoryDeleter
-    {
-        /// <summary>
-        /// Deletes an empty directory. 
-        /// Works only if no files or subdirectories exists in 
-        /// the given directory.
-        /// </summary>
-        /// <param name="path"></param>
-        public void dirDeleter(string path)
-        {
-            try
-            {
-                DirectoryInfo di = new DirectoryInfo(path);
-                DirectoryInfo[] dirs = di.GetDirectories();
-                FileInfo[] files = di.GetFiles();
-
-                if (dirs.Length == 0 && files.Length == 0)
-                {
-                    di.Delete(false);                    
-                }                
-            }
-
-            catch (Exception e)
-            {
-                MessageBox.Show(e.ToString(), "The delete process failed");
-            }
-        }
     }
 }

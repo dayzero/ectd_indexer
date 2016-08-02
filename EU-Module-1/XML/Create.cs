@@ -9,6 +9,19 @@ namespace eCTD_indexer.XML
 {
     public class Create
     {
+        public Create()
+        {
+            this.eCTDirs = new eCTD_Directories();
+        }
+
+        public Create(eCTD_Directories dirs)
+        {
+            this.eCTDirs = dirs;
+        }
+
+        // Class Variables
+        private eCTD_Directories eCTDirs;
+
         /// <summary>
         /// Creates the EURegional.xml file in Module 1
         /// </summary>
@@ -60,8 +73,7 @@ namespace eCTD_indexer.XML
             }
 
             //pass root directory to dirLister
-            directories dir = new directories();
-            dirListArrayM1 = dir.dirLister(envelope.m1euPath, 0, dirListArrayM1);
+            dirListArrayM1 = this.eCTDirs.dirLister(envelope.m1euPath, 0, dirListArrayM1);
 
             //create a filename array for sorting - workaround for sorting multidimensional array filenameListArray
             //filenameListArray holds filenames, relative path to files, md5s, operation attributes and modified file id information
@@ -966,8 +978,7 @@ namespace eCTD_indexer.XML
             }
 
             //pass root directory to dirLister
-            directories dir = new directories();
-            dirListArray = dir.dirLister(sequencePath, 0, dirListArray);
+            dirListArray = this.eCTDirs.dirLister(sequencePath, 0, dirListArray);
 
             //create a filename array for sorting - workaround for sorting multidimensional array filenameListArray
             //populate this array with all filenames in sequence, except any files directly under sequence directory (i.e. not files on same level as m1, m2... directories)

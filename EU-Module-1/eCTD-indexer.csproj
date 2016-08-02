@@ -68,7 +68,7 @@
     </Compile>
     <Compile Include="eCTD_Directories.cs" />
     <Compile Include="eCTD_Files.cs" />
-    <Compile Include="GeneralArchitectureModule1\EU envelope.cs" />
+    <Compile Include="GeneralArchitectureModule1\EU_envelope.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
