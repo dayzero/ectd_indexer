@@ -199,6 +199,7 @@ namespace eCTD_indexer
             this.tsbCreate = new System.Windows.Forms.ToolStripButton();
             this.tsbOpenDossier = new System.Windows.Forms.ToolStripButton();
             this.tsbCreateXMLFiles = new System.Windows.Forms.ToolStripButton();
+            this.tsbRefreshFolderView = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -1860,7 +1861,8 @@ namespace eCTD_indexer
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbCreate,
             this.tsbOpenDossier,
-            this.tsbCreateXMLFiles});
+            this.tsbCreateXMLFiles,
+            this.tsbRefreshFolderView});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(528, 25);
@@ -1897,13 +1899,22 @@ namespace eCTD_indexer
             this.tsbCreateXMLFiles.Text = "Create XML files";
             this.tsbCreateXMLFiles.Click += new System.EventHandler(this.tsbCreateXMLFiles_Click);
             // 
+            // tsbRefreshFolderView
+            // 
+            this.tsbRefreshFolderView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbRefreshFolderView.Image = global::eCTD_indexer.Properties.Resources.Actions_view_refresh_icon_72x72;
+            this.tsbRefreshFolderView.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbRefreshFolderView.Name = "tsbRefreshFolderView";
+            this.tsbRefreshFolderView.Size = new System.Drawing.Size(23, 22);
+            this.tsbRefreshFolderView.Text = "Refresh Folder View";
+            this.tsbRefreshFolderView.Click += new System.EventHandler(this.tsbRefreshFolderView_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1229, 766);
             this.Controls.Add(this.splitContainer1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "MainWindow";
@@ -2076,6 +2087,7 @@ namespace eCTD_indexer
         private File_Explorer.FileExplorerUserControl fileExplorerUserControl;
         private System.Windows.Forms.ToolStripButton tsbCreate;
         private System.Windows.Forms.ToolStripButton tsbCreateXMLFiles;
+        private System.Windows.Forms.ToolStripButton tsbRefreshFolderView;
     }
 }
 

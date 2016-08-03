@@ -33,11 +33,12 @@ namespace File_Explorer
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FileExplorerUserControl));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.folderView = new System.Windows.Forms.TreeView();
-            this.imageList1 = new System.Windows.Forms.ImageList();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.FolderView = new System.Windows.Forms.TreeView();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.FileListView = new System.Windows.Forms.ListView();
             this.Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Type = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.LastModified = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -57,27 +58,27 @@ namespace File_Explorer
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.Menu;
-            this.splitContainer1.Panel1.Controls.Add(this.folderView);
+            this.splitContainer1.Panel1.Controls.Add(this.FolderView);
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.listView1);
+            this.splitContainer1.Panel2.Controls.Add(this.FileListView);
             this.splitContainer1.Size = new System.Drawing.Size(800, 500);
             this.splitContainer1.SplitterDistance = 248;
             this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 0;
             // 
-            // folderView
+            // FolderView
             // 
-            this.folderView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.folderView.ImageIndex = 0;
-            this.folderView.ImageList = this.imageList1;
-            this.folderView.Location = new System.Drawing.Point(0, 0);
-            this.folderView.Margin = new System.Windows.Forms.Padding(2);
-            this.folderView.Name = "folderView";
-            this.folderView.SelectedImageIndex = 0;
-            this.folderView.Size = new System.Drawing.Size(248, 500);
-            this.folderView.TabIndex = 1;
+            this.FolderView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FolderView.ImageIndex = 0;
+            this.FolderView.ImageList = this.imageList1;
+            this.FolderView.Location = new System.Drawing.Point(0, 0);
+            this.FolderView.Margin = new System.Windows.Forms.Padding(2);
+            this.FolderView.Name = "FolderView";
+            this.FolderView.SelectedImageIndex = 0;
+            this.FolderView.Size = new System.Drawing.Size(248, 500);
+            this.FolderView.TabIndex = 1;
             // 
             // imageList1
             // 
@@ -86,21 +87,24 @@ namespace File_Explorer
             this.imageList1.Images.SetKeyName(0, "Document");
             this.imageList1.Images.SetKeyName(1, "Folder");
             // 
-            // listView1
+            // FileListView
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.FileListView.AllowDrop = true;
+            this.FileListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Name,
             this.Type,
             this.LastModified});
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView1.Location = new System.Drawing.Point(0, 0);
-            this.listView1.Margin = new System.Windows.Forms.Padding(2);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(549, 500);
-            this.listView1.SmallImageList = this.imageList1;
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.FileListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FileListView.Location = new System.Drawing.Point(0, 0);
+            this.FileListView.Margin = new System.Windows.Forms.Padding(2);
+            this.FileListView.Name = "FileListView";
+            this.FileListView.Size = new System.Drawing.Size(549, 500);
+            this.FileListView.SmallImageList = this.imageList1;
+            this.FileListView.TabIndex = 1;
+            this.FileListView.UseCompatibleStateImageBehavior = false;
+            this.FileListView.View = System.Windows.Forms.View.Details;
+            this.FileListView.DragDrop += new System.Windows.Forms.DragEventHandler(this.FileListView_DragDrop);
+            this.FileListView.DragEnter += new System.Windows.Forms.DragEventHandler(this.FileListView_DragEnter);
             // 
             // Name
             // 
@@ -136,11 +140,11 @@ namespace File_Explorer
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView FileListView;
         private new System.Windows.Forms.ColumnHeader Name;
         private System.Windows.Forms.ColumnHeader Type;
         private System.Windows.Forms.ColumnHeader LastModified;
-        private TreeView folderView;
+        private TreeView FolderView;
     }
 }
 

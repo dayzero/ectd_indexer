@@ -33,4 +33,3 @@ C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\FileExplorer\
 C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\FileExplorer\File Explorer\bin\Debug\File Explorer.dll.config
 C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\FileExplorer\File Explorer\bin\Debug\File Explorer.dll
 C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\FileExplorer\File Explorer\obj\Debug\File Explorer.dll
-C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\FileExplorer\File Explorer\obj\Debug\File Explorer.csprojResolveAssemblyReference.cache

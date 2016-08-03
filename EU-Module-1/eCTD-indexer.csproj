@@ -161,6 +161,15 @@
   <ItemGroup>
     <None Include="Resources\Actions-system-run-icon_72x72.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actions-view-refresh-icon_72x72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Apps-kexi-icon_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Application.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

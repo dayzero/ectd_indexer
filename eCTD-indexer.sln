@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eCTD-indexer", "EU-Module-1\eCTD-indexer.csproj", "{B0D81A0C-DF2B-45B8-8A62-EB643CFA8DE0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{82516F76-CAEE-4F6F-942C-28969AC8C5A8} = {82516F76-CAEE-4F6F-942C-28969AC8C5A8}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "File Explorer", "FileExplorer\File Explorer\File Explorer.csproj", "{82516F76-CAEE-4F6F-942C-28969AC8C5A8}"
 EndProject

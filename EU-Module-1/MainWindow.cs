@@ -579,7 +579,7 @@ namespace eCTD_indexer
         /// <param name="e"></param>
         private void btCreateEURegionalXML_Click(object sender, EventArgs e)
         {
-            
+            // Moved 
         }
 
         /// <summary>
@@ -612,7 +612,7 @@ namespace eCTD_indexer
 
         private void btGenerateIndexXML_Click(object sender, EventArgs e) //generates index.xml
         {
-            
+            // Moved 
         }
 
         /// <summary>
@@ -930,6 +930,12 @@ namespace eCTD_indexer
                 this.XMLCreate.IndexXML(textBoxSeqDir.Text, this.dirs, this.files);
             }
             #endregion
+        }
+
+        private void tsbRefreshFolderView_Click(object sender, EventArgs e)
+        {
+            // Refresh the folder view
+            this.fileExplorerUserControl.FolderView_ShowFolder();
         }   
     }
 
