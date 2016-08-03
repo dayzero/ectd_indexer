@@ -765,11 +765,11 @@ namespace eCTD_indexer.XML
                 Sort sortingHat = new Sort();
                 sortingHat.m1sort(xmlOutput);
 
-                DialogResult resultm1 = MessageBox.Show(xmlOutput + "\n Open file?", "Module 1 indexing completed", MessageBoxButtons.YesNo);
+                /*DialogResult resultm1 = MessageBox.Show(xmlOutput + "\n Open file?", "Module 1 indexing completed", MessageBoxButtons.YesNo);
                 if (resultm1 == DialogResult.Yes)
                 {
                     System.Diagnostics.Process.Start(xmlOutput);
-                }
+                }*/
             }
 
             catch (Exception f)
@@ -4530,12 +4530,12 @@ namespace eCTD_indexer.XML
                     }
                 }
 
-                DialogResult result;
+                /*DialogResult result;
                 result = MessageBox.Show(xmlIndexOutput + "\n Open file?", "Module 2-5 indexing completed", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
                     System.Diagnostics.Process.Start(xmlIndexOutput);
-                }
+                }*/
             }
 
             catch (Exception g)

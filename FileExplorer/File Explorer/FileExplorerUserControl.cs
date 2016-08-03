@@ -16,19 +16,29 @@ namespace File_Explorer
 {
     public partial class FileExplorerUserControl : UserControl
     {
-        private void PopulateTreeView()
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public FileExplorerUserControl()
+        {
+            InitializeComponent();
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            folderView.NodeMouseClick += FolderView_NodeMouseClick;
+        }
+
+        public void PopulateTreeView(String rootDirectory)
         {
             TreeNode rootnode;
 
-            DirectoryInfo info = new DirectoryInfo(@"C:\Users\Fabian\Desktop\eCTD_Tests");
+            DirectoryInfo info = new DirectoryInfo(rootDirectory);
             if (info.Exists)
             {
                 rootnode = new TreeNode(info.Name,1,1);
                 rootnode.Tag = info;
                 GetDirectories(info.GetDirectories(), rootnode);
-                treeView1.Nodes.Add(rootnode);
+                folderView.Nodes.Clear();
+                folderView.Nodes.Add(rootnode);
             }
-
         }
 
         private void GetDirectories(DirectoryInfo[] subDirs, TreeNode rootNode)
@@ -58,15 +68,9 @@ namespace File_Explorer
                 rootNode.Nodes.Add(aNode);
             }
         }
-        public FileExplorerUserControl()
-        {
-            InitializeComponent();
-            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-            PopulateTreeView();
-            treeView1.NodeMouseClick += TreeView1_NodeMouseClick;
-         }
+        
 
-        private void TreeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        private void FolderView_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             TreeNode newSelected = e.Node;
             listView1.Items.Clear();

@@ -33,15 +33,14 @@ namespace File_Explorer
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FileExplorerUserControl));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.folderView = new System.Windows.Forms.TreeView();
+            this.imageList1 = new System.Windows.Forms.ImageList();
             this.listView1 = new System.Windows.Forms.ListView();
             this.Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Type = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.LastModified = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.treeView1 = new System.Windows.Forms.TreeView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -58,7 +57,7 @@ namespace File_Explorer
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.Menu;
-            this.splitContainer1.Panel1.Controls.Add(this.treeView1);
+            this.splitContainer1.Panel1.Controls.Add(this.folderView);
             // 
             // splitContainer1.Panel2
             // 
@@ -67,6 +66,25 @@ namespace File_Explorer
             this.splitContainer1.SplitterDistance = 248;
             this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // folderView
+            // 
+            this.folderView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.folderView.ImageIndex = 0;
+            this.folderView.ImageList = this.imageList1;
+            this.folderView.Location = new System.Drawing.Point(0, 0);
+            this.folderView.Margin = new System.Windows.Forms.Padding(2);
+            this.folderView.Name = "folderView";
+            this.folderView.SelectedImageIndex = 0;
+            this.folderView.Size = new System.Drawing.Size(248, 500);
+            this.folderView.TabIndex = 1;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Document");
+            this.imageList1.Images.SetKeyName(1, "Folder");
             // 
             // listView1
             // 
@@ -99,26 +117,7 @@ namespace File_Explorer
             this.LastModified.Text = "Last Modified";
             this.LastModified.Width = 98;
             // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "Document");
-            this.imageList1.Images.SetKeyName(1, "Folder");
-            // 
-            // treeView1
-            // 
-            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.ImageIndex = 0;
-            this.treeView1.ImageList = this.imageList1;
-            this.treeView1.Location = new System.Drawing.Point(0, 0);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(2);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.SelectedImageIndex = 0;
-            this.treeView1.Size = new System.Drawing.Size(248, 500);
-            this.treeView1.TabIndex = 1;
-            // 
-            // Form1
+            // FileExplorerUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -141,7 +140,7 @@ namespace File_Explorer
         private new System.Windows.Forms.ColumnHeader Name;
         private System.Windows.Forms.ColumnHeader Type;
         private System.Windows.Forms.ColumnHeader LastModified;
-        private TreeView treeView1;
+        private TreeView folderView;
     }
 }
 

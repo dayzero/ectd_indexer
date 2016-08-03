@@ -152,6 +152,15 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actions-document-open-icon_72x72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actions-folder-new-icon_72x72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actions-system-run-icon_72x72.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
