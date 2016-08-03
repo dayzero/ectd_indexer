@@ -36,6 +36,7 @@ using System.Reflection;
 using System.Security.Cryptography;
 using System.Xml;
 
+
 namespace eCTD_indexer
 {
     public partial class MainWindow : Form
@@ -707,8 +708,11 @@ namespace eCTD_indexer
         /// <param name="e"></param>
         private void btSelectFolder_Click(object sender, EventArgs e)
         {
-            folderBrowserDialog1.ShowDialog();
-            textBoxSeqDir.Text = folderBrowserDialog1.SelectedPath;
+            FolderBrowserDialog fb = new FolderBrowserDialog();
+            if (fb.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                textBoxSeqDir.Text = fb.SelectedPath;
+            }
         }
 
         private void btSelectFile_Click(object sender, EventArgs e)

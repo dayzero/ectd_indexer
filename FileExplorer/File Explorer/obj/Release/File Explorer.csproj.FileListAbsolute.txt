@@ -1,0 +1,9 @@
+E:\C#\Projects\File Explorer\File Explorer\bin\Release\File Explorer.exe.config
+E:\C#\Projects\File Explorer\File Explorer\bin\Release\File Explorer.exe
+E:\C#\Projects\File Explorer\File Explorer\bin\Release\File Explorer.pdb
+E:\C#\Projects\File Explorer\File Explorer\obj\Release\File Explorer.csprojResolveAssemblyReference.cache
+E:\C#\Projects\File Explorer\File Explorer\obj\Release\File_Explorer.Form1.resources
+E:\C#\Projects\File Explorer\File Explorer\obj\Release\File_Explorer.Properties.Resources.resources
+E:\C#\Projects\File Explorer\File Explorer\obj\Release\File Explorer.csproj.GenerateResource.Cache
+E:\C#\Projects\File Explorer\File Explorer\obj\Release\File Explorer.exe
+E:\C#\Projects\File Explorer\File Explorer\obj\Release\File Explorer.pdb
