@@ -94,6 +94,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserDialogue\CreateDossier.resx">
+      <DependentUpon>CreateDossier.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -102,6 +105,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="UserDialogue\CreateDossier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserDialogue\CreateDossier.Designer.cs">
+      <DependentUpon>CreateDossier.cs</DependentUpon>
     </Compile>
     <Compile Include="XML\Create.cs" />
     <Compile Include="XML\Sort.cs">

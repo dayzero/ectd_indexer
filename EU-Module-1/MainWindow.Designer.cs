@@ -342,6 +342,7 @@ namespace eCTD_indexer
             this.btCreateEURegionalXML.TabIndex = 111;
             this.btCreateEURegionalXML.Text = "eu-regional";
             this.btCreateEURegionalXML.UseVisualStyleBackColor = true;
+            this.btCreateEURegionalXML.Visible = false;
             this.btCreateEURegionalXML.Click += new System.EventHandler(this.btCreateEURegionalXML_Click);
             // 
             // label7
@@ -403,6 +404,7 @@ namespace eCTD_indexer
             this.label15.Size = new System.Drawing.Size(190, 13);
             this.label15.TabIndex = 26;
             this.label15.Text = "Calculate MD5 checksum for single file";
+            this.label15.Visible = false;
             // 
             // textBoxMD5
             // 
@@ -410,6 +412,7 @@ namespace eCTD_indexer
             this.textBoxMD5.Name = "textBoxMD5";
             this.textBoxMD5.Size = new System.Drawing.Size(226, 20);
             this.textBoxMD5.TabIndex = 115;
+            this.textBoxMD5.Visible = false;
             // 
             // btCalculateMD5
             // 
@@ -419,6 +422,7 @@ namespace eCTD_indexer
             this.btCalculateMD5.TabIndex = 117;
             this.btCalculateMD5.Text = "MD5";
             this.btCalculateMD5.UseVisualStyleBackColor = true;
+            this.btCalculateMD5.Visible = false;
             this.btCalculateMD5.Click += new System.EventHandler(this.btCalculateMD5_Click);
             // 
             // textBoxNewMD5
@@ -427,6 +431,7 @@ namespace eCTD_indexer
             this.textBoxNewMD5.Name = "textBoxNewMD5";
             this.textBoxNewMD5.Size = new System.Drawing.Size(149, 20);
             this.textBoxNewMD5.TabIndex = 118;
+            this.textBoxNewMD5.Visible = false;
             // 
             // textBoxSeqDir
             // 
@@ -434,6 +439,7 @@ namespace eCTD_indexer
             this.textBoxSeqDir.Name = "textBoxSeqDir";
             this.textBoxSeqDir.Size = new System.Drawing.Size(311, 20);
             this.textBoxSeqDir.TabIndex = 108;
+            this.textBoxSeqDir.Visible = false;
             // 
             // label16
             // 
@@ -444,6 +450,7 @@ namespace eCTD_indexer
             this.label16.Size = new System.Drawing.Size(49, 13);
             this.label16.TabIndex = 31;
             this.label16.Text = "Indexer";
+            this.label16.Visible = false;
             // 
             // label17
             // 
@@ -453,6 +460,7 @@ namespace eCTD_indexer
             this.label17.Size = new System.Drawing.Size(191, 13);
             this.label17.TabIndex = 32;
             this.label17.Text = "Path to sequence directory (e.g. 0000):";
+            this.label17.Visible = false;
             // 
             // btGenerateIndexXML
             // 
@@ -462,6 +470,7 @@ namespace eCTD_indexer
             this.btGenerateIndexXML.TabIndex = 112;
             this.btGenerateIndexXML.Text = "index.xml";
             this.btGenerateIndexXML.UseVisualStyleBackColor = true;
+            this.btGenerateIndexXML.Visible = false;
             this.btGenerateIndexXML.Click += new System.EventHandler(this.btGenerateIndexXML_Click);
             // 
             // btDeleteEmptyDirectories
@@ -472,6 +481,7 @@ namespace eCTD_indexer
             this.btDeleteEmptyDirectories.TabIndex = 113;
             this.btDeleteEmptyDirectories.Text = "delete empty";
             this.btDeleteEmptyDirectories.UseVisualStyleBackColor = true;
+            this.btDeleteEmptyDirectories.Visible = false;
             this.btDeleteEmptyDirectories.Click += new System.EventHandler(this.btDeleteEmptyDirectories_Click);
             // 
             // label19
@@ -1518,6 +1528,7 @@ namespace eCTD_indexer
             this.btSelectFile.TabIndex = 116;
             this.btSelectFile.Text = "...";
             this.btSelectFile.UseVisualStyleBackColor = true;
+            this.btSelectFile.Visible = false;
             this.btSelectFile.Click += new System.EventHandler(this.btSelectFile_Click);
             // 
             // label2
@@ -1545,6 +1556,7 @@ namespace eCTD_indexer
             this.btSaveMD5.TabIndex = 119;
             this.btSaveMD5.Text = "save";
             this.btSaveMD5.UseVisualStyleBackColor = true;
+            this.btSaveMD5.Visible = false;
             this.btSaveMD5.Click += new System.EventHandler(this.btSaveMD5_Click);
             // 
             // currentDossierButton
@@ -1555,6 +1567,7 @@ namespace eCTD_indexer
             this.currentDossierButton.TabIndex = 114;
             this.currentDossierButton.Text = "Assemble current dossier";
             this.currentDossierButton.UseVisualStyleBackColor = true;
+            this.currentDossierButton.Visible = false;
             this.currentDossierButton.Click += new System.EventHandler(this.currentDossierButton_Click);
             // 
             // copyEnvelopeButton
@@ -1565,6 +1578,7 @@ namespace eCTD_indexer
             this.copyEnvelopeButton.TabIndex = 8;
             this.copyEnvelopeButton.Text = "copy old envelope";
             this.copyEnvelopeButton.UseVisualStyleBackColor = true;
+            this.copyEnvelopeButton.Visible = false;
             this.copyEnvelopeButton.Click += new System.EventHandler(this.copyEnvelopeButton_Click);
             // 
             // label10

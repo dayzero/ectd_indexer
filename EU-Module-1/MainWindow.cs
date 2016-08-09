@@ -826,26 +826,32 @@ namespace eCTD_indexer
         private void tsbCreate_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog fb = new FolderBrowserDialog();
+            fb.Description = "Please select the root directory where to store all sequences of your dossier.";
             if (fb.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                textBoxSeqDir.Text = fb.SelectedPath;
-                
-                List<string> memberStateList = new List<string>();
-                foreach (Control chkbx in this.Controls)
+                // If the user enter a correct sequence path (0000 for instance) then go ahead.
+                UserDialogue.CreateDossier cd = new UserDialogue.CreateDossier();
+                if (cd.ShowDialog() == DialogResult.OK)
                 {
-                    if (chkbx is CheckBox)
+                    textBoxSeqDir.Text = fb.SelectedPath;
+
+                    List<string> memberStateList = new List<string>();
+                    foreach (Control chkbx in this.Controls)
                     {
-                        if (((CheckBox)chkbx).Checked == true)
+                        if (chkbx is CheckBox)
                         {
-                            memberStateList.Add(chkbx.Tag.ToString().ToLower());
+                            if (((CheckBox)chkbx).Checked == true)
+                            {
+                                memberStateList.Add(chkbx.Tag.ToString().ToLower());
+                            }
                         }
                     }
+
+                    // Create the directories
+                    this.dirs.Create(textBoxSeqDir.Text + @"\" + cd.SequencePath, memberStateList);
+
+                    this.fileExplorerUserControl.PopulateTreeView(fb.SelectedPath);
                 }
-
-                // Create the directories
-                this.dirs.Create(textBoxSeqDir.Text, memberStateList);
-
-                this.fileExplorerUserControl.PopulateTreeView(fb.SelectedPath);
             }
         }
 

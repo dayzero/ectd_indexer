@@ -18,5 +18,6 @@ Links to relevant guidelines:
 # Copyright
 eCTD-indexer is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-The free Iconset "Oxygen" is used: http://www.iconarchive.com/show/oxygen-icons-by-oxygen-icons.org.html 
-(Licence https://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License)
+
+The free Iconset "Oxygen" is also0 used: http://www.iconarchive.com/show/oxygen-icons-by-oxygen-icons.org.html 
+It can be used under the GNU Lesser General Public License: https://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License
