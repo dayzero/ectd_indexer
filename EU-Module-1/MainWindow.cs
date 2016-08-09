@@ -34,6 +34,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Reflection;
 using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 using System.Xml;
 
 
@@ -804,17 +805,33 @@ namespace eCTD_indexer
         }
 
         /// <summary>
-        /// Open a dossier by selecting its folder.
+        /// Open a dossier by selecting the sequence folder.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void tsbOpenDossier_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog fb = new FolderBrowserDialog();
+            fb.Description = "Please select the sequence directory of your dossier.\nFor instance 0000.";
             if (fb.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                this.fileExplorerUserControl.PopulateTreeView(fb.SelectedPath);
-                textBoxSeqDir.Text = fb.SelectedPath;
+                // Pattern
+                String pat = @"(?<=[0-9]{4})";
+
+                // Instantiate the regular expression object.
+                Regex r = new Regex(pat, RegexOptions.IgnoreCase);
+
+                // Match the regular expression pattern against a text string.
+                Match m = r.Match(fb.SelectedPath);
+
+                if (m.Success)
+                {
+                    this.fileExplorerUserControl.PopulateTreeView(fb.SelectedPath);
+                    textBoxSeqDir.Text = fb.SelectedPath;
+                } else
+                {
+                    MessageBox.Show("You selected an incorrect sequence directory.\nA correct sequence folder ends with four digits (e.g. 0001).", "Incorrect sequence directory", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

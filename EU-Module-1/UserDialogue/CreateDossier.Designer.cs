@@ -56,7 +56,7 @@
             // 
             // tbSequencePath
             // 
-            this.tbSequencePath.Location = new System.Drawing.Point(115, 15);
+            this.tbSequencePath.Location = new System.Drawing.Point(157, 15);
             this.tbSequencePath.MaxLength = 4;
             this.tbSequencePath.Name = "tbSequencePath";
             this.tbSequencePath.Size = new System.Drawing.Size(131, 20);
@@ -67,9 +67,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(13, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 13);
+            this.label1.Size = new System.Drawing.Size(138, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Sequence Path:";
+            this.label1.Text = "Sequence Path (e.g. 0000):";
             // 
             // CreateDossier
             // 
