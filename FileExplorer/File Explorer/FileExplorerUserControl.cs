@@ -178,5 +178,18 @@ namespace File_Explorer
             File.Copy(filenames[0], targetfilename, true);
             this.FolderView_ShowFolder();
         }
+
+        /// <summary>
+        /// Open the file on which the user has doubleclicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FileListView_DoubleClick(object sender, EventArgs e)
+        {
+            if(this.FileListView.SelectedItems.Count == 1)
+            {
+                System.Diagnostics.Process.Start(this.selectedpath + @"\" + FileListView.SelectedItems[0].Text);
+            }
+        }
     }
 }

@@ -105,6 +105,7 @@ namespace File_Explorer
             this.FileListView.View = System.Windows.Forms.View.Details;
             this.FileListView.DragDrop += new System.Windows.Forms.DragEventHandler(this.FileListView_DragDrop);
             this.FileListView.DragEnter += new System.Windows.Forms.DragEventHandler(this.FileListView_DragEnter);
+            this.FileListView.DoubleClick += new System.EventHandler(this.FileListView_DoubleClick);
             // 
             // Name
             // 
