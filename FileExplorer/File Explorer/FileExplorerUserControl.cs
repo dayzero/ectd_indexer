@@ -60,6 +60,11 @@ namespace File_Explorer
             }
         }
 
+        /// <summary>
+        /// Build up the directory tree on the left side.
+        /// </summary>
+        /// <param name="subDirs"></param>
+        /// <param name="rootNode"></param>
         private void GetDirectories(DirectoryInfo[] subDirs, TreeNode rootNode)
         {
             TreeNode aNode;
@@ -71,19 +76,19 @@ namespace File_Explorer
                 aNode.Tag = item;
                 subsubDirs = item.GetDirectories();
                 subsubFiles = item.GetFiles();
+                aNode.ImageKey = "Folder";
                 if (subsubDirs.Length != 0)
                 {
-                    aNode.ImageKey = "Folder";
                     GetDirectories(subsubDirs, aNode);
                 }
-                else if(subsubFiles.Length !=0)
+                /*else if(subsubFiles.Length !=0)
                 {
                     aNode.ImageKey = "Folder";
                 }
                 else
                 {
-                    aNode.ImageKey = "Document";
-                }
+                    aNode.ImageKey = "Folder"; // Document
+                }*/
                 rootNode.Nodes.Add(aNode);
             }
         }
@@ -129,41 +134,42 @@ namespace File_Explorer
         /// </summary>
         public void FolderView_ShowFolder()
         {
-            FileListView.Items.Clear();
-            DirectoryInfo nodeDirInfo = (DirectoryInfo)this.selectedpathtag;
-            //this.selectedpath = nodeDirInfo.ToString(); // Store the selected path for drag&drop
-
-            ListViewItem.ListViewSubItem[] subItems;
-            ListViewItem item = null;
-
-            foreach (DirectoryInfo dir in nodeDirInfo.GetDirectories())
+            if (this.selectedpathtag != null)
             {
-                item = new ListViewItem(dir.Name, 1);
-                subItems = new ListViewItem.ListViewSubItem[]
+                FileListView.Items.Clear();
+                DirectoryInfo nodeDirInfo = (DirectoryInfo)this.selectedpathtag;
+
+                ListViewItem.ListViewSubItem[] subItems;
+                ListViewItem item = null;
+
+                foreach (DirectoryInfo dir in nodeDirInfo.GetDirectories())
+                {
+                    item = new ListViewItem(dir.Name, 1);
+                    subItems = new ListViewItem.ListViewSubItem[]
                     {new ListViewItem.ListViewSubItem(item, "Directory"),
                      new ListViewItem.ListViewSubItem(item,
                         dir.LastAccessTime.ToString())};
-                item.SubItems.AddRange(subItems);
-                FileListView.Items.Add(item);
-            }
-            foreach (FileInfo file in nodeDirInfo.GetFiles())
-            {
-                item = new ListViewItem(file.Name, 0);
-                subItems = new ListViewItem.ListViewSubItem[]
+                    item.SubItems.AddRange(subItems);
+                    FileListView.Items.Add(item);
+                }
+                foreach (FileInfo file in nodeDirInfo.GetFiles())
+                {
+                    item = new ListViewItem(file.Name, 0);
+                    subItems = new ListViewItem.ListViewSubItem[]
                     { new ListViewItem.ListViewSubItem(item, "File"),
                      new ListViewItem.ListViewSubItem(item,
                         file.LastAccessTime.ToString())};
-                item.SubItems.AddRange(subItems);
-                FileListView.Items.Add(item);
-            }
+                    item.SubItems.AddRange(subItems);
+                    FileListView.Items.Add(item);
+                }
 
-            FileListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+                FileListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            }
         }
 
         private void FileListView_DragEnter(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.All;
-          
         }
 
         /// <summary>

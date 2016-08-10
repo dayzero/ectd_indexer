@@ -53,12 +53,14 @@ namespace eCTD_indexer
             this.dirs = new eCTD_Directories();
             this.files = new eCTD_Files();
             this.XMLCreate = new XML.Create(this.dirs);
+            this.DossierOpened = false;
         }
 
         // Global variables
         private eCTD_Directories dirs;
         private eCTD_Files files;
         private XML.Create XMLCreate;
+        private bool DossierOpened;
                 
 
         #region Event methods to enables/disables applicant and product name text boxes in line with country checkboxes
@@ -828,6 +830,7 @@ namespace eCTD_indexer
                 {
                     this.fileExplorerUserControl.PopulateTreeView(fb.SelectedPath);
                     textBoxSeqDir.Text = fb.SelectedPath;
+                    this.DossierOpened = true;
                 } else
                 {
                     MessageBox.Show("You selected an incorrect sequence directory.\nA correct sequence folder ends with four digits (e.g. 0001).", "Incorrect sequence directory", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -868,91 +871,96 @@ namespace eCTD_indexer
                     this.dirs.Create(textBoxSeqDir.Text + @"\" + cd.SequencePath, memberStateList);
 
                     this.fileExplorerUserControl.PopulateTreeView(fb.SelectedPath);
+
+                    this.DossierOpened = true;
                 }
             }
         }
 
         private void tsbCreateXMLFiles_Click(object sender, EventArgs e)
         {
-            #region EURegional.xml
-            GeneralArchitectureModule1.EU_envelope envelope = new GeneralArchitectureModule1.EU_envelope();
-            //string variables for EU envelope
-            envelope.UUID = this.lSubmissionIdentifier.Text;
-            envelope.trackingNumber = textBoxTrackNo.Text;
-            envelope.INN = textBoxINN.Text;
-            envelope.submDescr = textBoxSubmDescr.Text;
-            envelope.relSeq = textBoxRelSeq.Text;
-            envelope.procType = comboBoxProcType.Text;
-            envelope.submType = comboBoxSubmType.Text;
-            envelope.m1euPath = textBoxSeqDir.Text + Path.DirectorySeparatorChar + "m1" + Path.DirectorySeparatorChar + "eu";
-            envelope.country = "Common";
-            envelope.language = "";
-            envelope.m131identifier = "combined";
-            envelope.m1euPathIndex = envelope.m1euPath.IndexOf(Path.DirectorySeparatorChar + "m1" + Path.DirectorySeparatorChar);
-            envelope.sequence = envelope.m1euPath.Substring(envelope.m1euPathIndex - 4, 4);
-            envelope.sequencePath = textBoxSeqDir.Text;
-            envelope.applicationMode = comboBoxMode.Text;
-            envelope.appHighLevelNo = textBoxNumber.Text;
-            envelope.comboBoxMode = comboBoxMode.Enabled;
-            envelope.comboBoxSubmUnit = comboBoxSubmUnit.Text;
-            envelope.NumberEnabled = textBoxNumber.Enabled;
-
-            //generate new uuid if no uuid has been copied from a previous sequence (using the copy envelope button)
-            if (envelope.UUID == "")
+            if (this.DossierOpened)
             {
-                envelope.UUID = Guid.NewGuid().ToString();
-                this.lSubmissionIdentifier.Text = envelope.UUID;
-            }
+                #region EURegional.xml
+                GeneralArchitectureModule1.EU_envelope envelope = new GeneralArchitectureModule1.EU_envelope();
+                //string variables for EU envelope
+                envelope.UUID = this.lSubmissionIdentifier.Text;
+                envelope.trackingNumber = textBoxTrackNo.Text;
+                envelope.INN = textBoxINN.Text;
+                envelope.submDescr = textBoxSubmDescr.Text;
+                envelope.relSeq = textBoxRelSeq.Text;
+                envelope.procType = comboBoxProcType.Text;
+                envelope.submType = comboBoxSubmType.Text;
+                envelope.m1euPath = textBoxSeqDir.Text + Path.DirectorySeparatorChar + "m1" + Path.DirectorySeparatorChar + "eu";
+                envelope.country = "Common";
+                envelope.language = "";
+                envelope.m131identifier = "combined";
+                envelope.m1euPathIndex = envelope.m1euPath.IndexOf(Path.DirectorySeparatorChar + "m1" + Path.DirectorySeparatorChar);
+                envelope.sequence = envelope.m1euPath.Substring(envelope.m1euPathIndex - 4, 4);
+                envelope.sequencePath = textBoxSeqDir.Text;
+                envelope.applicationMode = comboBoxMode.Text;
+                envelope.appHighLevelNo = textBoxNumber.Text;
+                envelope.comboBoxMode = comboBoxMode.Enabled;
+                envelope.comboBoxSubmUnit = comboBoxSubmUnit.Text;
+                envelope.NumberEnabled = textBoxNumber.Enabled;
 
-            // collect the name of the countries, agencies, applicants and invented names.
-            foreach (Control control in this.Controls)
-            {
-                if (control is CheckBox)
+                //generate new uuid if no uuid has been copied from a previous sequence (using the copy envelope button)
+                if (envelope.UUID == "")
                 {
-                    if (((CheckBox)control).Checked == true)
-                    {
-                        if (((CheckBox)control).Tag.ToString() == "EMA")
-                        {
-                            envelope.envelopeCountry.Add("EMA");
-                        }
-                        if (((CheckBox)control).Tag.ToString() == "EDQM")
-                        {
-                            envelope.envelopeCountry.Add("EDQM");
-                        }
-                        else
-                        {
-                            envelope.envelopeCountry.Add((((CheckBox)control).Tag.ToString().Substring(0, 2)));
-                        }
-                        envelope.agency.Add((((CheckBox)control).Text.ToString()));
+                    envelope.UUID = Guid.NewGuid().ToString();
+                    this.lSubmissionIdentifier.Text = envelope.UUID;
+                }
 
-                        foreach (Control control2 in this.Controls)
+                // collect the name of the countries, agencies, applicants and invented names.
+                foreach (Control control in this.Controls)
+                {
+                    if (control is CheckBox)
+                    {
+                        if (((CheckBox)control).Checked == true)
                         {
-                            if ((control2 is TextBox) && ((((TextBox)control2).Tag) == (((CheckBox)control).Tag)))
+                            if (((CheckBox)control).Tag.ToString() == "EMA")
                             {
-                                if ((((TextBox)control2).Name) == ("textBox" + (((TextBox)control2).Tag) + "App"))
+                                envelope.envelopeCountry.Add("EMA");
+                            }
+                            if (((CheckBox)control).Tag.ToString() == "EDQM")
+                            {
+                                envelope.envelopeCountry.Add("EDQM");
+                            }
+                            else
+                            {
+                                envelope.envelopeCountry.Add((((CheckBox)control).Tag.ToString().Substring(0, 2)));
+                            }
+                            envelope.agency.Add((((CheckBox)control).Text.ToString()));
+
+                            foreach (Control control2 in this.Controls)
+                            {
+                                if ((control2 is TextBox) && ((((TextBox)control2).Tag) == (((CheckBox)control).Tag)))
                                 {
-                                    envelope.applicant.Add(((TextBox)control2).Text);
-                                }
-                                else
-                                {
-                                    envelope.inventedName.Add(((TextBox)control2).Text);
+                                    if ((((TextBox)control2).Name) == ("textBox" + (((TextBox)control2).Tag) + "App"))
+                                    {
+                                        envelope.applicant.Add(((TextBox)control2).Text);
+                                    }
+                                    else
+                                    {
+                                        envelope.inventedName.Add(((TextBox)control2).Text);
+                                    }
                                 }
                             }
                         }
                     }
                 }
-            }
 
-            // Create the EURegional.xml file
-            this.XMLCreate.EURegional(envelope, this.dirs, this.files);
-            #endregion
+                // Create the EURegional.xml file
+                this.XMLCreate.EURegional(envelope, this.dirs, this.files);
+                #endregion
 
-            #region index.xml
-            if (textBoxSeqDir.Text.CompareTo("") != 0)
-            {
-                this.XMLCreate.IndexXML(textBoxSeqDir.Text, this.dirs, this.files);
+                #region index.xml
+                if (textBoxSeqDir.Text.CompareTo("") != 0)
+                {
+                    this.XMLCreate.IndexXML(textBoxSeqDir.Text, this.dirs, this.files);
+                }
+                #endregion
             }
-            #endregion
         }
 
         private void tsbRefreshFolderView_Click(object sender, EventArgs e)
