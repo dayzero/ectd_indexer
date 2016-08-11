@@ -44,6 +44,21 @@ namespace File_Explorer
         private bool privateDragAndDrop;
         private String privateDragSource;
 
+        public void PopulateTreeView()
+        {
+            if (this.rootDirectory != null)
+            {
+                if (this.rootDirectory != "")
+                {
+                    this.PopulateTreeView(this.rootDirectory + this.FolderView.Nodes[0].Text);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Build up the folder at the left TreeView.
+        /// </summary>
+        /// <param name="rootDirectory"></param>
         public void PopulateTreeView(String rootDirectory)
         {
             this.rootDirectory = rootDirectory;

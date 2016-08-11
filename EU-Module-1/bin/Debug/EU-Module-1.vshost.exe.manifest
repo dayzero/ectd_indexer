@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EU-Module-1.exe" size="413184">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EU-Module-1.exe" size="416768">
       <assemblyIdentity name="EU-Module-1" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>lPrJMo7rPipweIn2OFl3sDW51JI=</dsig:DigestValue>
+        <dsig:DigestValue>5AAx1/x4J0gAgc8sUdFMlB6WOiY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -61,7 +61,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>SLTWM+varlnL2qvHO+zPa/8NVZI=</dsig:DigestValue>
+        <dsig:DigestValue>yefUMM2g1WQoNCt/J+lpDaLDoL0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

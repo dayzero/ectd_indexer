@@ -93,6 +93,16 @@ namespace eCTD_indexer.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Actions_tab_close_other_icon_72x72 {
+            get {
+                object obj = ResourceManager.GetObject("Actions_tab_close_other_icon_72x72", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Actions_view_refresh_icon_72x72 {
             get {
                 object obj = ResourceManager.GetObject("Actions_view_refresh_icon_72x72", resourceCulture);

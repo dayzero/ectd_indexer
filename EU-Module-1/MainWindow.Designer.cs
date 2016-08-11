@@ -54,7 +54,6 @@ namespace eCTD_indexer
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBoxSubmType = new System.Windows.Forms.ComboBox();
-            this.btCreateEURegionalXML = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.textBoxINN = new System.Windows.Forms.TextBox();
@@ -68,8 +67,6 @@ namespace eCTD_indexer
             this.textBoxSeqDir = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.btGenerateIndexXML = new System.Windows.Forms.Button();
-            this.btDeleteEmptyDirectories = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.checkBoxAT = new System.Windows.Forms.CheckBox();
             this.checkBoxBE = new System.Windows.Forms.CheckBox();
@@ -172,8 +169,6 @@ namespace eCTD_indexer
             this.textBoxLTApp = new System.Windows.Forms.TextBox();
             this.textBoxLIApp = new System.Windows.Forms.TextBox();
             this.textBoxLVApp = new System.Windows.Forms.TextBox();
-            this.btSelectFolder = new System.Windows.Forms.Button();
-            this.btCreateFolderTree = new System.Windows.Forms.Button();
             this.btSelectFile = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.label2 = new System.Windows.Forms.Label();
@@ -194,12 +189,13 @@ namespace eCTD_indexer
             this.textBoxDE2 = new System.Windows.Forms.TextBox();
             this.checkBoxDE2 = new System.Windows.Forms.CheckBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.fileExplorerUserControl = new File_Explorer.FileExplorerUserControl();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbCreate = new System.Windows.Forms.ToolStripButton();
             this.tsbOpenDossier = new System.Windows.Forms.ToolStripButton();
             this.tsbCreateXMLFiles = new System.Windows.Forms.ToolStripButton();
             this.tsbRefreshFolderView = new System.Windows.Forms.ToolStripButton();
+            this.tsbDeleteEmptyFolder = new System.Windows.Forms.ToolStripButton();
+            this.fileExplorerUserControl = new File_Explorer.FileExplorerUserControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -334,17 +330,6 @@ namespace eCTD_indexer
             this.comboBoxSubmType.Tag = "7";
             this.comboBoxSubmType.SelectedIndexChanged += new System.EventHandler(this.comboBoxSubmType_SelectedIndexChanged);
             // 
-            // btCreateEURegionalXML
-            // 
-            this.btCreateEURegionalXML.Location = new System.Drawing.Point(125, 648);
-            this.btCreateEURegionalXML.Name = "btCreateEURegionalXML";
-            this.btCreateEURegionalXML.Size = new System.Drawing.Size(75, 23);
-            this.btCreateEURegionalXML.TabIndex = 111;
-            this.btCreateEURegionalXML.Text = "eu-regional";
-            this.btCreateEURegionalXML.UseVisualStyleBackColor = true;
-            this.btCreateEURegionalXML.Visible = false;
-            this.btCreateEURegionalXML.Click += new System.EventHandler(this.btCreateEURegionalXML_Click);
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -461,28 +446,6 @@ namespace eCTD_indexer
             this.label17.TabIndex = 32;
             this.label17.Text = "Path to sequence directory (e.g. 0000):";
             this.label17.Visible = false;
-            // 
-            // btGenerateIndexXML
-            // 
-            this.btGenerateIndexXML.Location = new System.Drawing.Point(206, 648);
-            this.btGenerateIndexXML.Name = "btGenerateIndexXML";
-            this.btGenerateIndexXML.Size = new System.Drawing.Size(75, 23);
-            this.btGenerateIndexXML.TabIndex = 112;
-            this.btGenerateIndexXML.Text = "index.xml";
-            this.btGenerateIndexXML.UseVisualStyleBackColor = true;
-            this.btGenerateIndexXML.Visible = false;
-            this.btGenerateIndexXML.Click += new System.EventHandler(this.btGenerateIndexXML_Click);
-            // 
-            // btDeleteEmptyDirectories
-            // 
-            this.btDeleteEmptyDirectories.Location = new System.Drawing.Point(287, 648);
-            this.btDeleteEmptyDirectories.Name = "btDeleteEmptyDirectories";
-            this.btDeleteEmptyDirectories.Size = new System.Drawing.Size(75, 23);
-            this.btDeleteEmptyDirectories.TabIndex = 113;
-            this.btDeleteEmptyDirectories.Text = "delete empty";
-            this.btDeleteEmptyDirectories.UseVisualStyleBackColor = true;
-            this.btDeleteEmptyDirectories.Visible = false;
-            this.btDeleteEmptyDirectories.Click += new System.EventHandler(this.btDeleteEmptyDirectories_Click);
             // 
             // label19
             // 
@@ -1498,31 +1461,9 @@ namespace eCTD_indexer
             this.textBoxLVApp.TabIndex = 74;
             this.textBoxLVApp.Tag = "LV";
             // 
-            // btSelectFolder
-            // 
-            this.btSelectFolder.Location = new System.Drawing.Point(338, 621);
-            this.btSelectFolder.Name = "btSelectFolder";
-            this.btSelectFolder.Size = new System.Drawing.Size(24, 23);
-            this.btSelectFolder.TabIndex = 109;
-            this.btSelectFolder.Text = "...";
-            this.btSelectFolder.UseVisualStyleBackColor = true;
-            this.btSelectFolder.Visible = false;
-            this.btSelectFolder.Click += new System.EventHandler(this.btSelectFolder_Click);
-            // 
-            // btCreateFolderTree
-            // 
-            this.btCreateFolderTree.Location = new System.Drawing.Point(22, 648);
-            this.btCreateFolderTree.Name = "btCreateFolderTree";
-            this.btCreateFolderTree.Size = new System.Drawing.Size(98, 23);
-            this.btCreateFolderTree.TabIndex = 110;
-            this.btCreateFolderTree.Text = "eCTD folder tree";
-            this.btCreateFolderTree.UseVisualStyleBackColor = true;
-            this.btCreateFolderTree.Visible = false;
-            this.btCreateFolderTree.Click += new System.EventHandler(this.btCreateFolderTree_Click);
-            // 
             // btSelectFile
             // 
-            this.btSelectFile.Location = new System.Drawing.Point(613, 601);
+            this.btSelectFile.Location = new System.Drawing.Point(619, 621);
             this.btSelectFile.Name = "btSelectFile";
             this.btSelectFile.Size = new System.Drawing.Size(26, 23);
             this.btSelectFile.TabIndex = 116;
@@ -1743,7 +1684,6 @@ namespace eCTD_indexer
             this.splitContainer1.Panel2.Controls.Add(this.textBoxED);
             this.splitContainer1.Panel2.Controls.Add(this.lSubmissionIdentifier);
             this.splitContainer1.Panel2.Controls.Add(this.textBoxMT);
-            this.splitContainer1.Panel2.Controls.Add(this.btCreateEURegionalXML);
             this.splitContainer1.Panel2.Controls.Add(this.textBoxEU);
             this.splitContainer1.Panel2.Controls.Add(this.labelSequence);
             this.splitContainer1.Panel2.Controls.Add(this.textBoxNL);
@@ -1790,13 +1730,9 @@ namespace eCTD_indexer
             this.splitContainer1.Panel2.Controls.Add(this.label4);
             this.splitContainer1.Panel2.Controls.Add(this.label17);
             this.splitContainer1.Panel2.Controls.Add(this.checkBoxRO);
-            this.splitContainer1.Panel2.Controls.Add(this.btCreateFolderTree);
             this.splitContainer1.Panel2.Controls.Add(this.textBoxATApp);
-            this.splitContainer1.Panel2.Controls.Add(this.btGenerateIndexXML);
             this.splitContainer1.Panel2.Controls.Add(this.checkBoxPT);
-            this.splitContainer1.Panel2.Controls.Add(this.btSelectFolder);
             this.splitContainer1.Panel2.Controls.Add(this.textBoxBEApp);
-            this.splitContainer1.Panel2.Controls.Add(this.btDeleteEmptyDirectories);
             this.splitContainer1.Panel2.Controls.Add(this.checkBoxPL);
             this.splitContainer1.Panel2.Controls.Add(this.textBoxUKApp);
             this.splitContainer1.Panel2.Controls.Add(this.textBoxBGApp);
@@ -1861,22 +1797,14 @@ namespace eCTD_indexer
             this.splitContainer1.SplitterDistance = 528;
             this.splitContainer1.TabIndex = 122;
             // 
-            // fileExplorerUserControl
-            // 
-            this.fileExplorerUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fileExplorerUserControl.Location = new System.Drawing.Point(0, 25);
-            this.fileExplorerUserControl.Margin = new System.Windows.Forms.Padding(2);
-            this.fileExplorerUserControl.Name = "fileExplorerUserControl";
-            this.fileExplorerUserControl.Size = new System.Drawing.Size(528, 741);
-            this.fileExplorerUserControl.TabIndex = 123;
-            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbCreate,
             this.tsbOpenDossier,
             this.tsbCreateXMLFiles,
-            this.tsbRefreshFolderView});
+            this.tsbRefreshFolderView,
+            this.tsbDeleteEmptyFolder});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(528, 25);
@@ -1923,6 +1851,25 @@ namespace eCTD_indexer
             this.tsbRefreshFolderView.Text = "Refresh Folder View";
             this.tsbRefreshFolderView.Click += new System.EventHandler(this.tsbRefreshFolderView_Click);
             // 
+            // tsbDeleteEmptyFolder
+            // 
+            this.tsbDeleteEmptyFolder.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbDeleteEmptyFolder.Image = global::eCTD_indexer.Properties.Resources.Actions_tab_close_other_icon_72x72;
+            this.tsbDeleteEmptyFolder.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbDeleteEmptyFolder.Name = "tsbDeleteEmptyFolder";
+            this.tsbDeleteEmptyFolder.Size = new System.Drawing.Size(23, 22);
+            this.tsbDeleteEmptyFolder.Text = "Delete Empty Folder";
+            this.tsbDeleteEmptyFolder.Click += new System.EventHandler(this.tsbDeleteEmptyFolder_Click);
+            // 
+            // fileExplorerUserControl
+            // 
+            this.fileExplorerUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fileExplorerUserControl.Location = new System.Drawing.Point(0, 25);
+            this.fileExplorerUserControl.Margin = new System.Windows.Forms.Padding(2);
+            this.fileExplorerUserControl.Name = "fileExplorerUserControl";
+            this.fileExplorerUserControl.Size = new System.Drawing.Size(528, 741);
+            this.fileExplorerUserControl.TabIndex = 123;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1956,7 +1903,6 @@ namespace eCTD_indexer
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBoxSubmType;
-        private System.Windows.Forms.Button btCreateEURegionalXML;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBoxINN;
@@ -1970,8 +1916,6 @@ namespace eCTD_indexer
         private System.Windows.Forms.TextBox textBoxSeqDir;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Button btGenerateIndexXML;
-        private System.Windows.Forms.Button btDeleteEmptyDirectories;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.CheckBox checkBoxAT;
         private System.Windows.Forms.CheckBox checkBoxBE;
@@ -2074,8 +2018,6 @@ namespace eCTD_indexer
         private System.Windows.Forms.TextBox textBoxLTApp;
         private System.Windows.Forms.TextBox textBoxLIApp;
         private System.Windows.Forms.TextBox textBoxLVApp;
-        private System.Windows.Forms.Button btSelectFolder;
-        private System.Windows.Forms.Button btCreateFolderTree;
         private System.Windows.Forms.Button btSelectFile;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label label2;
@@ -2102,6 +2044,7 @@ namespace eCTD_indexer
         private System.Windows.Forms.ToolStripButton tsbCreate;
         private System.Windows.Forms.ToolStripButton tsbCreateXMLFiles;
         private System.Windows.Forms.ToolStripButton tsbRefreshFolderView;
+        private System.Windows.Forms.ToolStripButton tsbDeleteEmptyFolder;
     }
 }
 

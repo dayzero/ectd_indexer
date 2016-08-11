@@ -60,8 +60,7 @@ namespace eCTD_indexer
         private eCTD_Directories dirs;
         private eCTD_Files files;
         private XML.Create XMLCreate;
-        private bool DossierOpened;
-                
+        private bool DossierOpened;          
 
         #region Event methods to enables/disables applicant and product name text boxes in line with country checkboxes
         private void checkBoxAT_CheckedChanged(object sender, EventArgs e)
@@ -576,16 +575,6 @@ namespace eCTD_indexer
         }
 
         /// <summary>
-        /// Generates the eu-regional.xml
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btCreateEURegionalXML_Click(object sender, EventArgs e)
-        {
-            // Moved 
-        }
-
-        /// <summary>
         /// Calculates MD5 for single file
         /// </summary>
         /// <param name="sender"></param>
@@ -598,6 +587,11 @@ namespace eCTD_indexer
             textBoxNewMD5.Text = sum;
         }
 
+        /// <summary>
+        /// Save the MD5 hash.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btSaveMD5_Click(object sender, EventArgs e)
         {
             try
@@ -613,74 +607,10 @@ namespace eCTD_indexer
             }
         }
 
-        private void btGenerateIndexXML_Click(object sender, EventArgs e) //generates index.xml
-        {
-            // Moved 
-        }
-
-        /// <summary>
-        /// Delete all empty directories in the folder named in textBoxSeqDir.Text.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btDeleteEmptyDirectories_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Press OK to delete all empty directories under " + textBoxSeqDir.Text, "Confirm delete", MessageBoxButtons.OKCancel);
-            if (result == DialogResult.OK)
-            {
-                this.dirs.DeleteEmptyDirectories(textBoxSeqDir.Text);                
-            }
-        }
-
-        /// <summary>
-        /// User can select the path to sequence directory (e.g. 0000)
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btSelectFolder_Click(object sender, EventArgs e)
-        {
-            FolderBrowserDialog fb = new FolderBrowserDialog();
-            if (fb.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                textBoxSeqDir.Text = fb.SelectedPath;
-            }
-        }
-
         private void btSelectFile_Click(object sender, EventArgs e)
         {
             openFileDialog1.ShowDialog();
             textBoxMD5.Text = openFileDialog1.FileName;
-        }
-
-
-        /// <summary>
-        /// Create all eCTD directories
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btCreateFolderTree_Click(object sender, EventArgs e)
-        {
-            List<string> memberStateList = new List<string>();
-            foreach (Control chkbx in this.Controls)
-            {
-                if (chkbx is CheckBox)
-                {
-                    if (((CheckBox)chkbx).Checked == true)
-                    {
-                        memberStateList.Add(chkbx.Tag.ToString().ToLower());
-                    }
-                }
-            }
-
-            // Create the directories
-            this.dirs.Create(textBoxSeqDir.Text, memberStateList);
-
-            // Show the user the result if needed.
-            DialogResult result = MessageBox.Show("Open directory: " + textBoxSeqDir.Text + "?", "Directory tree complete", MessageBoxButtons.YesNo); // rootDirectory.ToString()
-            if (result == DialogResult.Yes)
-            {
-                System.Diagnostics.Process.Start(textBoxSeqDir.Text); // rootDirectory.ToString()
-            }
         }
 
         private void currentDossierButton_Click(object sender, EventArgs e)
@@ -868,9 +798,10 @@ namespace eCTD_indexer
                     }
 
                     // Create the directories
-                    this.dirs.Create(textBoxSeqDir.Text + @"\" + cd.SequencePath, memberStateList);
+                    String newfolder = textBoxSeqDir.Text + @"\" + cd.SequencePath;
+                    this.dirs.Create(newfolder, memberStateList);
 
-                    this.fileExplorerUserControl.PopulateTreeView(fb.SelectedPath);
+                    this.fileExplorerUserControl.PopulateTreeView(newfolder);
 
                     this.DossierOpened = true;
                 }
@@ -967,6 +898,19 @@ namespace eCTD_indexer
         {
             // Refresh the folder view
             this.fileExplorerUserControl.FolderView_ShowFolder();
+        }
+
+        private void tsbDeleteEmptyFolder_Click(object sender, EventArgs e)
+        {
+            if (textBoxSeqDir.Text != "")
+            {
+                DialogResult result = MessageBox.Show("Press OK to delete all empty directories under " + textBoxSeqDir.Text, "Confirm delete", MessageBoxButtons.OKCancel);
+                if (result == DialogResult.OK)
+                {
+                    this.dirs.DeleteEmptyDirectories(textBoxSeqDir.Text);
+                    this.fileExplorerUserControl.PopulateTreeView();
+                }
+            }
         }   
     }
 
