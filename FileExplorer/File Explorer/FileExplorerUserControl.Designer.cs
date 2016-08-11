@@ -33,11 +33,10 @@ namespace File_Explorer
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FileExplorerUserControl));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.FolderView = new System.Windows.Forms.TreeView();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.imageList1 = new System.Windows.Forms.ImageList();
             this.FileListView = new System.Windows.Forms.ListView();
             this.Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Type = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -70,6 +69,7 @@ namespace File_Explorer
             // 
             // FolderView
             // 
+            this.FolderView.AllowDrop = true;
             this.FolderView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FolderView.ImageIndex = 0;
             this.FolderView.ImageList = this.imageList1;
@@ -79,6 +79,8 @@ namespace File_Explorer
             this.FolderView.SelectedImageIndex = 0;
             this.FolderView.Size = new System.Drawing.Size(248, 500);
             this.FolderView.TabIndex = 1;
+            this.FolderView.DragDrop += new System.Windows.Forms.DragEventHandler(this.FolderView_DragDrop);
+            this.FolderView.DragEnter += new System.Windows.Forms.DragEventHandler(this.FolderView_DragEnter);
             // 
             // imageList1
             // 
@@ -103,6 +105,7 @@ namespace File_Explorer
             this.FileListView.TabIndex = 1;
             this.FileListView.UseCompatibleStateImageBehavior = false;
             this.FileListView.View = System.Windows.Forms.View.Details;
+            this.FileListView.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.FileListView_ItemDrag);
             this.FileListView.DragDrop += new System.Windows.Forms.DragEventHandler(this.FileListView_DragDrop);
             this.FileListView.DragEnter += new System.Windows.Forms.DragEventHandler(this.FileListView_DragEnter);
             this.FileListView.DoubleClick += new System.EventHandler(this.FileListView_DoubleClick);

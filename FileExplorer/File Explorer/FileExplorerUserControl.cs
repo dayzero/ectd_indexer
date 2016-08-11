@@ -41,6 +41,8 @@ namespace File_Explorer
         private String selectedpath;
         private Object selectedpathtag;
         private String rootDirectory;
+        private bool privateDragAndDrop;
+        private String privateDragSource;
 
         public void PopulateTreeView(String rootDirectory)
         {
@@ -169,19 +171,37 @@ namespace File_Explorer
 
         private void FileListView_DragEnter(object sender, DragEventArgs e)
         {
-            e.Effect = DragDropEffects.All;
+            if (this.privateDragAndDrop)
+            { e.Effect = e.AllowedEffect; }
+            else
+            { e.Effect = DragDropEffects.All; }
         }
 
         /// <summary>
-        /// Copy file to the selected path.
+        /// Copy or move a file to the selected path.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void FileListView_DragDrop(object sender, DragEventArgs e)
         {
-            String [] filenames = (String [])e.Data.GetData(DataFormats.FileDrop, false);
-            String targetfilename = this.selectedpath + "\\" + Path.GetFileName(filenames[0]);
-            File.Copy(filenames[0], targetfilename, true);
+            if (!this.privateDragAndDrop)
+            {
+                String[] filenames = (String[])e.Data.GetData(DataFormats.FileDrop, false);
+                String targetfilename = this.selectedpath + "\\" + Path.GetFileName(filenames[0]);
+                File.Copy(filenames[0], targetfilename, true);            
+            }
+            else
+            {
+                var pos = this.FileListView.PointToClient(new Point(e.X, e.Y));
+                var hit = this.FileListView.HitTest(pos);
+                if (hit.Item != null)
+                {
+                    ListViewItem targetfolder = hit.Item;
+                    String target = this.selectedpath + @"\" + targetfolder.Text + @"\" + this.FileListView.SelectedItems[0].Text;
+                    File.Move(this.privateDragSource, target);
+                }
+            }
+
             this.FolderView_ShowFolder();
         }
 
@@ -194,8 +214,76 @@ namespace File_Explorer
         {
             if(this.FileListView.SelectedItems.Count == 1)
             {
-                System.Diagnostics.Process.Start(this.selectedpath + @"\" + FileListView.SelectedItems[0].Text);
+                if (this.FileListView.SelectedItems[0].SubItems.Count == 3)
+                {
+                    if (this.FileListView.SelectedItems[0].SubItems[1].Text == "File")
+                    {
+                        System.Diagnostics.Process.Start(this.selectedpath + @"\" + FileListView.SelectedItems[0].Text);
+                    }
+                    else if (this.FileListView.SelectedItems[0].SubItems[1].Text == "Directory")
+                    {
+                        // TODO
+                    }
+                }
             }
+        }
+        
+        /// <summary>
+        /// Fires if a user starts a FileListView-internal drag&drop action.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FileListView_ItemDrag(object sender, ItemDragEventArgs e)
+        {
+            privateDragAndDrop = true;
+            ListViewItem movingnode = (ListViewItem)e.Item;
+            this.privateDragSource = this.selectedpath + @"\" + movingnode.Text;
+            DoDragDrop(e.Item, DragDropEffects.Move);
+
+            privateDragAndDrop = false;
+            this.privateDragSource = "";
+        }
+
+        /// <summary>
+        /// Copy or move a file to a folder.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FolderView_DragDrop(object sender, DragEventArgs e)
+        {
+            if (this.FileListView.SelectedItems[0].SubItems[1].Text == "File")
+            {
+                var pos = this.FolderView.PointToClient(new Point(e.X, e.Y));
+                var hit = this.FolderView.HitTest(pos);
+                if (hit.Node != null)
+                {
+                    DirectoryInfo nodeDirInfo = (DirectoryInfo)this.selectedpathtag;
+                    TreeNode previousNode = hit.Node.Parent;
+                    String path = "";
+                    String targetfolder = this.rootDirectory;
+
+                    while (previousNode != null)
+                    {
+                        path = previousNode.Text + @"\" + path;
+                        previousNode = previousNode.Parent;
+                    }
+
+                    targetfolder += path;
+
+                    String target = targetfolder + hit.Node.Text + @"\" + this.FileListView.SelectedItems[0].Text;
+                    File.Move(this.privateDragSource, target);
+                }
+            }
+
+            this.FolderView_ShowFolder();
+        }
+
+        private void FolderView_DragEnter(object sender, DragEventArgs e)
+        {
+            if (this.privateDragAndDrop)
+            { e.Effect = e.AllowedEffect; }
+            else
+            { e.Effect = DragDropEffects.All; }
         }
     }
 }
