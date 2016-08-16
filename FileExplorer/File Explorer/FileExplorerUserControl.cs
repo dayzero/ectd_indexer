@@ -300,5 +300,30 @@ namespace File_Explorer
             else
             { e.Effect = DragDropEffects.All; }
         }
+
+        private void FileListView_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                if (FileListView.FocusedItem.Bounds.Contains(e.Location) == true)
+                {
+                    contextMenuFileListView.Show(Cursor.Position);
+                }
+            } 
+        }
+
+        private void FolderView_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                // Select the clicked node
+                FolderView.SelectedNode = FolderView.GetNodeAt(e.X, e.Y);
+
+                if (FolderView.SelectedNode != null)
+                {
+                    contextMenuFolderView.Show(FolderView, e.Location);
+                }
+            } 
+        }
     }
 }

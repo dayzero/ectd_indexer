@@ -49,19 +49,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>chpKJQhwx6gUKQHfZ89OS3Ebk/s=</dsig:DigestValue>
+        <dsig:DigestValue>tZyX2VlKq7KERn1EyFBDuvhdcHA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="File Explorer.dll" size="16896">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="File Explorer.dll" size="18944">
       <assemblyIdentity name="File Explorer" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>yefUMM2g1WQoNCt/J+lpDaLDoL0=</dsig:DigestValue>
+        <dsig:DigestValue>Ac/+f5dyck7HmM16SxijFNJ3kXw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
