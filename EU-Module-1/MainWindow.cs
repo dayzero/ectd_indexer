@@ -876,6 +876,17 @@ namespace eCTD_indexer
                     this.fileExplorerUserControl.PopulateTreeView();
                 }
             }
+        }
+
+        /// <summary>
+        /// Show the About-Dialog.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsbAbout_Click(object sender, EventArgs e)
+        {
+            AboutBox about = new AboutBox();
+            about.ShowDialog();
         }   
     }
 

@@ -190,6 +190,7 @@ namespace eCTD_indexer
             this.tsbCreateXMLFiles = new System.Windows.Forms.ToolStripButton();
             this.tsbRefreshFolderView = new System.Windows.Forms.ToolStripButton();
             this.tsbDeleteEmptyFolder = new System.Windows.Forms.ToolStripButton();
+            this.tsbAbout = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -1742,7 +1743,8 @@ namespace eCTD_indexer
             this.tsbOpenDossier,
             this.tsbCreateXMLFiles,
             this.tsbRefreshFolderView,
-            this.tsbDeleteEmptyFolder});
+            this.tsbDeleteEmptyFolder,
+            this.tsbAbout});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(528, 25);
@@ -1798,6 +1800,16 @@ namespace eCTD_indexer
             this.tsbDeleteEmptyFolder.Size = new System.Drawing.Size(23, 22);
             this.tsbDeleteEmptyFolder.Text = "Delete Empty Folder";
             this.tsbDeleteEmptyFolder.Click += new System.EventHandler(this.tsbDeleteEmptyFolder_Click);
+            // 
+            // tsbAbout
+            // 
+            this.tsbAbout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbAbout.Image = global::eCTD_indexer.Properties.Resources.Actions_help_about_icon_72x72;
+            this.tsbAbout.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbAbout.Name = "tsbAbout";
+            this.tsbAbout.Size = new System.Drawing.Size(23, 22);
+            this.tsbAbout.Text = "Info...";
+            this.tsbAbout.Click += new System.EventHandler(this.tsbAbout_Click);
             // 
             // MainWindow
             // 
@@ -1968,6 +1980,7 @@ namespace eCTD_indexer
         private System.Windows.Forms.ToolStripButton tsbCreateXMLFiles;
         private System.Windows.Forms.ToolStripButton tsbRefreshFolderView;
         private System.Windows.Forms.ToolStripButton tsbDeleteEmptyFolder;
+        private System.Windows.Forms.ToolStripButton tsbAbout;
     }
 }
 

@@ -124,6 +124,9 @@
   <data name="Actions_folder_new_icon_72x72" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Actions-folder-new-icon_72x72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Actions_help_about_icon_72x72" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Actions-help-about-icon_72x72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Actions_system_run_icon_72x72" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Actions-system-run-icon_72x72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
