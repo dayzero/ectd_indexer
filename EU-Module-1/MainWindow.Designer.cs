@@ -60,10 +60,6 @@ namespace eCTD_indexer
             this.label13 = new System.Windows.Forms.Label();
             this.textBoxSubmDescr = new System.Windows.Forms.TextBox();
             this.labelSubmissionUnit = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.textBoxMD5 = new System.Windows.Forms.TextBox();
-            this.btCalculateMD5 = new System.Windows.Forms.Button();
-            this.textBoxNewMD5 = new System.Windows.Forms.TextBox();
             this.textBoxSeqDir = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -169,11 +165,9 @@ namespace eCTD_indexer
             this.textBoxLTApp = new System.Windows.Forms.TextBox();
             this.textBoxLIApp = new System.Windows.Forms.TextBox();
             this.textBoxLVApp = new System.Windows.Forms.TextBox();
-            this.btSelectFile = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxRelSeq = new System.Windows.Forms.TextBox();
-            this.btSaveMD5 = new System.Windows.Forms.Button();
             this.currentDossierButton = new System.Windows.Forms.Button();
             this.copyEnvelopeButton = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -189,13 +183,13 @@ namespace eCTD_indexer
             this.textBoxDE2 = new System.Windows.Forms.TextBox();
             this.checkBoxDE2 = new System.Windows.Forms.CheckBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.fileExplorerUserControl = new File_Explorer.FileExplorerUserControl();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbCreate = new System.Windows.Forms.ToolStripButton();
             this.tsbOpenDossier = new System.Windows.Forms.ToolStripButton();
             this.tsbCreateXMLFiles = new System.Windows.Forms.ToolStripButton();
             this.tsbRefreshFolderView = new System.Windows.Forms.ToolStripButton();
             this.tsbDeleteEmptyFolder = new System.Windows.Forms.ToolStripButton();
-            this.fileExplorerUserControl = new File_Explorer.FileExplorerUserControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -380,43 +374,6 @@ namespace eCTD_indexer
             this.labelSubmissionUnit.Size = new System.Drawing.Size(80, 13);
             this.labelSubmissionUnit.TabIndex = 87;
             this.labelSubmissionUnit.Text = "Submission unit";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(385, 607);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(190, 13);
-            this.label15.TabIndex = 26;
-            this.label15.Text = "Calculate MD5 checksum for single file";
-            this.label15.Visible = false;
-            // 
-            // textBoxMD5
-            // 
-            this.textBoxMD5.Location = new System.Drawing.Point(387, 623);
-            this.textBoxMD5.Name = "textBoxMD5";
-            this.textBoxMD5.Size = new System.Drawing.Size(226, 20);
-            this.textBoxMD5.TabIndex = 115;
-            this.textBoxMD5.Visible = false;
-            // 
-            // btCalculateMD5
-            // 
-            this.btCalculateMD5.Location = new System.Drawing.Point(387, 648);
-            this.btCalculateMD5.Name = "btCalculateMD5";
-            this.btCalculateMD5.Size = new System.Drawing.Size(51, 23);
-            this.btCalculateMD5.TabIndex = 117;
-            this.btCalculateMD5.Text = "MD5";
-            this.btCalculateMD5.UseVisualStyleBackColor = true;
-            this.btCalculateMD5.Visible = false;
-            this.btCalculateMD5.Click += new System.EventHandler(this.btCalculateMD5_Click);
-            // 
-            // textBoxNewMD5
-            // 
-            this.textBoxNewMD5.Location = new System.Drawing.Point(444, 648);
-            this.textBoxNewMD5.Name = "textBoxNewMD5";
-            this.textBoxNewMD5.Size = new System.Drawing.Size(149, 20);
-            this.textBoxNewMD5.TabIndex = 118;
-            this.textBoxNewMD5.Visible = false;
             // 
             // textBoxSeqDir
             // 
@@ -1461,17 +1418,6 @@ namespace eCTD_indexer
             this.textBoxLVApp.TabIndex = 74;
             this.textBoxLVApp.Tag = "LV";
             // 
-            // btSelectFile
-            // 
-            this.btSelectFile.Location = new System.Drawing.Point(619, 621);
-            this.btSelectFile.Name = "btSelectFile";
-            this.btSelectFile.Size = new System.Drawing.Size(26, 23);
-            this.btSelectFile.TabIndex = 116;
-            this.btSelectFile.Text = "...";
-            this.btSelectFile.UseVisualStyleBackColor = true;
-            this.btSelectFile.Visible = false;
-            this.btSelectFile.Click += new System.EventHandler(this.btSelectFile_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -1489,17 +1435,6 @@ namespace eCTD_indexer
             this.textBoxRelSeq.Size = new System.Drawing.Size(213, 20);
             this.textBoxRelSeq.TabIndex = 6;
             // 
-            // btSaveMD5
-            // 
-            this.btSaveMD5.Location = new System.Drawing.Point(599, 648);
-            this.btSaveMD5.Name = "btSaveMD5";
-            this.btSaveMD5.Size = new System.Drawing.Size(46, 23);
-            this.btSaveMD5.TabIndex = 119;
-            this.btSaveMD5.Text = "save";
-            this.btSaveMD5.UseVisualStyleBackColor = true;
-            this.btSaveMD5.Visible = false;
-            this.btSaveMD5.Click += new System.EventHandler(this.btSaveMD5_Click);
-            // 
             // currentDossierButton
             // 
             this.currentDossierButton.Location = new System.Drawing.Point(22, 677);
@@ -1513,7 +1448,7 @@ namespace eCTD_indexer
             // 
             // copyEnvelopeButton
             // 
-            this.copyEnvelopeButton.Location = new System.Drawing.Point(536, 677);
+            this.copyEnvelopeButton.Location = new System.Drawing.Point(437, 623);
             this.copyEnvelopeButton.Name = "copyEnvelopeButton";
             this.copyEnvelopeButton.Size = new System.Drawing.Size(109, 23);
             this.copyEnvelopeButton.TabIndex = 8;
@@ -1705,19 +1640,14 @@ namespace eCTD_indexer
             this.splitContainer1.Panel2.Controls.Add(this.textBoxSubmDescr);
             this.splitContainer1.Panel2.Controls.Add(this.textBoxBG);
             this.splitContainer1.Panel2.Controls.Add(this.textBoxSK);
-            this.splitContainer1.Panel2.Controls.Add(this.label15);
             this.splitContainer1.Panel2.Controls.Add(this.textBoxBE);
             this.splitContainer1.Panel2.Controls.Add(this.copyEnvelopeButton);
             this.splitContainer1.Panel2.Controls.Add(this.textBoxSI);
-            this.splitContainer1.Panel2.Controls.Add(this.textBoxMD5);
             this.splitContainer1.Panel2.Controls.Add(this.checkBoxUK);
             this.splitContainer1.Panel2.Controls.Add(this.currentDossierButton);
             this.splitContainer1.Panel2.Controls.Add(this.textBoxES);
-            this.splitContainer1.Panel2.Controls.Add(this.btCalculateMD5);
             this.splitContainer1.Panel2.Controls.Add(this.checkBoxSE);
-            this.splitContainer1.Panel2.Controls.Add(this.btSaveMD5);
             this.splitContainer1.Panel2.Controls.Add(this.textBoxSE);
-            this.splitContainer1.Panel2.Controls.Add(this.textBoxNewMD5);
             this.splitContainer1.Panel2.Controls.Add(this.checkBoxES);
             this.splitContainer1.Panel2.Controls.Add(this.textBoxRelSeq);
             this.splitContainer1.Panel2.Controls.Add(this.textBoxUK);
@@ -1726,7 +1656,6 @@ namespace eCTD_indexer
             this.splitContainer1.Panel2.Controls.Add(this.label2);
             this.splitContainer1.Panel2.Controls.Add(this.label3);
             this.splitContainer1.Panel2.Controls.Add(this.checkBoxSK);
-            this.splitContainer1.Panel2.Controls.Add(this.btSelectFile);
             this.splitContainer1.Panel2.Controls.Add(this.label4);
             this.splitContainer1.Panel2.Controls.Add(this.label17);
             this.splitContainer1.Panel2.Controls.Add(this.checkBoxRO);
@@ -1797,6 +1726,15 @@ namespace eCTD_indexer
             this.splitContainer1.SplitterDistance = 528;
             this.splitContainer1.TabIndex = 122;
             // 
+            // fileExplorerUserControl
+            // 
+            this.fileExplorerUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fileExplorerUserControl.Location = new System.Drawing.Point(0, 25);
+            this.fileExplorerUserControl.Margin = new System.Windows.Forms.Padding(2);
+            this.fileExplorerUserControl.Name = "fileExplorerUserControl";
+            this.fileExplorerUserControl.Size = new System.Drawing.Size(528, 741);
+            this.fileExplorerUserControl.TabIndex = 123;
+            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1861,15 +1799,6 @@ namespace eCTD_indexer
             this.tsbDeleteEmptyFolder.Text = "Delete Empty Folder";
             this.tsbDeleteEmptyFolder.Click += new System.EventHandler(this.tsbDeleteEmptyFolder_Click);
             // 
-            // fileExplorerUserControl
-            // 
-            this.fileExplorerUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fileExplorerUserControl.Location = new System.Drawing.Point(0, 25);
-            this.fileExplorerUserControl.Margin = new System.Windows.Forms.Padding(2);
-            this.fileExplorerUserControl.Name = "fileExplorerUserControl";
-            this.fileExplorerUserControl.Size = new System.Drawing.Size(528, 741);
-            this.fileExplorerUserControl.TabIndex = 123;
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1908,11 +1837,7 @@ namespace eCTD_indexer
         private System.Windows.Forms.TextBox textBoxINN;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBoxSubmDescr;
-		private System.Windows.Forms.Label labelSubmissionUnit;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBoxMD5;
-        private System.Windows.Forms.Button btCalculateMD5;
-        private System.Windows.Forms.TextBox textBoxNewMD5;
+        private System.Windows.Forms.Label labelSubmissionUnit;
         private System.Windows.Forms.TextBox textBoxSeqDir;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
@@ -2018,11 +1943,9 @@ namespace eCTD_indexer
         private System.Windows.Forms.TextBox textBoxLTApp;
         private System.Windows.Forms.TextBox textBoxLIApp;
         private System.Windows.Forms.TextBox textBoxLVApp;
-        private System.Windows.Forms.Button btSelectFile;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxRelSeq;
-        private System.Windows.Forms.Button btSaveMD5;
         private System.Windows.Forms.Button currentDossierButton;
         private System.Windows.Forms.Button copyEnvelopeButton;
         private System.Windows.Forms.Label label10;

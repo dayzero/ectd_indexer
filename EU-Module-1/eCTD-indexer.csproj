@@ -113,6 +113,7 @@
       <DependentUpon>CreateDossier.cs</DependentUpon>
     </Compile>
     <Compile Include="XML\Create.cs" />
+    <Compile Include="XML\MD5.cs" />
     <Compile Include="XML\Sort.cs">
     </Compile>
   </ItemGroup>

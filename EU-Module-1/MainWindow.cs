@@ -574,45 +574,6 @@ namespace eCTD_indexer
             }
         }
 
-        /// <summary>
-        /// Calculates MD5 for single file
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btCalculateMD5_Click(object sender, EventArgs e)
-        {
-            string singleMD5 = textBoxMD5.Text;
-            MD5Calculator checksum = new MD5Calculator();
-            string sum = checksum.ComputeMD5Checksum(singleMD5);
-            textBoxNewMD5.Text = sum;
-        }
-
-        /// <summary>
-        /// Save the MD5 hash.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btSaveMD5_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string indexmd5output = textBoxMD5.Text.Substring(0, textBoxMD5.Text.LastIndexOf(Path.DirectorySeparatorChar)) + Path.DirectorySeparatorChar + "index-md5.txt";
-                StreamWriter indexmd5 = File.CreateText(indexmd5output);                
-                indexmd5.WriteLine(textBoxNewMD5.Text);
-                indexmd5.Close();
-            }
-            catch (Exception h)
-            {
-                MessageBox.Show(h.ToString(), "Saving index-md5.txt failed");
-            }
-        }
-
-        private void btSelectFile_Click(object sender, EventArgs e)
-        {
-            openFileDialog1.ShowDialog();
-            textBoxMD5.Text = openFileDialog1.FileName;
-        }
-
         private void currentDossierButton_Click(object sender, EventArgs e)
         {
             string topSequenceFolder = textBoxSeqDir.Text.Substring(0, textBoxSeqDir.Text.Length - 5);
@@ -882,7 +843,11 @@ namespace eCTD_indexer
                 }
 
                 // Create the EURegional.xml file
-                this.XMLCreate.EURegional(envelope, this.dirs, this.files);
+                //try
+                //{
+                    this.XMLCreate.EURegional(envelope, this.dirs, this.files);
+                //}
+                //catch (DirectoryNotFoundException) { }
                 #endregion
 
                 #region index.xml

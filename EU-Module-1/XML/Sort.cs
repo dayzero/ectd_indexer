@@ -421,9 +421,13 @@ namespace eCTD_indexer
                 }
             }
 
-            XmlTextWriter writer = new XmlTextWriter(xmlFile, null);
-            writer.Formatting = Formatting.Indented;
-            mySourceDoc.Save(writer);            
+            // Write the XML file
+            XmlWriterSettings settings = new XmlWriterSettings();
+            settings.Indent = true;
+            settings.IndentChars = "\t";
+            XmlWriter writer = XmlWriter.Create(xmlFile, settings);
+            mySourceDoc.Save(writer);
+            writer.Close();
         }
 		
 		public void m1sort(string xmlFile)
