@@ -301,6 +301,11 @@ namespace File_Explorer
             { e.Effect = DragDropEffects.All; }
         }
 
+        /// <summary>
+        /// Show the context menu of FileListView
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FileListView_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -312,6 +317,11 @@ namespace File_Explorer
             } 
         }
 
+        /// <summary>
+        /// Show the context menu of FolderView.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FolderView_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -324,6 +334,11 @@ namespace File_Explorer
                     contextMenuFolderView.Show(FolderView, e.Location);
                 }
             } 
+        }
+
+        private void tsmiCreateFolder_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

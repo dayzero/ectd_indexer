@@ -60,7 +60,6 @@ namespace eCTD_indexer
             this.label13 = new System.Windows.Forms.Label();
             this.textBoxSubmDescr = new System.Windows.Forms.TextBox();
             this.labelSubmissionUnit = new System.Windows.Forms.Label();
-            this.textBoxSeqDir = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -183,19 +182,19 @@ namespace eCTD_indexer
             this.textBoxDE2 = new System.Windows.Forms.TextBox();
             this.checkBoxDE2 = new System.Windows.Forms.CheckBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.fileExplorerUserControl = new File_Explorer.FileExplorerUserControl();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.tsbCreate = new System.Windows.Forms.ToolStripButton();
             this.tsbOpenDossier = new System.Windows.Forms.ToolStripButton();
             this.tsbCreateXMLFiles = new System.Windows.Forms.ToolStripButton();
             this.tsbRefreshFolderView = new System.Windows.Forms.ToolStripButton();
             this.tsbDeleteEmptyFolder = new System.Windows.Forms.ToolStripButton();
             this.tsbAbout = new System.Windows.Forms.ToolStripButton();
+            this.fileExplorerUserControl = new File_Explorer.FileExplorerUserControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
+            this.toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxTrackNo
@@ -375,14 +374,6 @@ namespace eCTD_indexer
             this.labelSubmissionUnit.Size = new System.Drawing.Size(80, 13);
             this.labelSubmissionUnit.TabIndex = 87;
             this.labelSubmissionUnit.Text = "Submission unit";
-            // 
-            // textBoxSeqDir
-            // 
-            this.textBoxSeqDir.Location = new System.Drawing.Point(21, 623);
-            this.textBoxSeqDir.Name = "textBoxSeqDir";
-            this.textBoxSeqDir.Size = new System.Drawing.Size(311, 20);
-            this.textBoxSeqDir.TabIndex = 108;
-            this.textBoxSeqDir.Visible = false;
             // 
             // label16
             // 
@@ -1585,7 +1576,7 @@ namespace eCTD_indexer
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.fileExplorerUserControl);
-            this.splitContainer1.Panel1.Controls.Add(this.toolStrip1);
+            this.splitContainer1.Panel1.Controls.Add(this.toolStrip);
             // 
             // splitContainer1.Panel2
             // 
@@ -1652,7 +1643,6 @@ namespace eCTD_indexer
             this.splitContainer1.Panel2.Controls.Add(this.checkBoxES);
             this.splitContainer1.Panel2.Controls.Add(this.textBoxRelSeq);
             this.splitContainer1.Panel2.Controls.Add(this.textBoxUK);
-            this.splitContainer1.Panel2.Controls.Add(this.textBoxSeqDir);
             this.splitContainer1.Panel2.Controls.Add(this.checkBoxSI);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
             this.splitContainer1.Panel2.Controls.Add(this.label3);
@@ -1727,29 +1717,23 @@ namespace eCTD_indexer
             this.splitContainer1.SplitterDistance = 528;
             this.splitContainer1.TabIndex = 122;
             // 
-            // fileExplorerUserControl
+            // toolStrip
             // 
-            this.fileExplorerUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fileExplorerUserControl.Location = new System.Drawing.Point(0, 25);
-            this.fileExplorerUserControl.Margin = new System.Windows.Forms.Padding(2);
-            this.fileExplorerUserControl.Name = "fileExplorerUserControl";
-            this.fileExplorerUserControl.Size = new System.Drawing.Size(528, 741);
-            this.fileExplorerUserControl.TabIndex = 123;
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbCreate,
             this.tsbOpenDossier,
             this.tsbCreateXMLFiles,
             this.tsbRefreshFolderView,
             this.tsbDeleteEmptyFolder,
             this.tsbAbout});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(528, 25);
-            this.toolStrip1.TabIndex = 122;
-            this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip.Name = "toolStrip";
+            this.toolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.toolStrip.Size = new System.Drawing.Size(528, 39);
+            this.toolStrip.Stretch = true;
+            this.toolStrip.TabIndex = 122;
+            this.toolStrip.Text = "toolStrip";
             // 
             // tsbCreate
             // 
@@ -1757,7 +1741,7 @@ namespace eCTD_indexer
             this.tsbCreate.Image = global::eCTD_indexer.Properties.Resources.Actions_folder_new_icon_72x72;
             this.tsbCreate.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbCreate.Name = "tsbCreate";
-            this.tsbCreate.Size = new System.Drawing.Size(23, 22);
+            this.tsbCreate.Size = new System.Drawing.Size(36, 36);
             this.tsbCreate.Text = "Create a new dossier";
             this.tsbCreate.Click += new System.EventHandler(this.tsbCreate_Click);
             // 
@@ -1767,7 +1751,7 @@ namespace eCTD_indexer
             this.tsbOpenDossier.Image = global::eCTD_indexer.Properties.Resources.Actions_document_open_icon_72x72;
             this.tsbOpenDossier.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbOpenDossier.Name = "tsbOpenDossier";
-            this.tsbOpenDossier.Size = new System.Drawing.Size(23, 22);
+            this.tsbOpenDossier.Size = new System.Drawing.Size(36, 36);
             this.tsbOpenDossier.Text = "Open Dossier";
             this.tsbOpenDossier.Click += new System.EventHandler(this.tsbOpenDossier_Click);
             // 
@@ -1777,7 +1761,7 @@ namespace eCTD_indexer
             this.tsbCreateXMLFiles.Image = global::eCTD_indexer.Properties.Resources.Actions_system_run_icon_72x72;
             this.tsbCreateXMLFiles.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbCreateXMLFiles.Name = "tsbCreateXMLFiles";
-            this.tsbCreateXMLFiles.Size = new System.Drawing.Size(23, 22);
+            this.tsbCreateXMLFiles.Size = new System.Drawing.Size(36, 36);
             this.tsbCreateXMLFiles.Text = "Create XML files";
             this.tsbCreateXMLFiles.Click += new System.EventHandler(this.tsbCreateXMLFiles_Click);
             // 
@@ -1787,7 +1771,7 @@ namespace eCTD_indexer
             this.tsbRefreshFolderView.Image = global::eCTD_indexer.Properties.Resources.Actions_view_refresh_icon_72x72;
             this.tsbRefreshFolderView.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbRefreshFolderView.Name = "tsbRefreshFolderView";
-            this.tsbRefreshFolderView.Size = new System.Drawing.Size(23, 22);
+            this.tsbRefreshFolderView.Size = new System.Drawing.Size(36, 36);
             this.tsbRefreshFolderView.Text = "Refresh Folder View";
             this.tsbRefreshFolderView.Click += new System.EventHandler(this.tsbRefreshFolderView_Click);
             // 
@@ -1797,7 +1781,7 @@ namespace eCTD_indexer
             this.tsbDeleteEmptyFolder.Image = global::eCTD_indexer.Properties.Resources.Actions_tab_close_other_icon_72x72;
             this.tsbDeleteEmptyFolder.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbDeleteEmptyFolder.Name = "tsbDeleteEmptyFolder";
-            this.tsbDeleteEmptyFolder.Size = new System.Drawing.Size(23, 22);
+            this.tsbDeleteEmptyFolder.Size = new System.Drawing.Size(36, 36);
             this.tsbDeleteEmptyFolder.Text = "Delete Empty Folder";
             this.tsbDeleteEmptyFolder.Click += new System.EventHandler(this.tsbDeleteEmptyFolder_Click);
             // 
@@ -1807,9 +1791,18 @@ namespace eCTD_indexer
             this.tsbAbout.Image = global::eCTD_indexer.Properties.Resources.Actions_help_about_icon_72x72;
             this.tsbAbout.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbAbout.Name = "tsbAbout";
-            this.tsbAbout.Size = new System.Drawing.Size(23, 22);
+            this.tsbAbout.Size = new System.Drawing.Size(36, 36);
             this.tsbAbout.Text = "Info...";
             this.tsbAbout.Click += new System.EventHandler(this.tsbAbout_Click);
+            // 
+            // fileExplorerUserControl
+            // 
+            this.fileExplorerUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fileExplorerUserControl.Location = new System.Drawing.Point(0, 39);
+            this.fileExplorerUserControl.Margin = new System.Windows.Forms.Padding(2);
+            this.fileExplorerUserControl.Name = "fileExplorerUserControl";
+            this.fileExplorerUserControl.Size = new System.Drawing.Size(528, 727);
+            this.fileExplorerUserControl.TabIndex = 123;
             // 
             // MainWindow
             // 
@@ -1829,8 +1822,8 @@ namespace eCTD_indexer
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.toolStrip.ResumeLayout(false);
+            this.toolStrip.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1850,7 +1843,6 @@ namespace eCTD_indexer
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBoxSubmDescr;
         private System.Windows.Forms.Label labelSubmissionUnit;
-        private System.Windows.Forms.TextBox textBoxSeqDir;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label19;
@@ -1973,7 +1965,7 @@ namespace eCTD_indexer
         private System.Windows.Forms.TextBox textBoxDE2;
         private System.Windows.Forms.CheckBox checkBoxDE2;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.ToolStripButton tsbOpenDossier;
         private File_Explorer.FileExplorerUserControl fileExplorerUserControl;
         private System.Windows.Forms.ToolStripButton tsbCreate;

@@ -60,7 +60,8 @@ namespace eCTD_indexer
         private eCTD_Directories dirs;
         private eCTD_Files files;
         private XML.Create XMLCreate;
-        private bool DossierOpened;          
+        private bool DossierOpened;
+        private String SeqDir;
 
         #region Event methods to enables/disables applicant and product name text boxes in line with country checkboxes
         private void checkBoxAT_CheckedChanged(object sender, EventArgs e)
@@ -576,7 +577,7 @@ namespace eCTD_indexer
 
         private void currentDossierButton_Click(object sender, EventArgs e)
         {
-            string topSequenceFolder = textBoxSeqDir.Text.Substring(0, textBoxSeqDir.Text.Length - 5);
+            string topSequenceFolder = SeqDir.Substring(0, SeqDir.Length - 5);
             CurrentDossier current = new CurrentDossier();
             current.AssembleCurrentDossier(topSequenceFolder);            
         }
@@ -720,11 +721,11 @@ namespace eCTD_indexer
                 if (m.Success)
                 {
                     this.fileExplorerUserControl.PopulateTreeView(fb.SelectedPath);
-                    textBoxSeqDir.Text = fb.SelectedPath;
+                    SeqDir = fb.SelectedPath;
                     this.DossierOpened = true;
                 } else
                 {
-                    MessageBox.Show("You selected an incorrect sequence directory.\nA correct sequence folder ends with four digits (e.g. 0001).", "Incorrect sequence directory", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("You selected an incorrect sequence directory.\nA correct sequence folder consists of four digits (e.g. 0001).", "Incorrect sequence directory", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -744,7 +745,7 @@ namespace eCTD_indexer
                 UserDialogue.CreateDossier cd = new UserDialogue.CreateDossier();
                 if (cd.ShowDialog() == DialogResult.OK)
                 {
-                    textBoxSeqDir.Text = fb.SelectedPath;
+                    SeqDir = fb.SelectedPath;
 
                     List<string> memberStateList = new List<string>();
                     foreach (Control chkbx in this.Controls)
@@ -759,7 +760,7 @@ namespace eCTD_indexer
                     }
 
                     // Create the directories
-                    String newfolder = textBoxSeqDir.Text + @"\" + cd.SequencePath;
+                    String newfolder = SeqDir + @"\" + cd.SequencePath;
                     this.dirs.Create(newfolder, memberStateList);
 
                     this.fileExplorerUserControl.PopulateTreeView(newfolder);
@@ -783,13 +784,13 @@ namespace eCTD_indexer
                 envelope.relSeq = textBoxRelSeq.Text;
                 envelope.procType = comboBoxProcType.Text;
                 envelope.submType = comboBoxSubmType.Text;
-                envelope.m1euPath = textBoxSeqDir.Text + Path.DirectorySeparatorChar + "m1" + Path.DirectorySeparatorChar + "eu";
+                envelope.m1euPath = SeqDir + Path.DirectorySeparatorChar + "m1" + Path.DirectorySeparatorChar + "eu";
                 envelope.country = "Common";
                 envelope.language = "";
                 envelope.m131identifier = "combined";
                 envelope.m1euPathIndex = envelope.m1euPath.IndexOf(Path.DirectorySeparatorChar + "m1" + Path.DirectorySeparatorChar);
                 envelope.sequence = envelope.m1euPath.Substring(envelope.m1euPathIndex - 4, 4);
-                envelope.sequencePath = textBoxSeqDir.Text;
+                envelope.sequencePath = SeqDir;
                 envelope.applicationMode = comboBoxMode.Text;
                 envelope.appHighLevelNo = textBoxNumber.Text;
                 envelope.comboBoxMode = comboBoxMode.Enabled;
@@ -851,9 +852,9 @@ namespace eCTD_indexer
                 #endregion
 
                     #region index.xml
-                    if (textBoxSeqDir.Text.CompareTo("") != 0)
+                    if (SeqDir.CompareTo("") != 0)
                     {
-                        this.XMLCreate.IndexXML(textBoxSeqDir.Text, this.dirs, this.files);
+                        this.XMLCreate.IndexXML(SeqDir, this.dirs, this.files);
                     }
                 } else
                 {
@@ -871,12 +872,12 @@ namespace eCTD_indexer
 
         private void tsbDeleteEmptyFolder_Click(object sender, EventArgs e)
         {
-            if (textBoxSeqDir.Text != "")
+            if (SeqDir != "")
             {
-                DialogResult result = MessageBox.Show("Press OK to delete all empty directories under " + textBoxSeqDir.Text, "Confirm delete", MessageBoxButtons.OKCancel);
+                DialogResult result = MessageBox.Show("Press OK to delete all empty directories under " + SeqDir, "Confirm delete", MessageBoxButtons.OKCancel);
                 if (result == DialogResult.OK)
                 {
-                    this.dirs.DeleteEmptyDirectories(textBoxSeqDir.Text);
+                    this.dirs.DeleteEmptyDirectories(SeqDir);
                     this.fileExplorerUserControl.PopulateTreeView();
                 }
             }
