@@ -842,18 +842,22 @@ namespace eCTD_indexer
                     }
                 }
 
-                // Create the EURegional.xml file
-                //try
-                //{
+                // Try to create the xml files when the eu-path exists. Otherwise abort this method to prevent
+                // a inconsistent status of the dossier.
+                if (Directory.Exists(envelope.m1euPath))
+                {
+                    // Create the EURegional.xml file
                     this.XMLCreate.EURegional(envelope, this.dirs, this.files);
-                //}
-                //catch (DirectoryNotFoundException) { }
                 #endregion
 
-                #region index.xml
-                if (textBoxSeqDir.Text.CompareTo("") != 0)
+                    #region index.xml
+                    if (textBoxSeqDir.Text.CompareTo("") != 0)
+                    {
+                        this.XMLCreate.IndexXML(textBoxSeqDir.Text, this.dirs, this.files);
+                    }
+                } else
                 {
-                    this.XMLCreate.IndexXML(textBoxSeqDir.Text, this.dirs, this.files);
+                    MessageBox.Show("The directory " + envelope.m1euPath + " does not exist.\n\nXML creation aborted.", "Missing directory", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 #endregion
             }
