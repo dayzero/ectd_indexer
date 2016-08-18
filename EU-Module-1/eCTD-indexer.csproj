@@ -56,9 +56,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="File Explorer">
-      <HintPath>..\FileExplorer\File Explorer\bin\Debug\File Explorer.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -77,6 +74,14 @@
     </Compile>
     <Compile Include="eCTD_Directories.cs" />
     <Compile Include="eCTD_Files.cs" />
+    <Compile Include="FileExplorerUserControl.cs">
+      <SubType>UserControl</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="FileExplorerUserControl.Designer.cs">
+      <DependentUpon>FileExplorerUserControl.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="GeneralArchitectureModule1\EU_envelope.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
@@ -88,6 +93,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FileExplorerUserControl.resx">
+      <DependentUpon>FileExplorerUserControl.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <SubType>Designer</SubType>

@@ -3,7 +3,7 @@
   <asmv1:assemblyIdentity name="EU-Module-1.exe" version="1.0.0.51" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="EU-Module-1" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="EU-Module-1" version="0.0.1.0" language="neutral" processorArchitecture="msil" />
     <commandLine file="EU-Module-1.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -42,26 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EU-Module-1.exe" size="459264">
-      <assemblyIdentity name="EU-Module-1" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EU-Module-1.exe" size="470016">
+      <assemblyIdentity name="EU-Module-1" version="0.0.1.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>7UPB/5/9UIM/qK8z9WV/t26Skq8=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="File Explorer.dll" size="18944">
-      <assemblyIdentity name="File Explorer" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>uUwmJLMHiRnlnIw4frZkTP+n7zg=</dsig:DigestValue>
+        <dsig:DigestValue>j0G9hBwkgg8RQQ3hZo8imoAsBLQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -23,7 +23,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 
-namespace File_Explorer
+namespace eCTD_indexer
 {
     public partial class FileExplorerUserControl : UserControl
     {

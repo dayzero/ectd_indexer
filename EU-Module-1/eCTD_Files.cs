@@ -18,8 +18,7 @@ namespace eCTD_indexer
             DirectoryInfo di = new DirectoryInfo(path);
             DirectoryInfo[] dirs = di.GetDirectories("*.*", System.IO.SearchOption.AllDirectories);
 
-            //file counter
-            //int numberOfFiles = di.GetFiles().Length;
+            // file counter
             int numberOfFiles = 0;
 
             if (dirs.Length > 0)
@@ -29,6 +28,7 @@ namespace eCTD_indexer
                     numberOfFiles = numberOfFiles + dirs[i].GetFiles().Length;
                 }
             }
+
             return numberOfFiles;
         }
     }

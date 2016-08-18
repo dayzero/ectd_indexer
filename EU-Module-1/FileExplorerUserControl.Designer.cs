@@ -1,7 +1,7 @@
 ﻿using System.Windows.Forms;
 using System.IO;
 
-namespace File_Explorer
+namespace eCTD_indexer
 {
     partial class FileExplorerUserControl
     {
