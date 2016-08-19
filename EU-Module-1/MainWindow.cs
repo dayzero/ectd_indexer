@@ -868,6 +868,7 @@ namespace eCTD_indexer
         {
             // Refresh the folder view
             this.fileExplorerUserControl.FolderView_ShowFolder();
+            this.fileExplorerUserControl.PopulateTreeView();
         }
 
         private void tsbDeleteEmptyFolder_Click(object sender, EventArgs e)

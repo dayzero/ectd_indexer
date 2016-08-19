@@ -43,9 +43,9 @@ namespace eCTD_indexer
             this.Type = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.LastModified = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuFileListView = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmflOpen = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmflDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmflInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuFolderView = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiCreateFolder = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiOpen = new System.Windows.Forms.ToolStripMenuItem();
@@ -140,29 +140,32 @@ namespace eCTD_indexer
             // contextMenuFileListView
             // 
             this.contextMenuFileListView.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem3,
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem4});
+            this.cmflOpen,
+            this.cmflDelete,
+            this.cmflInfo});
             this.contextMenuFileListView.Name = "contextMenuStrip";
-            this.contextMenuFileListView.Size = new System.Drawing.Size(117, 70);
+            this.contextMenuFileListView.Size = new System.Drawing.Size(153, 92);
             // 
-            // toolStripMenuItem3
+            // cmflOpen
             // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(116, 22);
-            this.toolStripMenuItem3.Text = "Open...";
+            this.cmflOpen.Name = "cmflOpen";
+            this.cmflOpen.Size = new System.Drawing.Size(152, 22);
+            this.cmflOpen.Text = "Open...";
+            this.cmflOpen.Click += new System.EventHandler(this.cmflOpen_Click);
             // 
-            // toolStripMenuItem1
+            // cmflDelete
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(116, 22);
-            this.toolStripMenuItem1.Text = "Delete...";
+            this.cmflDelete.Name = "cmflDelete";
+            this.cmflDelete.Size = new System.Drawing.Size(152, 22);
+            this.cmflDelete.Text = "Delete...";
+            this.cmflDelete.Click += new System.EventHandler(this.cmflDelete_Click);
             // 
-            // toolStripMenuItem4
+            // cmflInfo
             // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(116, 22);
-            this.toolStripMenuItem4.Text = "Info...";
+            this.cmflInfo.Name = "cmflInfo";
+            this.cmflInfo.Size = new System.Drawing.Size(152, 22);
+            this.cmflInfo.Text = "Info...";
+            this.cmflInfo.Click += new System.EventHandler(this.cmflInfo_Click);
             // 
             // contextMenuFolderView
             // 
@@ -170,7 +173,7 @@ namespace eCTD_indexer
             this.tsmiCreateFolder,
             this.tsmiOpen});
             this.contextMenuFolderView.Name = "contextMenuFolderView";
-            this.contextMenuFolderView.Size = new System.Drawing.Size(214, 70);
+            this.contextMenuFolderView.Size = new System.Drawing.Size(214, 48);
             // 
             // tsmiCreateFolder
             // 
@@ -213,11 +216,11 @@ namespace eCTD_indexer
         private System.Windows.Forms.ColumnHeader LastModified;
         private TreeView FolderView;
         private ContextMenuStrip contextMenuFileListView;
-        private ToolStripMenuItem toolStripMenuItem1;
+        private ToolStripMenuItem cmflDelete;
         private ContextMenuStrip contextMenuFolderView;
         private ToolStripMenuItem tsmiCreateFolder;
-        private ToolStripMenuItem toolStripMenuItem3;
-        private ToolStripMenuItem toolStripMenuItem4;
+        private ToolStripMenuItem cmflOpen;
+        private ToolStripMenuItem cmflInfo;
         private ToolStripMenuItem tsmiOpen;
     }
 }

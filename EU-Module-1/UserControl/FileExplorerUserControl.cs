@@ -154,37 +154,41 @@ namespace eCTD_indexer
         /// </summary>
         public void FolderView_ShowFolder()
         {
-            if (this.selectedpathtag != null)
+            try
             {
-                FileListView.Items.Clear();
-                DirectoryInfo nodeDirInfo = (DirectoryInfo)this.selectedpathtag;
-
-                ListViewItem.ListViewSubItem[] subItems;
-                ListViewItem item = null;
-
-                foreach (DirectoryInfo dir in nodeDirInfo.GetDirectories())
+                if (this.selectedpathtag != null)
                 {
-                    item = new ListViewItem(dir.Name, 1);
-                    subItems = new ListViewItem.ListViewSubItem[]
+                    FileListView.Items.Clear();
+                    DirectoryInfo nodeDirInfo = (DirectoryInfo)this.selectedpathtag;
+
+                    ListViewItem.ListViewSubItem[] subItems;
+                    ListViewItem item = null;
+
+                    foreach (DirectoryInfo dir in nodeDirInfo.GetDirectories())
+                    {
+                        item = new ListViewItem(dir.Name, 1);
+                        subItems = new ListViewItem.ListViewSubItem[]
                     {new ListViewItem.ListViewSubItem(item, "Directory"),
                      new ListViewItem.ListViewSubItem(item,
                         dir.LastAccessTime.ToString())};
-                    item.SubItems.AddRange(subItems);
-                    FileListView.Items.Add(item);
-                }
-                foreach (FileInfo file in nodeDirInfo.GetFiles())
-                {
-                    item = new ListViewItem(file.Name, 0);
-                    subItems = new ListViewItem.ListViewSubItem[]
+                        item.SubItems.AddRange(subItems);
+                        FileListView.Items.Add(item);
+                    }
+                    foreach (FileInfo file in nodeDirInfo.GetFiles())
+                    {
+                        item = new ListViewItem(file.Name, 0);
+                        subItems = new ListViewItem.ListViewSubItem[]
                     { new ListViewItem.ListViewSubItem(item, "File"),
                      new ListViewItem.ListViewSubItem(item,
                         file.LastAccessTime.ToString())};
-                    item.SubItems.AddRange(subItems);
-                    FileListView.Items.Add(item);
-                }
+                        item.SubItems.AddRange(subItems);
+                        FileListView.Items.Add(item);
+                    }
 
-                FileListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+                    FileListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+                }
             }
+            catch (DirectoryNotFoundException) { this.PopulateTreeView(); }
         }
 
         private void FileListView_DragEnter(object sender, DragEventArgs e)
@@ -363,6 +367,21 @@ namespace eCTD_indexer
         private void tsmiOpen_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(this.selectedpath);
+        }
+
+        private void cmflOpen_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This method has to be implemented!", "TODO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void cmflDelete_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This method has to be implemented!", "TODO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void cmflInfo_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This method has to be implemented!", "TODO", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
