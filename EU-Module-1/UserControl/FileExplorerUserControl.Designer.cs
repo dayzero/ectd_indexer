@@ -33,20 +33,22 @@ namespace eCTD_indexer
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FileExplorerUserControl));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.FolderView = new System.Windows.Forms.TreeView();
-            this.imageList = new System.Windows.Forms.ImageList();
+            this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.FileListView = new System.Windows.Forms.ListView();
             this.Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Type = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.LastModified = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.contextMenuFileListView = new System.Windows.Forms.ContextMenuStrip();
+            this.contextMenuFileListView = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuFolderView = new System.Windows.Forms.ContextMenuStrip();
+            this.contextMenuFolderView = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiCreateFolder = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiOpen = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -165,16 +167,24 @@ namespace eCTD_indexer
             // contextMenuFolderView
             // 
             this.contextMenuFolderView.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiCreateFolder});
+            this.tsmiCreateFolder,
+            this.tsmiOpen});
             this.contextMenuFolderView.Name = "contextMenuFolderView";
-            this.contextMenuFolderView.Size = new System.Drawing.Size(153, 48);
+            this.contextMenuFolderView.Size = new System.Drawing.Size(214, 70);
             // 
             // tsmiCreateFolder
             // 
             this.tsmiCreateFolder.Name = "tsmiCreateFolder";
-            this.tsmiCreateFolder.Size = new System.Drawing.Size(152, 22);
+            this.tsmiCreateFolder.Size = new System.Drawing.Size(213, 22);
             this.tsmiCreateFolder.Text = "Create Folder";
             this.tsmiCreateFolder.Click += new System.EventHandler(this.tsmiCreateFolder_Click);
+            // 
+            // tsmiOpen
+            // 
+            this.tsmiOpen.Name = "tsmiOpen";
+            this.tsmiOpen.Size = new System.Drawing.Size(213, 22);
+            this.tsmiOpen.Text = "Open in Windows Explorer";
+            this.tsmiOpen.Click += new System.EventHandler(this.tsmiOpen_Click);
             // 
             // FileExplorerUserControl
             // 
@@ -208,6 +218,7 @@ namespace eCTD_indexer
         private ToolStripMenuItem tsmiCreateFolder;
         private ToolStripMenuItem toolStripMenuItem3;
         private ToolStripMenuItem toolStripMenuItem4;
+        private ToolStripMenuItem tsmiOpen;
     }
 }
 

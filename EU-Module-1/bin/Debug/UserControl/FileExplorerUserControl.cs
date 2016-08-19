@@ -35,14 +35,17 @@ namespace eCTD_indexer
             InitializeComponent();
             FileListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             FolderView.NodeMouseClick += FolderView_NodeMouseClick;
+
+            this.eCTDirs = new eCTD_Directories();
         }
 
-        // Class Variables
+        // private Class Variables
         private String selectedpath;
         private Object selectedpathtag;
         private String rootDirectory;
         private bool privateDragAndDrop;
         private String privateDragSource;
+        private eCTD_Directories eCTDirs;
 
         public void PopulateTreeView()
         {
@@ -336,9 +339,30 @@ namespace eCTD_indexer
             } 
         }
 
+        /// <summary>
+        /// Create a folder via context menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tsmiCreateFolder_Click(object sender, EventArgs e)
-        {
+        {            
+            UserDialog.CreateDirectory cf = new UserDialog.CreateDirectory(this.eCTDirs.getSubDirectories(FolderView.SelectedNode.Text), this.selectedpath);
+            if(cf.ShowDialog() == DialogResult.OK)
+            {
+                // Refresh the view on the folders and files.
+                FolderView_ShowFolder();
+                PopulateTreeView();
+            }            
+        }
 
+        /// <summary>
+        /// Opens the selected folder in the Windows Explorer.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsmiOpen_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(this.selectedpath);
         }
     }
 }

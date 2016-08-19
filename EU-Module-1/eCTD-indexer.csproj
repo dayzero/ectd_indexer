@@ -56,6 +56,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ObjectListView, Version=2.9.1.14816, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bibs\ObjectListView.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -64,21 +68,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutBox.cs">
+    <Compile Include="UserDialog\AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AboutBox.Designer.cs">
+    <Compile Include="UserDialog\AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
     <Compile Include="CurrentDossier.cs">
     </Compile>
     <Compile Include="eCTD_Directories.cs" />
     <Compile Include="eCTD_Files.cs" />
-    <Compile Include="FileExplorerUserControl.cs">
+    <Compile Include="UserControl\FileExplorerUserControl.cs">
       <SubType>UserControl</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="FileExplorerUserControl.Designer.cs">
+    <Compile Include="UserControl\FileExplorerUserControl.Designer.cs">
       <DependentUpon>FileExplorerUserControl.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
@@ -91,10 +95,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AboutBox.resx">
+    <EmbeddedResource Include="UserDialog\AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FileExplorerUserControl.resx">
+    <EmbeddedResource Include="UserControl\FileExplorerUserControl.resx">
       <DependentUpon>FileExplorerUserControl.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -112,8 +116,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UserDialogue\CreateDossier.resx">
+    <EmbeddedResource Include="UserDialog\CreateDossier.resx">
       <DependentUpon>CreateDossier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserDialog\CreateDirectory.resx">
+      <DependentUpon>CreateDirectory.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -124,11 +131,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="UserDialogue\CreateDossier.cs">
+    <Compile Include="UserDialog\CreateDossier.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserDialogue\CreateDossier.Designer.cs">
+    <Compile Include="UserDialog\CreateDossier.Designer.cs">
       <DependentUpon>CreateDossier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserDialog\CreateDirectory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserDialog\CreateDirectory.Designer.cs">
+      <DependentUpon>CreateDirectory.cs</DependentUpon>
     </Compile>
     <Compile Include="XML\Create.cs" />
     <Compile Include="XML\MD5.cs" />

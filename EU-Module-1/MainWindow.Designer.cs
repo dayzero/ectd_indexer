@@ -180,7 +180,6 @@ namespace eCTD_indexer
             this.textBoxDE2 = new System.Windows.Forms.TextBox();
             this.checkBoxDE2 = new System.Windows.Forms.CheckBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.fileExplorerUserControl = new eCTD_indexer.FileExplorerUserControl();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.tsbCreate = new System.Windows.Forms.ToolStripButton();
             this.tsbOpenDossier = new System.Windows.Forms.ToolStripButton();
@@ -188,6 +187,7 @@ namespace eCTD_indexer
             this.tsbRefreshFolderView = new System.Windows.Forms.ToolStripButton();
             this.tsbDeleteEmptyFolder = new System.Windows.Forms.ToolStripButton();
             this.tsbAbout = new System.Windows.Forms.ToolStripButton();
+            this.fileExplorerUserControl = new eCTD_indexer.FileExplorerUserControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -1692,15 +1692,6 @@ namespace eCTD_indexer
             this.splitContainer1.SplitterDistance = 557;
             this.splitContainer1.TabIndex = 122;
             // 
-            // fileExplorerUserControl
-            // 
-            this.fileExplorerUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fileExplorerUserControl.Location = new System.Drawing.Point(0, 39);
-            this.fileExplorerUserControl.Margin = new System.Windows.Forms.Padding(2);
-            this.fileExplorerUserControl.Name = "fileExplorerUserControl";
-            this.fileExplorerUserControl.Size = new System.Drawing.Size(557, 727);
-            this.fileExplorerUserControl.TabIndex = 123;
-            // 
             // toolStrip
             // 
             this.toolStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
@@ -1779,6 +1770,15 @@ namespace eCTD_indexer
             this.tsbAbout.Text = "Info...";
             this.tsbAbout.Click += new System.EventHandler(this.tsbAbout_Click);
             // 
+            // fileExplorerUserControl
+            // 
+            this.fileExplorerUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fileExplorerUserControl.Location = new System.Drawing.Point(0, 39);
+            this.fileExplorerUserControl.Margin = new System.Windows.Forms.Padding(2);
+            this.fileExplorerUserControl.Name = "fileExplorerUserControl";
+            this.fileExplorerUserControl.Size = new System.Drawing.Size(557, 727);
+            this.fileExplorerUserControl.TabIndex = 123;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1786,7 +1786,6 @@ namespace eCTD_indexer
             this.ClientSize = new System.Drawing.Size(1229, 766);
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimizeBox = false;
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "6";

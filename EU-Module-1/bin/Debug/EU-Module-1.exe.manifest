@@ -42,14 +42,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EU-Module-1.exe" size="470016">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EU-Module-1.exe" size="490496">
       <assemblyIdentity name="EU-Module-1" version="0.0.1.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>j0G9hBwkgg8RQQ3hZo8imoAsBLQ=</dsig:DigestValue>
+        <dsig:DigestValue>+Ow/5KbJtaimED3RuwV/NA+XmOs=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ObjectListView.dll" size="478720">
+      <assemblyIdentity name="ObjectListView" version="2.8.0.27273" publicKeyToken="B1C5BF581481BCD4" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>4FdTL2NbpaL1Z5f/0Nk6XYnrk7M=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
