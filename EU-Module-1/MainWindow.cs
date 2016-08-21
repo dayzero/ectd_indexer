@@ -604,7 +604,7 @@ namespace eCTD_indexer
                 }
 
                 XmlNodeList envelope;
-                envelope = mySourceDoc.SelectNodes("//envelope");
+                envelope = mySourceDoc.SelectNodes("//eu-envelope");
                 if (envelope.Count > 0)
                 {
                     foreach (Control control in this.Controls)
@@ -723,6 +723,7 @@ namespace eCTD_indexer
                     this.fileExplorerUserControl.PopulateTreeView(fb.SelectedPath);
                     SeqDir = fb.SelectedPath;
                     this.DossierOpened = true;
+                    //copyEnvelopeButton_Click(null, null); TODO: load the infos from the xml file.
                 } else
                 {
                     MessageBox.Show("You selected an incorrect sequence directory.\nA correct sequence folder consists of four digits (e.g. 0001).", "Incorrect sequence directory", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -805,7 +806,7 @@ namespace eCTD_indexer
                 }
 
                 // collect the name of the countries, agencies, applicants and invented names.
-                foreach (Control control in this.Controls)
+                foreach (Control control in this.splitContainer1.Panel2.Controls)
                 {
                     if (control is CheckBox)
                     {
@@ -823,18 +824,24 @@ namespace eCTD_indexer
                             {
                                 envelope.envelopeCountry.Add((((CheckBox)control).Tag.ToString().Substring(0, 2)));
                             }
+                            if (envelope.agency == null)
+                            {
+                                envelope.agency = new List<string>();
+                            }
                             envelope.agency.Add((((CheckBox)control).Text.ToString()));
 
-                            foreach (Control control2 in this.Controls)
+                            foreach (Control control2 in this.splitContainer1.Panel2.Controls)
                             {
                                 if ((control2 is TextBox) && ((((TextBox)control2).Tag) == (((CheckBox)control).Tag)))
                                 {
                                     if ((((TextBox)control2).Name) == ("textBox" + (((TextBox)control2).Tag) + "App"))
                                     {
+                                        if (envelope.applicant == null) { envelope.applicant = new List<String>(); }
                                         envelope.applicant.Add(((TextBox)control2).Text);
                                     }
                                     else
                                     {
+                                        if (envelope.inventedName == null) { envelope.inventedName = new List<String>(); }
                                         envelope.inventedName.Add(((TextBox)control2).Text);
                                     }
                                 }
