@@ -22,5 +22,29 @@ namespace eCTD_indexer.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\")]
+        public string LastDossierLocation {
+            get {
+                return ((string)(this["LastDossierLocation"]));
+            }
+            set {
+                this["LastDossierLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool AskClose {
+            get {
+                return ((bool)(this["AskClose"]));
+            }
+            set {
+                this["AskClose"] = value;
+            }
+        }
     }
 }

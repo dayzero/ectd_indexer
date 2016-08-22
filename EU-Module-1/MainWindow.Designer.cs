@@ -162,11 +162,9 @@ namespace eCTD_indexer
             this.textBoxLTApp = new System.Windows.Forms.TextBox();
             this.textBoxLIApp = new System.Windows.Forms.TextBox();
             this.textBoxLVApp = new System.Windows.Forms.TextBox();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxRelSeq = new System.Windows.Forms.TextBox();
             this.currentDossierButton = new System.Windows.Forms.Button();
-            this.copyEnvelopeButton = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxNumber = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -187,6 +185,8 @@ namespace eCTD_indexer
             this.tsbRefreshFolderView = new System.Windows.Forms.ToolStripButton();
             this.tsbDeleteEmptyFolder = new System.Windows.Forms.ToolStripButton();
             this.tsbAbout = new System.Windows.Forms.ToolStripButton();
+            this.tsbCloseDossier = new System.Windows.Forms.ToolStripButton();
+            this.tsbCloseApp = new System.Windows.Forms.ToolStripButton();
             this.fileExplorerUserControl = new eCTD_indexer.FileExplorerUserControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -1415,17 +1415,6 @@ namespace eCTD_indexer
             this.currentDossierButton.Visible = false;
             this.currentDossierButton.Click += new System.EventHandler(this.currentDossierButton_Click);
             // 
-            // copyEnvelopeButton
-            // 
-            this.copyEnvelopeButton.Location = new System.Drawing.Point(198, 623);
-            this.copyEnvelopeButton.Name = "copyEnvelopeButton";
-            this.copyEnvelopeButton.Size = new System.Drawing.Size(109, 23);
-            this.copyEnvelopeButton.TabIndex = 8;
-            this.copyEnvelopeButton.Text = "copy old envelope";
-            this.copyEnvelopeButton.UseVisualStyleBackColor = true;
-            this.copyEnvelopeButton.Visible = false;
-            this.copyEnvelopeButton.Click += new System.EventHandler(this.copyEnvelopeButton_Click);
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -1609,7 +1598,6 @@ namespace eCTD_indexer
             this.splitContainer1.Panel2.Controls.Add(this.textBoxBG);
             this.splitContainer1.Panel2.Controls.Add(this.textBoxSK);
             this.splitContainer1.Panel2.Controls.Add(this.textBoxBE);
-            this.splitContainer1.Panel2.Controls.Add(this.copyEnvelopeButton);
             this.splitContainer1.Panel2.Controls.Add(this.textBoxSI);
             this.splitContainer1.Panel2.Controls.Add(this.checkBoxUK);
             this.splitContainer1.Panel2.Controls.Add(this.currentDossierButton);
@@ -1698,9 +1686,11 @@ namespace eCTD_indexer
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbCreate,
             this.tsbOpenDossier,
+            this.tsbDeleteEmptyFolder,
             this.tsbCreateXMLFiles,
             this.tsbRefreshFolderView,
-            this.tsbDeleteEmptyFolder,
+            this.tsbCloseDossier,
+            this.tsbCloseApp,
             this.tsbAbout});
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
@@ -1757,7 +1747,7 @@ namespace eCTD_indexer
             this.tsbDeleteEmptyFolder.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbDeleteEmptyFolder.Name = "tsbDeleteEmptyFolder";
             this.tsbDeleteEmptyFolder.Size = new System.Drawing.Size(36, 36);
-            this.tsbDeleteEmptyFolder.Text = "Delete Empty Folder";
+            this.tsbDeleteEmptyFolder.Text = "Delete all empty directories";
             this.tsbDeleteEmptyFolder.Click += new System.EventHandler(this.tsbDeleteEmptyFolder_Click);
             // 
             // tsbAbout
@@ -1767,8 +1757,28 @@ namespace eCTD_indexer
             this.tsbAbout.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbAbout.Name = "tsbAbout";
             this.tsbAbout.Size = new System.Drawing.Size(36, 36);
-            this.tsbAbout.Text = "Info...";
+            this.tsbAbout.Text = "About eCTD indexer";
             this.tsbAbout.Click += new System.EventHandler(this.tsbAbout_Click);
+            // 
+            // tsbCloseDossier
+            // 
+            this.tsbCloseDossier.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbCloseDossier.Image = global::eCTD_indexer.Properties.Resources.Actions_project_development_close_icon_72x72;
+            this.tsbCloseDossier.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbCloseDossier.Name = "tsbCloseDossier";
+            this.tsbCloseDossier.Size = new System.Drawing.Size(36, 36);
+            this.tsbCloseDossier.Text = "Close the dossier";
+            this.tsbCloseDossier.Click += new System.EventHandler(this.tsbCloseDossier_Click);
+            // 
+            // tsbCloseApp
+            // 
+            this.tsbCloseApp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbCloseApp.Image = global::eCTD_indexer.Properties.Resources.Actions_system_shutdown_icon_72x72;
+            this.tsbCloseApp.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbCloseApp.Name = "tsbCloseApp";
+            this.tsbCloseApp.Size = new System.Drawing.Size(36, 36);
+            this.tsbCloseApp.Text = "Close the eCTD indexer";
+            this.tsbCloseApp.Click += new System.EventHandler(this.tsbCloseApp_Click);
             // 
             // fileExplorerUserControl
             // 
@@ -1789,7 +1799,8 @@ namespace eCTD_indexer
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "6";
-            this.Text = "eCTD indexer 2016-07 EU M1 v.3.0.1, eCTD v.3.2";
+            this.Text = "eCTD indexer 2016-08 ";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -1919,11 +1930,9 @@ namespace eCTD_indexer
         private System.Windows.Forms.TextBox textBoxLTApp;
         private System.Windows.Forms.TextBox textBoxLIApp;
         private System.Windows.Forms.TextBox textBoxLVApp;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxRelSeq;
         private System.Windows.Forms.Button currentDossierButton;
-        private System.Windows.Forms.Button copyEnvelopeButton;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBoxNumber;
         private System.Windows.Forms.Label label8;
@@ -1945,6 +1954,8 @@ namespace eCTD_indexer
         private System.Windows.Forms.ToolStripButton tsbRefreshFolderView;
         private System.Windows.Forms.ToolStripButton tsbDeleteEmptyFolder;
         private System.Windows.Forms.ToolStripButton tsbAbout;
+        private System.Windows.Forms.ToolStripButton tsbCloseDossier;
+        private System.Windows.Forms.ToolStripButton tsbCloseApp;
     }
 }
 

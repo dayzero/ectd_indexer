@@ -18,7 +18,7 @@ namespace eCTD_indexer
             this.labelProductName.Text = AssemblyProduct;
             this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
             this.labelCopyright.Text = AssemblyCopyright;
-            this.labelCompanyName.Text = AssemblyCompany;
+            //this.labelCompanyName.Text = AssemblyCompany;
             //this.textBoxDescription.Text = AssemblyDescription;
         }
 
@@ -131,6 +131,8 @@ namespace eCTD_indexer
             sb.Append("This Iconset is made under the terms of the GNU Lesser General Public License: https://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License");
 
             this.textBoxDescription.Text = sb.ToString();
+
+            this.labelVersion.Text += " - EU M1 v.3.0.1, eCTD v.3.2";
         }
     }
 }

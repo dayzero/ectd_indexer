@@ -122,6 +122,7 @@
     <EmbeddedResource Include="UserDialog\CreateDirectory.resx">
       <DependentUpon>CreateDirectory.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -216,6 +217,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Actions-help-about-icon_72x72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actions-project-development-close-icon_72x72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actions-system-shutdown-icon_72x72.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
