@@ -905,9 +905,35 @@ namespace eCTD_indexer
             about.ShowDialog();
         }
 
+        /// <summary>
+        /// Close the current dossier.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tsbCloseDossier_Click(object sender, EventArgs e)
         {
-            //TODO
+            if (this.DossierOpened)
+            {
+                foreach (Control control in this.splitContainer1.Panel2.Controls)
+                {
+                    if (control is TextBox)
+                    {
+                        ((TextBox)control).Text = "";
+                    }
+                    if (control is ComboBox)
+                    {
+                        ((ComboBox)control).Text = "";
+                    }
+                    if (control is CheckBox)
+                    {
+                        ((CheckBox)control).Checked = false;
+                    }
+                }
+
+                this.fileExplorerUserControl.CloseDossier();
+                this.lSubmissionIdentifier.Text = "";
+                this.DossierOpened = false;
+            }
         }
 
         /// <summary>

@@ -47,6 +47,15 @@ namespace eCTD_indexer
         private String privateDragSource;
         private eCTD_Directories eCTDirs;
 
+        /// <summary>
+        /// Close the Dossier by clearing the folder and file list.
+        /// </summary>
+        public void CloseDossier()
+        {
+            this.FileListView.Clear();
+            this.FolderView.Nodes.Clear();
+        }
+        
         public void PopulateTreeView()
         {
             if (this.rootDirectory != null)
