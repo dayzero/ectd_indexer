@@ -1,5 +1,5 @@
 //eCTD indexer (EU Module 1)
-//Copyright 2007-2013 Ymir Vesteinsson, ymir@ectd.is
+//Copyright 2007-2013 Ymir Vesteinsson, ymir@ectd.is and Copyright 2016 Quantentunnel (https://github.com/Quantentunnel)
 
 //This file is part of eCTD-indexer.
 
@@ -34,7 +34,7 @@ namespace eCTD_indexer
         {            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new MainWindow());
         }
     }
 }
