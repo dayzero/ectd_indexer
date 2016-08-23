@@ -48,6 +48,15 @@ namespace eCTD_indexer
         private eCTD_Directories eCTDirs;
 
         /// <summary>
+        /// Refresh the view on the folders and files.
+        /// </summary>
+        public override void Refresh()
+        {
+            FolderView_ShowFolder();
+            PopulateTreeView();
+        }
+
+        /// <summary>
         /// Close the Dossier by clearing the folder and file list.
         /// </summary>
         public void CloseDossier()
@@ -200,6 +209,11 @@ namespace eCTD_indexer
             catch (DirectoryNotFoundException) { this.PopulateTreeView(); }
         }
 
+        /// <summary>
+        /// Occurs when an object is dragged into the control's bounds.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FileListView_DragEnter(object sender, DragEventArgs e)
         {
             if (this.privateDragAndDrop)
@@ -309,6 +323,11 @@ namespace eCTD_indexer
             this.FolderView_ShowFolder();
         }
 
+        /// <summary>
+        /// Occurs when the control is entered.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FolderView_DragEnter(object sender, DragEventArgs e)
         {
             if (this.privateDragAndDrop)
@@ -363,8 +382,7 @@ namespace eCTD_indexer
             if(cf.ShowDialog() == DialogResult.OK)
             {
                 // Refresh the view on the folders and files.
-                FolderView_ShowFolder();
-                PopulateTreeView();
+                this.Refresh();
             }            
         }
 
@@ -378,19 +396,82 @@ namespace eCTD_indexer
             System.Diagnostics.Process.Start(this.selectedpath);
         }
 
+        /// <summary>
+        /// Open the object.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmflOpen_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This method has to be implemented!", "TODO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            FileListView_DoubleClick(null, null);
         }
 
+        /// <summary>
+        /// Delete the selected file.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmflDelete_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This method has to be implemented!", "TODO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (this.FileListView.SelectedItems.Count == 1)
+            {
+                if (this.FileListView.SelectedItems[0].SubItems.Count == 3)
+                {
+                    if (this.FileListView.SelectedItems[0].SubItems[1].Text == "File")
+                    {
+                        String file2delete = this.selectedpath + @"\" + FileListView.SelectedItems[0].Text;
+                        if (MessageBox.Show("Delete this file?\n\n" + file2delete, "Delete file?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            File.Delete(file2delete);
+                            this.Refresh();
+                        }
+                    }
+                    else if (this.FileListView.SelectedItems[0].SubItems[1].Text == "Directory")
+                    {
+                        // TODO
+                    }
+                }
+            }
         }
 
+        /// <summary>
+        /// Get the infos about the selected file.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmflInfo_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This method has to be implemented!", "TODO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (this.FileListView.SelectedItems.Count == 1)
+            {
+                if (this.FileListView.SelectedItems[0].SubItems.Count == 3)
+                {
+                    if (this.FileListView.SelectedItems[0].SubItems[1].Text == "File")
+                    {
+                        // Build-up the String for the MessageBox
+                        StringBuilder sbInfo = new StringBuilder("File:\n");
+                        sbInfo.Append(this.selectedpath);
+                        sbInfo.Append(@"\");
+                        sbInfo.Append(FileListView.SelectedItems[0].Text);
+                        sbInfo.Append("\n\n");
+                        sbInfo.Append("Size: ");
+
+                        // Create new FileInfo object
+                        FileInfo f = new FileInfo(this.selectedpath + @"\" + FileListView.SelectedItems[0].Text);
+
+                        // Get the length
+                        sbInfo.Append(f.Length);
+                        sbInfo.Append(" Byte (");
+                        sbInfo.Append(f.Length / 1024);
+                        sbInfo.Append(" MB)");
+
+                        MessageBox.Show(sbInfo.ToString(), "FileInfo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (this.FileListView.SelectedItems[0].SubItems[1].Text == "Directory")
+                    {
+                        // TODO
+                    }
+                }
+            }
         }
     }
 }
