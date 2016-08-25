@@ -122,6 +122,9 @@
     <EmbeddedResource Include="UserDialog\CreateDirectory.resx">
       <DependentUpon>CreateDirectory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserDialog\Options.resx">
+      <DependentUpon>Options.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -143,6 +146,12 @@
     </Compile>
     <Compile Include="UserDialog\CreateDirectory.Designer.cs">
       <DependentUpon>CreateDirectory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserDialog\Options.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserDialog\Options.Designer.cs">
+      <DependentUpon>Options.cs</DependentUpon>
     </Compile>
     <Compile Include="XML\Create.cs" />
     <Compile Include="XML\MD5.cs" />

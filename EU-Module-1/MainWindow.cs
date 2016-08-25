@@ -969,6 +969,17 @@ namespace eCTD_indexer
             {
                 e.Cancel = false;
             }
+        }
+
+        /// <summary>
+        /// Show the User Dialog "Option".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsbOptions_Click(object sender, EventArgs e)
+        {
+            UserDialog.Options opt = new UserDialog.Options();
+            opt.ShowDialog();
         } 
     }
 

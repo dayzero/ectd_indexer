@@ -178,16 +178,17 @@ namespace eCTD_indexer
             this.textBoxDE2 = new System.Windows.Forms.TextBox();
             this.checkBoxDE2 = new System.Windows.Forms.CheckBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.fileExplorerUserControl = new eCTD_indexer.FileExplorerUserControl();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.tsbCreate = new System.Windows.Forms.ToolStripButton();
             this.tsbOpenDossier = new System.Windows.Forms.ToolStripButton();
+            this.tsbDeleteEmptyFolder = new System.Windows.Forms.ToolStripButton();
             this.tsbCreateXMLFiles = new System.Windows.Forms.ToolStripButton();
             this.tsbRefreshFolderView = new System.Windows.Forms.ToolStripButton();
-            this.tsbDeleteEmptyFolder = new System.Windows.Forms.ToolStripButton();
-            this.tsbAbout = new System.Windows.Forms.ToolStripButton();
             this.tsbCloseDossier = new System.Windows.Forms.ToolStripButton();
             this.tsbCloseApp = new System.Windows.Forms.ToolStripButton();
-            this.fileExplorerUserControl = new eCTD_indexer.FileExplorerUserControl();
+            this.tsbAbout = new System.Windows.Forms.ToolStripButton();
+            this.tsbOptions = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -1680,6 +1681,15 @@ namespace eCTD_indexer
             this.splitContainer1.SplitterDistance = 557;
             this.splitContainer1.TabIndex = 122;
             // 
+            // fileExplorerUserControl
+            // 
+            this.fileExplorerUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fileExplorerUserControl.Location = new System.Drawing.Point(0, 39);
+            this.fileExplorerUserControl.Margin = new System.Windows.Forms.Padding(2);
+            this.fileExplorerUserControl.Name = "fileExplorerUserControl";
+            this.fileExplorerUserControl.Size = new System.Drawing.Size(557, 727);
+            this.fileExplorerUserControl.TabIndex = 123;
+            // 
             // toolStrip
             // 
             this.toolStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
@@ -1690,6 +1700,7 @@ namespace eCTD_indexer
             this.tsbCreateXMLFiles,
             this.tsbRefreshFolderView,
             this.tsbCloseDossier,
+            this.tsbOptions,
             this.tsbCloseApp,
             this.tsbAbout});
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
@@ -1720,6 +1731,16 @@ namespace eCTD_indexer
             this.tsbOpenDossier.Text = "Open Dossier";
             this.tsbOpenDossier.Click += new System.EventHandler(this.tsbOpenDossier_Click);
             // 
+            // tsbDeleteEmptyFolder
+            // 
+            this.tsbDeleteEmptyFolder.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbDeleteEmptyFolder.Image = global::eCTD_indexer.Properties.Resources.Actions_tab_close_other_icon_72x72;
+            this.tsbDeleteEmptyFolder.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbDeleteEmptyFolder.Name = "tsbDeleteEmptyFolder";
+            this.tsbDeleteEmptyFolder.Size = new System.Drawing.Size(36, 36);
+            this.tsbDeleteEmptyFolder.Text = "Delete all empty directories";
+            this.tsbDeleteEmptyFolder.Click += new System.EventHandler(this.tsbDeleteEmptyFolder_Click);
+            // 
             // tsbCreateXMLFiles
             // 
             this.tsbCreateXMLFiles.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -1739,26 +1760,6 @@ namespace eCTD_indexer
             this.tsbRefreshFolderView.Size = new System.Drawing.Size(36, 36);
             this.tsbRefreshFolderView.Text = "Refresh Folder View";
             this.tsbRefreshFolderView.Click += new System.EventHandler(this.tsbRefreshFolderView_Click);
-            // 
-            // tsbDeleteEmptyFolder
-            // 
-            this.tsbDeleteEmptyFolder.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbDeleteEmptyFolder.Image = global::eCTD_indexer.Properties.Resources.Actions_tab_close_other_icon_72x72;
-            this.tsbDeleteEmptyFolder.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbDeleteEmptyFolder.Name = "tsbDeleteEmptyFolder";
-            this.tsbDeleteEmptyFolder.Size = new System.Drawing.Size(36, 36);
-            this.tsbDeleteEmptyFolder.Text = "Delete all empty directories";
-            this.tsbDeleteEmptyFolder.Click += new System.EventHandler(this.tsbDeleteEmptyFolder_Click);
-            // 
-            // tsbAbout
-            // 
-            this.tsbAbout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbAbout.Image = global::eCTD_indexer.Properties.Resources.Actions_help_about_icon_72x72;
-            this.tsbAbout.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbAbout.Name = "tsbAbout";
-            this.tsbAbout.Size = new System.Drawing.Size(36, 36);
-            this.tsbAbout.Text = "About eCTD indexer";
-            this.tsbAbout.Click += new System.EventHandler(this.tsbAbout_Click);
             // 
             // tsbCloseDossier
             // 
@@ -1780,14 +1781,25 @@ namespace eCTD_indexer
             this.tsbCloseApp.Text = "Close the eCTD indexer";
             this.tsbCloseApp.Click += new System.EventHandler(this.tsbCloseApp_Click);
             // 
-            // fileExplorerUserControl
+            // tsbAbout
             // 
-            this.fileExplorerUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fileExplorerUserControl.Location = new System.Drawing.Point(0, 39);
-            this.fileExplorerUserControl.Margin = new System.Windows.Forms.Padding(2);
-            this.fileExplorerUserControl.Name = "fileExplorerUserControl";
-            this.fileExplorerUserControl.Size = new System.Drawing.Size(557, 727);
-            this.fileExplorerUserControl.TabIndex = 123;
+            this.tsbAbout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbAbout.Image = global::eCTD_indexer.Properties.Resources.Actions_help_about_icon_72x72;
+            this.tsbAbout.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbAbout.Name = "tsbAbout";
+            this.tsbAbout.Size = new System.Drawing.Size(36, 36);
+            this.tsbAbout.Text = "About eCTD indexer";
+            this.tsbAbout.Click += new System.EventHandler(this.tsbAbout_Click);
+            // 
+            // tsbOptions
+            // 
+            this.tsbOptions.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbOptions.Image = global::eCTD_indexer.Properties.Resources.Categories_applications_development_icon_72x72;
+            this.tsbOptions.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbOptions.Name = "tsbOptions";
+            this.tsbOptions.Size = new System.Drawing.Size(36, 36);
+            this.tsbOptions.Text = "Application Options";
+            this.tsbOptions.Click += new System.EventHandler(this.tsbOptions_Click);
             // 
             // MainWindow
             // 
@@ -1956,6 +1968,7 @@ namespace eCTD_indexer
         private System.Windows.Forms.ToolStripButton tsbAbout;
         private System.Windows.Forms.ToolStripButton tsbCloseDossier;
         private System.Windows.Forms.ToolStripButton tsbCloseApp;
+        private System.Windows.Forms.ToolStripButton tsbOptions;
     }
 }
 
