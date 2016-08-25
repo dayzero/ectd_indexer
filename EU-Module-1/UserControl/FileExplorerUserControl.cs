@@ -42,6 +42,7 @@ namespace eCTD_indexer
         // private Class Variables
         private String selectedpath;
         private Object selectedpathtag;
+        private TreeNode selectedtreenode;
         private String rootDirectory;
         private bool privateDragAndDrop;
         private String privateDragSource;
@@ -138,14 +139,23 @@ namespace eCTD_indexer
         /// <param name="e"></param>
         private void FolderView_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            TreeNode newSelected = e.Node;
+            this.FolderView_InitializeShowFolder(e.Node);
+            this.selectedtreenode = e.Node;
+        }
+
+        /// <summary>
+        /// Show a folder based on a node of the directory tree.
+        /// </summary>
+        /// <param name="newSelected"></param>
+        private void FolderView_InitializeShowFolder(TreeNode newSelected)
+        {
             this.selectedpathtag = newSelected.Tag;
 
             if (newSelected.Parent == null)
             {
                 DirectoryInfo nodeDirInfo = (DirectoryInfo)this.selectedpathtag;
                 this.selectedpath = nodeDirInfo.ToString();
-            } 
+            }
             // If there are parent nodes the path has to be build up.
             else
             {
@@ -267,7 +277,24 @@ namespace eCTD_indexer
                     }
                     else if (this.FileListView.SelectedItems[0].SubItems[1].Text == "Directory")
                     {
-                        // TODO
+                        // Show all subfolders
+                        this.selectedtreenode.Expand();
+
+                        // Find the selected child node
+                        foreach(TreeNode node in this.selectedtreenode.Nodes)
+                        {
+                            if (this.FileListView.SelectedItems.Count > 0)
+                            {
+                                if (this.FileListView.SelectedItems[0].SubItems.Count > 0)
+                                {
+                                    if (node.Text == this.FileListView.SelectedItems[0].SubItems[0].Text)
+                                    {
+                                        this.FolderView_InitializeShowFolder(node);
+                                        this.selectedtreenode = node;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }

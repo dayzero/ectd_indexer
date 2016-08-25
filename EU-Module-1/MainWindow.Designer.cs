@@ -186,9 +186,9 @@ namespace eCTD_indexer
             this.tsbCreateXMLFiles = new System.Windows.Forms.ToolStripButton();
             this.tsbRefreshFolderView = new System.Windows.Forms.ToolStripButton();
             this.tsbCloseDossier = new System.Windows.Forms.ToolStripButton();
+            this.tsbOptions = new System.Windows.Forms.ToolStripButton();
             this.tsbCloseApp = new System.Windows.Forms.ToolStripButton();
             this.tsbAbout = new System.Windows.Forms.ToolStripButton();
-            this.tsbOptions = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -1771,6 +1771,16 @@ namespace eCTD_indexer
             this.tsbCloseDossier.Text = "Close the dossier";
             this.tsbCloseDossier.Click += new System.EventHandler(this.tsbCloseDossier_Click);
             // 
+            // tsbOptions
+            // 
+            this.tsbOptions.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbOptions.Image = global::eCTD_indexer.Properties.Resources.Categories_applications_development_icon_72x72;
+            this.tsbOptions.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbOptions.Name = "tsbOptions";
+            this.tsbOptions.Size = new System.Drawing.Size(36, 36);
+            this.tsbOptions.Text = "Application Options";
+            this.tsbOptions.Click += new System.EventHandler(this.tsbOptions_Click);
+            // 
             // tsbCloseApp
             // 
             this.tsbCloseApp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -1791,16 +1801,6 @@ namespace eCTD_indexer
             this.tsbAbout.Text = "About eCTD indexer";
             this.tsbAbout.Click += new System.EventHandler(this.tsbAbout_Click);
             // 
-            // tsbOptions
-            // 
-            this.tsbOptions.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbOptions.Image = global::eCTD_indexer.Properties.Resources.Categories_applications_development_icon_72x72;
-            this.tsbOptions.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbOptions.Name = "tsbOptions";
-            this.tsbOptions.Size = new System.Drawing.Size(36, 36);
-            this.tsbOptions.Text = "Application Options";
-            this.tsbOptions.Click += new System.EventHandler(this.tsbOptions_Click);
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1811,7 +1811,7 @@ namespace eCTD_indexer
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "6";
-            this.Text = "eCTD indexer 2016-08 ";
+            this.Text = "eCTD indexer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
