@@ -883,13 +883,16 @@ namespace eCTD_indexer
 
         private void tsbDeleteEmptyFolder_Click(object sender, EventArgs e)
         {
-            if (SeqDir != "")
+            if (SeqDir != null)
             {
-                DialogResult result = MessageBox.Show("Press OK to delete all empty directories under " + SeqDir, "Confirm delete", MessageBoxButtons.OKCancel);
-                if (result == DialogResult.OK)
+                if (SeqDir != "")
                 {
-                    this.dirs.DeleteEmptyDirectories(SeqDir);
-                    this.fileExplorerUserControl.PopulateTreeView();
+                    DialogResult result = MessageBox.Show("Press OK to delete all empty directories under " + SeqDir, "Confirm delete", MessageBoxButtons.OKCancel);
+                    if (result == DialogResult.OK)
+                    {
+                        this.dirs.DeleteEmptyDirectories(SeqDir);
+                        this.fileExplorerUserControl.PopulateTreeView();
+                    }
                 }
             }
         }
