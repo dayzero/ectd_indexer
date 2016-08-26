@@ -160,9 +160,6 @@ namespace eCTD_indexer
                 {
                     MessageBox.Show(ex.ToString(), "Failed to read the sequence index.xml files");
                 }
-                
-
-
             }
 
 //            //Load current-index.xml

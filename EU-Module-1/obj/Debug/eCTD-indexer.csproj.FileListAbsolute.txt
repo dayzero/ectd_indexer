@@ -10,3 +10,13 @@ C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\o
 C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\obj\Debug\EU-Module-1.pdb
 C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\obj\Debug\eCTD_indexer.Properties.Resources.resources
 C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\obj\Debug\eCTD_indexer.MainWindow.resources
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\obj\Debug\eCTD_indexer.UserDialogue.CreateDossier.resources
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\obj\Debug\eCTD_indexer.AboutBox.resources
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\obj\Debug\eCTD_indexer.FileExplorerUserControl.resources
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\bin\Debug\UserControl\FileExplorerUserControl.resx
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\bin\Debug\UserControl\FileExplorerUserControl.cs
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\bin\Debug\UserControl\FileExplorerUserControl.Designer.cs
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\bin\Debug\ObjectListView.dll
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\obj\Debug\eCTD_indexer.UserDialog.CreateDirectory.resources
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\bin\Debug\EU-Module-1.exe.config
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\obj\Debug\eCTD_indexer.UserDialog.Options.resources

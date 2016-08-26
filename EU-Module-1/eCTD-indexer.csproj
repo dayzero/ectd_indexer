@@ -56,6 +56,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ObjectListView, Version=2.9.1.14816, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bibs\ObjectListView.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -64,10 +68,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UserDialog\AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserDialog\AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="CurrentDossier.cs">
     </Compile>
     <Compile Include="eCTD_Directories.cs" />
     <Compile Include="eCTD_Files.cs" />
+    <Compile Include="UserControl\FileExplorerUserControl.cs">
+      <SubType>UserControl</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="UserControl\FileExplorerUserControl.Designer.cs">
+      <DependentUpon>FileExplorerUserControl.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="GeneralArchitectureModule1\EU_envelope.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
@@ -77,6 +95,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="UserDialog\AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\FileExplorerUserControl.resx">
+      <DependentUpon>FileExplorerUserControl.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <SubType>Designer</SubType>
       <DependentUpon>MainWindow.cs</DependentUpon>
@@ -91,6 +116,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserDialog\CreateDossier.resx">
+      <DependentUpon>CreateDossier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserDialog\CreateDirectory.resx">
+      <DependentUpon>CreateDirectory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserDialog\Options.resx">
+      <DependentUpon>Options.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -100,7 +135,26 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="UserDialog\CreateDossier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserDialog\CreateDossier.Designer.cs">
+      <DependentUpon>CreateDossier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserDialog\CreateDirectory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserDialog\CreateDirectory.Designer.cs">
+      <DependentUpon>CreateDirectory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserDialog\Options.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserDialog\Options.Designer.cs">
+      <DependentUpon>Options.cs</DependentUpon>
+    </Compile>
     <Compile Include="XML\Create.cs" />
+    <Compile Include="XML\MD5.cs" />
     <Compile Include="XML\Sort.cs">
     </Compile>
   </ItemGroup>
@@ -148,6 +202,39 @@
     <None Include="Resources\eu-regional.xsl">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actions-document-open-icon_72x72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actions-folder-new-icon_72x72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actions-system-run-icon_72x72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actions-view-refresh-icon_72x72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Apps-kexi-icon_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Application.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actions-tab-close-other-icon_72x72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actions-help-about-icon_72x72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actions-project-development-close-icon_72x72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actions-system-shutdown-icon_72x72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Categories-applications-development-icon-72x72.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

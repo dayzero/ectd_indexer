@@ -34,7 +34,9 @@ using System.Windows.Forms;
 using System.IO;
 using System.Reflection;
 using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 using System.Xml;
+
 
 namespace eCTD_indexer
 {
@@ -51,13 +53,16 @@ namespace eCTD_indexer
             this.dirs = new eCTD_Directories();
             this.files = new eCTD_Files();
             this.XMLCreate = new XML.Create(this.dirs);
+            this.DossierOpened = false;
         }
 
         // Global variables
         private eCTD_Directories dirs;
         private eCTD_Files files;
         private XML.Create XMLCreate;
-                
+        private bool DossierOpened;
+        private String SeqDir;
+
 
         #region Event methods to enables/disables applicant and product name text boxes in line with country checkboxes
         private void checkBoxAT_CheckedChanged(object sender, EventArgs e)
@@ -571,308 +576,417 @@ namespace eCTD_indexer
             }
         }
 
-        /// <summary>
-        /// Generates the eu-regional.xml
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btCreateEURegionalXML_Click(object sender, EventArgs e)
-        {
-            GeneralArchitectureModule1.EU_envelope envelope = new GeneralArchitectureModule1.EU_envelope();
-            //string variables for EU envelope
-            envelope.UUID = this.lSubmissionIdentifier.Text;
-            envelope.trackingNumber = textBoxTrackNo.Text;
-            envelope.INN = textBoxINN.Text;
-            envelope.submDescr = textBoxSubmDescr.Text;
-            envelope.relSeq = textBoxRelSeq.Text;
-            envelope.procType = comboBoxProcType.Text;
-            envelope.submType = comboBoxSubmType.Text;
-            envelope.m1euPath = textBoxSeqDir.Text + Path.DirectorySeparatorChar + "m1" + Path.DirectorySeparatorChar + "eu";
-            envelope.country = "Common";
-            envelope.language = "";
-            envelope.m131identifier = "combined";
-            envelope.m1euPathIndex = envelope.m1euPath.IndexOf(Path.DirectorySeparatorChar + "m1" + Path.DirectorySeparatorChar);
-            envelope.sequence = envelope.m1euPath.Substring(envelope.m1euPathIndex - 4, 4);
-            envelope.sequencePath = textBoxSeqDir.Text;
-            envelope.applicationMode = comboBoxMode.Text;
-            envelope.appHighLevelNo = textBoxNumber.Text;
-            envelope.comboBoxMode = comboBoxMode.Enabled;
-            envelope.comboBoxSubmUnit = comboBoxSubmUnit.Text;
-            envelope.NumberEnabled = textBoxNumber.Enabled;
-
-            //generate new uuid if no uuid has been copied from a previous sequence (using the copy envelope button)
-            if (envelope.UUID == "")
-            {
-                envelope.UUID = Guid.NewGuid().ToString();
-                this.lSubmissionIdentifier.Text = envelope.UUID;
-            }
-
-            // collect the name of the countries, agencies, applicants and invented names.
-            foreach (Control control in this.Controls)
-            {
-                if (control is CheckBox)
-                {
-                    if (((CheckBox)control).Checked == true)
-                    {
-                        if (((CheckBox)control).Tag.ToString() == "EMA")
-                        {
-                            envelope.envelopeCountry.Add("EMA");
-                        }
-                        if (((CheckBox)control).Tag.ToString() == "EDQM")
-                        {
-                            envelope.envelopeCountry.Add("EDQM");
-                        }
-                        else
-                        {
-                            envelope.envelopeCountry.Add((((CheckBox)control).Tag.ToString().Substring(0, 2)));
-                        }
-                        envelope.agency.Add((((CheckBox)control).Text.ToString()));
-
-                        foreach (Control control2 in this.Controls)
-                        {
-                            if ((control2 is TextBox) && ((((TextBox)control2).Tag) == (((CheckBox)control).Tag)))
-                            {
-                                if ((((TextBox)control2).Name) == ("textBox" + (((TextBox)control2).Tag) + "App"))
-                                {
-                                    envelope.applicant.Add(((TextBox)control2).Text);
-                                }
-                                else
-                                {
-                                    envelope.inventedName.Add(((TextBox)control2).Text);
-                                }
-                            }
-                        } 
-                    }
-                }
-            }
-
-            // Create the EURegional.xml file
-            this.XMLCreate.EURegional(envelope, this.dirs, this.files);
-        }
-
-        /// <summary>
-        /// Calculates MD5 for single file
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btCalculateMD5_Click(object sender, EventArgs e)
-        {
-            string singleMD5 = textBoxMD5.Text;
-            MD5Calculator checksum = new MD5Calculator();
-            string sum = checksum.ComputeMD5Checksum(singleMD5);
-            textBoxNewMD5.Text = sum;
-        }
-
-        private void btSaveMD5_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string indexmd5output = textBoxMD5.Text.Substring(0, textBoxMD5.Text.LastIndexOf(Path.DirectorySeparatorChar)) + Path.DirectorySeparatorChar + "index-md5.txt";
-                StreamWriter indexmd5 = File.CreateText(indexmd5output);                
-                indexmd5.WriteLine(textBoxNewMD5.Text);
-                indexmd5.Close();
-            }
-            catch (Exception h)
-            {
-                MessageBox.Show(h.ToString(), "Saving index-md5.txt failed");
-            }
-        }
-
-        private void btGenerateIndexXML_Click(object sender, EventArgs e) //generates index.xml
-        {
-            if (textBoxSeqDir.Text.CompareTo("") != 0)
-            {
-                this.XMLCreate.IndexXML(textBoxSeqDir.Text, this.dirs, this.files);
-            }
-        }
-
-        /// <summary>
-        /// Delete all empty directories in the folder named in textBoxSeqDir.Text.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btDeleteEmptyDirectories_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Press OK to delete all empty directories under " + textBoxSeqDir.Text, "Confirm delete", MessageBoxButtons.OKCancel);
-            if (result == DialogResult.OK)
-            {
-                this.dirs.DeleteEmptyDirectories(textBoxSeqDir.Text);                
-            }
-        }
-
-        /// <summary>
-        /// User can select the path to sequence directory (e.g. 0000)
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btSelectFolder_Click(object sender, EventArgs e)
-        {
-            folderBrowserDialog1.ShowDialog();
-            textBoxSeqDir.Text = folderBrowserDialog1.SelectedPath;
-        }
-
-        private void btSelectFile_Click(object sender, EventArgs e)
-        {
-            openFileDialog1.ShowDialog();
-            textBoxMD5.Text = openFileDialog1.FileName;
-        }
-
-
-        /// <summary>
-        /// Create all eCTD directories
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btCreateFolderTree_Click(object sender, EventArgs e)
-        {
-            List<string> memberStateList = new List<string>();
-            foreach (Control chkbx in this.Controls)
-            {
-                if (chkbx is CheckBox)
-                {
-                    if (((CheckBox)chkbx).Checked == true)
-                    {
-                        memberStateList.Add(chkbx.Tag.ToString().ToLower());
-                    }
-                }
-            }
-
-            // Create the directories
-            this.dirs.Create(textBoxSeqDir.Text, memberStateList);
-
-            // Show the user the result if needed.
-            DialogResult result = MessageBox.Show("Open directory: " + textBoxSeqDir.Text + "?", "Directory tree complete", MessageBoxButtons.YesNo); // rootDirectory.ToString()
-            if (result == DialogResult.Yes)
-            {
-                System.Diagnostics.Process.Start(textBoxSeqDir.Text); // rootDirectory.ToString()
-            }
-        }
-
         private void currentDossierButton_Click(object sender, EventArgs e)
         {
-            string topSequenceFolder = textBoxSeqDir.Text.Substring(0, textBoxSeqDir.Text.Length - 5);
+            string topSequenceFolder = SeqDir.Substring(0, SeqDir.Length - 5);
             CurrentDossier current = new CurrentDossier();
             current.AssembleCurrentDossier(topSequenceFolder);            
         }
 
-        private void copyEnvelopeButton_Click(object sender, EventArgs e)
-        {            
-            openFileDialog1.DefaultExt = "xml";
-            openFileDialog1.Filter = "XML documents (*.xml)|*.xml";
-            openFileDialog1.FileName = "eu-regional";
-
-            // Do the next steps only if the user clicks on OK. Otherwise there will be an FileNotFoundException.
-            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+        /// <summary>
+        /// Open a dossier by selecting the sequence folder.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsbOpenDossier_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fb = new FolderBrowserDialog();
+            fb.SelectedPath = Properties.Settings.Default.LastDossierLocation;
+            fb.Description = "Please select the sequence directory of your dossier.\nFor instance 0000.";
+            if (fb.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                XmlTextReader myReader = new XmlTextReader(openFileDialog1.FileName);
-                XmlDocument mySourceDoc = new XmlDocument();
-                mySourceDoc.Load(myReader);
-                myReader.Close();
+                // Remember the location of this folder for next time
+                Properties.Settings.Default.LastDossierLocation = fb.SelectedPath;
+                Properties.Settings.Default.Save();
 
-                XmlNode uuidNode;
-                uuidNode = mySourceDoc.SelectSingleNode("//identifier");
-                if (uuidNode != null)
+                // Pattern
+                String pat = @"(?<=[0-9]{4})";
+
+                // Instantiate the regular expression object.
+                Regex r = new Regex(pat, RegexOptions.IgnoreCase);
+
+                // Match the regular expression pattern against a text string.
+                Match m = r.Match(fb.SelectedPath);
+
+                if (m.Success)
                 {
-                    this.lSubmissionIdentifier.Text = uuidNode.InnerText;
+                    this.fileExplorerUserControl.PopulateTreeView(fb.SelectedPath);
+                    SeqDir = fb.SelectedPath;
+                    this.DossierOpened = true;
+                    this.loadXMLData();
+                } else
+                {
+                    MessageBox.Show("You selected an incorrect sequence directory.\nA correct sequence folder consists of four digits (e.g. 0001).", "Incorrect sequence directory", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
 
-                XmlNodeList envelope;
-                envelope = mySourceDoc.SelectNodes("//envelope");
-                if (envelope.Count > 0)
+        /// <summary>
+        /// Load the EU-Regional-xml file and enter the data into the GUI.
+        /// </summary>
+        private void loadXMLData()
+        {
+            String file = SeqDir + @"\m1\eu\eu-regional.xml";
+
+            XmlTextReader myReader = new XmlTextReader(file);
+            XmlDocument mySourceDoc = new XmlDocument();
+            mySourceDoc.Load(myReader);
+            myReader.Close();
+
+            XmlNode uuidNode;
+            uuidNode = mySourceDoc.SelectSingleNode("//identifier");
+            if (uuidNode != null)
+            {
+                this.lSubmissionIdentifier.Text = uuidNode.InnerText;
+            }
+
+            XmlNodeList envelope;
+            envelope = mySourceDoc.SelectNodes("//envelope");
+            if (envelope.Count > 0)
+            {
+                foreach (Control control in this.splitContainer1.Panel2.Controls)
                 {
-                    foreach (Control control in this.Controls)
+                    if (control is CheckBox)
+                    {
+                        ((CheckBox)control).Checked = false;
+                    }
+                }
+                foreach (XmlNode countryEnvelope in envelope)
+                {
+                    string tagFinder = countryEnvelope.Attributes["country"].Value.ToUpper();
+
+                    foreach (Control control in this.splitContainer1.Panel2.Controls)
                     {
                         if (control is CheckBox)
                         {
-                            ((CheckBox)control).Checked = false;
+                            if (((CheckBox)control).Tag.ToString() == tagFinder)
+                            {
+                                ((CheckBox)control).Checked = true;
+                            }
                         }
-                    }
-                    foreach (XmlNode countryEnvelope in envelope)
-                    {
-                        string tagFinder = countryEnvelope.Attributes["country"].Value.ToUpper();
 
-                        foreach (Control control in this.Controls)
+                        if (control is TextBox)
                         {
-                            if (control is CheckBox)
+                            if (((TextBox)control).Name.ToString() == ("textBox" + tagFinder.ToString()))
                             {
-                                if (((CheckBox)control).Tag.ToString() == tagFinder)
+                                ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::invented-name").InnerText.ToString();
+                            }
+
+                            if (((TextBox)control).Name.ToString() == ("textBox" + tagFinder.ToString() + "App"))
+                            {
+                                ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::applicant").InnerText.ToString();
+                            }
+
+                            if ((countryEnvelope.ParentNode.ParentNode.Attributes["dtd-version"].InnerText.ToString()) != "1.3")
+                            {
+                                if (((TextBox)control).Name.ToString() == ("textBoxTrackNo"))
                                 {
-                                    ((CheckBox)control).Checked = true;
+                                    if (countryEnvelope.SelectSingleNode("descendant::tracking") != null) // .SelectSingleNode("descendant::number").InnerText.ToString()
+                                    {
+                                        ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::tracking").SelectSingleNode("descendant::number").InnerText.ToString();
+                                    }
+                                }
+
+                                if (((TextBox)control).Name.ToString() == ("textBoxNumber"))
+                                {
+                                    ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::number").InnerText.ToString();
                                 }
                             }
 
-                            if (control is TextBox)
+                            if (((TextBox)control).Name.ToString() == ("textBoxINN"))
                             {
-                                if (((TextBox)control).Name.ToString() == ("textBox" + tagFinder.ToString()))
-                                {
-                                    ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::invented-name").InnerText.ToString();
-                                }
-
-                                if (((TextBox)control).Name.ToString() == ("textBox" + tagFinder.ToString() + "App"))
-                                {
-                                    ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::applicant").InnerText.ToString();
-                                }
-
-                                if ((countryEnvelope.ParentNode.ParentNode.Attributes["dtd-version"].InnerText.ToString()) != "1.3")
-                                {
-                                    if (((TextBox)control).Name.ToString() == ("textBoxTrackNo"))
-                                    {
-                                        if (countryEnvelope.SelectSingleNode("descendant::tracking").SelectSingleNode("descendant::number").InnerText.ToString() != null)
-                                        {
-                                            ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::tracking").SelectSingleNode("descendant::number").InnerText.ToString();
-                                        }
-                                    }
-
-                                    if (((TextBox)control).Name.ToString() == ("textBoxNumber"))
-                                    {
-                                        ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::number").InnerText.ToString();
-                                    }
-                                }
-
-                                if (((TextBox)control).Name.ToString() == ("textBoxINN"))
-                                {
-                                    ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::inn").InnerText.ToString();
-                                }
-
-                                if (((TextBox)control).Name.ToString() == ("textBoxSubmDescr"))
-                                {
-                                    ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::submission-description").InnerText.ToString();
-                                }
-
-                                if (((TextBox)control).Name.ToString() == ("textBoxRelSeq"))
-                                {
-                                    ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::related-sequence").InnerText.ToString();
-                                }
+                                ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::inn").InnerText.ToString();
                             }
 
-                            if (control is ComboBox)
+                            if (((TextBox)control).Name.ToString() == ("textBoxSubmDescr"))
                             {
-                                if (((ComboBox)control).Name.ToString() == ("comboBoxProcType"))
-                                {
-                                    ((ComboBox)control).Text = countryEnvelope.SelectSingleNode("descendant::procedure").Attributes["type"].InnerText.ToString();
-                                }
+                                ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::submission-description").InnerText.ToString();
+                            }
 
-                                if (((ComboBox)control).Name.ToString() == ("comboBoxSubmType"))
-                                {
-                                    ((ComboBox)control).Text = countryEnvelope.SelectSingleNode("descendant::submission").Attributes["type"].InnerText.ToString();
-                                }
+                            if (((TextBox)control).Name.ToString() == ("textBoxRelSeq"))
+                            {
+                                ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::related-sequence").InnerText.ToString();
+                            }
+                        }
 
-                                if ((countryEnvelope.ParentNode.ParentNode.Attributes["dtd-version"].InnerText.ToString()) != "1.3")
+                        if (control is ComboBox)
+                        {
+                            if (((ComboBox)control).Name.ToString() == ("comboBoxProcType"))
+                            {
+                                ((ComboBox)control).Text = countryEnvelope.SelectSingleNode("descendant::procedure").Attributes["type"].InnerText.ToString();
+                            }
+
+                            if (((ComboBox)control).Name.ToString() == ("comboBoxSubmType"))
+                            {
+                                ((ComboBox)control).Text = countryEnvelope.SelectSingleNode("descendant::submission").Attributes["type"].InnerText.ToString();
+                            }
+
+                            if ((countryEnvelope.ParentNode.ParentNode.Attributes["dtd-version"].InnerText.ToString()) != "1.3")
+                            {
+                                if (((ComboBox)control).Name.ToString() == ("comboBoxMode") && countryEnvelope.SelectSingleNode("descendant::submission").Attributes["mode"] != null)
                                 {
-                                    if (((ComboBox)control).Name.ToString() == ("comboBoxMode") && countryEnvelope.SelectSingleNode("descendant::submission").Attributes["mode"] != null)
-                                    {
-                                        ((ComboBox)control).Text = countryEnvelope.SelectSingleNode("descendant::submission").Attributes["mode"].InnerText.ToString();
-                                    }
+                                    ((ComboBox)control).Text = countryEnvelope.SelectSingleNode("descendant::submission").Attributes["mode"].InnerText.ToString();
                                 }
                             }
                         }
                     }
                 }
             }
-        }        
+        }
+
+        /// <summary>
+        /// Create the eCTD directories
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsbCreate_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fb = new FolderBrowserDialog();
+            fb.Description = "Please select the root directory where to store all sequences of your dossier.";
+            if (fb.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                // If the user enter a correct sequence path (0000 for instance) then go ahead.
+                UserDialogue.CreateDossier cd = new UserDialogue.CreateDossier();
+                if (cd.ShowDialog() == DialogResult.OK)
+                {
+                    SeqDir = fb.SelectedPath;
+
+                    List<string> memberStateList = new List<string>();
+                    foreach (Control chkbx in this.Controls)
+                    {
+                        if (chkbx is CheckBox)
+                        {
+                            if (((CheckBox)chkbx).Checked == true)
+                            {
+                                memberStateList.Add(chkbx.Tag.ToString().ToLower());
+                            }
+                        }
+                    }
+
+                    // Create the directories
+                    String newfolder = SeqDir + @"\" + cd.SequencePath;
+                    this.dirs.Create(newfolder, memberStateList);
+
+                    this.fileExplorerUserControl.PopulateTreeView(newfolder);
+
+                    this.DossierOpened = true;
+                }
+            }
+        }
+
+        private void tsbCreateXMLFiles_Click(object sender, EventArgs e)
+        {
+            if (this.DossierOpened)
+            {
+                #region EURegional.xml
+                GeneralArchitectureModule1.EU_envelope envelope = new GeneralArchitectureModule1.EU_envelope();
+                //string variables for EU envelope
+                envelope.UUID = this.lSubmissionIdentifier.Text;
+                envelope.trackingNumber = textBoxTrackNo.Text;
+                envelope.INN = textBoxINN.Text;
+                envelope.submDescr = textBoxSubmDescr.Text;
+                envelope.relSeq = textBoxRelSeq.Text;
+                envelope.procType = comboBoxProcType.Text;
+                envelope.submType = comboBoxSubmType.Text;
+                envelope.m1euPath = SeqDir + Path.DirectorySeparatorChar + "m1" + Path.DirectorySeparatorChar + "eu";
+                envelope.country = "Common";
+                envelope.language = "";
+                envelope.m131identifier = "combined";
+                envelope.m1euPathIndex = envelope.m1euPath.IndexOf(Path.DirectorySeparatorChar + "m1" + Path.DirectorySeparatorChar);
+                envelope.sequence = envelope.m1euPath.Substring(envelope.m1euPathIndex - 4, 4);
+                envelope.sequencePath = SeqDir;
+                envelope.applicationMode = comboBoxMode.Text;
+                envelope.appHighLevelNo = textBoxNumber.Text;
+                envelope.comboBoxMode = comboBoxMode.Enabled;
+                envelope.comboBoxSubmUnit = comboBoxSubmUnit.Text;
+                envelope.NumberEnabled = textBoxNumber.Enabled;
+
+                //generate new uuid if no uuid has been copied from a previous sequence (using the copy envelope button)
+                if (envelope.UUID == "")
+                {
+                    envelope.UUID = Guid.NewGuid().ToString();
+                    this.lSubmissionIdentifier.Text = envelope.UUID;
+                }
+
+                // collect the name of the countries, agencies, applicants and invented names.
+                foreach (Control control in this.splitContainer1.Panel2.Controls)
+                {
+                    if (control is CheckBox)
+                    {
+                        if (((CheckBox)control).Checked == true)
+                        {
+                            if (((CheckBox)control).Tag.ToString() == "EMA")
+                            {
+                                envelope.envelopeCountry.Add("EMA");
+                            }
+                            if (((CheckBox)control).Tag.ToString() == "EDQM")
+                            {
+                                envelope.envelopeCountry.Add("EDQM");
+                            }
+                            else
+                            {
+                                envelope.envelopeCountry.Add((((CheckBox)control).Tag.ToString().Substring(0, 2)));
+                            }
+                            if (envelope.agency == null)
+                            {
+                                envelope.agency = new List<string>();
+                            }
+                            envelope.agency.Add((((CheckBox)control).Text.ToString()));
+
+                            foreach (Control control2 in this.splitContainer1.Panel2.Controls)
+                            {
+                                if ((control2 is TextBox) && ((((TextBox)control2).Tag) == (((CheckBox)control).Tag)))
+                                {
+                                    if ((((TextBox)control2).Name) == ("textBox" + (((TextBox)control2).Tag) + "App"))
+                                    {
+                                        if (envelope.applicant == null) { envelope.applicant = new List<String>(); }
+                                        envelope.applicant.Add(((TextBox)control2).Text);
+                                    }
+                                    else
+                                    {
+                                        if (envelope.inventedName == null) { envelope.inventedName = new List<String>(); }
+                                        envelope.inventedName.Add(((TextBox)control2).Text);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // Try to create the xml files when the eu-path exists. Otherwise abort this method to prevent
+                // a inconsistent status of the dossier.
+                if (Directory.Exists(envelope.m1euPath))
+                {
+                    // Create the EURegional.xml file
+                    this.XMLCreate.EURegional(envelope, this.dirs, this.files);
+                #endregion
+
+                    #region index.xml
+                    if (SeqDir.CompareTo("") != 0)
+                    {
+                        this.XMLCreate.IndexXML(SeqDir, this.dirs, this.files);
+                    }
+                } else
+                {
+                    MessageBox.Show("The directory " + envelope.m1euPath + " does not exist.\n\nXML creation aborted.", "Missing directory", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                #endregion
+            }
+        }
+
+        private void tsbRefreshFolderView_Click(object sender, EventArgs e)
+        {
+            // Refresh the folder view
+            this.fileExplorerUserControl.FolderView_ShowFolder();
+            this.fileExplorerUserControl.PopulateTreeView();
+        }
+
+        private void tsbDeleteEmptyFolder_Click(object sender, EventArgs e)
+        {
+            if (SeqDir != null)
+            {
+                if (SeqDir != "")
+                {
+                    DialogResult result = MessageBox.Show("Press OK to delete all empty directories under " + SeqDir, "Confirm delete", MessageBoxButtons.OKCancel);
+                    if (result == DialogResult.OK)
+                    {
+                        this.dirs.DeleteEmptyDirectories(SeqDir);
+                        this.fileExplorerUserControl.PopulateTreeView();
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Show the About-Dialog.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsbAbout_Click(object sender, EventArgs e)
+        {
+            AboutBox about = new AboutBox();
+            about.ShowDialog();
+        }
+
+        /// <summary>
+        /// Close the current dossier.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsbCloseDossier_Click(object sender, EventArgs e)
+        {
+            if (this.DossierOpened)
+            {
+                foreach (Control control in this.splitContainer1.Panel2.Controls)
+                {
+                    if (control is TextBox)
+                    {
+                        ((TextBox)control).Text = "";
+                    }
+                    if (control is ComboBox)
+                    {
+                        ((ComboBox)control).Text = "";
+                    }
+                    if (control is CheckBox)
+                    {
+                        ((CheckBox)control).Checked = false;
+                    }
+                }
+
+                this.fileExplorerUserControl.CloseDossier();
+                this.lSubmissionIdentifier.Text = "";
+                this.DossierOpened = false;
+            }
+        }
+
+        /// <summary>
+        /// Close this application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsbCloseApp_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        /// <summary>
+        /// When closing this application.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (Properties.Settings.Default.AskClose)
+            {
+                String question = "Really close the eCTD-indexer?";
+                String caption = "Close Application?";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult users_answer = MessageBox.Show(this, question, caption, buttons, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+
+                if (users_answer == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+            }
+            else
+            {
+                e.Cancel = false;
+            }
+        }
+
+        /// <summary>
+        /// Show the User Dialog "Option".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsbOptions_Click(object sender, EventArgs e)
+        {
+            UserDialog.Options opt = new UserDialog.Options();
+            opt.ShowDialog();
+        } 
     }
 
-    class MD5Calculator 
+    internal class MD5Calculator 
     {
         /// <summary>
         /// Returns MD5 checksum for file passed

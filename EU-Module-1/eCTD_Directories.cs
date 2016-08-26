@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.IO;
 
 namespace eCTD_indexer
@@ -351,6 +352,209 @@ namespace eCTD_indexer
             {
                 this.dirDeleter(dirListArray[p]);
             } 
+        }
+
+        /// <summary>
+        /// Return a list of all eCTD subdirectories of 
+        /// a commited root directory based on the eCTD definition.
+        /// This method does not list up the subdirectories 
+        /// of a directory on the harddrive.
+        /// </summary>
+        /// <param name="root"></param>
+        /// <returns>List of all eCTD subdirectories</returns>
+        public List<String> getSubDirectories(String root)
+        {
+            List<String> returnvalue = new List<String>();
+
+            #region root
+            // Pattern
+            String pat = @"(?<=[0-9]{4})";
+
+            // Instantiate the regular expression object.
+            Regex r = new Regex(pat, RegexOptions.IgnoreCase);
+
+            // Match the regular expression pattern against a text string.
+            Match m = r.Match(root);
+
+            if (m.Success)
+            {
+                returnvalue.Add("m1");
+                returnvalue.Add("m2");
+                returnvalue.Add("m3");
+                returnvalue.Add("m4");
+                returnvalue.Add("m5");
+                return returnvalue;
+            }
+            #endregion
+
+            #region m1
+            if (root == "m1")
+            {
+                return new List<string>() { "eu" };
+            }
+
+            if(root == "eu")
+            {
+                returnvalue.Add("10-cover");
+                returnvalue.Add("12-form");
+                returnvalue.Add("13-pi");
+                returnvalue.Add("14-expert");
+                returnvalue.Add("15-specific");
+                returnvalue.Add("16-environrisk");
+                returnvalue.Add("17-orphan");
+                returnvalue.Add("18-pharmacovigilance");
+                returnvalue.Add("19-clinical-trials");
+                returnvalue.Add("110-paediatrics");
+                returnvalue.Add("additional-data");
+                returnvalue.Add("responses");
+                return returnvalue;
+            }
+
+            if (root == "10-cover" || root =="12-form"
+                || root == "additional-data" || root == "responses")
+            {
+                returnvalue.Add("common");
+                return returnvalue;
+            }
+
+            if(root =="13-pi")
+            {
+                returnvalue.Add("131-spclabelpl");
+                returnvalue.Add("132-mockup");
+                returnvalue.Add("133-specimen");
+                returnvalue.Add("134-consultation");
+                returnvalue.Add("135-approved");
+                returnvalue.Add("136-braille");
+                return returnvalue;
+            }
+
+            if (root == "14-expert")
+            {
+                returnvalue.Add("141-quality");
+                returnvalue.Add("142-nonclinical");
+                returnvalue.Add("143-clinical");
+                return returnvalue;
+            }
+
+            if (root == "15-specific")
+            {
+                returnvalue.Add("151-bibliographic");
+                returnvalue.Add("152-generic-hybrid-bio-similar");
+                returnvalue.Add("153-data-market-exclusivity");
+                returnvalue.Add("154-exceptional");
+                returnvalue.Add("155-conditional-ma");
+                return returnvalue;
+            }
+
+            if (root == "16-environrisk")
+            {
+                returnvalue.Add("161-nongmo");
+                returnvalue.Add("162-gmo");
+                return returnvalue;
+            }
+
+            if (root == "17-orphan")
+            {
+                returnvalue.Add("171-similarity");
+                returnvalue.Add("172-market-exclusivity");
+                return returnvalue;
+            }
+
+            if (root == "18-pharmacovigilance")
+            {
+                returnvalue.Add("181-phvig-system");
+                returnvalue.Add("182-riskmgt-system");
+                return returnvalue;
+            }
+
+            if (root == "19-clinical-trials" || root == "110-paediatrics")
+            {
+                return returnvalue;
+            }
+
+            #endregion
+
+            #region m2
+
+            if (root == "m2")
+            {
+                returnvalue.Add("22-intro");
+                returnvalue.Add("23-qos");
+                returnvalue.Add("24-nonclin-over");
+                returnvalue.Add("25-clin-over");
+                returnvalue.Add("26-nonclin-sum");
+                returnvalue.Add("27-clin-sum");
+                return returnvalue;
+            }
+
+            #endregion
+
+            #region m3
+            if (root == "m3")
+            {
+                returnvalue.Add("32-body-data");
+                returnvalue.Add("33-lit-ref");
+                return returnvalue;
+            }
+
+            if (root == "32-body-data")
+            {
+                returnvalue.Add("32a-app");
+                returnvalue.Add("32p-drug-prod");
+                returnvalue.Add("32r-reg-info");
+                returnvalue.Add("32s-drug-sub");
+                return returnvalue;
+            }
+
+            if (root == "32a-app")
+            {
+                returnvalue.Add("32a1-fac-equip");
+                returnvalue.Add("32a2-advent-agent");
+                returnvalue.Add("32a3-excip-name-1");
+                return returnvalue;
+            }
+
+            if (root == "32p-drug-prod")
+            {
+                returnvalue.Add("product-1");
+                return returnvalue;
+            }
+
+            if (root == "32r-reg-info")
+            {
+                return returnvalue;
+            }
+
+            if (root == "32s-drug-sub")
+            {
+                returnvalue.Add("substance-1-manufacturer-1");
+                return returnvalue;
+            }
+
+            if (root == "33-lit-ref")
+            {
+                return returnvalue;
+            }
+
+            #endregion
+
+
+            if (root == "m4")
+            {
+                returnvalue.Add("42-stud-rep");
+                returnvalue.Add("43-lit-ref");
+                return returnvalue;
+            }
+
+            if (root == "m5")
+            {
+                returnvalue.Add("52-tab-list");
+                returnvalue.Add("53-clin-stud-rep");
+                returnvalue.Add("54-lit-ref");
+                return returnvalue;
+            }
+
+            return returnvalue;
         }
 
         /// <summary>
