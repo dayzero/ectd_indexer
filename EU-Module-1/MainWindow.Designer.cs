@@ -164,7 +164,6 @@ namespace eCTD_indexer
             this.textBoxLVApp = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxRelSeq = new System.Windows.Forms.TextBox();
-            this.currentDossierButton = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxNumber = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -184,6 +183,7 @@ namespace eCTD_indexer
             this.tsbOpenDossier = new System.Windows.Forms.ToolStripButton();
             this.tsbDeleteEmptyFolder = new System.Windows.Forms.ToolStripButton();
             this.tsbCreateXMLFiles = new System.Windows.Forms.ToolStripButton();
+            this.tsbAssemble = new System.Windows.Forms.ToolStripButton();
             this.tsbRefreshFolderView = new System.Windows.Forms.ToolStripButton();
             this.tsbCloseDossier = new System.Windows.Forms.ToolStripButton();
             this.tsbOptions = new System.Windows.Forms.ToolStripButton();
@@ -1405,17 +1405,6 @@ namespace eCTD_indexer
             this.textBoxRelSeq.Size = new System.Drawing.Size(213, 20);
             this.textBoxRelSeq.TabIndex = 6;
             // 
-            // currentDossierButton
-            // 
-            this.currentDossierButton.Location = new System.Drawing.Point(17, 623);
-            this.currentDossierButton.Name = "currentDossierButton";
-            this.currentDossierButton.Size = new System.Drawing.Size(158, 23);
-            this.currentDossierButton.TabIndex = 114;
-            this.currentDossierButton.Text = "Assemble current dossier";
-            this.currentDossierButton.UseVisualStyleBackColor = true;
-            this.currentDossierButton.Visible = false;
-            this.currentDossierButton.Click += new System.EventHandler(this.currentDossierButton_Click);
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -1601,7 +1590,6 @@ namespace eCTD_indexer
             this.splitContainer1.Panel2.Controls.Add(this.textBoxBE);
             this.splitContainer1.Panel2.Controls.Add(this.textBoxSI);
             this.splitContainer1.Panel2.Controls.Add(this.checkBoxUK);
-            this.splitContainer1.Panel2.Controls.Add(this.currentDossierButton);
             this.splitContainer1.Panel2.Controls.Add(this.textBoxES);
             this.splitContainer1.Panel2.Controls.Add(this.checkBoxSE);
             this.splitContainer1.Panel2.Controls.Add(this.textBoxSE);
@@ -1698,6 +1686,7 @@ namespace eCTD_indexer
             this.tsbOpenDossier,
             this.tsbDeleteEmptyFolder,
             this.tsbCreateXMLFiles,
+            this.tsbAssemble,
             this.tsbRefreshFolderView,
             this.tsbCloseDossier,
             this.tsbOptions,
@@ -1750,6 +1739,16 @@ namespace eCTD_indexer
             this.tsbCreateXMLFiles.Size = new System.Drawing.Size(36, 36);
             this.tsbCreateXMLFiles.Text = "Create XML files";
             this.tsbCreateXMLFiles.Click += new System.EventHandler(this.tsbCreateXMLFiles_Click);
+            // 
+            // tsbAssemble
+            // 
+            this.tsbAssemble.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbAssemble.Image = global::eCTD_indexer.Properties.Resources.Actions_view_assemble_icon_72x72;
+            this.tsbAssemble.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbAssemble.Name = "tsbAssemble";
+            this.tsbAssemble.Size = new System.Drawing.Size(36, 36);
+            this.tsbAssemble.Text = "Assemble and consolidate dossier sequences";
+            this.tsbAssemble.Click += new System.EventHandler(this.tsbAssemble_Click);
             // 
             // tsbRefreshFolderView
             // 
@@ -1944,7 +1943,6 @@ namespace eCTD_indexer
         private System.Windows.Forms.TextBox textBoxLVApp;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxRelSeq;
-        private System.Windows.Forms.Button currentDossierButton;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBoxNumber;
         private System.Windows.Forms.Label label8;
@@ -1969,6 +1967,7 @@ namespace eCTD_indexer
         private System.Windows.Forms.ToolStripButton tsbCloseDossier;
         private System.Windows.Forms.ToolStripButton tsbCloseApp;
         private System.Windows.Forms.ToolStripButton tsbOptions;
+        private System.Windows.Forms.ToolStripButton tsbAssemble;
     }
 }
 

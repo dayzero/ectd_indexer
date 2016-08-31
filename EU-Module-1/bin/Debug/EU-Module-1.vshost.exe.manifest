@@ -3,7 +3,7 @@
   <asmv1:assemblyIdentity name="EU-Module-1.exe" version="1.0.0.51" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="EU-Module-1" version="0.0.3.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="EU-Module-1" version="0.0.3.1" language="neutral" processorArchitecture="msil" />
     <commandLine file="EU-Module-1.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EU-Module-1.exe" size="529920">
-      <assemblyIdentity name="EU-Module-1" version="0.0.3.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EU-Module-1.exe" size="535040">
+      <assemblyIdentity name="EU-Module-1" version="0.0.3.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>EOue8cxW/HkoZg36pikfw69HDTA=</dsig:DigestValue>
+        <dsig:DigestValue>cZDEeHdzkkGofFqoKizf6lhIhFc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
