@@ -578,9 +578,7 @@ namespace eCTD_indexer
 
         private void currentDossierButton_Click(object sender, EventArgs e)
         {
-            string topSequenceFolder = SeqDir.Substring(0, SeqDir.Length - 5);
-            CurrentDossier current = new CurrentDossier();
-            current.AssembleCurrentDossier(topSequenceFolder);            
+                  
         }
 
         /// <summary>
@@ -983,6 +981,13 @@ namespace eCTD_indexer
         {
             UserDialog.Options opt = new UserDialog.Options();
             opt.ShowDialog();
+        }
+
+        private void tsbAssemble_Click(object sender, EventArgs e)
+        {
+            string topSequenceFolder = SeqDir.Substring(0, SeqDir.Length - 5);
+            CurrentDossier current = new CurrentDossier();
+            current.AssembleCurrentDossier(topSequenceFolder);      
         } 
     }
 
