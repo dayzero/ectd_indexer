@@ -551,8 +551,7 @@ namespace WindowsApplication1
 			}
 		}
 
-        //enables the Mode and Number textboxes for variations and line extension type submissions
-        //also enables the related sequence textbox if relevant (only for supplemental-info and corrigendum submissions)        
+        //enables the Mode and Number textboxes for variations and line extension type submissions        
         private void comboBoxSubmType_SelectedIndexChanged(object sender, EventArgs e)
         {
             if ((comboBoxSubmType.Text == "var-type1a") || 
@@ -570,15 +569,6 @@ namespace WindowsApplication1
                 comboBoxMode.Enabled = false;
                 textBoxNumber.Enabled = false;
             }
-            if ((comboBoxSubmType.Text == "supplemental-info") ||
-                (comboBoxSubmType.Text == "corrigendum"))
-            {
-                textBoxRelSeq.Enabled = true;
-            }
-            else
-            {
-                textBoxRelSeq.Enabled = false;
-            }
         }
 
         private void button1_Click(object sender, EventArgs e) //generates eu-regional.xml
@@ -591,7 +581,6 @@ namespace WindowsApplication1
             string inventedName = "";
             string INN = textBoxINN.Text;
             string submDescr = textBoxSubmDescr.Text;
-            string relSeq = textBoxRelSeq.Text;
             string procType = comboBoxProcType.Text;
             string submType = comboBoxSubmType.Text;                     
             string m1euPath = textBoxSeqDir.Text + Path.DirectorySeparatorChar+"m1"+Path.DirectorySeparatorChar+"eu";
@@ -599,7 +588,15 @@ namespace WindowsApplication1
             string language = "";
             string m131identifier = "combined";
             int m1euPathIndex = m1euPath.IndexOf(Path.DirectorySeparatorChar+"m1"+Path.DirectorySeparatorChar);
-            string sequence = m1euPath.Substring(m1euPathIndex - 4, 4);            
+            string sequence = m1euPath.Substring(m1euPathIndex - 4, 4);  
+			//EU M1 v.3.0.1 spec.: "The related sequence number should always be stated. In case of activities with only one sequence the same sequence number will be used."
+			string relSeq = "";
+			if (textBoxRelSeq.Text == "") {
+				relSeq = m1euPath.Substring(m1euPathIndex - 4,4);
+			}
+			else {
+				relSeq = textBoxRelSeq.Text;
+			}
             string envelopeCountry;
             string appCountry; //used to determine country in 12-form
             string sequencePath = textBoxSeqDir.Text;
@@ -915,7 +912,7 @@ namespace WindowsApplication1
                                 country = filePathList[filePathList.IndexOf("131-spclabelpl") + 1];
                                 language = filePathList[filePathList.IndexOf("131-spclabelpl") + 2];
                                 
-                                if (filenameListArray[p,0].Contains("-spc.") || filenameListArray[p,0].Contains("-spc-")) m131identifier = "spc";
+						if (filenameListArray[p,0].Contains("-spc.") || filenameListArray[p,0].Contains("-spc-")) m131identifier = "spc";
                                 if (filenameListArray[p,0].Contains("-annex2")) m131identifier = "annex2";
                                 if (filenameListArray[p,0].Contains("-outer")) m131identifier = "outer";
                                 if (filenameListArray[p,0].Contains("-interpack")) m131identifier = "interpack";
@@ -1368,7 +1365,7 @@ namespace WindowsApplication1
                 if (m15open == true) sr.WriteLine("      </m1-5-specific>");
                 if (m16open == true) sr.WriteLine("      </m1-6-environrisk>");
                 if (m17open == true) sr.WriteLine("      </m1-7-orphan>");
-                if (m181open == true) sr.WriteLine("          </m1-8-1-pharmacovigilance-system>");
+				if (m181open == true) sr.WriteLine("          </m1-8-1-pharmacovigilance-system>");
                 if (m18open == true) sr.WriteLine("      </m1-8-pharmacovigilance>");
                 if (m1additionalopen == true) sr.WriteLine("      </m1-additional-data>");
                 if (m1responsesopen == true) sr.WriteLine("      </m1-responses>");                
