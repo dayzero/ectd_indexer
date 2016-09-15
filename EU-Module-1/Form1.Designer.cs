@@ -1521,8 +1521,7 @@ namespace WindowsApplication1
             this.label2.Text = "Rel. Sequence";
             // 
             // textBoxRelSeq
-            // 
-            this.textBoxRelSeq.Enabled = false;
+            //             
             this.textBoxRelSeq.Location = new System.Drawing.Point(425, 78);
             this.textBoxRelSeq.Name = "textBoxRelSeq";
             this.textBoxRelSeq.Size = new System.Drawing.Size(213, 20);
@@ -1985,4 +1984,3 @@ namespace WindowsApplication1
         private System.Windows.Forms.CheckBox checkBoxDE2;
     }
 }
-
