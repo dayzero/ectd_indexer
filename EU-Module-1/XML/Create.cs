@@ -166,13 +166,14 @@ namespace eCTD_indexer.XML
             try
             {
                 #region create XML file
-                using (var file = new FileStream(xmlOutput, FileMode.Truncate, FileAccess.Write, FileShare.None))
+                using (var file = new FileStream(xmlOutput, FileMode.Create, FileAccess.Write, FileShare.ReadWrite))
                 {
                     using (var sr = new StreamWriter(file, Encoding.UTF8))
                     {
                         //StreamWriter sr = File.CreateText(xmlOutput);
                         DateTime dt = DateTime.Now;
-                        //start of XML file - EU envelope                
+
+                        #region XML file - EU envelope
                         sr.WriteLine("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
                         sr.WriteLine("<!DOCTYPE eu:eu-backbone SYSTEM \"../../util/dtd/eu-regional.dtd\">");
                         sr.WriteLine("<?xml-stylesheet type=\"text/xsl\" href=\"../../util/style/eu-regional.xsl\"?>");
@@ -761,7 +762,11 @@ namespace eCTD_indexer.XML
                         if (m1responsesopen == true) sr.WriteLine("      </m1-responses>");
                         sr.WriteLine("  </m1-eu>");
                         sr.WriteLine("</eu:eu-backbone>");
-                        sr.Close();
+                        #endregion
+
+                        // Unlock
+                        sr.Close(); sr.Dispose();
+                        file.Close(); file.Dispose();
 
                         // Store the MD5 Hash
                         envelope.MD5Hash = xmlOutput;
@@ -769,8 +774,8 @@ namespace eCTD_indexer.XML
                         //call m1sort method in XMLsort class to put Module 1.10 paediatrics in its right place                
                         Sort sortingHat = new Sort();
                         sortingHat.m1sort(xmlOutput);
-                #endregion
                     }
+                #endregion            
                 }
             }
             catch (Exception f)
@@ -786,7 +791,7 @@ namespace eCTD_indexer.XML
         /// <param name="directories"></param>
         /// <param name="files"></param>
         public void IndexXML(String sequencePath, eCTD_Directories directories, eCTD_Files files)
-        {
+        {     
             //path to save output index.xml file
             string xmlIndexOutput = sequencePath + Path.DirectorySeparatorChar + "index.xml";
             int sequencePathIndex = sequencePath.LastIndexOf(Path.DirectorySeparatorChar);
@@ -1016,7 +1021,7 @@ namespace eCTD_indexer.XML
                 string sum = checksum.ComputeMD5Checksum(f.FullName);
                 string modifiedFileID = "";
                 string operation = "new";
-
+                
                 //Lifecycle operations, replace, append and delete
                 if (name.Contains("replace("))
                 {
@@ -1074,13 +1079,14 @@ namespace eCTD_indexer.XML
             try
             {
                 #region create XML-file
-                using (var file = new FileStream(xmlIndexOutput, FileMode.Truncate, FileAccess.Write, FileShare.None))
+                using (var file = new FileStream(xmlIndexOutput, FileMode.Create, FileAccess.Write, FileShare.None))
                 {
                     using (var swr = new StreamWriter(file, Encoding.UTF8))
                     {
                         //StreamWriter swr = File.CreateText(xmlIndexOutput);
                         DateTime dt = DateTime.Now;
-                        //start of XML file - index.xml                
+                        
+                        #region XML file - index.xml                
                         swr.WriteLine("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
                         swr.WriteLine("<!DOCTYPE ectd:ectd SYSTEM \"util/dtd/ich-ectd-3-2.dtd\">");
                         swr.WriteLine("<?xml-stylesheet type=\"text/xsl\" href=\"util/style/ectd-2-0.xsl\"?>");
@@ -4516,29 +4522,12 @@ namespace eCTD_indexer.XML
                         swr.WriteLine("</ectd:ectd>");                 
                     }
                 }
-
+                        #endregion
 
                 //call m2m5sort method in XMLsort class to order elements correctly
                 //i.e. change from alphabetical order to CTD, where these are different
                 Sort sortingHat = new Sort();
                 sortingHat.m2m5sort(xmlIndexOutput);
-
-                /*
-                if (n > 0)
-                {
-                    string finishedMessage = "Number of files (outside \"m1/eu\" and \"util\" folders) not indexed: " + n.ToString() + " List files?";
-                    DialogResult resultUnindexed;
-                    resultUnindexed = MessageBox.Show(xmlIndexOutput + "\n" + "\n" + finishedMessage, "indexing completed", MessageBoxButtons.YesNo);
-                    if (resultUnindexed == DialogResult.Yes)
-                    {
-                        string listOfUnIndexed = "";
-                        for (int m = 0; m <= n; m++)
-                        {
-                            listOfUnIndexed = listOfUnIndexed + unIndexed[m] + "\n";
-                        }
-                        MessageBox.Show(listOfUnIndexed);
-                    }
-                }*/
                 #endregion
 
                 // Save MD5 hash value of the index.xml

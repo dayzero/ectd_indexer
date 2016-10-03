@@ -472,7 +472,8 @@ namespace eCTD_indexer
 
             XmlTextWriter writer = new XmlTextWriter(xmlFile, null);
             writer.Formatting = Formatting.Indented;
-            mySourceDoc.Save(writer);            
+            mySourceDoc.Save(writer);
+            writer.Close();
         }
 		
         public string modifiedFile(string seqIndexPath, string leafFilePath)
