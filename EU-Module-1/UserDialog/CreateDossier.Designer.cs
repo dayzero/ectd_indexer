@@ -39,7 +39,7 @@
             this.btOK.Location = new System.Drawing.Point(76, 60);
             this.btOK.Name = "btOK";
             this.btOK.Size = new System.Drawing.Size(75, 25);
-            this.btOK.TabIndex = 0;
+            this.btOK.TabIndex = 1;
             this.btOK.Text = "OK";
             this.btOK.UseVisualStyleBackColor = true;
             this.btOK.Click += new System.EventHandler(this.btOK_Click);
@@ -49,7 +49,7 @@
             this.btCancel.Location = new System.Drawing.Point(157, 60);
             this.btCancel.Name = "btCancel";
             this.btCancel.Size = new System.Drawing.Size(75, 25);
-            this.btCancel.TabIndex = 1;
+            this.btCancel.TabIndex = 2;
             this.btCancel.Text = "Cancel";
             this.btCancel.UseVisualStyleBackColor = true;
             this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
@@ -60,7 +60,7 @@
             this.tbSequencePath.MaxLength = 4;
             this.tbSequencePath.Name = "tbSequencePath";
             this.tbSequencePath.Size = new System.Drawing.Size(131, 20);
-            this.tbSequencePath.TabIndex = 2;
+            this.tbSequencePath.TabIndex = 0;
             // 
             // label1
             // 
