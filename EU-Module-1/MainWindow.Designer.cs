@@ -1399,7 +1399,6 @@ namespace eCTD_indexer
             // 
             // textBoxRelSeq
             // 
-            this.textBoxRelSeq.Enabled = false;
             this.textBoxRelSeq.Location = new System.Drawing.Point(430, 94);
             this.textBoxRelSeq.Name = "textBoxRelSeq";
             this.textBoxRelSeq.Size = new System.Drawing.Size(213, 20);

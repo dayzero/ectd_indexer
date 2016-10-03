@@ -544,7 +544,6 @@ namespace eCTD_indexer
 
         /// <summary>
         /// Enables the Mode and Number textboxes for variations and line extension type submissions
-        /// also enables the related sequence textbox if relevant (only for supplemental-info and corrigendum submissions)  
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -564,15 +563,6 @@ namespace eCTD_indexer
             {
                 comboBoxMode.Enabled = false;
                 textBoxNumber.Enabled = false;
-            }
-            if ((comboBoxSubmType.Text == "supplemental-info") ||
-                (comboBoxSubmType.Text == "corrigendum"))
-            {
-                textBoxRelSeq.Enabled = true;
-            }
-            else
-            {
-                textBoxRelSeq.Enabled = false;
             }
         }
 
