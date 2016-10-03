@@ -747,7 +747,7 @@ namespace eCTD_indexer
                 UserDialogue.CreateDossier cd = new UserDialogue.CreateDossier();
                 if (cd.ShowDialog() == DialogResult.OK)
                 {
-                    SeqDir = fb.SelectedPath;
+                    this.SeqDir = fb.SelectedPath + @"\" + cd.SequencePath;
 
                     List<string> memberStateList = new List<string>();
                     foreach (Control chkbx in this.Controls)
@@ -762,11 +762,8 @@ namespace eCTD_indexer
                     }
 
                     // Create the directories
-                    String newfolder = SeqDir + @"\" + cd.SequencePath;
-                    this.dirs.Create(newfolder, memberStateList);
-
-                    this.fileExplorerUserControl.PopulateTreeView(newfolder);
-
+                    this.dirs.Create(this.SeqDir, memberStateList);
+                    this.fileExplorerUserControl.PopulateTreeView(this.SeqDir);
                     this.DossierOpened = true;
                 }
             }
@@ -983,11 +980,19 @@ namespace eCTD_indexer
             opt.ShowDialog();
         }
 
+        /// <summary>
+        /// Assemble all sequences to a baseline dossier.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tsbAssemble_Click(object sender, EventArgs e)
         {
-            string topSequenceFolder = SeqDir.Substring(0, SeqDir.Length - 5);
-            CurrentDossier current = new CurrentDossier();
-            current.AssembleCurrentDossier(topSequenceFolder);      
+            if (this.DossierOpened)
+            {
+                string topSequenceFolder = SeqDir.Substring(0, SeqDir.Length - 5);
+                CurrentDossier current = new CurrentDossier();
+                current.AssembleCurrentDossier(topSequenceFolder);
+            }
         } 
     }
 
@@ -1002,7 +1007,7 @@ namespace eCTD_indexer
         {
             try
             {
-                using (FileStream fs = System.IO.File.OpenRead(path))
+                using (FileStream fs = File.OpenRead(path))
                 {
                     MD5 md5 = new MD5CryptoServiceProvider();
                     byte[] fileData = new byte[fs.Length];
