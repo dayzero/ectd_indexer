@@ -62,6 +62,7 @@ namespace eCTD_indexer
         private XML.Create XMLCreate;
         private bool DossierOpened;
         private String SeqDir;
+        private String SeqNumber { get { return SeqDir.Substring(SeqDir.Length - 4, 4); } }
 
 
         #region Event methods to enables/disables applicant and product name text boxes in line with country checkboxes
@@ -566,11 +567,6 @@ namespace eCTD_indexer
             }
         }
 
-        private void currentDossierButton_Click(object sender, EventArgs e)
-        {
-                  
-        }
-
         /// <summary>
         /// Open a dossier by selecting the sequence folder.
         /// </summary>
@@ -598,11 +594,19 @@ namespace eCTD_indexer
 
                 if (m.Success)
                 {
+                    // Show the files of the root folder
                     this.fileExplorerUserControl.PopulateTreeView(fb.SelectedPath);
-                    SeqDir = fb.SelectedPath;
-                    this.DossierOpened = true;
+
+                    // Store the Sequence Directory
+                    this.SeqDir = fb.SelectedPath;
+
+                    // Load the xml file / xml data
                     this.loadXMLData();
-                } else
+
+                    // Set the Dossier as Opened
+                    this.DossierOpened = true;
+                } 
+                else
                 {
                     MessageBox.Show("You selected an incorrect sequence directory.\nA correct sequence folder consists of four digits (e.g. 0001).", "Incorrect sequence directory", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -737,6 +741,7 @@ namespace eCTD_indexer
                 UserDialogue.CreateDossier cd = new UserDialogue.CreateDossier();
                 if (cd.ShowDialog() == DialogResult.OK)
                 {
+                    // Set the Sequence Directory
                     this.SeqDir = fb.SelectedPath + @"\" + cd.SequencePath;
 
                     List<string> memberStateList = new List<string>();
@@ -759,8 +764,14 @@ namespace eCTD_indexer
             }
         }
 
+        /// <summary>
+        /// Create both xml-files (EURegional.xml and index.xml)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tsbCreateXMLFiles_Click(object sender, EventArgs e)
         {
+            // Check if a dosier is really open
             if (this.DossierOpened)
             {
                 #region EURegional.xml
@@ -859,11 +870,17 @@ namespace eCTD_indexer
             }
         }
 
+        /// <summary>
+        /// Refresh the view of the folderview-component and the fileview-component.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tsbRefreshFolderView_Click(object sender, EventArgs e)
         {
             // Refresh the folder view
             this.fileExplorerUserControl.FolderView_ShowFolder();
             this.fileExplorerUserControl.PopulateTreeView();
+            this.fileExplorerUserControl.RestoreTreeViewState();
         }
 
         private void tsbDeleteEmptyFolder_Click(object sender, EventArgs e)
@@ -875,8 +892,10 @@ namespace eCTD_indexer
                     DialogResult result = MessageBox.Show("Press OK to delete all empty directories under " + SeqDir, "Confirm delete", MessageBoxButtons.OKCancel);
                     if (result == DialogResult.OK)
                     {
+                        this.fileExplorerUserControl.SaveAllExpandedNodesList();
                         this.dirs.DeleteEmptyDirectories(SeqDir);
                         this.fileExplorerUserControl.PopulateTreeView();
+                        this.fileExplorerUserControl.RestoreTreeViewState();
                     }
                 }
             }

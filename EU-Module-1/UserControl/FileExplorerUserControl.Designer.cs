@@ -144,26 +144,26 @@ namespace eCTD_indexer
             this.cmflDelete,
             this.cmflInfo});
             this.contextMenuFileListView.Name = "contextMenuStrip";
-            this.contextMenuFileListView.Size = new System.Drawing.Size(153, 92);
+            this.contextMenuFileListView.Size = new System.Drawing.Size(117, 70);
             // 
             // cmflOpen
             // 
             this.cmflOpen.Name = "cmflOpen";
-            this.cmflOpen.Size = new System.Drawing.Size(152, 22);
+            this.cmflOpen.Size = new System.Drawing.Size(116, 22);
             this.cmflOpen.Text = "Open...";
             this.cmflOpen.Click += new System.EventHandler(this.cmflOpen_Click);
             // 
             // cmflDelete
             // 
             this.cmflDelete.Name = "cmflDelete";
-            this.cmflDelete.Size = new System.Drawing.Size(152, 22);
+            this.cmflDelete.Size = new System.Drawing.Size(116, 22);
             this.cmflDelete.Text = "Delete...";
             this.cmflDelete.Click += new System.EventHandler(this.cmflDelete_Click);
             // 
             // cmflInfo
             // 
             this.cmflInfo.Name = "cmflInfo";
-            this.cmflInfo.Size = new System.Drawing.Size(152, 22);
+            this.cmflInfo.Size = new System.Drawing.Size(116, 22);
             this.cmflInfo.Text = "Info...";
             this.cmflInfo.Click += new System.EventHandler(this.cmflInfo_Click);
             // 
@@ -173,7 +173,7 @@ namespace eCTD_indexer
             this.tsmiCreateFolder,
             this.tsmiOpen});
             this.contextMenuFolderView.Name = "contextMenuFolderView";
-            this.contextMenuFolderView.Size = new System.Drawing.Size(214, 48);
+            this.contextMenuFolderView.Size = new System.Drawing.Size(214, 70);
             // 
             // tsmiCreateFolder
             // 

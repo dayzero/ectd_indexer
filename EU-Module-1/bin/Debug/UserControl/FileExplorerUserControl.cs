@@ -47,6 +47,7 @@ namespace eCTD_indexer
         private bool privateDragAndDrop;
         private String privateDragSource;
         private eCTD_Directories eCTDirs;
+        private List<String> ExpandedTreeNodeStructure; 
 
         /// <summary>
         /// Refresh the view on the folders and files.
@@ -78,7 +79,7 @@ namespace eCTD_indexer
         }
 
         /// <summary>
-        /// Build up the folder at the left TreeView.
+        /// Build up the folder at the right TreeView.
         /// </summary>
         /// <param name="rootDirectory"></param>
         public void PopulateTreeView(String rootDirectory)
@@ -96,7 +97,7 @@ namespace eCTD_indexer
                 GetDirectories(info.GetDirectories(), rootnode);
                 FolderView.Nodes.Clear();
                 FolderView.Nodes.Add(rootnode);
-            }
+            } 
         }
 
         /// <summary>
@@ -173,12 +174,12 @@ namespace eCTD_indexer
                 this.selectedpath += path;
             }
 
-            // Show the content of the folder in the right list.
+            // Show the content of the folder in the left list.
             this.FolderView_ShowFolder();
         }
 
         /// <summary>
-        /// Refresh the view of the folder.
+        /// Refresh the view of the folder and expand the view.
         /// </summary>
         public void FolderView_ShowFolder()
         {
@@ -376,7 +377,7 @@ namespace eCTD_indexer
                 {
                     contextMenuFileListView.Show(Cursor.Position);
                 }
-            } 
+            }
         }
 
         /// <summary>
@@ -395,7 +396,12 @@ namespace eCTD_indexer
                 {
                     contextMenuFolderView.Show(FolderView, e.Location);
                 }
-            } 
+            }
+            else if (e.Button == MouseButtons.Left)
+            {
+                // Save the expanded TreeSturcure
+                this.SaveAllExpandedNodesList();
+            }
         }
 
         /// <summary>
@@ -404,12 +410,16 @@ namespace eCTD_indexer
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void tsmiCreateFolder_Click(object sender, EventArgs e)
-        {            
+        {
+            this.SaveAllExpandedNodesList();
             UserDialog.CreateDirectory cf = new UserDialog.CreateDirectory(this.eCTDirs.getSubDirectories(FolderView.SelectedNode.Text), this.selectedpath);
             if(cf.ShowDialog() == DialogResult.OK)
             {
                 // Refresh the view on the folders and files.
                 this.Refresh();
+
+                // Restore
+                this.RestoreTreeViewState();
             }            
         }
 
@@ -450,7 +460,7 @@ namespace eCTD_indexer
                         if (MessageBox.Show("Delete this file?\n\n" + file2delete, "Delete file?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
                             File.Delete(file2delete);
-                            this.Refresh();
+                            FolderView_ShowFolder();
                         }
                     }
                     else if (this.FileListView.SelectedItems[0].SubItems[1].Text == "Directory")
@@ -500,5 +510,74 @@ namespace eCTD_indexer
                 }
             }
         }
+
+        #region Restore expanded TreeNodeCollection
+        // For more information about this region have a look at this post:
+        // http://stackoverflow.com/questions/8308258/expand-selected-node-after-refresh-treeview-in-c-sharp
+
+        private void UpdateExpandedList(ref List<string> expNodeList, TreeNode node)
+        {
+            if (node.IsExpanded) expNodeList.Add(node.FullPath);
+            foreach (TreeNode n in node.Nodes)
+            {
+                if (n.IsExpanded) UpdateExpandedList(ref expNodeList, n);
+            }
+        }
+
+        /// <summary>
+        /// Save the expanded node list.
+        /// </summary>
+        public void SaveAllExpandedNodesList()
+        {
+            this.ExpandedTreeNodeStructure = GetAllExpandedNodesList(this.FolderView);
+        }
+
+        private List<String> GetAllExpandedNodesList(TreeView tree)
+        {
+            var expandedNodesList = new List<string>();
+
+            foreach (TreeNode node in tree.Nodes)
+            {
+                UpdateExpandedList(ref expandedNodesList, node);
+            }
+            return expandedNodesList;
+        }
+
+
+        private void ExpandNodes(TreeNode node, string nodeFullPath)
+        {
+            if (node.FullPath == nodeFullPath) node.Expand();
+            foreach (TreeNode n in node.Nodes)
+            {
+                if (n.Nodes.Count > 0) ExpandNodes(n, nodeFullPath);
+            }
+        }
+
+        /// <summary>
+        /// Restore the expanded node tree list which has been saved by SaveAllExpandedNodesList.
+        /// </summary>
+        public void RestoreTreeViewState()
+        {
+            if (this.ExpandedTreeNodeStructure != null)
+            {
+                if (this.ExpandedTreeNodeStructure.Count > 0)
+                {
+                    this.RestoreTreeViewState(this.FolderView, this.ExpandedTreeNodeStructure);
+                }
+            }
+        }
+
+        private void RestoreTreeViewState(TreeView tree, List<string> expandedState)
+        {
+            foreach (TreeNode node in tree.Nodes)
+            {
+                foreach (var state in expandedState)
+                {
+                    ExpandNodes(node, state);
+                }
+            }
+        }
+        #endregion
+
     }
 }
