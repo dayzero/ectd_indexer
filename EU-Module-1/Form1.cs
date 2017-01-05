@@ -1,5 +1,5 @@
 //eCTD indexer (EU Module 1)
-//Copyright 2007-2016 Ymir Vesteinsson, ymir@ectd.is
+//Copyright 2007-2017 Ymir Vesteinsson, ymir@ectd.is
 
 //This file is part of eCTD-indexer.
 
@@ -919,6 +919,7 @@ namespace WindowsApplication1
                                 if (filenameListArray[p,0].Contains("-impack")) m131identifier = "impack";
                                 if (filenameListArray[p,0].Contains("-other")) m131identifier = "other";
                                 if (filenameListArray[p,0].Contains("-pl")) m131identifier = "pl";
+						if (filenameListArray[p,0].Contains("-combined")) m131identifier = "combined";
                                 sr.WriteLine("              <pi-doc type=\"{0}\" xml:lang=\"{1}\" country=\"{2}\">", m131identifier, language, country);
                                 sr.WriteLine("                  <leaf ID=\"m131-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p,3]);
                                 sr.WriteLine("                      checksum=\"{0}\"", filenameListArray[p,2]);
@@ -1416,7 +1417,7 @@ namespace WindowsApplication1
         }
 
         private void button3_Click_1(object sender, EventArgs e) //generates index.xml
-        {
+        {			
             string sequencePath = textBoxSeqDir.Text;
             //path to save output index.xml file
             string xmlIndexOutput = sequencePath + Path.DirectorySeparatorChar + "index.xml";
@@ -5581,7 +5582,8 @@ namespace WindowsApplication1
 
             XmlNodeList envelope;
             envelope = mySourceDoc.SelectNodes("//envelope");
-            if (envelope.Count > 0)
+
+			if (envelope.Count > 0)
             {
                 foreach (Control control in this.Controls)
                 {
@@ -5593,17 +5595,15 @@ namespace WindowsApplication1
                 foreach (XmlNode countryEnvelope in envelope)
                 {
                     string tagFinder = countryEnvelope.Attributes["country"].Value.ToUpper();
-
                     foreach (Control control in this.Controls)
                     {
                         if (control is CheckBox)
-                        {
+                        {							
                             if (((CheckBox)control).Tag.ToString() == tagFinder)
                             {
                                 ((CheckBox)control).Checked = true;
                             }
                         }
-
                         if (control is TextBox)
                         {
                             if (((TextBox)control).Name.ToString() == ("textBox" + tagFinder.ToString()))
@@ -5616,21 +5616,24 @@ namespace WindowsApplication1
                                 ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::applicant").InnerText.ToString();
                             }
 
-                            if ((countryEnvelope.ParentNode.ParentNode.Attributes["dtd-version"].InnerText.ToString()) != "1.3")
-                            {
-                                if (((TextBox)control).Name.ToString() == ("textBoxTrackNo"))
-                                {
-                                    if (countryEnvelope.SelectSingleNode("descendant::tracking").SelectSingleNode("descendant::number").InnerText.ToString() != null)
-                                    {
-                                        ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::tracking").SelectSingleNode("descendant::number").InnerText.ToString();
-                                    }
-                                }
-
-                                if (((TextBox)control).Name.ToString() == ("textBoxNumber"))
-                                {
-                                    ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::number").InnerText.ToString();
-                                }
-                            }
+							if (((TextBox)control).Name.ToString() == ("textBoxTrackNo") && (countryEnvelope.SelectSingleNode("descendant::tracking") != null))
+							{									
+								if (countryEnvelope.SelectSingleNode("descendant::tracking").SelectSingleNode("descendant::number").InnerText.ToString() != null)
+								{
+									((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::tracking").SelectSingleNode("descendant::number").InnerText.ToString();
+								}
+							}
+							if (((TextBox)control).Name.ToString() == ("textBoxTrackNo") && (countryEnvelope.SelectSingleNode("descendant::procedure-tracking") != null))
+							{									
+								if (countryEnvelope.SelectSingleNode("descendant::procedure-tracking").SelectSingleNode("descendant::number").InnerText.ToString() != null)
+								{
+									((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::procedure-tracking").SelectSingleNode("descendant::number").InnerText.ToString();
+								}
+							}
+							if (((TextBox)control).Name.ToString() == ("textBoxNumber"))
+							{
+								((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::number").InnerText.ToString();
+							}
 
                             if (((TextBox)control).Name.ToString() == ("textBoxINN"))
                             {
