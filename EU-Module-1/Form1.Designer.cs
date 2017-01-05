@@ -1,5 +1,5 @@
 //eCTD indexer (EU Module 1)
-//Copyright 2007-2016 Ymir Vesteinsson, ymir@ectd.is
+//Copyright 2007-2017 Ymir Vesteinsson, ymir@ectd.is
 
 //This file is part of eCTD-indexer.
 
@@ -1827,7 +1827,7 @@ namespace WindowsApplication1
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Tag = "6";
-            this.Text = "eCTD indexer 2016-07 EU M1 v.3.0.1, eCTD v.3.2";
+            this.Text = "eCTD indexer 2017-01 EU M1 v.3.0.1, eCTD v.3.2";
             this.ResumeLayout(false);
             this.PerformLayout();
 
