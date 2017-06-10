@@ -669,7 +669,7 @@ namespace eCTD_indexer
                                 ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::applicant").InnerText.ToString();
                             }
 
-                            if ((countryEnvelope.ParentNode.ParentNode.Attributes["dtd-version"].InnerText.ToString()) != "1.3")
+                            /*if ((countryEnvelope.ParentNode.ParentNode.Attributes["dtd-version"].InnerText.ToString()) != "1.3")
                             {
                                 if (((TextBox)control).Name.ToString() == ("textBoxTrackNo"))
                                 {
@@ -683,7 +683,29 @@ namespace eCTD_indexer
                                 {
                                     ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::number").InnerText.ToString();
                                 }
+                            }*/
+
+                            //
+                            if (((TextBox)control).Name.ToString() == ("textBoxTrackNo") && (countryEnvelope.SelectSingleNode("descendant::tracking") != null))
+                            {
+                                if (countryEnvelope.SelectSingleNode("descendant::tracking").SelectSingleNode("descendant::number").InnerText.ToString() != null)
+                                {
+                                    ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::tracking").SelectSingleNode("descendant::number").InnerText.ToString();
+                                }
                             }
+                            if (((TextBox)control).Name.ToString() == ("textBoxTrackNo") && (countryEnvelope.SelectSingleNode("descendant::procedure-tracking") != null))
+                            {
+                                if (countryEnvelope.SelectSingleNode("descendant::procedure-tracking").SelectSingleNode("descendant::number").InnerText.ToString() != null)
+                                {
+                                    ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::procedure-tracking").SelectSingleNode("descendant::number").InnerText.ToString();
+                                }
+                            }
+                            if (((TextBox)control).Name.ToString() == ("textBoxNumber"))
+                            {
+                                ((TextBox)control).Text = countryEnvelope.SelectSingleNode("descendant::number").InnerText.ToString();
+                            }
+
+                            //
 
                             if (((TextBox)control).Name.ToString() == ("textBoxINN"))
                             {
