@@ -20,3 +20,4 @@ C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\b
 C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\obj\Debug\eCTD_indexer.UserDialog.CreateDirectory.resources
 C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\bin\Debug\EU-Module-1.exe.config
 C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\obj\Debug\eCTD_indexer.UserDialog.Options.resources
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\obj\Debug\eCTD_indexer.UserDialog.ChooseSequence.resources

@@ -81,15 +81,14 @@ namespace eCTD_indexer
         /// <summary>
         /// Build up the folder at the right TreeView.
         /// </summary>
-        /// <param name="rootDirectory"></param>
-        public void PopulateTreeView(String rootDirectory)
+        /// <param name="_rootDirectory"></param>
+        public void PopulateTreeView(String _rootDirectory)
         {
-            this.rootDirectory = rootDirectory;
+            this.rootDirectory = _rootDirectory;
             this.rootDirectory = this.rootDirectory.Substring(0, this.rootDirectory.Length - 4);
-
             TreeNode rootnode;
 
-            DirectoryInfo info = new DirectoryInfo(rootDirectory);
+            DirectoryInfo info = new DirectoryInfo(_rootDirectory);
             if (info.Exists)
             {
                 rootnode = new TreeNode(info.Name,1,1);
@@ -107,9 +106,10 @@ namespace eCTD_indexer
         /// <param name="rootNode"></param>
         private void GetDirectories(DirectoryInfo[] subDirs, TreeNode rootNode)
         {
-            TreeNode aNode;
+            TreeNode aNode; // Array.Sort(unsortedNames, new MyComparer());
             DirectoryInfo[] subsubDirs;
             FileInfo[] subsubFiles;
+            Array.Sort(subDirs, new MyComparer());
             foreach (DirectoryInfo item in subDirs)
             {
                 aNode = new TreeNode(item.Name, 1, 1);
@@ -580,4 +580,22 @@ namespace eCTD_indexer
         #endregion
 
     }
+
+    public class MyComparer : IComparer<DirectoryInfo>
+    {
+        [System.Runtime.InteropServices.DllImport("shlwapi.dll", CharSet = System.Runtime.InteropServices.CharSet.Unicode, ExactSpelling = true)]
+        static extern int StrCmpLogicalW(String x, String y);
+
+        /*public int Compare(string x, string y)
+        {
+            return StrCmpLogicalW(x, y);
+        }*/
+
+
+        public int Compare(DirectoryInfo x, DirectoryInfo y)
+        {
+            return StrCmpLogicalW(x.Name, y.Name);
+        }
+    }
+
 }

@@ -116,6 +116,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserDialog\ChooseSequence.resx">
+      <DependentUpon>ChooseSequence.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserDialog\CreateDossier.resx">
       <DependentUpon>CreateDossier.cs</DependentUpon>
     </EmbeddedResource>
@@ -134,6 +137,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="UserDialog\ChooseSequence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserDialog\ChooseSequence.Designer.cs">
+      <DependentUpon>ChooseSequence.cs</DependentUpon>
     </Compile>
     <Compile Include="UserDialog\CreateDossier.cs">
       <SubType>Form</SubType>

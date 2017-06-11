@@ -1,5 +1,5 @@
 // eCTD indexer (EU Module 1)
-// Copyright 2007-2016 Ymir Vesteinsson, ymir@ectd.is and Copyright 2016 Quantentunnel (https://github.com/Quantentunnel)
+// Copyright 2007-2017 Ymir Vesteinsson, ymir@ectd.is and Copyright 2016-2017 Quantentunnel (https://github.com/Quantentunnel)
 
 // This file is part of eCTD-indexer.
 
@@ -576,49 +576,86 @@ namespace eCTD_indexer
         {
             FolderBrowserDialog fb = new FolderBrowserDialog();
             fb.SelectedPath = Properties.Settings.Default.LastDossierLocation;
-            fb.Description = "Please select the sequence directory of your dossier.\nFor instance 0000.";
+            fb.Description = "Please select the directory in which you find the sequence directory, working directory and so on.";
             if (fb.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 // Remember the location of this folder for next time
                 Properties.Settings.Default.LastDossierLocation = fb.SelectedPath;
                 Properties.Settings.Default.Save();
 
-                // Pattern
-                String pat = @"(?<=[0-9]{4})";
+                // User has to choose the sequence which has to be open.
+                UserDialog.ChooseSequence cd = new UserDialog.ChooseSequence(this.findSequences(fb.SelectedPath), fb.SelectedPath);
+                cd.ShowDialog();
 
-                // Instantiate the regular expression object.
-                Regex r = new Regex(pat, RegexOptions.IgnoreCase);
-
-                // Match the regular expression pattern against a text string.
-                Match m = r.Match(fb.SelectedPath);
-
-                if (m.Success)
+                if (cd.DialogResult == System.Windows.Forms.DialogResult.OK)
                 {
                     // Show the files of the root folder
-                    this.fileExplorerUserControl.PopulateTreeView(fb.SelectedPath);
+                    this.fileExplorerUserControl.PopulateTreeView(fb.SelectedPath + "\\" + cd.SelectedSequence);
 
                     // Store the Sequence Directory
-                    this.SeqDir = fb.SelectedPath;
+                    this.SeqDir = fb.SelectedPath + "\\" + cd.SelectedSequence;
 
                     // Load the xml file / xml data
-                    this.loadXMLData();
+                    if (File.Exists(this.SeqDir + @"\m1\eu\eu-regional.xml"))
+                    {
+                        this.loadXMLData();
+                    }
 
                     // Set the Dossier as Opened
                     this.DossierOpened = true;
-                } 
-                else
-                {
-                    MessageBox.Show("You selected an incorrect sequence directory.\nA correct sequence folder consists of four digits (e.g. 0001).", "Incorrect sequence directory", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
+                cd.Dispose();
             }
         }
 
         /// <summary>
-        /// Load the EU-Regional-xml file and enter the data into the GUI.
+        /// Return a String list of Sequence directories.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        private List<String> findSequences(String path)
+        {
+            try
+            {
+                String[] FolderArray = Directory.GetDirectories(path);
+                List<String> SequenceList = new List<String>();
+
+                for (int i = 0; i < FolderArray.Length; i++)
+                {
+                    // Pattern
+                    //String pat = @"(?<=[0-9]{4})";
+                    String pat = @"(^[0-9]{4}$)";
+
+                    // Instantiate the regular expression object.
+                    Regex r = new Regex(pat, RegexOptions.IgnoreCase);
+
+                    // Sequence
+                    String sequenceno = FolderArray[i].Substring(FolderArray[i].Length - 4, 4);
+
+                    // Match the regular expression pattern against a text string.
+                    Match m = r.Match(sequenceno);
+
+                    if (m.Success)
+                    {
+                        SequenceList.Add(sequenceno);
+                    }
+                }
+                
+                return SequenceList;
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return new List<String>();
+            }
+        }
+
+        /// <summary>
+        /// Load the EU-Regional-xml file and write the data into the GUI.
         /// </summary>
         private void loadXMLData()
         {
-            String file = SeqDir + @"\m1\eu\eu-regional.xml";
+            String file = this.SeqDir + @"\m1\eu\eu-regional.xml";
 
             XmlTextReader myReader = new XmlTextReader(file);
             XmlDocument mySourceDoc = new XmlDocument();
