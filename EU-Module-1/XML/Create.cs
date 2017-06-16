@@ -177,7 +177,7 @@ namespace eCTD_indexer.XML
                         sr.WriteLine("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
                         sr.WriteLine("<!DOCTYPE eu:eu-backbone SYSTEM \"../../util/dtd/eu-regional.dtd\">");
                         sr.WriteLine("<?xml-stylesheet type=\"text/xsl\" href=\"../../util/style/eu-regional.xsl\"?>");
-                        sr.WriteLine("<!-- Generated {0} using eCTD indexer - http://ectd.is -->", dt.ToString());
+                        sr.WriteLine("<!-- Generated {0} using eCTD indexer - https://github.com/Quantentunnel/ectd_indexer -->", dt.ToString());
                         sr.WriteLine("<eu:eu-backbone xmlns:eu=\"http://europa.eu.int\"");
                         sr.WriteLine("      xmlns:xlink=\"http://www.w3c.org/1999/xlink\"");
                         sr.WriteLine("      xml:lang=\"en\" dtd-version=\"3.0.1\">");
@@ -1090,7 +1090,7 @@ namespace eCTD_indexer.XML
                         swr.WriteLine("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
                         swr.WriteLine("<!DOCTYPE ectd:ectd SYSTEM \"util/dtd/ich-ectd-3-2.dtd\">");
                         swr.WriteLine("<?xml-stylesheet type=\"text/xsl\" href=\"util/style/ectd-2-0.xsl\"?>");
-                        swr.WriteLine("<!-- Generated {0} using eCTD indexer - http://ectd.is -->", dt.ToString());
+                        swr.WriteLine("<!-- Generated {0} using eCTD indexer - https://github.com/Quantentunnel/ectd_indexer -->", dt.ToString());
                         swr.WriteLine("<ectd:ectd dtd-version=\"3.2\" xml:lang=\"en\" xmlns:ectd=\"http://www.ich.org/ectd\" xmlns:xlink=\"http://www.w3c.org/1999/xlink\">");
                         //leaf generator
                         for (int p = 0; p < totalFileNumber; p++)

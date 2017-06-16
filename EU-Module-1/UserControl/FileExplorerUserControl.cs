@@ -44,6 +44,7 @@ namespace eCTD_indexer
         private Object selectedpathtag;
         private TreeNode selectedtreenode;
         private String rootDirectory;
+        private String _1stlevel;
         private bool privateDragAndDrop;
         private String privateDragSource;
         private eCTD_Directories eCTDirs;
@@ -73,8 +74,56 @@ namespace eCTD_indexer
             {
                 if (this.rootDirectory != "")
                 {
-                    this.PopulateTreeView(this.rootDirectory + this.FolderView.Nodes[0].Text);
+                    for (int i = 0; i < this.FolderView.Nodes.Count; i++)
+                    {
+                        if (this.FolderView.Nodes[i].Text == this._1stlevel)
+                        {
+                            this.FolderView.Nodes[i].Remove();
+                            i = this.FolderView.Nodes.Count;
+                        }
+                    }
+
+                    this.PopulateTreeView(this.rootDirectory + this._1stlevel);
+                    this.FolderView.Sort();
                 }
+            }
+        }
+
+        public void Clear()
+        {
+            FolderView.Nodes.Clear();
+        }
+
+        public void setRootDirectory(String root_and_1stlevel)
+        {
+            if (root_and_1stlevel.Contains(@"\"))
+            {
+                String pattern = @"\\";
+                String[] elements = System.Text.RegularExpressions.Regex.Split(root_and_1stlevel, pattern);
+
+                if (elements.Length > 1)
+                {
+                    this.rootDirectory = root_and_1stlevel.Substring(0,root_and_1stlevel.Length-elements[elements.Length-1].Length);
+                    this._1stlevel = elements[elements.Length-1];
+                }
+            }
+        }
+
+        public void set1stLevel(String pathwithoutroot)
+        {
+            if (pathwithoutroot.Contains(@"\"))
+            {
+                String pattern = @"\\";
+                String[] elements = System.Text.RegularExpressions.Regex.Split(pathwithoutroot, pattern);
+
+                if (elements.Length > 1)
+                {
+                    this._1stlevel = elements[0];
+                }
+            }
+            else
+            {
+                this._1stlevel = pathwithoutroot;
             }
         }
 
@@ -84,8 +133,9 @@ namespace eCTD_indexer
         /// <param name="_rootDirectory"></param>
         public void PopulateTreeView(String _rootDirectory)
         {
-            this.rootDirectory = _rootDirectory;
-            this.rootDirectory = this.rootDirectory.Substring(0, this.rootDirectory.Length - 4);
+            //this.rootDirectory = _rootDirectory;
+            //this.rootDirectory = this.rootDirectory.Substring(0, this.rootDirectory.Length - 4);
+            this.setRootDirectory(_rootDirectory);
             TreeNode rootnode;
 
             DirectoryInfo info = new DirectoryInfo(_rootDirectory);
@@ -94,8 +144,7 @@ namespace eCTD_indexer
                 rootnode = new TreeNode(info.Name,1,1);
                 rootnode.Tag = info;
                 GetDirectories(info.GetDirectories(), rootnode);
-                FolderView.Nodes.Clear();
-                FolderView.Nodes.Add(rootnode);
+                FolderView.Nodes.Add(rootnode); 
             } 
         }
 
@@ -142,6 +191,7 @@ namespace eCTD_indexer
         {
             this.FolderView_InitializeShowFolder(e.Node);
             this.selectedtreenode = e.Node;
+            this.set1stLevel(e.Node.FullPath);
         }
 
         /// <summary>
