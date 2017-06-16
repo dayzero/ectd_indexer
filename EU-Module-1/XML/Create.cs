@@ -1452,7 +1452,7 @@ namespace eCTD_indexer.XML
                             }
                             if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "27-clin-sum" + Path.DirectorySeparatorChar + "summary-clin-efficacy") == true)
                             {
-                                indication = filenameListArray[p, 0].Substring((filenameListArray[p, 0].IndexOf(Path.DirectorySeparatorChar + "summary-clin-efficacy-") + 23), (filenameListArray[p, 0].IndexOf(".") - (filenameListArray[p, 0].IndexOf(Path.DirectorySeparatorChar + "summary-clin-efficacy-") + 23)));
+                                indication = filenameListArray[p, 0].Substring((filenameListArray[p, 0].IndexOf(Path.DirectorySeparatorChar + "summary-clin-efficacy-") + 23), (filenameListArray[p, 0].IndexOf(".pdf") - (filenameListArray[p, 0].IndexOf(Path.DirectorySeparatorChar + "summary-clin-efficacy-") + 23)));
                                 swr.WriteLine("            <m2-7-3-summary-of-clinical-efficacy indication=\"{0}\">", indication);
                                 swr.WriteLine("                <leaf ID=\"m27-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                    checksum=\"{0}\"", filenameListArray[p, 2]);
