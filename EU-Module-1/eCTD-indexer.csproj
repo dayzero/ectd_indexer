@@ -198,9 +198,6 @@
     <None Include="Resources\ich-ectd-3-2.dtd" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ectd-2-0.xsl" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\eu-envelope.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -250,6 +247,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Actions-view-assemble-icon_72x72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ectd-2-0.xsl" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

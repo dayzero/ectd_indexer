@@ -197,7 +197,9 @@ namespace eCTD_indexer.Properties {
         ///		&lt;html&gt;
         ///			&lt;head&gt;
         ///				&lt;link rel=&quot;stylesheet&quot; href=&quot;util/style/screen.css&quot; type=&quot;text/css&quot; media=&quot;screen&quot;/&gt;
-        ///			&lt;/head [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///			&lt;/head&gt;
+        ///			&lt;body&gt;
+        ///				 [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string ectd_2_0 {
             get {
