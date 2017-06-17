@@ -31,11 +31,13 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Windows.Forms.Integration;
 using System.IO;
 using System.Reflection;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using System.Xml;
+using eCTD_Diagnostic;
 
 
 namespace eCTD_indexer
@@ -785,6 +787,12 @@ namespace eCTD_indexer
                                     ((ComboBox)control).Text = countryEnvelope.SelectSingleNode("descendant::submission").Attributes["mode"].InnerText.ToString();
                                 }
                             }
+
+                            // Load the submission unit data.
+                            if (((ComboBox)control).Name.ToString() == ("comboBoxSubmUnit"))
+                            {
+                                ((ComboBox)control).Text = countryEnvelope.SelectSingleNode("descendant::submission-unit").Attributes["type"].InnerText.ToString();
+                            }
                         }
                     }
                 }
@@ -1085,6 +1093,17 @@ namespace eCTD_indexer
                 string topSequenceFolder = SeqDir.Substring(0, SeqDir.Length - 5);
                 CurrentDossier current = new CurrentDossier();
                 current.AssembleCurrentDossier(topSequenceFolder);
+            }
+        }
+
+        private void tsbDiagnostic_Click(object sender, EventArgs e)
+        {
+            if (this.DossierOpened)
+            {
+                eCTD_Diagnostic.MainWindow wpfwindow = new eCTD_Diagnostic.MainWindow();
+                wpfwindow.Path2Sequence = this.SeqDir;
+                ElementHost.EnableModelessKeyboardInterop(wpfwindow);
+                wpfwindow.Show();
             }
         } 
     }

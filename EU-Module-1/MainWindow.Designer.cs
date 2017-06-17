@@ -181,6 +181,7 @@ namespace eCTD_indexer
             this.tsbCreate = new System.Windows.Forms.ToolStripButton();
             this.tsbOpenDossier = new System.Windows.Forms.ToolStripButton();
             this.tsbDeleteEmptyFolder = new System.Windows.Forms.ToolStripButton();
+            this.tsbDiagnostic = new System.Windows.Forms.ToolStripButton();
             this.tsbCreateXMLFiles = new System.Windows.Forms.ToolStripButton();
             this.tsbAssemble = new System.Windows.Forms.ToolStripButton();
             this.tsbRefreshFolderView = new System.Windows.Forms.ToolStripButton();
@@ -1675,6 +1676,7 @@ namespace eCTD_indexer
             this.tsbCreate,
             this.tsbOpenDossier,
             this.tsbDeleteEmptyFolder,
+            this.tsbDiagnostic,
             this.tsbCreateXMLFiles,
             this.tsbAssemble,
             this.tsbRefreshFolderView,
@@ -1713,12 +1715,22 @@ namespace eCTD_indexer
             // tsbDeleteEmptyFolder
             // 
             this.tsbDeleteEmptyFolder.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbDeleteEmptyFolder.Image = global::eCTD_indexer.Properties.Resources.Actions_tab_close_other_icon_72x72;
+            this.tsbDeleteEmptyFolder.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_clear_icon;
             this.tsbDeleteEmptyFolder.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbDeleteEmptyFolder.Name = "tsbDeleteEmptyFolder";
             this.tsbDeleteEmptyFolder.Size = new System.Drawing.Size(36, 36);
             this.tsbDeleteEmptyFolder.Text = "Delete all empty directories";
             this.tsbDeleteEmptyFolder.Click += new System.EventHandler(this.tsbDeleteEmptyFolder_Click);
+            // 
+            // tsbDiagnostic
+            // 
+            this.tsbDiagnostic.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbDiagnostic.Image = global::eCTD_indexer.Properties.Resources.Apps_system_diagnosis_icon;
+            this.tsbDiagnostic.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbDiagnostic.Name = "tsbDiagnostic";
+            this.tsbDiagnostic.Size = new System.Drawing.Size(36, 36);
+            this.tsbDiagnostic.Text = "Dossier Diagnostic";
+            this.tsbDiagnostic.Click += new System.EventHandler(this.tsbDiagnostic_Click);
             // 
             // tsbCreateXMLFiles
             // 
@@ -1967,6 +1979,7 @@ namespace eCTD_indexer
         private System.Windows.Forms.ToolStripButton tsbCloseApp;
         private System.Windows.Forms.ToolStripButton tsbOptions;
         private System.Windows.Forms.ToolStripButton tsbAssemble;
+        private System.Windows.Forms.ToolStripButton tsbDiagnostic;
     }
 }
 

@@ -73,6 +73,16 @@ namespace eCTD_indexer.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Actions_edit_clear_icon {
+            get {
+                object obj = ResourceManager.GetObject("Actions_edit_clear_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Actions_folder_new_icon_72x72 {
             get {
                 object obj = ResourceManager.GetObject("Actions_folder_new_icon_72x72", resourceCulture);
@@ -166,6 +176,16 @@ namespace eCTD_indexer.Properties {
         internal static System.Drawing.Bitmap Apps_kexi_icon_48x48 {
             get {
                 object obj = ResourceManager.GetObject("Apps_kexi_icon_48x48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Apps_system_diagnosis_icon {
+            get {
+                object obj = ResourceManager.GetObject("Apps_system_diagnosis_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

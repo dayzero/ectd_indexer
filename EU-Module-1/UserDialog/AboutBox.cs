@@ -18,7 +18,7 @@ namespace eCTD_indexer
             this.labelProductName.Text = AssemblyProduct;
             this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
             this.labelCopyright.Text = AssemblyCopyright;
-            this.labelCompanyName.Text = "Released on 2016-08";//AssemblyCompany;
+            this.labelCompanyName.Text = "Released on 2017-06";//AssemblyCompany;
             //this.textBoxDescription.Text = AssemblyDescription;
         }
 

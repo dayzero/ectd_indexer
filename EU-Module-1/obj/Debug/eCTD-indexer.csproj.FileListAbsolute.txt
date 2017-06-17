@@ -21,3 +21,8 @@ C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\o
 C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\bin\Debug\EU-Module-1.exe.config
 C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\obj\Debug\eCTD_indexer.UserDialog.Options.resources
 C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\obj\Debug\eCTD_indexer.UserDialog.ChooseSequence.resources
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\bin\Debug\eCTD_Diagnostic.pdb
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\bin\Debug\eCTD_Diagnostic.dll
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\bin\Debug\Resources\Application.ico
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\bin\Debug\Resources\Actions-dialog-ok-apply-icon.png
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\bin\Debug\Resources\Actions-edit-delete-icon.png
