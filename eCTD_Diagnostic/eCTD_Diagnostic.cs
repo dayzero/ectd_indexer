@@ -53,18 +53,31 @@ namespace eCTD_Diagnostic
             // Create the criteria list.
             List<eCTD_Criteria> cl = new List<eCTD_Criteria>();
 
-            // Insert Criteria Category
+            // Insert Criteria Category ICH DTD
             eCTD_Criteria _01header = new eCTD_Criteria();
             _01header.SubNode = false;
             _01header.Category = eCTD_Category.ICH_DTD;
             cl.Add(_01header);
 
-            // Check every criteria.
+            // Check every criteria of 1.x
             cl.Add(this._01_1());
             cl.Add(this._01_2());
+            cl.Add(this._01_3());
+            cl.Add(this._01_4());
+            cl.Add(this._01_5());
+
+            // Insert Criteria ICH stylesheet
+            eCTD_Criteria _02header = new eCTD_Criteria();
+            _02header.SubNode = false;
+            _02header.Category = eCTD_Category.ICH_stylesheet;
+            cl.Add(_02header);
+
+            // Check every criteria of 2.x
+            cl.Add(this._02_1());
 
             // Sum-up the status of all sub-nodes
-            cl[0].Status = this.SumUpSubItems(cl, 1, 1, 2);
+            cl[0].Status = this.SumUpSubItems(cl, 1, 1, 5);
+            cl[6].Status = this.SumUpSubItems(cl, 2, 1, 1);
 
             // Return the list of checked criteria.
             return cl;
@@ -110,6 +123,7 @@ namespace eCTD_Diagnostic
 
         /// <summary>
         /// Validate eCTD criteria 1.1
+        /// Does the ich-ectd-3-2.dtd file exist 
         /// </summary>
         /// <returns></returns>
         public eCTD_Criteria _01_1() 
@@ -133,6 +147,10 @@ namespace eCTD_Diagnostic
             return c;
         }
 
+        /// <summary>
+        /// Correct sequence number?
+        /// </summary>
+        /// <returns></returns>
         public eCTD_Criteria _01_2()
         {
             eCTD_Criteria c = new eCTD_Criteria();
@@ -152,6 +170,222 @@ namespace eCTD_Diagnostic
                 {
                     c.Status = NodeType.OK;
                 }
+            }
+            else
+            {
+                c.Status = NodeType.Failed;
+                c.ErrorReason = "File not found";
+            }
+            return c;
+        }
+
+        /// <summary>
+        /// Is the MD5 hash value of the ich-ectd-3-2.dtd file correct?
+        /// </summary>
+        /// <returns></returns>
+        public eCTD_Criteria _01_3()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._01_3);
+            c.Category = eCTD_Category.ICH_DTD;
+            c.ValidationCriterion = "A currently acceptable version of the DTD is used (checksum matches the published value)";
+            c.Comments = "The checksum for the DTD in eCTD v3.2 (ich-ectd-3-2.dtd) is 1d6f631cc6b6357f0f4fe378e5f79a27";
+            c.TypeOfCheck = "P/F";
+
+            String DTD = this.Path2Sequence + @"\util\dtd\ich-ectd-3-2.dtd";
+
+            if (File.Exists(DTD))
+            {
+                try
+                {
+                    using (FileStream fs = File.OpenRead(DTD))
+                    {
+                        System.Security.Cryptography.MD5 md5 = new System.Security.Cryptography.MD5CryptoServiceProvider();
+                        byte[] fileData = new byte[fs.Length];
+                        fs.Read(fileData, 0, (int)fs.Length);
+                        byte[] checkSum = md5.ComputeHash(fileData);
+                        string result = BitConverter.ToString(checkSum).Replace("-", String.Empty);
+                        if(result.ToLower() == "1d6f631cc6b6357f0f4fe378e5f79a27")
+                        {
+                            c.Status = NodeType.OK;
+                        } else
+                        {
+                            c.Status = NodeType.Failed;
+                            c.ErrorReason = "The ich-ectd-3-2.dtd file is invalid because an incorrect MD5 hash been calculated for the ich-ectd-3-2.dtd file in your dossier.";
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    c.Status = NodeType.Failed;
+
+                    if (ex is IOException || ex is ArgumentException)
+                    {
+                        c.ErrorReason = "File not found";
+                    } else
+                    {
+                        c.ErrorReason = "Exception has been thrown when valdating no. 1.3";
+                    }
+                }
+            }
+            else
+            {
+                c.Status = NodeType.Failed;
+                c.ErrorReason = "File not found";
+            }
+            return c;
+        }
+
+        /// <summary>
+        /// Previous sequences has correct sequence number?
+        /// </summary>
+        /// <returns></returns>
+        public eCTD_Criteria _01_4()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._01_4);
+            c.Category = eCTD_Category.ICH_DTD;
+            c.ValidationCriterion = "DTD version used >= the DTD version of previous sequences";
+            c.Comments = "With reference to any transition guidance, going back to an earlier version is not allowed when a newer\nversion has already been used for that eCTD. ";
+            c.TypeOfCheck = "P/F";
+
+            if (File.Exists(this.Path2Sequence + @"\util\dtd\ich-ectd-3-2.dtd"))
+            {
+                Regex r = new Regex(@"$(?<=\\[0-9]{4})", RegexOptions.IgnoreCase);
+
+                // Match the regular expression pattern against the SearchTerm;
+                // Change column name to ID if the user searches for a ID.
+                if (r.Match(this.Path2Sequence).Success)
+                {
+                    // IF 0000 everything is ok
+                    if(this.Path2Sequence.EndsWith("0000"))
+                    {
+                        c.Status = NodeType.OK;
+                        return c;
+                    }
+                    else
+                    {
+                        // See which sequence number the current dossier has.
+                        String seqno = this.Path2Sequence.Substring(this.Path2Sequence.Length - 4, 4);
+                        String pathwithseq = this.Path2Sequence.Substring(0, this.Path2Sequence.Length - 4);
+                        seqno = seqno.Replace("0", "");
+                        int seq;
+                        if (seqno != "0000")
+                        {
+                            seqno = seqno.Replace("0", "");
+                            seq = Convert.ToInt32(seqno); ;
+                        }
+                        else { seq = 0; }
+
+                        // Have a look at every previous sequence
+                        while (seq >= 0)
+                        {
+                            if (Directory.Exists(pathwithseq + seq.ToString()))
+                            {
+                                // check if there is an previous sequence and that there is same or a previous DTD version used.
+                                if (!File.Exists(pathwithseq + seq.ToString() + @"\util\dtd\ich-ectd-3-2.dtd"))
+                                {
+                                    c.Status = NodeType.Failed;
+                                    return c;
+                                }
+                            } else
+                            {
+                                // If one seq number is not found, give a warning to the user and tell him that only one seqence number is missing and that the rest might be ok.
+                                c.Status = NodeType.Warning;
+                                c.ErrorReason = "Missing sequence directories to check this criteria.";
+                            }
+                            seq--;
+                        }
+                    }
+
+                    c.Status = NodeType.OK;
+                    return c;                    
+                }
+            }
+
+            // If nothing matched then this criteria failed.
+            c.Status = NodeType.Failed;
+            return c;
+        }
+
+
+        /// <summary>
+        /// Following sequences has correct sequence number?
+        /// </summary>
+        /// <returns></returns>
+        public eCTD_Criteria _01_5()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._01_5);
+            c.Category = eCTD_Category.ICH_DTD;
+            c.ValidationCriterion = "DTD version used <= the DTD version of further sequences";
+            c.Comments = "This rule specifically tests in situations where sequences have been submitted out of order. ";
+            c.TypeOfCheck = "P/F";
+
+            if (File.Exists(this.Path2Sequence + @"\util\dtd\ich-ectd-3-2.dtd"))
+            {
+                Regex r = new Regex(@"$(?<=\\[0-9]{4})", RegexOptions.IgnoreCase);
+
+                // Match the regular expression pattern against the SearchTerm;
+                // Change column name to ID if the user searches for a ID.
+                if (r.Match(this.Path2Sequence).Success)
+                {
+
+                    // See which sequence number the current dossier has.
+                    String seqno = this.Path2Sequence.Substring(this.Path2Sequence.Length - 4, 4);
+                    String pathwithseq = this.Path2Sequence.Substring(0, this.Path2Sequence.Length - 4);
+                    int seq;
+                    if (seqno != "0000")
+                    {
+                        seqno = seqno.Replace("0", "");
+                        seq = Convert.ToInt32(seqno); ;
+                    }
+                    else { seq = 0; }
+
+                    // Have a look at every possible further sequence
+                    while (seq <= 9999)
+                    {
+                        // It is only possible to check a dossier if the directory exists.
+                        if (Directory.Exists(pathwithseq + seq.ToString()))
+                        {
+                            // check if there is an previous sequence and that there is same or a previous DTD version used.
+                            if (!File.Exists(pathwithseq + seq.ToString() + @"\util\dtd\ich-ectd-3-2.dtd"))
+                            {
+                                c.Status = NodeType.Failed;
+                                return c;
+                            }
+                        }
+                        seq++;
+                    }
+
+                    c.Status = NodeType.OK;
+                    return c;
+                }
+            }
+
+            // If nothing matched then this criteria failed.
+            c.Status = NodeType.Failed;
+            return c;
+        }
+
+
+        /// <summary>
+        /// Validate eCTD criteria 2.1
+        /// Does the ich-ectd-3-2.dtd file exist 
+        /// </summary>
+        /// <returns></returns>
+        public eCTD_Criteria _02_1()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._02_1);
+            c.Category = eCTD_Category.ICH_stylesheet;
+            c.ValidationCriterion = "The specified filename is used";
+            c.Comments = "File is named ectd-2-0.xsl";
+            c.TypeOfCheck = "P/F";
+
+            if (File.Exists(this.Path2Sequence + @"\util\style\ectd-2-0.xsl"))
+            {
+                c.Status = NodeType.OK;
             }
             else
             {

@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="eCTD_Diagnostic.dll" size="41472">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="eCTD_Diagnostic.dll" size="45568">
       <assemblyIdentity name="eCTD_Diagnostic" version="0.0.1.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>bYJaNJl0e0utCF30QFdpKvHwHQE=</dsig:DigestValue>
+        <dsig:DigestValue>zgmw4JnzqceeYDr2tV+sjYY32cI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -62,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>eKw2GdvYDSisqcWFS7xWcJVtWwQ=</dsig:DigestValue>
+        <dsig:DigestValue>9UBwLC6IllhbKSjii/pHQk5v2iM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

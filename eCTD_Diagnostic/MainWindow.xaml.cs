@@ -80,8 +80,11 @@ namespace eCTD_Diagnostic
             }
 
             // Expand all items
-            eCTD_TreeViewItem a = (eCTD_TreeViewItem)this.tvResult.Items[0];
-            a.ExpandSubtree();
+            for (int n = 0; n < this.tvResult.Items.Count; n++)
+            {
+                _1stlevel = (eCTD_TreeViewItem)this.tvResult.Items[n];
+                _1stlevel.ExpandSubtree();
+            }
         }
     }
 }

@@ -52,8 +52,8 @@ namespace eCTD_Diagnostic
             ColumnDefinition gridCol4 = new ColumnDefinition(); // Comment
             gridCol1.MinWidth = 32;
             gridCol2.MinWidth = 100;
-            gridCol3.MinWidth = 400;
-            gridCol4.MinWidth = 500;
+            gridCol3.MinWidth = 550;
+            gridCol4.MinWidth = 400;
             treeviewgrid.ColumnDefinitions.Add(gridCol1);
             treeviewgrid.ColumnDefinitions.Add(gridCol2);
             treeviewgrid.ColumnDefinitions.Add(gridCol3);
@@ -113,5 +113,6 @@ namespace eCTD_Diagnostic
     public static class NodeType {
         public static string OK { get { return "OK"; } }
         public static string Failed { get { return "Failed"; } }
+        public static string Warning { get { return "Warning"; } }
     }
 }
