@@ -128,7 +128,10 @@ namespace eCTD_indexer
             sb.Append("the Free Software Foundation, either version 3 of the License, or (at your option) any later version.\r\n");
 
             sb.Append("The free Iconset \"Oxygen\" is used: http://www.iconarchive.com/show/oxygen-icons-by-oxygen-icons.org.html \r\n");
-            sb.Append("This Iconset is made under the terms of the GNU Lesser General Public License: https://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License");
+            sb.Append("This Iconset is made under the terms of the GNU Lesser General Public License: https://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License \r\n");
+
+            sb.Append("The free Iconset \"Iconset: 3D Vol.2 Icons by La Glanz Studio\" is also used http://www.iconarchive.com/show/3d-vol2-icons-by-3dlb.html \r\n");
+            sb.Append("This set of Icons is Freeware.");
 
             this.textBoxDescription.Text = sb.ToString();
 

@@ -74,10 +74,34 @@ namespace eCTD_Diagnostic
 
             // Check every criteria of 2.x
             cl.Add(this._02_1());
+            cl.Add(this._02_2());
+            cl.Add(this._02_3());
+
+            // Insert Criteria EU M1 DTD
+            eCTD_Criteria _03header = new eCTD_Criteria();
+            _03header.SubNode = false;
+            _03header.Category = eCTD_Category.EU_M1_DTD;
+            cl.Add(_03header);
+
+            // Check every criteria of 3.x
+            cl.Add(this._03_1());
+            cl.Add(this._03_2());
+            cl.Add(this._03_3());
+
+            // Insert Criteria EU M1 leaf MOD file
+            eCTD_Criteria _04header = new eCTD_Criteria();
+            _04header.SubNode = false;
+            _04header.Category = eCTD_Category.EU_M1_leaf_MOD_file;
+            cl.Add(_04header);
+
+            // Check every criteria of 4.x
+            cl.Add(this._04_1());
 
             // Sum-up the status of all sub-nodes
             cl[0].Status = this.SumUpSubItems(cl, 1, 1, 5);
-            cl[6].Status = this.SumUpSubItems(cl, 2, 1, 1);
+            cl[6].Status = this.SumUpSubItems(cl, 2, 1, 3);
+            cl[10].Status = this.SumUpSubItems(cl, 3, 1, 3);
+            cl[14].Status = this.SumUpSubItems(cl, 4, 1, 1);
 
             // Return the list of checked criteria.
             return cl;
@@ -148,7 +172,7 @@ namespace eCTD_Diagnostic
         }
 
         /// <summary>
-        /// Correct sequence number?
+        /// Is the dtd file in the /XXXX/util/dtd-directory?
         /// </summary>
         /// <returns></returns>
         public eCTD_Criteria _01_2()
@@ -204,7 +228,7 @@ namespace eCTD_Diagnostic
                         byte[] fileData = new byte[fs.Length];
                         fs.Read(fileData, 0, (int)fs.Length);
                         byte[] checkSum = md5.ComputeHash(fileData);
-                        string result = BitConverter.ToString(checkSum).Replace("-", String.Empty);
+                        String result = BitConverter.ToString(checkSum).Replace("-", String.Empty);
                         if(result.ToLower() == "1d6f631cc6b6357f0f4fe378e5f79a27")
                         {
                             c.Status = NodeType.OK;
@@ -307,8 +331,7 @@ namespace eCTD_Diagnostic
             c.Status = NodeType.Failed;
             return c;
         }
-
-
+        
         /// <summary>
         /// Following sequences has correct sequence number?
         /// </summary>
@@ -368,10 +391,9 @@ namespace eCTD_Diagnostic
             return c;
         }
 
-
         /// <summary>
         /// Validate eCTD criteria 2.1
-        /// Does the ich-ectd-3-2.dtd file exist 
+        /// Does the ectd-2-0.xsl file exist 
         /// </summary>
         /// <returns></returns>
         public eCTD_Criteria _02_1()
@@ -384,6 +406,242 @@ namespace eCTD_Diagnostic
             c.TypeOfCheck = "P/F";
 
             if (File.Exists(this.Path2Sequence + @"\util\style\ectd-2-0.xsl"))
+            {
+                c.Status = NodeType.OK;
+            }
+            else
+            {
+                c.Status = NodeType.Failed;
+                c.ErrorReason = "File not found";
+            }
+            return c;
+        }
+
+        /// <summary>
+        /// Is the dtd file in the /XXXX/util/dtd-directory?
+        /// </summary>
+        /// <returns></returns>
+        public eCTD_Criteria _02_2()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._02_2);
+            c.Category = eCTD_Category.ICH_stylesheet;
+            c.ValidationCriterion = "The file is placed in the correct folder";
+            c.Comments = "In the folder /XXXX/util/style";
+            c.TypeOfCheck = "P/F";
+
+            if (File.Exists(this.Path2Sequence + @"\util\style\ectd-2-0.xsl"))
+            {
+                Regex r = new Regex(@"$(?<=\\[0-9]{4})", RegexOptions.IgnoreCase);
+
+                // Match the regular expression pattern against the SearchTerm;
+                // Change column name to ID if the user searches for a ID.
+                if (r.Match(this.Path2Sequence).Success)
+                {
+                    c.Status = NodeType.OK;
+                }
+            }
+            else
+            {
+                c.Status = NodeType.Failed;
+                c.ErrorReason = "File not found in /XXXX/util/style.";
+            }
+            return c;
+        }
+
+        /// <summary>
+        /// Is the MD5 hash value of the ectd-2-0.xsl file correct?
+        /// </summary>
+        /// <returns></returns>
+        public eCTD_Criteria _02_3()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._02_3);
+            c.Category = eCTD_Category.ICH_stylesheet;
+            c.ValidationCriterion = "The checksum for the stylesheet used must match the published checksum\nfor the stylesheet associated with the DTD used for the sequence";
+            c.Comments = "checksum corresponding to the stylesheet from eCTD specification v3.2 (ectd-2-0.xsl)\nis 3a07a202455e954a2eb203c5bb443f77";
+            c.TypeOfCheck = "P/F";
+
+            String DTD = this.Path2Sequence + @"\util\style\ectd-2-0.xsl";
+
+            if (File.Exists(DTD))
+            {
+                try
+                {
+                    using (FileStream fs = File.OpenRead(DTD))
+                    {
+                        System.Security.Cryptography.MD5 md5 = new System.Security.Cryptography.MD5CryptoServiceProvider();
+                        byte[] fileData = new byte[fs.Length];
+                        fs.Read(fileData, 0, (int)fs.Length);
+                        byte[] checkSum = md5.ComputeHash(fileData);
+                        String result = BitConverter.ToString(checkSum).Replace("-", String.Empty);
+                        if (result.ToLower() == "3a07a202455e954a2eb203c5bb443f77")
+                        {
+                            c.Status = NodeType.OK;
+                        }
+                        else
+                        {
+                            c.Status = NodeType.Failed;
+                            c.ErrorReason = "The ectd-2-0.xsl file is invalid because an incorrect MD5 hash been calculated for the ectd-2-0.xsl file in your dossier.";
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    c.Status = NodeType.Failed;
+
+                    if (ex is IOException || ex is ArgumentException)
+                    {
+                        c.ErrorReason = "File not found";
+                    }
+                    else
+                    {
+                        c.ErrorReason = "Exception has been thrown when valdating no. 2.3";
+                    }
+                }
+            }
+            else
+            {
+                c.Status = NodeType.Failed;
+                c.ErrorReason = "File not found";
+            }
+            return c;
+        }
+
+        /// <summary>
+        /// Validate eCTD criteria 3.1
+        /// Does the eu-regional.dtd file exist?
+        /// </summary>
+        /// <returns></returns>
+        public eCTD_Criteria _03_1()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._03_1);
+            c.Category = eCTD_Category.EU_M1_DTD;
+            c.ValidationCriterion = "The specified filename is used";
+            c.Comments = "File is named eu-regional.dtd";
+            c.TypeOfCheck = "P/F";
+
+            if (File.Exists(this.Path2Sequence + @"\util\dtd\eu-regional.dtd"))
+            {
+                c.Status = NodeType.OK;
+            }
+            else
+            {
+                c.Status = NodeType.Failed;
+                c.ErrorReason = "File not found";
+            }
+            return c;
+        }
+
+        /// <summary>
+        /// Is the dtd file in the /XXXX/util/dtd-directory?
+        /// </summary>
+        /// <returns></returns>
+        public eCTD_Criteria _03_2()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._03_2);
+            c.Category = eCTD_Category.EU_M1_DTD;
+            c.ValidationCriterion = "The file is placed in the correct folder";
+            c.Comments = "In the folder /XXXX/util/dtd";
+            c.TypeOfCheck = "P/F";
+
+            if (File.Exists(this.Path2Sequence + @"\util\dtd\eu-regional.dtd"))
+            {
+                Regex r = new Regex(@"$(?<=\\[0-9]{4})", RegexOptions.IgnoreCase);
+
+                // Match the regular expression pattern against the SearchTerm;
+                // Change column name to ID if the user searches for a ID.
+                if (r.Match(this.Path2Sequence).Success)
+                {
+                    c.Status = NodeType.OK;
+                }
+            }
+            else
+            {
+                c.Status = NodeType.Failed;
+                c.ErrorReason = "File not found";
+            }
+            return c;
+        }
+
+        /// <summary>
+        /// Is the MD5 hash value of the ectd-2-0.xsl file correct?
+        /// </summary>
+        /// <returns></returns>
+        public eCTD_Criteria _03_3()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._03_3);
+            c.Category = eCTD_Category.EU_M1_DTD;
+            c.ValidationCriterion = "A currently acceptable version of the DTD is used (checksum matches the published value)";
+            c.Comments = "checksum corresponding to the EU-Regional-DTD-file from eCTD specification v3.0.2 \nis 290503BF171E7E2E80EF90F0BDE5D91E";
+            c.TypeOfCheck = "P/F";
+
+            String DTD = this.Path2Sequence + @"\util\dtd\eu-regional.dtd";
+
+            if (File.Exists(DTD))
+            {
+                try
+                {
+                    using (FileStream fs = File.OpenRead(DTD))
+                    {
+                        System.Security.Cryptography.MD5 md5 = new System.Security.Cryptography.MD5CryptoServiceProvider();
+                        byte[] fileData = new byte[fs.Length];
+                        fs.Read(fileData, 0, (int)fs.Length);
+                        byte[] checkSum = md5.ComputeHash(fileData);
+                        String result = BitConverter.ToString(checkSum).Replace("-", String.Empty);
+                        if (result == "290503BF171E7E2E80EF90F0BDE5D91E")
+                        {
+                            c.Status = NodeType.OK;
+                        }
+                        else
+                        {
+                            c.Status = NodeType.Failed;
+                            c.ErrorReason = "The eu-regional.dtd file is invalid because an incorrect MD5 hash been calculated for the eu-regional.dtd file in your dossier.";
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    c.Status = NodeType.Failed;
+
+                    if (ex is IOException || ex is ArgumentException)
+                    {
+                        c.ErrorReason = "File not found";
+                    }
+                    else
+                    {
+                        c.ErrorReason = "Exception has been thrown when valdating no. 3.3";
+                    }
+                }
+            }
+            else
+            {
+                c.Status = NodeType.Failed;
+                c.ErrorReason = "File not found";
+            }
+            return c;
+        }
+
+        // TODO: 3.4 and 3.5
+
+        /// <summary>
+        /// Validate eCTD criteria 4.1
+        /// Does the eu-leaf.mod file exist?
+        /// </summary>
+        /// <returns></returns>
+        public eCTD_Criteria _04_1()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._04_1);
+            c.Category = eCTD_Category.EU_M1_leaf_MOD_file;
+            c.ValidationCriterion = "The specified filename is used";
+            c.Comments = "File is named eu-leaf.mod";
+            c.TypeOfCheck = "P/F";
+
+            if (File.Exists(this.Path2Sequence + @"\util\dtd\eu-leaf.mod"))
             {
                 c.Status = NodeType.OK;
             }
