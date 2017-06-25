@@ -255,7 +255,7 @@ namespace eCTD_Diagnostic
             c.Number = new eCTD_Number(eCTD_Number._01_3);
             c.Category = eCTD_Category.ICH_DTD;
             c.ValidationCriterion = "A currently acceptable version of the DTD is used (checksum matches the published value)";
-            c.Comments = "The checksum for the DTD in eCTD v3.2 (ich-ectd-3-2.dtd) is 1d6f631cc6b6357f0f4fe378e5f79a27";
+            c.Comments = "The checksum for the DTD in eCTD v3.2 (ich-ectd-3-2.dtd) is\n1d6f631cc6b6357f0f4fe378e5f79a27";
             c.TypeOfCheck = "P/F";
 
             String DTD = this.Path2Sequence + @"\util\dtd\ich-ectd-3-2.dtd";
@@ -312,7 +312,7 @@ namespace eCTD_Diagnostic
             c.Number = new eCTD_Number(eCTD_Number._01_4);
             c.Category = eCTD_Category.ICH_DTD;
             c.ValidationCriterion = "DTD version used >= the DTD version of previous sequences";
-            c.Comments = "With reference to any transition guidance, going back to an earlier version is not allowed when a newer\nversion has already been used for that eCTD. ";
+            c.Comments = "With reference to any transition guidance, going back to an earlier version is\nnot allowed when a newer version has already been used for that eCTD. ";
             c.TypeOfCheck = "P/F";
 
             if (File.Exists(this.Path2Sequence + @"\util\dtd\ich-ectd-3-2.dtd"))
@@ -1096,8 +1096,8 @@ namespace eCTD_Diagnostic
             c.Category = eCTD_Category.Index_XML;
             c.ValidationCriterion = "The file is well formed";
             c.Comments = "Well formed with respect to the rules of the XML specification";
-            c.TypeOfCheck = "P/F";
-
+            c.TypeOfCheck = "P/F"; 
+            
             try
             {
                 String xmlfile = this.Path2Sequence + @"\index.xml";

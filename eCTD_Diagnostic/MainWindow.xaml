@@ -5,7 +5,23 @@
         Title="eCTD Diagnotic" Height="900" Width="1280" WindowStartupLocation="CenterScreen" Icon="pack://siteoforigin:,,,/Resources/Application.ico" Loaded="eCTD_Diagnostic_MainWindow_Loaded">
     <Grid Name="grid_Main">
         <!-- http://www.techerator.com/2011/05/how-to-stretch-a-menu-control-to-the-width-of-a-window-in-wpf/ -->
-        <ToolBar Name="eCTD_Toolbar" HorizontalAlignment="Left" VerticalAlignment="Top" Height="43" Width="{Binding ElementName=grid_Main,Path=ActualWidth}" />
+        <ToolBar Name="eCTD_Toolbar" HorizontalAlignment="Left" VerticalAlignment="Top" Height="43" Width="{Binding ElementName=grid_Main,Path=ActualWidth}" >
+            <Button Name="btReValidate" ToolTip="Revalidate your dossier..." Click="btReValidate_Click" >
+                <Image Source="pack://siteoforigin:,,,/Resources/Actions-view-refresh-icon_32x32.png" />                
+            </Button>
+            <Button Name="btCollapse" ToolTip="Collapse result..." Click="btCollapse_Click" >
+                <Image Source="pack://siteoforigin:,,,/Resources/Actions-view-list-details-icon_32x32.png" />
+            </Button>
+            <Button Name="btExpand" ToolTip="Expand result..." Click="btExpand_Click" >
+                <Image Source="pack://siteoforigin:,,,/Resources/Actions-view-list-tree-icon_32x32.png" />
+            </Button>
+            <Image Margin="500,0,0,0" Source="pack://siteoforigin:,,,/Resources/Green.png" ToolTip="Criteria passed" />
+            <Label Name="lPassed" VerticalAlignment="Center" FontWeight="Bold" ToolTip="Criteria passed" FontSize="18">Passed</Label>
+            <Image  Source="pack://siteoforigin:,,,/Resources/yellow.png" ToolTip="Best Practise criteria not passed" />
+            <Label Name="lBP" VerticalAlignment="Center" FontWeight="Bold" ToolTip="Best Practise criteria not passed" FontSize="18">Best Practise</Label>
+            <Image  Source="pack://siteoforigin:,,,/Resources/red.png" ToolTip="Criteria failed"/>
+            <Label Name="lFailed" VerticalAlignment="Center" FontWeight="Bold" ToolTip="Criteria failed" FontSize="18">Failed</Label>
+        </ToolBar>
         <TreeView Name="tvResult" Margin="0,43,0,24" Height="Auto" Width="{Binding ElementName=grid_Main,Path=ActualWidth}" >
             <TreeView.ItemTemplate>
                 <DataTemplate>
@@ -17,6 +33,7 @@
                 </DataTemplate>
             </TreeView.ItemTemplate>
             </TreeView>
-        <StatusBar VerticalAlignment="Bottom" Height="24" Margin="0,846,0,0"  Width="{Binding ElementName=grid_Main,Path=ActualWidth}"/> 
+        <StatusBar VerticalAlignment="Bottom" Height="24" Margin="0,846,0,0"  Width="{Binding ElementName=grid_Main,Path=ActualWidth}">
+        </StatusBar>
     </Grid>
 </Window>

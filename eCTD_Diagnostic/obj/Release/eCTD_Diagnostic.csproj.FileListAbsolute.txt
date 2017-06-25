@@ -1,0 +1,17 @@
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnostic\bin\Release\Resources\Application.ico
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnostic\bin\Release\Resources\Actions-dialog-ok-apply-icon.png
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnostic\bin\Release\Resources\Actions-edit-delete-icon.png
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnostic\bin\Release\eCTD_Diagnostic.dll
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnostic\bin\Release\eCTD_Diagnostic.pdb
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnostic\obj\Release\MainWindow.baml
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnostic\obj\Release\MainWindow.g.cs
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnostic\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnostic\obj\Release\eCTD_Diagnostic_MarkupCompile.cache
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnostic\obj\Release\eCTD_Diagnostic_MarkupCompile.lref
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnostic\obj\Release\Themes\Generic.baml
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnostic\obj\Release\eCTD_Diagnostic.g.resources
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnostic\obj\Release\eCTD_Diagnostic.Properties.Resources.resources
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnostic\obj\Release\eCTD_Diagnostic.csproj.GenerateResource.Cache
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnostic\obj\Release\eCTD_Diagnostic.dll
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnostic\obj\Release\eCTD_Diagnostic.pdb
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnostic\obj\Release\eCTD_Diagnostic.csprojResolveAssemblyReference.cache

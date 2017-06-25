@@ -55,6 +55,24 @@ namespace eCTD_Diagnostic
 
         private void eCTD_Diagnostic_MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            this.Validate();
+        }
+
+        private void Validate()
+        {
+            if(this.tvResult != null)
+            {
+                if (this.tvResult.Items != null)
+                {
+                    this.tvResult.Items.Clear();
+                }
+            }
+
+            // Calculated
+            int green = 0;
+            int yellow = 0;
+            int red = 0;
+
             // Validate the whole dossier
             List<eCTD_Criteria> cl = new eCTD_Diagnostics(this.Path2Sequence).Validate();
 
@@ -63,13 +81,26 @@ namespace eCTD_Diagnostic
             eCTD_TreeViewItem _1stlevel = new eCTD_TreeViewItem();
             eCTD_TreeViewItem _2stlevel;
 
-            for(int i=0;i<cl.Count;i++)
+            for (int i = 0; i < cl.Count; i++)
             {
                 if (cl[i].SubNode)
                 {
                     _2stlevel = new eCTD_TreeViewItem(cl[i].Status, cl[i].Number.value, cl[i].ValidationCriterion, cl[i].Comments);
                     current.Items.Add(_2stlevel);
                     current = _1stlevel;
+
+                    // Count the results
+                    if(cl[i].Status == NodeType.OK)
+                    {
+                        green++;
+                    } else if(cl[i].Status == NodeType.Failed)
+                    {
+                        red++;
+                    }
+                    else if(cl[i].Status == NodeType.Warning)
+                    { 
+                        yellow++; 
+                    }
                 }
                 else
                 {
@@ -78,6 +109,40 @@ namespace eCTD_Diagnostic
                     current = _1stlevel;
                 }
             }
+
+            // Expand all items
+            for (int n = 0; n < this.tvResult.Items.Count; n++)
+            {
+                _1stlevel = (eCTD_TreeViewItem)this.tvResult.Items[n];
+                _1stlevel.ExpandSubtree();
+            }
+
+            // Show calculation results
+            this.lPassed.Content = green.ToString();
+            this.lBP.Content = yellow.ToString();
+            this.lFailed.Content = red.ToString();
+        }
+
+        private void btReValidate_Click(object sender, RoutedEventArgs e)
+        {
+            this.Validate();
+        }
+
+        private void btCollapse_Click(object sender, RoutedEventArgs e)
+        {
+            eCTD_TreeViewItem _1stlevel;
+
+            // Expand all items
+            for (int n = 0; n < this.tvResult.Items.Count; n++)
+            {
+                _1stlevel = (eCTD_TreeViewItem)this.tvResult.Items[n];
+                _1stlevel.IsExpanded = false;
+            }
+        }
+
+        private void btExpand_Click(object sender, RoutedEventArgs e)
+        {
+            eCTD_TreeViewItem _1stlevel;
 
             // Expand all items
             for (int n = 0; n < this.tvResult.Items.Count; n++)
