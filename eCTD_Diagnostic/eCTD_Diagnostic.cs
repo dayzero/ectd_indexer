@@ -136,6 +136,29 @@ namespace eCTD_Diagnostic
             cl.Add(this._07_3());
             cl.Add(this._07_4());
 
+            // Insert Criteria MD5 hash file
+            eCTD_Criteria _08header = new eCTD_Criteria();
+            _08header.SubNode = false;
+            _08header.Category = eCTD_Category.Index_MD5_txt;
+            cl.Add(_08header);
+
+            // Check every criteria of 8.x
+            cl.Add(this._08_1());
+            cl.Add(this._08_2());
+            cl.Add(this._08_3());
+
+            // Insert Criteria MD5 hash file
+            eCTD_Criteria _09header = new eCTD_Criteria();
+            _09header.SubNode = false;
+            _09header.Category = eCTD_Category.EU_regional_XML;
+            cl.Add(_09header);
+
+            // Check every criteria of 9.x
+            cl.Add(this._09_1());
+            cl.Add(this._09_2());
+            cl.Add(this._09_3());
+            cl.Add(this._09_4());
+
             // Sum-up the status of all sub-nodes
             cl[0].Status = this.SumUpSubItems(cl, 1, 1, 5);
             cl[6].Status = this.SumUpSubItems(cl, 2, 1, 3);
@@ -144,6 +167,8 @@ namespace eCTD_Diagnostic
             cl[18].Status = this.SumUpSubItems(cl, 5, 1, 3);
             cl[22].Status = this.SumUpSubItems(cl, 6, 1, 3);
             cl[26].Status = this.SumUpSubItems(cl, 7, 1, 4);
+            cl[31].Status = this.SumUpSubItems(cl, 8, 1, 3);
+            cl[35].Status = this.SumUpSubItems(cl, 9, 1, 4);
 
             // Return the list of checked criteria.
             return cl;
@@ -1128,7 +1153,7 @@ namespace eCTD_Diagnostic
         }
 
         /// <summary>
-        /// Well formed with respect to the rules of the XML specification?
+        /// Valid with respect to the ICH eCTD DTD file included in the util/dtd folder ?
         /// </summary>
         /// <returns></returns>
         public eCTD_Criteria _07_4()
@@ -1175,6 +1200,292 @@ namespace eCTD_Diagnostic
             }
             return c;
         }
+
+        // TODO: 7.5 + 7.6
+
+
+        /// <summary>
+        /// Validate eCTD criteria 8.1
+        /// The XML file is placed in the correct folder?
+        /// </summary>
+        /// <returns></returns>
+        public eCTD_Criteria _08_1()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._08_1);
+            c.Category = eCTD_Category.Index_MD5_txt;
+            c.ValidationCriterion = "The MD5 hash file is placed in the correct folder";
+            c.Comments = "The root folder /XXXX";
+            c.TypeOfCheck = "P/F";
+
+            if (File.Exists(this.Path2Sequence + @"\index-md5.txt"))
+            {
+                Regex r = new Regex(@"$(?<=\\[0-9]{4})", RegexOptions.IgnoreCase);
+
+                // Match the regular expression pattern against the SearchTerm;
+                // Change column name to ID if the user searches for a ID.
+                if (r.Match(this.Path2Sequence).Success)
+                {
+                    c.Status = NodeType.OK;
+                }
+            }
+            else
+            {
+                c.Status = NodeType.Failed;
+                c.ErrorReason = "File not found";
+            }
+            return c;
+        }
+
+        /// <summary>
+        /// The file is named correctly?
+        /// </summary>
+        /// <returns></returns>
+        public eCTD_Criteria _08_2()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._08_2);
+            c.Category = eCTD_Category.Index_MD5_txt;
+            c.ValidationCriterion = "The file is named correctly";
+            c.Comments = "The file is named index-md5.txt";
+            c.TypeOfCheck = "P/F";
+
+            if (File.Exists(this.Path2Sequence + @"\index-md5.txt"))
+            {
+                c.Status = NodeType.OK;
+            }
+            else
+            {
+                c.Status = NodeType.Failed;
+                c.ErrorReason = "File not found";
+            }
+            return c;
+        }
+
+
+        /// <summary>
+        /// The file is named correctly?
+        /// </summary>
+        /// <returns></returns>
+        public eCTD_Criteria _08_3()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._08_3);
+            c.Category = eCTD_Category.Index_MD5_txt;
+            c.ValidationCriterion = "The regenerated checksum for the index.xml matches the value in the file index-md5.txt.";
+            c.Comments = "The checkum is correct.";
+            c.TypeOfCheck = "P/F";
+
+            if (File.Exists(this.Path2Sequence + @"\index-md5.txt") && File.Exists(this.Path2Sequence + @"\index.xml"))
+            {
+                try
+                {
+                    String indexXML = this.Path2Sequence + @"\index.xml";
+                    String indexmd5TXT_content = "";
+
+                    using (FileStream fs = File.OpenRead(indexXML))
+                    {
+                        // Calculate Hash Value
+                        System.Security.Cryptography.MD5 md5 = new System.Security.Cryptography.MD5CryptoServiceProvider();
+                        byte[] fileData = new byte[fs.Length];
+                        fs.Read(fileData, 0, (int)fs.Length);
+                        byte[] checkSum = md5.ComputeHash(fileData);
+                        String result = BitConverter.ToString(checkSum).Replace("-", String.Empty);
+
+                        // Read the hash value written down in the text file
+                        // Open the text file using a stream reader.
+                        using (StreamReader sr = new StreamReader(this.Path2Sequence + @"\index-md5.txt"))
+                        {
+                            // Read the stream to a string, and write the string to the console.
+                            indexmd5TXT_content = sr.ReadLine();
+                        }
+
+                        // Caution: The hash value in the EU Region eCTD Validation Criteria excel file is not the
+                        // same as specified here: http://esubmission.ema.europa.eu/eumodule1/ for version 3.0.2
+                        if (result.ToLower() == indexmd5TXT_content)
+                        {
+                            c.Status = NodeType.OK;
+                        }
+                        else
+                        {
+                            c.Status = NodeType.Failed;
+                            c.ErrorReason = "The hash value in index-md5.txt is incorrect.";
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    c.Status = NodeType.Failed;
+
+                    if (ex is IOException || ex is ArgumentException)
+                    {
+                        c.ErrorReason = "File not found";
+                    }
+                    else
+                    {
+                        c.ErrorReason = "Exception has been thrown when valdating no. 6.3";
+                    }
+                }
+
+                c.Status = NodeType.OK;
+            }
+            else
+            {
+                c.Status = NodeType.Failed;
+                c.ErrorReason = "File not found";
+            }
+            return c;
+        }
+
+        /// <summary>
+        /// Validate eCTD criteria 9.1
+        /// The XML file is placed in the correct folder?
+        /// </summary>
+        /// <returns></returns>
+        public eCTD_Criteria _09_1()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._09_1);
+            c.Category = eCTD_Category.EU_regional_XML;
+            c.ValidationCriterion = "The XML file is placed in the correct folder";
+            c.Comments = "The folder /XXXX/m1/eu";
+            c.TypeOfCheck = "P/F";
+
+            if (File.Exists(this.Path2Sequence + @"\m1\eu\eu-regional.xml"))
+            {
+                Regex r = new Regex(@"$(?<=\\[0-9]{4})", RegexOptions.IgnoreCase);
+
+                // Match the regular expression pattern against the SearchTerm;
+                // Change column name to ID if the user searches for a ID.
+                if (r.Match(this.Path2Sequence).Success)
+                {
+                    c.Status = NodeType.OK;
+                }
+            }
+            else
+            {
+                c.Status = NodeType.Failed;
+                c.ErrorReason = "File not found";
+            }
+            return c;
+        }
+
+        /// <summary>
+        /// The file is named correctly?
+        /// </summary>
+        /// <returns></returns>
+        public eCTD_Criteria _09_2()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._09_2);
+            c.Category = eCTD_Category.EU_regional_XML;
+            c.ValidationCriterion = "The file is named correctly";
+            c.Comments = "File is named eu-regional.xml";
+            c.TypeOfCheck = "P/F";
+
+            if (File.Exists(this.Path2Sequence + @"\m1\eu\eu-regional.xml"))
+            {
+                c.Status = NodeType.OK;
+            }
+            else
+            {
+                c.Status = NodeType.Failed;
+                c.ErrorReason = "File not found";
+            }
+            return c;
+        }
+
+        /// <summary>
+        /// Well formed with respect to the rules of the XML specification?
+        /// </summary>
+        /// <returns></returns>
+        public eCTD_Criteria _09_3()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._09_3);
+            c.Category = eCTD_Category.EU_regional_XML;
+            c.ValidationCriterion = "The file is well formed";
+            c.Comments = "Well formed with respect to the rules of the XML specification";
+            c.TypeOfCheck = "P/F";
+
+            try
+            {
+                String xmlfile = this.Path2Sequence + @"\m1\eu\eu-regional.xml";
+
+                // Check we actually have the file
+                if (File.Exists(xmlfile))
+                {
+                    // Try to load and parse the XML document.
+                    XDocument oXML = XDocument.Load(xmlfile);
+                    XDocument.Parse(oXML.Document.ToString());
+
+                    // If we managed with no exception then this is valid XML!
+                    c.Status = NodeType.OK;
+                }
+                else
+                {
+                    // A blank value is not valid xml
+                    c.Status = NodeType.Failed;
+                    c.ErrorReason = "File not found";
+                }
+            }
+            catch (Exception)
+            {
+                c.Status = NodeType.Failed;
+                c.ErrorReason = "The file is not well formed with respect to the rules of the XML specification.";
+            }
+            return c;
+        }
+
+        /// <summary>
+        /// Valid with respect to the ICH eCTD DTD file included in the util/dtd folder ?
+        /// </summary>
+        /// <returns></returns>
+        public eCTD_Criteria _09_4()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._09_4);
+            c.Category = eCTD_Category.EU_regional_XML;
+            c.ValidationCriterion = "The file is valid";
+            c.Comments = "Valid with respect to the EU Module 1 DTD file included in the util/dtd folder.";
+            c.TypeOfCheck = "P/F";
+
+            try
+            {
+                String xmlfile = this.Path2Sequence + @"\m1\eu\eu-regional.xml";
+
+                // Check we actually have the file
+                if (File.Exists(xmlfile) && File.Exists(this.Path2Sequence + @"\util\dtd\eu-regional.dtd"))
+                {
+                    // Have a look at https://msdn.microsoft.com/de-de/library/system.xml.xmlreadersettings.dtdprocessing(v=vs.110).aspx
+                    // Set the validation settings.
+                    XmlReaderSettings settings = new XmlReaderSettings();
+                    settings.DtdProcessing = DtdProcessing.Parse;
+                    settings.ValidationType = ValidationType.DTD;
+
+                    // Create the XmlReader object.
+                    XmlReader reader = XmlReader.Create(xmlfile, settings);
+
+                    // Parse the file.  
+                    while (reader.Read()) ;
+
+                    c.Status = NodeType.OK;
+                }
+                else
+                {
+                    // A blank value is not valid xml
+                    c.Status = NodeType.Failed;
+                    c.ErrorReason = "File not found";
+                }
+            }
+            catch (Exception)
+            {
+                c.Status = NodeType.Failed;
+                c.ErrorReason = "The file is not well formed with respect to the rules of the XML specification.";
+            }
+            return c;
+        }
+
 
     }
 
