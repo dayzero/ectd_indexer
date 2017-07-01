@@ -959,6 +959,10 @@ namespace eCTD_indexer
                         MessageBox.Show("Please select the submission unit!", "Missing submission unit..", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Please select the mode!", "Missing mode statement..", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
             }
         }
 
