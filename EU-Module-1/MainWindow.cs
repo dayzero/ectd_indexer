@@ -566,6 +566,9 @@ namespace eCTD_indexer
             {
                 comboBoxMode.Enabled = false;
                 textBoxNumber.Enabled = false;
+                comboBoxMode.Text = "";
+                comboBoxMode.SelectedText = "";
+                comboBoxMode.SelectedItem = null;
             }
         }
 
@@ -848,7 +851,7 @@ namespace eCTD_indexer
             if (this.DossierOpened)
             {
                 // Check if the user has choosen values for "mode", "submission unit" and "procedure type"
-                if (this.comboBoxMode.Text != "")
+                if (this.comboBoxMode.Text != "" || !(bool)this.comboBoxMode.Enabled)
                 {
                     if (this.comboBoxSubmUnit.Text != "")
                     {
