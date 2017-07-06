@@ -268,7 +268,10 @@ namespace eCTD_indexer.XML
                                 if (filenameListArray[p, 0].Contains("form-"))
                                 {
                                     int formNameStart = filenameListArray[p, 0].IndexOf("form-") + 5;
-                                    int formNameLength = (filenameListArray[p, 0].IndexOf(".") - formNameStart);
+
+                                    // Using LastIndexOf instead of IndexOf because an Exception is thrown
+                                    // if for instance a user name contains a dot.
+                                    int formNameLength = (filenameListArray[p, 0].LastIndexOf(".") - formNameStart);
                                     formTitle = ("Application - " + filenameListArray[p, 0].Substring(formNameStart, formNameLength));
                                 }
                                 else formTitle = "Application form";
