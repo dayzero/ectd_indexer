@@ -176,10 +176,10 @@ namespace eCTD_indexer
             this.textBoxDE2 = new System.Windows.Forms.TextBox();
             this.checkBoxDE2 = new System.Windows.Forms.CheckBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.fileExplorerUserControl = new eCTD_indexer.FileExplorerUserControl();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.tsbCreate = new System.Windows.Forms.ToolStripButton();
             this.tsbOpenDossier = new System.Windows.Forms.ToolStripButton();
+            this.tsbAdoptInformation = new System.Windows.Forms.ToolStripButton();
             this.tsbDeleteEmptyFolder = new System.Windows.Forms.ToolStripButton();
             this.tsbDiagnostic = new System.Windows.Forms.ToolStripButton();
             this.tsbCreateXMLFiles = new System.Windows.Forms.ToolStripButton();
@@ -189,20 +189,21 @@ namespace eCTD_indexer
             this.tsbOptions = new System.Windows.Forms.ToolStripButton();
             this.tsbCloseApp = new System.Windows.Forms.ToolStripButton();
             this.tsbAbout = new System.Windows.Forms.ToolStripButton();
+            this.pbNumberCopy = new System.Windows.Forms.PictureBox();
+            this.pbTrackingNoCopy = new System.Windows.Forms.PictureBox();
+            this.pbINNCopy = new System.Windows.Forms.PictureBox();
             this.pbIdentifierCopy = new System.Windows.Forms.PictureBox();
             this.tbIdentifier = new System.Windows.Forms.TextBox();
-            this.pbINNCopy = new System.Windows.Forms.PictureBox();
-            this.pbTrackingNoCopy = new System.Windows.Forms.PictureBox();
-            this.pbNumberCopy = new System.Windows.Forms.PictureBox();
+            this.fileExplorerUserControl = new eCTD_indexer.FileExplorerUserControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.toolStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbIdentifierCopy)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbINNCopy)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTrackingNoCopy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNumberCopy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTrackingNoCopy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbINNCopy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbIdentifierCopy)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxTrackNo
@@ -1673,21 +1674,13 @@ namespace eCTD_indexer
             this.splitContainer1.SplitterDistance = 646;
             this.splitContainer1.TabIndex = 122;
             // 
-            // fileExplorerUserControl
-            // 
-            this.fileExplorerUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fileExplorerUserControl.Location = new System.Drawing.Point(0, 39);
-            this.fileExplorerUserControl.Margin = new System.Windows.Forms.Padding(2);
-            this.fileExplorerUserControl.Name = "fileExplorerUserControl";
-            this.fileExplorerUserControl.Size = new System.Drawing.Size(646, 786);
-            this.fileExplorerUserControl.TabIndex = 123;
-            // 
             // toolStrip
             // 
             this.toolStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbCreate,
             this.tsbOpenDossier,
+            this.tsbAdoptInformation,
             this.tsbDeleteEmptyFolder,
             this.tsbDiagnostic,
             this.tsbCreateXMLFiles,
@@ -1724,6 +1717,16 @@ namespace eCTD_indexer
             this.tsbOpenDossier.Size = new System.Drawing.Size(36, 36);
             this.tsbOpenDossier.Text = "Open Dossier";
             this.tsbOpenDossier.Click += new System.EventHandler(this.tsbOpenDossier_Click);
+            // 
+            // tsbAdoptInformation
+            // 
+            this.tsbAdoptInformation.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbAdoptInformation.Image = global::eCTD_indexer.Properties.Resources.Actions_go_jump_icon_72x72;
+            this.tsbAdoptInformation.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbAdoptInformation.Name = "tsbAdoptInformation";
+            this.tsbAdoptInformation.Size = new System.Drawing.Size(36, 36);
+            this.tsbAdoptInformation.Text = "Adopt information from previous sequence";
+            this.tsbAdoptInformation.Click += new System.EventHandler(this.tsbAdoptInformation_Click);
             // 
             // tsbDeleteEmptyFolder
             // 
@@ -1815,6 +1818,39 @@ namespace eCTD_indexer
             this.tsbAbout.Text = "About eCTD indexer";
             this.tsbAbout.Click += new System.EventHandler(this.tsbAbout_Click);
             // 
+            // pbNumberCopy
+            // 
+            this.pbNumberCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
+            this.pbNumberCopy.Location = new System.Drawing.Point(326, 145);
+            this.pbNumberCopy.Name = "pbNumberCopy";
+            this.pbNumberCopy.Size = new System.Drawing.Size(36, 21);
+            this.pbNumberCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbNumberCopy.TabIndex = 126;
+            this.pbNumberCopy.TabStop = false;
+            this.pbNumberCopy.Click += new System.EventHandler(this.pbNumberCopy_Click);
+            // 
+            // pbTrackingNoCopy
+            // 
+            this.pbTrackingNoCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
+            this.pbTrackingNoCopy.Location = new System.Drawing.Point(326, 45);
+            this.pbTrackingNoCopy.Name = "pbTrackingNoCopy";
+            this.pbTrackingNoCopy.Size = new System.Drawing.Size(36, 21);
+            this.pbTrackingNoCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbTrackingNoCopy.TabIndex = 125;
+            this.pbTrackingNoCopy.TabStop = false;
+            this.pbTrackingNoCopy.Click += new System.EventHandler(this.pbTrackingNoCopy_Click);
+            // 
+            // pbINNCopy
+            // 
+            this.pbINNCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
+            this.pbINNCopy.Location = new System.Drawing.Point(674, 44);
+            this.pbINNCopy.Name = "pbINNCopy";
+            this.pbINNCopy.Size = new System.Drawing.Size(36, 21);
+            this.pbINNCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbINNCopy.TabIndex = 124;
+            this.pbINNCopy.TabStop = false;
+            this.pbINNCopy.Click += new System.EventHandler(this.pbINNCopy_Click);
+            // 
             // pbIdentifierCopy
             // 
             this.pbIdentifierCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
@@ -1835,38 +1871,14 @@ namespace eCTD_indexer
             this.tbIdentifier.Enter += new System.EventHandler(this.tbIdentifier_Enter);
             this.tbIdentifier.Leave += new System.EventHandler(this.tbIdentifier_Leave);
             // 
-            // pbINNCopy
+            // fileExplorerUserControl
             // 
-            this.pbINNCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
-            this.pbINNCopy.Location = new System.Drawing.Point(674, 44);
-            this.pbINNCopy.Name = "pbINNCopy";
-            this.pbINNCopy.Size = new System.Drawing.Size(36, 21);
-            this.pbINNCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbINNCopy.TabIndex = 124;
-            this.pbINNCopy.TabStop = false;
-            this.pbINNCopy.Click += new System.EventHandler(this.pbINNCopy_Click);
-            // 
-            // pbTrackingNoCopy
-            // 
-            this.pbTrackingNoCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
-            this.pbTrackingNoCopy.Location = new System.Drawing.Point(326, 45);
-            this.pbTrackingNoCopy.Name = "pbTrackingNoCopy";
-            this.pbTrackingNoCopy.Size = new System.Drawing.Size(36, 21);
-            this.pbTrackingNoCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbTrackingNoCopy.TabIndex = 125;
-            this.pbTrackingNoCopy.TabStop = false;
-            this.pbTrackingNoCopy.Click += new System.EventHandler(this.pbTrackingNoCopy_Click);
-            // 
-            // pbNumberCopy
-            // 
-            this.pbNumberCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
-            this.pbNumberCopy.Location = new System.Drawing.Point(326, 145);
-            this.pbNumberCopy.Name = "pbNumberCopy";
-            this.pbNumberCopy.Size = new System.Drawing.Size(36, 21);
-            this.pbNumberCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbNumberCopy.TabIndex = 126;
-            this.pbNumberCopy.TabStop = false;
-            this.pbNumberCopy.Click += new System.EventHandler(this.pbNumberCopy_Click);
+            this.fileExplorerUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fileExplorerUserControl.Location = new System.Drawing.Point(0, 39);
+            this.fileExplorerUserControl.Margin = new System.Windows.Forms.Padding(2);
+            this.fileExplorerUserControl.Name = "fileExplorerUserControl";
+            this.fileExplorerUserControl.Size = new System.Drawing.Size(646, 786);
+            this.fileExplorerUserControl.TabIndex = 123;
             // 
             // MainWindow
             // 
@@ -1888,10 +1900,10 @@ namespace eCTD_indexer
             this.splitContainer1.ResumeLayout(false);
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbIdentifierCopy)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbINNCopy)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTrackingNoCopy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNumberCopy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTrackingNoCopy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbINNCopy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbIdentifierCopy)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2045,6 +2057,7 @@ namespace eCTD_indexer
         private System.Windows.Forms.PictureBox pbINNCopy;
         private System.Windows.Forms.PictureBox pbNumberCopy;
         private System.Windows.Forms.PictureBox pbTrackingNoCopy;
+        private System.Windows.Forms.ToolStripButton tsbAdoptInformation;
     }
 }
 

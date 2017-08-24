@@ -124,6 +124,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserDialog\AdoptInformation.resx">
+      <DependentUpon>AdoptInformation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserDialog\ChooseSequence.resx">
       <DependentUpon>ChooseSequence.cs</DependentUpon>
     </EmbeddedResource>
@@ -145,6 +148,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="UserDialog\AdoptInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserDialog\AdoptInformation.Designer.cs">
+      <DependentUpon>AdoptInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="UserDialog\ChooseSequence.cs">
       <SubType>Form</SubType>
@@ -221,9 +230,6 @@
     <None Include="Resources\Actions-document-open-icon_72x72.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Actions-folder-new-icon_72x72.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Actions-system-run-icon_72x72.png" />
   </ItemGroup>
   <ItemGroup>
@@ -273,6 +279,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Actions-edit-copy-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actions-folder-new-icon_72x72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actions-go-jump-icon_72x72.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

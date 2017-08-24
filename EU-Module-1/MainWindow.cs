@@ -1203,6 +1203,59 @@ namespace eCTD_indexer
         private void pbNumberCopy_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(this.textBoxNumber.Text);
+        }
+
+        private void tsbAdoptInformation_Click(object sender, EventArgs e)
+        {
+            if (this.DossierOpened)
+            {
+                UserDialog.AdoptInformation ai = new UserDialog.AdoptInformation(this.findSequences(this.SeqDir.Substring(0, this.SeqDir.Length - 4)), Convert.ToInt32(this.SeqNumber), this.SeqDir);
+                ai.ShowDialog();
+             
+                if(ai.DialogResult == System.Windows.Forms.DialogResult.OK)
+                {
+                    if(ai.Identifier != "")
+                    {
+                        this.tbIdentifier.Text = ai.Identifier;
+                    }
+                    if(ai.TrackNo != "")
+                    {
+                        this.textBoxTrackNo.Text = ai.TrackNo;
+                    }
+                    if(ai.ProcedureType != "")
+                    {
+                        this.comboBoxProcType.Text = ai.ProcedureType;
+                    }
+                    if(ai.SubmissionType != "")
+                    {
+                        this.comboBoxSubmType.Text = ai.SubmissionType;
+                    }
+                    if(ai.Mode != "")
+                    {
+                        this.comboBoxMode.Text = ai.Mode;
+                    }
+                    if(ai.Number != "")
+                    {
+                        this.textBoxNumber.Text = ai.Number;
+                    }
+                    if(ai.INN != "")
+                    {
+                        this.textBoxINN.Text = ai.INN;
+                    }
+                    if(ai.RelSeq != "")
+                    {
+                        this.textBoxRelSeq.Text = ai.RelSeq;
+                    }
+                    if(ai.SubmissionDescription != "")
+                    {
+                        this.textBoxSubmDescr.Text = ai.SubmissionDescription;
+                    }
+                    if(ai.SubmissionUnit != "")
+                    {
+                        this.comboBoxSubmUnit.Text = ai.SubmissionUnit;
+                    }
+                }
+            }
         } 
     }
 
