@@ -1182,7 +1182,7 @@ namespace eCTD_indexer
 
         private void tbIdentifier_Leave(object sender, EventArgs e)
         {
-            tbIdentifier.Dispose();
+            ttIdentifier.Dispose();
         }
 
         private void pbIdentifierCopy_Click(object sender, EventArgs e)
