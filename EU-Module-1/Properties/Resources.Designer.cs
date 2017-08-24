@@ -83,6 +83,16 @@ namespace eCTD_indexer.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Actions_edit_copy_icon {
+            get {
+                object obj = ResourceManager.GetObject("Actions-edit-copy-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Actions_folder_new_icon_72x72 {
             get {
                 object obj = ResourceManager.GetObject("Actions_folder_new_icon_72x72", resourceCulture);

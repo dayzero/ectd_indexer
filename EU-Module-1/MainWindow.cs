@@ -55,7 +55,7 @@ namespace eCTD_indexer
             this.dirs = new eCTD_Directories();
             this.files = new eCTD_Files();
             this.XMLCreate = new XML.Create(this.dirs);
-            this.DossierOpened = false;
+            this.DossierOpened = false;            
         }
 
         // Global variables
@@ -636,19 +636,25 @@ namespace eCTD_indexer
                 {
                     // Pattern
                     //String pat = @"(?<=[0-9]{4})";
-                    String pat = @"(^[0-9]{4}$)";
+                    String pat01 = @"(\\[0-9]{4}$)";
+                    String pat02 = @"(^[0-9]{4}$)";
 
                     // Instantiate the regular expression object.
-                    Regex r = new Regex(pat, RegexOptions.IgnoreCase);
+                    Regex r = new Regex(pat01, RegexOptions.IgnoreCase);
 
                     // Sequence
                     String sequenceno = FolderArray[i].Substring(FolderArray[i].Length - 4, 4);
 
                     // Match the regular expression pattern against a text string.
-                    Match m = r.Match(sequenceno);
+                    Match m = r.Match(FolderArray[i]);
 
                     if (m.Success)
                     {
+                        // Cross-Check to make clear that a valid sequence number has been extracted.
+                        r = new Regex(pat02, RegexOptions.IgnoreCase);
+                        m = r.Match(sequenceno);
+
+                        // Add the sequence number
                         SequenceList.Add(sequenceno);
                     }
                 }
@@ -677,7 +683,7 @@ namespace eCTD_indexer
             uuidNode = mySourceDoc.SelectSingleNode("//identifier");
             if (uuidNode != null)
             {
-                this.lSubmissionIdentifier.Text = uuidNode.InnerText;
+                this.tbIdentifier.Text = uuidNode.InnerText;
             }
 
             XmlNodeList envelope;
@@ -862,7 +868,7 @@ namespace eCTD_indexer
                                 #region EURegional.xml
                                 GeneralArchitectureModule1.EU_envelope envelope = new GeneralArchitectureModule1.EU_envelope();
                                 //string variables for EU envelope
-                                envelope.UUID = this.lSubmissionIdentifier.Text;
+                                envelope.UUID = this.tbIdentifier.Text;
                                 envelope.trackingNumber = textBoxTrackNo.Text;
                                 envelope.INN = textBoxINN.Text;
                                 envelope.submDescr = textBoxSubmDescr.Text;
@@ -886,7 +892,7 @@ namespace eCTD_indexer
                                 if (envelope.UUID == "")
                                 {
                                     envelope.UUID = Guid.NewGuid().ToString();
-                                    this.lSubmissionIdentifier.Text = envelope.UUID;
+                                    this.tbIdentifier.Text = envelope.UUID;
                                 }
 
                                 // collect the name of the countries, agencies, applicants and invented names.
@@ -1081,7 +1087,7 @@ namespace eCTD_indexer
                 }
 
                 this.fileExplorerUserControl.CloseDossier();
-                this.lSubmissionIdentifier.Text = "";
+                this.tbIdentifier.Text = "";
                 this.DossierOpened = false;
             }
         }
@@ -1156,6 +1162,47 @@ namespace eCTD_indexer
                 ElementHost.EnableModelessKeyboardInterop(wpfwindow);
                 wpfwindow.Show();
             }
+        }
+
+        private ToolTip ttIdentifier;
+
+        /// <summary>
+        /// Show Tooltip when entering the Identifier textbox.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tbIdentifier_Enter(object sender, EventArgs e)
+        {
+            ttIdentifier= new ToolTip();
+            ttIdentifier.InitialDelay = 0;
+            ttIdentifier.IsBalloon = true;
+            ttIdentifier.Show(string.Empty, tbIdentifier);
+            ttIdentifier.Show("The identifier has to be identical to the identifier in the previous sequence number.", this.tbIdentifier);
+        }
+
+        private void tbIdentifier_Leave(object sender, EventArgs e)
+        {
+            tbIdentifier.Dispose();
+        }
+
+        private void pbIdentifierCopy_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(this.tbIdentifier.Text);
+        }
+
+        private void pbINNCopy_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(this.textBoxINN.Text);
+        }
+
+        private void pbTrackingNoCopy_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(this.textBoxTrackNo.Text);
+        }
+
+        private void pbNumberCopy_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(this.textBoxNumber.Text);
         } 
     }
 

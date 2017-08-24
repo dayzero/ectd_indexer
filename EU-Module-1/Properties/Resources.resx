@@ -121,47 +121,11 @@
   <data name="Actions_document_open_icon_72x72" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Actions-document-open-icon_72x72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Actions_edit_clear_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Actions-edit-clear-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Actions_folder_new_icon_72x72" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Actions-folder-new-icon_72x72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Actions_help_about_icon_72x72" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Actions-help-about-icon_72x72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Actions_project_development_close_icon_72x72" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Actions-project-development-close-icon_72x72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Actions_system_run_icon_72x72" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Actions-system-run-icon_72x72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Actions_system_shutdown_icon_72x72" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Actions-system-shutdown-icon_72x72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Actions_tab_close_other_icon_72x72" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Actions-tab-close-other-icon_72x72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Actions_view_assemble_icon_72x72" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Actions-view-assemble-icon_72x72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Actions_view_refresh_icon_72x72" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Actions-view-refresh-icon_72x72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Application" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Application.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Apps_kexi_icon_48x48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Apps-kexi-icon_48x48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Apps_system_diagnosis_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Apps-system-diagnosis-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Categories_applications_development_icon_72x72" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Categories-applications-development-icon-72x72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ectd_2_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ectd-2-0.xsl;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Actions_edit_clear_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Actions-edit-clear-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="eu_envelope" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\eu-envelope.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
@@ -169,13 +133,52 @@
   <data name="eu_leaf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\eu-leaf.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="ectd_2_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ectd-2-0.xsl;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Actions_project_development_close_icon_72x72" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Actions-project-development-close-icon_72x72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Actions_view_refresh_icon_72x72" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Actions-view-refresh-icon_72x72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Categories_applications_development_icon_72x72" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Categories-applications-development-icon-72x72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Apps_system_diagnosis_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Apps-system-diagnosis-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Actions_view_assemble_icon_72x72" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Actions-view-assemble-icon_72x72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ich_ectd_3_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ich-ectd-3-2.dtd;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Actions_system_shutdown_icon_72x72" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Actions-system-shutdown-icon_72x72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Apps_kexi_icon_48x48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Apps-kexi-icon_48x48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="eu_regional" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\eu-regional.dtd;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Actions_system_run_icon_72x72" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Actions-system-run-icon_72x72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Actions_folder_new_icon_72x72" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Actions-folder-new-icon_72x72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Application" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Application.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="eu_regional1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\eu-regional.xsl;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="ich_ectd_3_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ich-ectd-3-2.dtd;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Actions_help_about_icon_72x72" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Actions-help-about-icon_72x72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Actions-edit-copy-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Actions-edit-copy-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

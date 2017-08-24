@@ -34,3 +34,4 @@ C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\b
 C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\bin\Debug\Resources\yellow.png
 C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\bin\Debug\Resources\Actions-view-list-details-icon_32x32.png
 C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\bin\Debug\Resources\Actions-view-list-tree-icon_32x32.png
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\bin\Debug\Resources\Actions-edit-copy-icon.png

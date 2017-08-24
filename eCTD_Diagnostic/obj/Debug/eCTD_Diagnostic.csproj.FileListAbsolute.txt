@@ -14,7 +14,6 @@ C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnost
 C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnostic\bin\Debug\Resources\Application.ico
 C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnostic\bin\Debug\Resources\Actions-dialog-ok-apply-icon.png
 C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnostic\bin\Debug\Resources\Actions-edit-delete-icon.png
-C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnostic\obj\Debug\eCTD_Diagnostic.csprojResolveAssemblyReference.cache
 C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnostic\bin\Debug\Resources\warning-icon.png
 C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnostic\bin\Debug\Resources\Actions-view-refresh-icon_32x32.png
 C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnostic\bin\Debug\Resources\Green.png
@@ -23,3 +22,5 @@ C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnost
 C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnostic\bin\Debug\Resources\yellow.png
 C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnostic\bin\Debug\Resources\Actions-view-list-details-icon_32x32.png
 C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnostic\bin\Debug\Resources\Actions-view-list-tree-icon_32x32.png
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnostic\bin\Debug\Resources\Actions-edit-copy-icon.png
+C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnostic\obj\Debug\eCTD_Diagnostic.csprojResolveAssemblyReference.cache

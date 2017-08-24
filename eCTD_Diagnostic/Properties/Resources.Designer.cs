@@ -73,6 +73,16 @@ namespace eCTD_Diagnostic.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Actions_edit_copy_icon {
+            get {
+                object obj = ResourceManager.GetObject("Actions_edit_copy_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Actions_edit_delete_icon {
             get {
                 object obj = ResourceManager.GetObject("Actions_edit_delete_icon", resourceCulture);
