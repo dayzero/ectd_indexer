@@ -43,26 +43,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="eCTD_Diagnostic.dll" size="78336">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="eCTD_Diagnostic.dll" size="77312">
       <assemblyIdentity name="eCTD_Diagnostic" version="0.0.2.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>jqdW80Ayj4Jc6Q+SdAvRu5bsa0g=</dsig:DigestValue>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>M51MLU+NiGnkHzEIYtmhGsEZOwBJDCYwErHIL959tuU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EU-Module-1.exe" size="628224">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EU-Module-1.exe" size="637952">
       <assemblyIdentity name="EU-Module-1" version="0.0.4.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>WM0ALnic46D/n2IBvS9XB/qW6qk=</dsig:DigestValue>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>tRoHa0sq88c/TYK40TJzSbtiPYm7mWpsoYaNF4ixbhI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -73,18 +73,18 @@
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>4FdTL2NbpaL1Z5f/0Nk6XYnrk7M=</dsig:DigestValue>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>WC8Br4vLyoGy+gxGYS9+E2epTIM9xK3cIlyglepc/d0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="EU-Module-1.exe.config" size="952">
+  <file name="EU-Module-1.exe.config" size="1036">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>BEeYTY0FWpFV2RJefmBoT7vmBjw=</dsig:DigestValue>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>EApSsJKgXXsJsK5Vmae0e8Ye88aJ6cBiIUZ4kMrp/VI=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\Application.ico" size="15086">
@@ -92,8 +92,8 @@
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>9kVZBJLA4Y4aKsD9odhDlmkQnQg=</dsig:DigestValue>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>5Aj8+5OEfIr/rQWmLdc6vOHkdA8adF6lnBErLogdKVI=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

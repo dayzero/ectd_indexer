@@ -38,6 +38,7 @@ using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using System.Xml;
 using eCTD_Diagnostic;
+using System.IO.Compression;
 
 
 namespace eCTD_indexer
@@ -1253,6 +1254,43 @@ namespace eCTD_indexer
                     if(ai.SubmissionUnit != "")
                     {
                         this.comboBoxSubmUnit.Text = ai.SubmissionUnit;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// "Luckily, .NET framework 4.5 introduces some new classes in System.IO.Compression namespace 
+        /// that allows you to do just that. Using these classes you can create new Zip files, open and 
+        /// modify existing Zip files and extract the contents of Zip files via code." http://www.codeguru.com/csharp/.net/zip-and-unzip-files-programmatically-in-c.htm
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsbPackDossier_Click(object sender, EventArgs e)
+        {
+            if (this.DossierOpened)
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "zip files (*.zip)|*.zip";
+                sfd.Title = "Zip current dossier to zip...";
+                DialogResult result = sfd.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    try
+                    {
+                        String startPath = this.SeqDir;
+                        String zipFile = sfd.FileName;
+
+                        if (File.Exists(zipFile))
+                        {
+                            File.Delete(zipFile);
+                        }
+
+                        System.IO.Compression.ZipFile.CreateFromDirectory(startPath, zipFile);
+                    } 
+                    catch (System.IO.IOException ex)
+                    {
+                        MessageBox.Show("Error while writing zip-file:\n\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

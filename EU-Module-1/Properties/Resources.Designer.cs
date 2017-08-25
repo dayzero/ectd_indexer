@@ -85,7 +85,7 @@ namespace eCTD_indexer.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Actions_edit_copy_icon {
             get {
-                object obj = ResourceManager.GetObject("Actions-edit-copy-icon", resourceCulture);
+                object obj = ResourceManager.GetObject("Actions_edit_copy_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -206,6 +206,16 @@ namespace eCTD_indexer.Properties {
         internal static System.Drawing.Bitmap Apps_system_diagnosis_icon {
             get {
                 object obj = ResourceManager.GetObject("Apps_system_diagnosis_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Apps_utilities_file_archiver_icon {
+            get {
+                object obj = ResourceManager.GetObject("Apps_utilities_file_archiver_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

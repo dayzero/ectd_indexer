@@ -176,6 +176,7 @@ namespace eCTD_indexer
             this.textBoxDE2 = new System.Windows.Forms.TextBox();
             this.checkBoxDE2 = new System.Windows.Forms.CheckBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.fileExplorerUserControl = new eCTD_indexer.FileExplorerUserControl();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.tsbCreate = new System.Windows.Forms.ToolStripButton();
             this.tsbOpenDossier = new System.Windows.Forms.ToolStripButton();
@@ -194,7 +195,7 @@ namespace eCTD_indexer
             this.pbINNCopy = new System.Windows.Forms.PictureBox();
             this.pbIdentifierCopy = new System.Windows.Forms.PictureBox();
             this.tbIdentifier = new System.Windows.Forms.TextBox();
-            this.fileExplorerUserControl = new eCTD_indexer.FileExplorerUserControl();
+            this.tsbPackDossier = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -1674,6 +1675,15 @@ namespace eCTD_indexer
             this.splitContainer1.SplitterDistance = 646;
             this.splitContainer1.TabIndex = 122;
             // 
+            // fileExplorerUserControl
+            // 
+            this.fileExplorerUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fileExplorerUserControl.Location = new System.Drawing.Point(0, 39);
+            this.fileExplorerUserControl.Margin = new System.Windows.Forms.Padding(2);
+            this.fileExplorerUserControl.Name = "fileExplorerUserControl";
+            this.fileExplorerUserControl.Size = new System.Drawing.Size(646, 786);
+            this.fileExplorerUserControl.TabIndex = 123;
+            // 
             // toolStrip
             // 
             this.toolStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
@@ -1684,6 +1694,7 @@ namespace eCTD_indexer
             this.tsbDeleteEmptyFolder,
             this.tsbDiagnostic,
             this.tsbCreateXMLFiles,
+            this.tsbPackDossier,
             this.tsbAssemble,
             this.tsbRefreshFolderView,
             this.tsbCloseDossier,
@@ -1871,14 +1882,15 @@ namespace eCTD_indexer
             this.tbIdentifier.Enter += new System.EventHandler(this.tbIdentifier_Enter);
             this.tbIdentifier.Leave += new System.EventHandler(this.tbIdentifier_Leave);
             // 
-            // fileExplorerUserControl
+            // tsbPackDossier
             // 
-            this.fileExplorerUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fileExplorerUserControl.Location = new System.Drawing.Point(0, 39);
-            this.fileExplorerUserControl.Margin = new System.Windows.Forms.Padding(2);
-            this.fileExplorerUserControl.Name = "fileExplorerUserControl";
-            this.fileExplorerUserControl.Size = new System.Drawing.Size(646, 786);
-            this.fileExplorerUserControl.TabIndex = 123;
+            this.tsbPackDossier.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbPackDossier.Image = global::eCTD_indexer.Properties.Resources.Apps_utilities_file_archiver_icon;
+            this.tsbPackDossier.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbPackDossier.Name = "tsbPackDossier";
+            this.tsbPackDossier.Size = new System.Drawing.Size(36, 36);
+            this.tsbPackDossier.Text = "Zip dossier";
+            this.tsbPackDossier.Click += new System.EventHandler(this.tsbPackDossier_Click);
             // 
             // MainWindow
             // 
@@ -2058,6 +2070,7 @@ namespace eCTD_indexer
         private System.Windows.Forms.PictureBox pbNumberCopy;
         private System.Windows.Forms.PictureBox pbTrackingNoCopy;
         private System.Windows.Forms.ToolStripButton tsbAdoptInformation;
+        private System.Windows.Forms.ToolStripButton tsbPackDossier;
     }
 }
 
