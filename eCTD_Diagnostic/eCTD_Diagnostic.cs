@@ -135,6 +135,8 @@ namespace eCTD_Diagnostic
             cl.Add(this._07_2());
             cl.Add(this._07_3());
             cl.Add(this._07_4());
+            cl.Add(this._07_5());
+            cl.Add(this._07_6());
 
             // Insert Criteria MD5 hash file
             eCTD_Criteria _08header = new eCTD_Criteria();
@@ -158,6 +160,11 @@ namespace eCTD_Diagnostic
             cl.Add(this._09_2());
             cl.Add(this._09_3());
             cl.Add(this._09_4());
+            cl.Add(this._09_5());
+            cl.Add(this._09_6());
+            cl.Add(this._09_7());
+            cl.Add(this._09_8());
+            cl.Add(this._09_9());
 
             // Sum-up the status of all sub-nodes
             cl[0].Status = this.SumUpSubItems(cl, 1, 1, 5);
@@ -166,9 +173,9 @@ namespace eCTD_Diagnostic
             cl[14].Status = this.SumUpSubItems(cl, 4, 1, 3);
             cl[18].Status = this.SumUpSubItems(cl, 5, 1, 3);
             cl[22].Status = this.SumUpSubItems(cl, 6, 1, 3);
-            cl[26].Status = this.SumUpSubItems(cl, 7, 1, 4);
+            cl[26].Status = this.SumUpSubItems(cl, 7, 1, 6);
             cl[31].Status = this.SumUpSubItems(cl, 8, 1, 3);
-            cl[35].Status = this.SumUpSubItems(cl, 9, 1, 4);
+            cl[35].Status = this.SumUpSubItems(cl, 9, 1, 9);
 
             // Return the list of checked criteria.
             return cl;
@@ -1201,7 +1208,74 @@ namespace eCTD_Diagnostic
             return c;
         }
 
-        // TODO: 7.5 + 7.6
+        /// <summary>
+        /// This is the ICH DTD in /XXXX/util/dtd, and tested for validity by rules 1.1 - 1.5.  
+        /// A valid reference means a URI - see http://www.w3.org/TR/xml/ and http://www.ietf.org/rfc/rfc3986.txt (version 2005 page 22, section 3.3).
+        /// </summary>
+        /// <returns></returns>
+        public eCTD_Criteria _07_5()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._07_5);
+            c.Category = eCTD_Category.Index_XML;
+            c.ValidationCriterion = "The reference to the DTD in index.xml is directed to the DTD provided in the util folder.";
+            c.Comments = "This is the ICH DTD in /XXXX/util/dtd, and tested for validity by rules 1.1 - 1.5.";
+            c.TypeOfCheck = "P/F";
+
+            String condition1 = _01_1().Status;
+            String condition2 = _01_2().Status;
+            String condition3 = _01_3().Status;
+            String condition4 = _01_4().Status;
+            String condition5 = _01_5().Status;
+
+            if(condition1 == NodeType.OK &&
+                condition2 == NodeType.OK &&
+                condition3 == NodeType.OK &&
+                condition4 == NodeType.OK &&
+                condition5 == NodeType.OK)
+            {
+                c.Status = NodeType.OK;
+            }
+            else
+            {
+                c.Status = NodeType.Failed;
+            }
+
+            return c;
+        }
+
+        /// <summary>
+        /// This is the ICH stylesheet in /XXXX/util/style and tested for validity by rules 2.1 - 2.3.  
+        /// A valid reference means a URI - 
+        /// see http://www.w3.org/TR/xml/ and http://www.ietf.org/rfc/rfc3986.txt (version 2005 page 22, section 3.3).
+        /// </summary>
+        /// <returns></returns>
+        public eCTD_Criteria _07_6()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._07_6);
+            c.Category = eCTD_Category.Index_XML;
+            c.ValidationCriterion = "The reference to the stylesheet in index.xml is directed to the stylesheet provided in the util folder.";
+            c.Comments = "This is the ICH stylesheet in /XXXX/util/style and tested for validity by rules 2.1 - 2.3. ";
+            c.TypeOfCheck = "P/F";
+
+            String condition1 = _02_1().Status;
+            String condition2 = _02_2().Status;
+            String condition3 = _02_3().Status;
+
+            if (condition1 == NodeType.OK &&
+                condition2 == NodeType.OK &&
+                condition3 == NodeType.OK)
+            {
+                c.Status = NodeType.OK;
+            }
+            else
+            {
+                c.Status = NodeType.Failed;
+            }
+
+            return c;
+        }
 
 
         /// <summary>
@@ -1486,7 +1560,318 @@ namespace eCTD_Diagnostic
             return c;
         }
 
+        /// <summary>
+        /// This is the EU Regional DTD in /XXXX/util/dtd, and tested for validity by rules 3.1-3.5.  
+        /// A valid reference means a URI 
+        /// - see http://www.w3.org/TR/xml/ and http://www.ietf.org/rfc/rfc3986.txt (version 2005 page 22, section 3.3)
+        /// </summary>
+        /// <returns></returns>
+        public eCTD_Criteria _09_5()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._09_5);
+            c.Category = eCTD_Category.EU_regional_XML;
+            c.ValidationCriterion = "The reference to the DTD in eu-regional.xml is directed to the DTD provided in the util folder.";
+            c.Comments = "This is the EU Regional DTD in /XXXX/util/dtd, and tested for validity by rules 3.1-3.5.";
+            c.TypeOfCheck = "P/F";
 
+            String condition1 = _03_1().Status;
+            String condition2 = _03_2().Status;
+            String condition3 = _03_3().Status;
+
+            if (condition1 == NodeType.OK &&
+                condition2 == NodeType.OK &&
+                condition3 == NodeType.OK)
+            {
+                c.Status = NodeType.OK;
+            }
+            else
+            {
+                c.Status = NodeType.Failed;
+            }
+
+            return c;
+        }
+
+        /// <summary>
+        /// This is the stylesheet in /XXXX/util/style, and tested for validity by rules 6.1-6.3. 
+        /// A valid reference means a URI 
+        /// - see http://www.w3.org/TR/xml/ and http://www.ietf.org/rfc/rfc3986.txt (version 2005 page 22, section 3.3).
+        /// </summary>
+        /// <returns></returns>
+        public eCTD_Criteria _09_6()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._09_6);
+            c.Category = eCTD_Category.EU_regional_XML;
+            c.ValidationCriterion = "The reference to the stylesheet in eu-regional.xml is directed to the stylesheet provided in the util folder.";
+            c.Comments = "This is the stylesheet in /XXXX/util/style, and tested for validity by rules 6.1-6.3.";
+            c.TypeOfCheck = "P/F";
+
+            String condition1 = _06_1().Status;
+            String condition2 = _06_2().Status;
+            String condition3 = _06_3().Status;
+
+            if (condition1 == NodeType.OK &&
+                condition2 == NodeType.OK &&
+                condition3 == NodeType.OK)
+            {
+                c.Status = NodeType.OK;
+            }
+            else
+            {
+                c.Status = NodeType.Failed;
+            }
+
+            return c;
+        }
+
+        /// <summary>
+        /// This criterion will test whether the UUID is well formed.
+        /// </summary>
+        /// <returns></returns>
+        public eCTD_Criteria _09_7()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._09_7);
+            c.Category = eCTD_Category.EU_regional_XML;
+            c.ValidationCriterion = "The UUID is well formed according to ISO/IEC 11578:1996 and ITU-T Rec X.667 | ISO/IEC 9834-8:2005";
+            c.Comments = "This criterion will test whether the UUID is well formed.";
+            c.TypeOfCheck = "P/F";
+
+            String EURegionalXML = this.Path2Sequence + @"\m1\eu\eu-regional.xml";
+
+            if (File.Exists(EURegionalXML))
+            {
+                XmlTextReader myReader = new XmlTextReader(EURegionalXML);
+                XmlDocument mySourceDoc = new XmlDocument();
+                mySourceDoc.Load(myReader);
+                myReader.Close();
+
+                XmlNode uuidNode;
+                uuidNode = mySourceDoc.SelectSingleNode("//identifier");
+                String UUID = uuidNode.InnerText;
+
+                Guid guidOutput;
+
+                // Have a look at https://stackoverflow.com/a/6211032
+                // and at https://msdn.microsoft.com/en-us/library/system.guid.tryparse.aspx
+                if (Guid.TryParse(UUID, out guidOutput))
+                {
+                    Regex isGuid = new Regex(@"^(\{){0,1}[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}(\}){0,1}$", RegexOptions.Compiled);
+                    if (isGuid.IsMatch(UUID))
+                    {
+                        c.Status = NodeType.OK;
+                    }
+                    else
+                    {
+                        c.Status = NodeType.Failed;
+                    }
+                }
+                else
+                {
+                    c.Status = NodeType.Failed;
+                }
+            }
+            else
+            {
+                c.Status = NodeType.Failed;
+            }            
+
+            return c;
+        }
+
+        /// <summary>
+        /// If the sequence already submitted numerically preceding the incoming sequence in the eCTD lifecycle contains a UUID 
+        /// (i.e. was submitted using v3.0 of the EU m1 Specification or higher), then the UUID in this incoming sequence must be 
+        /// identical to the one in the previous sequence. 
+        /// This method checks the previous sequence.
+        /// Give a warning when the previous sequence does not exist.
+        /// </summary>
+        /// <returns></returns>
+        public eCTD_Criteria _09_8()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._09_8);
+            c.Category = eCTD_Category.EU_regional_XML;
+            c.ValidationCriterion = "The UUID in this incoming sequence must be identical to the one in the previous sequence";
+            c.Comments = "This rule checks that the UUID is correct and the sequence is being loaded into the correct eCTD Application.";
+            c.TypeOfCheck = "P/F";
+
+            String EURegionalXML = this.Path2Sequence + @"\m1\eu\eu-regional.xml";
+
+            if (File.Exists(EURegionalXML))
+            {
+                // Read the actual xml file
+                XmlTextReader myReader = new XmlTextReader(EURegionalXML);
+                XmlDocument mySourceDoc = new XmlDocument();
+                mySourceDoc.Load(myReader);
+                myReader.Close();
+
+                // Get the actual uuid
+                XmlNode uuidNode;
+                uuidNode = mySourceDoc.SelectSingleNode("//identifier");
+                String UUID = uuidNode.InnerText;
+
+                // Create previous path string
+                int previousseq = Convert.ToInt32(this.Path2Sequence.Substring(this.Path2Sequence.Length - 4, 4)) - 1;
+                string previousseqstr = previousseq.ToString();
+                if(previousseqstr.Length == 1)
+                {
+                    previousseqstr = "000" + previousseqstr;
+                } else if(previousseqstr.Length == 2)
+                {
+                    previousseqstr = "00" + previousseqstr;
+                } else if(previousseqstr.Length == 3)
+                {
+                    previousseqstr = "0" + previousseqstr;
+                }
+
+                String Path2PreviousSequence = this.Path2Sequence.Substring(0, this.Path2Sequence.Length - 4) + previousseqstr;
+                String EURegionalPreviousXML = Path2PreviousSequence + @"\m1\eu\eu-regional.xml";
+
+                if (File.Exists(EURegionalPreviousXML))
+                {
+
+                    // Load the previous xml file
+                    XmlTextReader myReaderPrevious = new XmlTextReader(EURegionalPreviousXML);
+                    XmlDocument mySourceDocPrevious = new XmlDocument();
+                    mySourceDocPrevious.Load(myReaderPrevious);
+                    myReaderPrevious.Close();
+
+                    // Get the previous uuid
+                    XmlNode uuidNodePrevious;
+                    uuidNodePrevious = mySourceDocPrevious.SelectSingleNode("//identifier");
+                    String UUIDPrevious = uuidNodePrevious.InnerText;
+
+                    // Are both uuids valid?
+                    Regex isGuid = new Regex(@"^(\{){0,1}[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}(\}){0,1}$", RegexOptions.Compiled);
+                    if (isGuid.IsMatch(UUID) && isGuid.IsMatch(UUIDPrevious))
+                    {
+                        // Are they the same?
+                        if (UUID == UUIDPrevious)
+                        {
+                            c.Status = NodeType.OK;
+                        }
+                        else
+                        {
+                            c.Status = NodeType.Failed;
+                        }
+                    }
+                    else
+                    {
+                        c.Status = NodeType.Failed;
+                    }
+                }
+                else
+                {
+                    c.Status = NodeType.Warning;
+                } 
+            }
+            else
+            {
+                c.Status = NodeType.Failed;
+            } 
+
+            return c;
+        }
+
+        public eCTD_Criteria _09_9()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._09_9);
+            c.Category = eCTD_Category.EU_regional_XML;
+            c.ValidationCriterion = "The UUID must be identical in all envelopes.";
+            c.Comments = "";
+            c.TypeOfCheck = "P/F";
+            c.Status = NodeType.OK;
+
+            String EURegionalXML = this.Path2Sequence + @"\m1\eu\eu-regional.xml";
+
+            if (File.Exists(EURegionalXML))
+            {
+                // Read the actual xml file
+                XmlTextReader myReader = new XmlTextReader(EURegionalXML);
+                XmlDocument mySourceDoc = new XmlDocument();
+                mySourceDoc.Load(myReader);
+                myReader.Close();
+
+                // Get the actual uuid
+                XmlNode uuidNode;
+                uuidNode = mySourceDoc.SelectSingleNode("//identifier");
+                String UUID = uuidNode.InnerText;
+
+                // Create previous path string
+                int previousseq = Convert.ToInt32(this.Path2Sequence.Substring(this.Path2Sequence.Length - 4, 4)) - 1;
+
+                while (previousseq > 0 && c.Status != NodeType.Warning && c.Status != NodeType.Failed)
+                {
+                    string previousseqstr = previousseq.ToString();
+                    if (previousseqstr.Length == 1)
+                    {
+                        previousseqstr = "000" + previousseqstr;
+                    }
+                    else if (previousseqstr.Length == 2)
+                    {
+                        previousseqstr = "00" + previousseqstr;
+                    }
+                    else if (previousseqstr.Length == 3)
+                    {
+                        previousseqstr = "0" + previousseqstr;
+                    }
+
+                    String Path2PreviousSequence = this.Path2Sequence.Substring(0, this.Path2Sequence.Length - 4) + previousseqstr;
+                    String EURegionalPreviousXML = Path2PreviousSequence + @"\m1\eu\eu-regional.xml";
+
+                    if (File.Exists(EURegionalPreviousXML))
+                    {
+
+                        // Load the previous xml file
+                        XmlTextReader myReaderPrevious = new XmlTextReader(EURegionalPreviousXML);
+                        XmlDocument mySourceDocPrevious = new XmlDocument();
+                        mySourceDocPrevious.Load(myReaderPrevious);
+                        myReaderPrevious.Close();
+
+                        // Get the previous uuid
+                        XmlNode uuidNodePrevious;
+                        uuidNodePrevious = mySourceDocPrevious.SelectSingleNode("//identifier");
+                        String UUIDPrevious = uuidNodePrevious.InnerText;
+
+                        // Are both uuids valid?
+                        Regex isGuid = new Regex(@"^(\{){0,1}[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}(\}){0,1}$", RegexOptions.Compiled);
+                        if (isGuid.IsMatch(UUID) && isGuid.IsMatch(UUIDPrevious))
+                        {
+                            // Are they the same?
+                            if (UUID == UUIDPrevious)
+                            {
+                                c.Status = NodeType.OK;
+                            }
+                            else
+                            {
+                                c.Status = NodeType.Failed;
+                            }
+                        }
+                        else
+                        {
+                            c.Status = NodeType.Failed;
+                        }
+                    }
+                    else
+                    {
+                        c.Status = NodeType.Warning;
+                    }
+
+                    previousseq--;
+                }
+                // end of while
+            }
+            else
+            {
+                c.Status = NodeType.Failed;
+            }
+
+            return c;
+        }
     }
 
     public class eCTD_Criteria

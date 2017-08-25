@@ -629,6 +629,22 @@ namespace eCTD_indexer
         }
         #endregion
 
+        #region Have a look at https://stackoverflow.com/a/4802868
+        private void SizeLastColumn(ListView lv)
+        {
+            lv.Columns[lv.Columns.Count - 1].Width = -2;
+        }
+
+        private void FileExplorerUserControl_Load(object sender, EventArgs e)
+        {
+            SizeLastColumn(FileListView);
+        }
+
+        private void FileListView_Resize(object sender, EventArgs e)
+        {
+            SizeLastColumn((ListView)sender);
+        }
+        #endregion
     }
 
     public class MyComparer : IComparer<DirectoryInfo>
