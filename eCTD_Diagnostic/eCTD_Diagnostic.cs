@@ -1970,6 +1970,58 @@ namespace eCTD_Diagnostic
         // Number 10
         public static string _10_1 { get { return "10.1"; } }
 
+        // Number 11
+        public static string _11_1 { get { return "11.1"; } }
+        public static string _11_2 { get { return "11.2"; } }
+        public static string _11_3 { get { return "11.3"; } }
+        public static string _11_4 { get { return "11.4"; } }
+        public static string _11_5 { get { return "11.5"; } }
+        public static string _11_6 { get { return "11.6"; } }
+        public static string _11_7 { get { return "11.7"; } }
+        public static string _11_8 { get { return "11.8"; } }
+        public static string _11_9 { get { return "11.9"; } }
+        public static string _11_10 { get { return "11.10"; } }
+
+        // Number 11 Best Practise
+        public static string _11_BP1 { get { return "11.BP1"; } }
+        public static string _11_BP2 { get { return "11.BP2"; } }
+
+        // Number 12
+        public static string _12_1 { get { return "12.1"; } }
+
+        // Number 13
+        public static string _13_1 { get { return "13.1"; } }
+        public static string _13_2 { get { return "13.2"; } }
+        public static string _13_3 { get { return "13.3"; } }
+
+        // Number 14
+        public static string _14_1 { get { return "14.1"; } }
+        public static string _14_2 { get { return "14.2"; } }
+        public static string _14_3 { get { return "14.3"; } }
+        public static string _14_4 { get { return "14.4"; } }
+        public static string _14_5 { get { return "14.5"; } }
+
+        // Number 14 Best Practise
+        public static string _14_BP1 { get { return "14.BP1"; } }
+        public static string _14_BP2 { get { return "14.BP2"; } }
+        public static string _14_BP3 { get { return "14.BP3"; } }
+        public static string _14_BP4 { get { return "14.BP4"; } }
+        public static string _14_BP5 { get { return "14.BP5"; } }
+
+        // Number 15
+        public static string _15_1 { get { return "15.1"; } }
+        public static string _15_2 { get { return "15.2"; } }
+        public static string _15_3 { get { return "15.3"; } }
+        public static string _15_4 { get { return "15.4"; } }
+        public static string _15_5 { get { return "15.5"; } }
+        public static string _15_6 { get { return "15.6"; } }
+        public static string _15_7 { get { return "15.7"; } }
+        public static string _15_8 { get { return "15.8"; } }
+        public static string _15_9 { get { return "15.9"; } }
+        public static string _15_10 { get { return "15.10"; } }
+        public static string _15_11 { get { return "15.11"; } }
+        public static string _15_12 { get { return "15.12"; } }
+
         public eCTD_Number(String no)
         {
             this.no_intern = no;
