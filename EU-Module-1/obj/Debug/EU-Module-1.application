@@ -7,14 +7,14 @@
     <framework targetVersion="4.5.1" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="EU-Module-1.exe.manifest" size="5390">
+    <dependentAssembly dependencyType="install" codebase="EU-Module-1.exe.manifest" size="5391">
       <assemblyIdentity name="EU-Module-1.exe" version="1.0.0.51" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>6IcJqeVG/ksRoL4xWGWWDSsrsR3iVQMhXEnxtjAHmgo=</dsig:DigestValue>
+        <dsig:DigestValue>bHibR3MRxLYnT1N0CYI+lrVq71RMaGtRv9b6/5vZp8Q=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
