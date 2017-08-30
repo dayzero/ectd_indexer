@@ -1695,7 +1695,7 @@ namespace eCTD_Diagnostic
             c.Number = new eCTD_Number(eCTD_Number._09_8);
             c.Category = eCTD_Category.EU_regional_XML;
             c.ValidationCriterion = "The UUID in this incoming sequence must be identical to the one in the previous sequence";
-            c.Comments = "This rule checks that the UUID is correct and the sequence is being loaded into the correct eCTD Application.";
+            c.Comments = "This rule checks that the UUID is correct.";
             c.TypeOfCheck = "P/F";
 
             String EURegionalXML = this.Path2Sequence + @"\m1\eu\eu-regional.xml";

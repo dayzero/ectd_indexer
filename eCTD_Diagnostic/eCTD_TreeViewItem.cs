@@ -70,6 +70,10 @@ namespace eCTD_Diagnostic
             {
                 image.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/Actions-edit-delete-icon.png", UriKind.Absolute));
             }
+            else if (Nodetype == NodeType.Warning)
+            {
+                image.Source = new BitmapImage(new Uri(@"pack://siteoforigin:,,,/Resources/warning-icon.png", UriKind.Absolute));
+            }
 
             image.Width = 32;
             image.Height = 32;

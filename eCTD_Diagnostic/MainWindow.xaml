@@ -1,7 +1,7 @@
 ﻿<Window x:Name="eCTD_Diagnostic_MainWindow" 
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         x:Class="eCTD_Diagnostic.MainWindow"        
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" MinHeight="600" MinWidth="1200" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" MinHeight="600" MinWidth="1250" 
         Title="eCTD Diagnotic" Height="900" Width="1280" WindowStartupLocation="CenterScreen" Icon="pack://siteoforigin:,,,/Resources/Application.ico" Loaded="eCTD_Diagnostic_MainWindow_Loaded">
     <Grid Name="grid_Main">
         <!-- http://www.techerator.com/2011/05/how-to-stretch-a-menu-control-to-the-width-of-a-window-in-wpf/ -->
