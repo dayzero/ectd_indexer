@@ -597,6 +597,7 @@ namespace eCTD_indexer
                 {
                     // First of all; Clear
                     this.fileExplorerUserControl.Clear();
+                    this.ClearAllControls();
 
                     // Show the files of the root folder
                     this.fileExplorerUserControl.PopulateTreeView(fb.SelectedPath + "\\" + cd.SelectedSequence);
@@ -1071,25 +1072,32 @@ namespace eCTD_indexer
         {
             if (this.DossierOpened)
             {
-                foreach (Control control in this.splitContainer1.Panel2.Controls)
-                {
-                    if (control is TextBox)
-                    {
-                        ((TextBox)control).Text = "";
-                    }
-                    if (control is ComboBox)
-                    {
-                        ((ComboBox)control).Text = "";
-                    }
-                    if (control is CheckBox)
-                    {
-                        ((CheckBox)control).Checked = false;
-                    }
-                }
-
+                this.ClearAllControls();
                 this.fileExplorerUserControl.CloseDossier();
                 this.tbIdentifier.Text = "";
                 this.DossierOpened = false;
+            }
+        }
+
+        /// <summary>
+        /// Clears all control in MainWindow.
+        /// </summary>
+        private void ClearAllControls()
+        {
+            foreach (Control control in this.splitContainer1.Panel2.Controls)
+            {
+                if (control is TextBox)
+                {
+                    ((TextBox)control).Text = "";
+                }
+                if (control is ComboBox)
+                {
+                    ((ComboBox)control).Text = "";
+                }
+                if (control is CheckBox)
+                {
+                    ((CheckBox)control).Checked = false;
+                }
             }
         }
 
@@ -1294,7 +1302,39 @@ namespace eCTD_indexer
                     }
                 }
             }
+        }
+
+        private void pbProcedureTypeCopy_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(comboBoxProcType.Text);
+        }
+
+        private void pbSubmissionTypeCopy_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(comboBoxSubmType.Text);
+        }
+
+        private void pbModeCopy_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(comboBoxMode.Text);
+        }
+
+        private void pbRelSeqCopy_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(textBoxRelSeq.Text);
+        }
+
+        private void pbSubDescCopy_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(textBoxSubmDescr.Text);
+        }
+
+        private void pbSubmissionUnitCopy_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(comboBoxSubmUnit.Text);
         } 
+
+        
     }
 
     internal class MD5Calculator 

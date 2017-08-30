@@ -184,6 +184,7 @@ namespace eCTD_indexer
             this.tsbDeleteEmptyFolder = new System.Windows.Forms.ToolStripButton();
             this.tsbDiagnostic = new System.Windows.Forms.ToolStripButton();
             this.tsbCreateXMLFiles = new System.Windows.Forms.ToolStripButton();
+            this.tsbPackDossier = new System.Windows.Forms.ToolStripButton();
             this.tsbAssemble = new System.Windows.Forms.ToolStripButton();
             this.tsbRefreshFolderView = new System.Windows.Forms.ToolStripButton();
             this.tsbCloseDossier = new System.Windows.Forms.ToolStripButton();
@@ -195,7 +196,12 @@ namespace eCTD_indexer
             this.pbINNCopy = new System.Windows.Forms.PictureBox();
             this.pbIdentifierCopy = new System.Windows.Forms.PictureBox();
             this.tbIdentifier = new System.Windows.Forms.TextBox();
-            this.tsbPackDossier = new System.Windows.Forms.ToolStripButton();
+            this.pbProcedureTypeCopy = new System.Windows.Forms.PictureBox();
+            this.pbSubmissionTypeCopy = new System.Windows.Forms.PictureBox();
+            this.pbModeCopy = new System.Windows.Forms.PictureBox();
+            this.pbRelSeqCopy = new System.Windows.Forms.PictureBox();
+            this.pbSubDescCopy = new System.Windows.Forms.PictureBox();
+            this.pbSubmissionUnitCopy = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -205,6 +211,12 @@ namespace eCTD_indexer
             ((System.ComponentModel.ISupportInitialize)(this.pbTrackingNoCopy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbINNCopy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbIdentifierCopy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProcedureTypeCopy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSubmissionTypeCopy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbModeCopy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRelSeqCopy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSubDescCopy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSubmissionUnitCopy)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxTrackNo
@@ -1538,6 +1550,12 @@ namespace eCTD_indexer
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.pbSubmissionUnitCopy);
+            this.splitContainer1.Panel2.Controls.Add(this.pbSubDescCopy);
+            this.splitContainer1.Panel2.Controls.Add(this.pbRelSeqCopy);
+            this.splitContainer1.Panel2.Controls.Add(this.pbModeCopy);
+            this.splitContainer1.Panel2.Controls.Add(this.pbSubmissionTypeCopy);
+            this.splitContainer1.Panel2.Controls.Add(this.pbProcedureTypeCopy);
             this.splitContainer1.Panel2.Controls.Add(this.pbNumberCopy);
             this.splitContainer1.Panel2.Controls.Add(this.pbTrackingNoCopy);
             this.splitContainer1.Panel2.Controls.Add(this.pbINNCopy);
@@ -1769,6 +1787,16 @@ namespace eCTD_indexer
             this.tsbCreateXMLFiles.Text = "Create XML files";
             this.tsbCreateXMLFiles.Click += new System.EventHandler(this.tsbCreateXMLFiles_Click);
             // 
+            // tsbPackDossier
+            // 
+            this.tsbPackDossier.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbPackDossier.Image = global::eCTD_indexer.Properties.Resources.Apps_utilities_file_archiver_icon;
+            this.tsbPackDossier.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbPackDossier.Name = "tsbPackDossier";
+            this.tsbPackDossier.Size = new System.Drawing.Size(36, 36);
+            this.tsbPackDossier.Text = "Zip dossier";
+            this.tsbPackDossier.Click += new System.EventHandler(this.tsbPackDossier_Click);
+            // 
             // tsbAssemble
             // 
             this.tsbAssemble.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -1865,7 +1893,7 @@ namespace eCTD_indexer
             // pbIdentifierCopy
             // 
             this.pbIdentifierCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
-            this.pbIdentifierCopy.Location = new System.Drawing.Point(674, 68);
+            this.pbIdentifierCopy.Location = new System.Drawing.Point(674, 69);
             this.pbIdentifierCopy.Name = "pbIdentifierCopy";
             this.pbIdentifierCopy.Size = new System.Drawing.Size(36, 21);
             this.pbIdentifierCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1882,15 +1910,71 @@ namespace eCTD_indexer
             this.tbIdentifier.Enter += new System.EventHandler(this.tbIdentifier_Enter);
             this.tbIdentifier.Leave += new System.EventHandler(this.tbIdentifier_Leave);
             // 
-            // tsbPackDossier
+            // pbProcedureTypeCopy
             // 
-            this.tsbPackDossier.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbPackDossier.Image = global::eCTD_indexer.Properties.Resources.Apps_utilities_file_archiver_icon;
-            this.tsbPackDossier.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbPackDossier.Name = "tsbPackDossier";
-            this.tsbPackDossier.Size = new System.Drawing.Size(36, 36);
-            this.tsbPackDossier.Text = "Zip dossier";
-            this.tsbPackDossier.Click += new System.EventHandler(this.tsbPackDossier_Click);
+            this.pbProcedureTypeCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
+            this.pbProcedureTypeCopy.Location = new System.Drawing.Point(325, 71);
+            this.pbProcedureTypeCopy.Name = "pbProcedureTypeCopy";
+            this.pbProcedureTypeCopy.Size = new System.Drawing.Size(36, 21);
+            this.pbProcedureTypeCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbProcedureTypeCopy.TabIndex = 127;
+            this.pbProcedureTypeCopy.TabStop = false;
+            this.pbProcedureTypeCopy.Click += new System.EventHandler(this.pbProcedureTypeCopy_Click);
+            // 
+            // pbSubmissionTypeCopy
+            // 
+            this.pbSubmissionTypeCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
+            this.pbSubmissionTypeCopy.Location = new System.Drawing.Point(325, 98);
+            this.pbSubmissionTypeCopy.Name = "pbSubmissionTypeCopy";
+            this.pbSubmissionTypeCopy.Size = new System.Drawing.Size(36, 21);
+            this.pbSubmissionTypeCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbSubmissionTypeCopy.TabIndex = 128;
+            this.pbSubmissionTypeCopy.TabStop = false;
+            this.pbSubmissionTypeCopy.Click += new System.EventHandler(this.pbSubmissionTypeCopy_Click);
+            // 
+            // pbModeCopy
+            // 
+            this.pbModeCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
+            this.pbModeCopy.Location = new System.Drawing.Point(325, 121);
+            this.pbModeCopy.Name = "pbModeCopy";
+            this.pbModeCopy.Size = new System.Drawing.Size(36, 21);
+            this.pbModeCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbModeCopy.TabIndex = 129;
+            this.pbModeCopy.TabStop = false;
+            this.pbModeCopy.Click += new System.EventHandler(this.pbModeCopy_Click);
+            // 
+            // pbRelSeqCopy
+            // 
+            this.pbRelSeqCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
+            this.pbRelSeqCopy.Location = new System.Drawing.Point(674, 95);
+            this.pbRelSeqCopy.Name = "pbRelSeqCopy";
+            this.pbRelSeqCopy.Size = new System.Drawing.Size(36, 21);
+            this.pbRelSeqCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbRelSeqCopy.TabIndex = 130;
+            this.pbRelSeqCopy.TabStop = false;
+            this.pbRelSeqCopy.Click += new System.EventHandler(this.pbRelSeqCopy_Click);
+            // 
+            // pbSubDescCopy
+            // 
+            this.pbSubDescCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
+            this.pbSubDescCopy.Location = new System.Drawing.Point(674, 121);
+            this.pbSubDescCopy.Name = "pbSubDescCopy";
+            this.pbSubDescCopy.Size = new System.Drawing.Size(36, 21);
+            this.pbSubDescCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbSubDescCopy.TabIndex = 131;
+            this.pbSubDescCopy.TabStop = false;
+            this.pbSubDescCopy.Click += new System.EventHandler(this.pbSubDescCopy_Click);
+            // 
+            // pbSubmissionUnitCopy
+            // 
+            this.pbSubmissionUnitCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
+            this.pbSubmissionUnitCopy.Location = new System.Drawing.Point(674, 148);
+            this.pbSubmissionUnitCopy.Name = "pbSubmissionUnitCopy";
+            this.pbSubmissionUnitCopy.Size = new System.Drawing.Size(36, 21);
+            this.pbSubmissionUnitCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbSubmissionUnitCopy.TabIndex = 132;
+            this.pbSubmissionUnitCopy.TabStop = false;
+            this.pbSubmissionUnitCopy.Click += new System.EventHandler(this.pbSubmissionUnitCopy_Click);
             // 
             // MainWindow
             // 
@@ -1916,6 +2000,12 @@ namespace eCTD_indexer
             ((System.ComponentModel.ISupportInitialize)(this.pbTrackingNoCopy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbINNCopy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbIdentifierCopy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProcedureTypeCopy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSubmissionTypeCopy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbModeCopy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRelSeqCopy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSubDescCopy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSubmissionUnitCopy)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2071,6 +2161,12 @@ namespace eCTD_indexer
         private System.Windows.Forms.PictureBox pbTrackingNoCopy;
         private System.Windows.Forms.ToolStripButton tsbAdoptInformation;
         private System.Windows.Forms.ToolStripButton tsbPackDossier;
+        private System.Windows.Forms.PictureBox pbModeCopy;
+        private System.Windows.Forms.PictureBox pbSubmissionTypeCopy;
+        private System.Windows.Forms.PictureBox pbProcedureTypeCopy;
+        private System.Windows.Forms.PictureBox pbSubmissionUnitCopy;
+        private System.Windows.Forms.PictureBox pbSubDescCopy;
+        private System.Windows.Forms.PictureBox pbRelSeqCopy;
     }
 }
 
