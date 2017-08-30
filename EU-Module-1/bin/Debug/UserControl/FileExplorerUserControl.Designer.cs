@@ -72,8 +72,8 @@ namespace eCTD_indexer
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.FileListView);
-            this.splitContainer1.Size = new System.Drawing.Size(800, 500);
-            this.splitContainer1.SplitterDistance = 248;
+            this.splitContainer1.Size = new System.Drawing.Size(799, 544);
+            this.splitContainer1.SplitterDistance = 246;
             this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -87,7 +87,7 @@ namespace eCTD_indexer
             this.FolderView.Margin = new System.Windows.Forms.Padding(2);
             this.FolderView.Name = "FolderView";
             this.FolderView.SelectedImageIndex = 0;
-            this.FolderView.Size = new System.Drawing.Size(248, 500);
+            this.FolderView.Size = new System.Drawing.Size(246, 544);
             this.FolderView.TabIndex = 1;
             this.FolderView.DragDrop += new System.Windows.Forms.DragEventHandler(this.FolderView_DragDrop);
             this.FolderView.DragEnter += new System.Windows.Forms.DragEventHandler(this.FolderView_DragEnter);
@@ -111,7 +111,8 @@ namespace eCTD_indexer
             this.FileListView.Location = new System.Drawing.Point(0, 0);
             this.FileListView.Margin = new System.Windows.Forms.Padding(2);
             this.FileListView.Name = "FileListView";
-            this.FileListView.Size = new System.Drawing.Size(549, 500);
+            this.FileListView.Scrollable = false;
+            this.FileListView.Size = new System.Drawing.Size(550, 544);
             this.FileListView.SmallImageList = this.imageList;
             this.FileListView.TabIndex = 1;
             this.FileListView.UseCompatibleStateImageBehavior = false;
@@ -121,11 +122,12 @@ namespace eCTD_indexer
             this.FileListView.DragEnter += new System.Windows.Forms.DragEventHandler(this.FileListView_DragEnter);
             this.FileListView.DoubleClick += new System.EventHandler(this.FileListView_DoubleClick);
             this.FileListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.FileListView_MouseClick);
+            this.FileListView.Resize += new System.EventHandler(this.FileListView_Resize);
             // 
             // Name
             // 
             this.Name.Text = "Name";
-            this.Name.Width = 160;
+            this.Name.Width = 163;
             // 
             // Type
             // 
@@ -135,7 +137,7 @@ namespace eCTD_indexer
             // LastModified
             // 
             this.LastModified.Text = "Last Modified";
-            this.LastModified.Width = 98;
+            this.LastModified.Width = 75;
             // 
             // contextMenuFileListView
             // 
@@ -144,26 +146,26 @@ namespace eCTD_indexer
             this.cmflDelete,
             this.cmflInfo});
             this.contextMenuFileListView.Name = "contextMenuStrip";
-            this.contextMenuFileListView.Size = new System.Drawing.Size(153, 92);
+            this.contextMenuFileListView.Size = new System.Drawing.Size(117, 70);
             // 
             // cmflOpen
             // 
             this.cmflOpen.Name = "cmflOpen";
-            this.cmflOpen.Size = new System.Drawing.Size(152, 22);
+            this.cmflOpen.Size = new System.Drawing.Size(116, 22);
             this.cmflOpen.Text = "Open...";
             this.cmflOpen.Click += new System.EventHandler(this.cmflOpen_Click);
             // 
             // cmflDelete
             // 
             this.cmflDelete.Name = "cmflDelete";
-            this.cmflDelete.Size = new System.Drawing.Size(152, 22);
+            this.cmflDelete.Size = new System.Drawing.Size(116, 22);
             this.cmflDelete.Text = "Delete...";
             this.cmflDelete.Click += new System.EventHandler(this.cmflDelete_Click);
             // 
             // cmflInfo
             // 
             this.cmflInfo.Name = "cmflInfo";
-            this.cmflInfo.Size = new System.Drawing.Size(152, 22);
+            this.cmflInfo.Size = new System.Drawing.Size(116, 22);
             this.cmflInfo.Text = "Info...";
             this.cmflInfo.Click += new System.EventHandler(this.cmflInfo_Click);
             // 
@@ -195,7 +197,8 @@ namespace eCTD_indexer
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainer1);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Size = new System.Drawing.Size(800, 500);
+            this.Size = new System.Drawing.Size(799, 544);
+            this.Load += new System.EventHandler(this.FileExplorerUserControl_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();

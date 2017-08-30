@@ -4,17 +4,17 @@
   <description asmv2:publisher="HP" asmv2:product="EU-Module-1" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <deployment install="false" mapFileExtensions="true" />
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
-    <framework targetVersion="4.0" profile="Full" supportedRuntime="4.0.30319" />
+    <framework targetVersion="4.5.1" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="EU-Module-1.exe.manifest" size="4180">
+    <dependentAssembly dependencyType="install" codebase="EU-Module-1.exe.manifest" size="5391">
       <assemblyIdentity name="EU-Module-1.exe" version="1.0.0.51" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>SxuLOvqh5fU0Sfz1Y93ElkfpBp0=</dsig:DigestValue>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>/7R6AQT4MlNOD3o/RhiiSe4YwJv7/ifdb8NPWx9w4Bs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

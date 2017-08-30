@@ -177,7 +177,7 @@ namespace eCTD_indexer.XML
                         sr.WriteLine("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
                         sr.WriteLine("<!DOCTYPE eu:eu-backbone SYSTEM \"../../util/dtd/eu-regional.dtd\">");
                         sr.WriteLine("<?xml-stylesheet type=\"text/xsl\" href=\"../../util/style/eu-regional.xsl\"?>");
-                        sr.WriteLine("<!-- Generated {0} using eCTD indexer - http://ectd.is -->", dt.ToString());
+                        sr.WriteLine("<!-- Generated {0} using eCTD indexer - https://github.com/Quantentunnel/ectd_indexer -->", dt.ToString());
                         sr.WriteLine("<eu:eu-backbone xmlns:eu=\"http://europa.eu.int\"");
                         sr.WriteLine("      xmlns:xlink=\"http://www.w3c.org/1999/xlink\"");
                         sr.WriteLine("      xml:lang=\"en\" dtd-version=\"3.0.1\">");
@@ -268,7 +268,10 @@ namespace eCTD_indexer.XML
                                 if (filenameListArray[p, 0].Contains("form-"))
                                 {
                                     int formNameStart = filenameListArray[p, 0].IndexOf("form-") + 5;
-                                    int formNameLength = (filenameListArray[p, 0].IndexOf(".") - formNameStart);
+
+                                    // Using LastIndexOf instead of IndexOf because an Exception is thrown
+                                    // if for instance a user name contains a dot.
+                                    int formNameLength = (filenameListArray[p, 0].LastIndexOf(".") - formNameStart);
                                     formTitle = ("Application - " + filenameListArray[p, 0].Substring(formNameStart, formNameLength));
                                 }
                                 else formTitle = "Application form";
@@ -1090,7 +1093,7 @@ namespace eCTD_indexer.XML
                         swr.WriteLine("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
                         swr.WriteLine("<!DOCTYPE ectd:ectd SYSTEM \"util/dtd/ich-ectd-3-2.dtd\">");
                         swr.WriteLine("<?xml-stylesheet type=\"text/xsl\" href=\"util/style/ectd-2-0.xsl\"?>");
-                        swr.WriteLine("<!-- Generated {0} using eCTD indexer - http://ectd.is -->", dt.ToString());
+                        swr.WriteLine("<!-- Generated {0} using eCTD indexer - https://github.com/Quantentunnel/ectd_indexer -->", dt.ToString());
                         swr.WriteLine("<ectd:ectd dtd-version=\"3.2\" xml:lang=\"en\" xmlns:ectd=\"http://www.ich.org/ectd\" xmlns:xlink=\"http://www.w3c.org/1999/xlink\">");
                         //leaf generator
                         for (int p = 0; p < totalFileNumber; p++)
@@ -1452,7 +1455,7 @@ namespace eCTD_indexer.XML
                             }
                             if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "27-clin-sum" + Path.DirectorySeparatorChar + "summary-clin-efficacy") == true)
                             {
-                                indication = filenameListArray[p, 0].Substring((filenameListArray[p, 0].IndexOf(Path.DirectorySeparatorChar + "summary-clin-efficacy-") + 23), (filenameListArray[p, 0].IndexOf(".") - (filenameListArray[p, 0].IndexOf(Path.DirectorySeparatorChar + "summary-clin-efficacy-") + 23)));
+                                indication = filenameListArray[p, 0].Substring((filenameListArray[p, 0].IndexOf(Path.DirectorySeparatorChar + "summary-clin-efficacy-") + 23), (filenameListArray[p, 0].IndexOf(".pdf") - (filenameListArray[p, 0].IndexOf(Path.DirectorySeparatorChar + "summary-clin-efficacy-") + 23)));
                                 swr.WriteLine("            <m2-7-3-summary-of-clinical-efficacy indication=\"{0}\">", indication);
                                 swr.WriteLine("                <leaf ID=\"m27-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                    checksum=\"{0}\"", filenameListArray[p, 2]);

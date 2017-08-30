@@ -44,9 +44,11 @@ namespace eCTD_indexer
         private Object selectedpathtag;
         private TreeNode selectedtreenode;
         private String rootDirectory;
+        private String _1stlevel;
         private bool privateDragAndDrop;
         private String privateDragSource;
         private eCTD_Directories eCTDirs;
+        private List<String> ExpandedTreeNodeStructure; 
 
         /// <summary>
         /// Refresh the view on the folders and files.
@@ -72,31 +74,78 @@ namespace eCTD_indexer
             {
                 if (this.rootDirectory != "")
                 {
-                    this.PopulateTreeView(this.rootDirectory + this.FolderView.Nodes[0].Text);
+                    for (int i = 0; i < this.FolderView.Nodes.Count; i++)
+                    {
+                        if (this.FolderView.Nodes[i].Text == this._1stlevel)
+                        {
+                            this.FolderView.Nodes[i].Remove();
+                            i = this.FolderView.Nodes.Count;
+                        }
+                    }
+
+                    this.PopulateTreeView(this.rootDirectory + this._1stlevel);
+                    this.FolderView.Sort();
                 }
             }
         }
 
-        /// <summary>
-        /// Build up the folder at the left TreeView.
-        /// </summary>
-        /// <param name="rootDirectory"></param>
-        public void PopulateTreeView(String rootDirectory)
+        public void Clear()
         {
-            this.rootDirectory = rootDirectory;
-            this.rootDirectory = this.rootDirectory.Substring(0, this.rootDirectory.Length - 4);
+            FolderView.Nodes.Clear();
+        }
 
+        public void setRootDirectory(String root_and_1stlevel)
+        {
+            if (root_and_1stlevel.Contains(@"\"))
+            {
+                String pattern = @"\\";
+                String[] elements = System.Text.RegularExpressions.Regex.Split(root_and_1stlevel, pattern);
+
+                if (elements.Length > 1)
+                {
+                    this.rootDirectory = root_and_1stlevel.Substring(0,root_and_1stlevel.Length-elements[elements.Length-1].Length);
+                    this._1stlevel = elements[elements.Length-1];
+                }
+            }
+        }
+
+        public void set1stLevel(String pathwithoutroot)
+        {
+            if (pathwithoutroot.Contains(@"\"))
+            {
+                String pattern = @"\\";
+                String[] elements = System.Text.RegularExpressions.Regex.Split(pathwithoutroot, pattern);
+
+                if (elements.Length > 1)
+                {
+                    this._1stlevel = elements[0];
+                }
+            }
+            else
+            {
+                this._1stlevel = pathwithoutroot;
+            }
+        }
+
+        /// <summary>
+        /// Build up the folder at the right TreeView.
+        /// </summary>
+        /// <param name="_rootDirectory"></param>
+        public void PopulateTreeView(String _rootDirectory)
+        {
+            //this.rootDirectory = _rootDirectory;
+            //this.rootDirectory = this.rootDirectory.Substring(0, this.rootDirectory.Length - 4);
+            this.setRootDirectory(_rootDirectory);
             TreeNode rootnode;
 
-            DirectoryInfo info = new DirectoryInfo(rootDirectory);
+            DirectoryInfo info = new DirectoryInfo(_rootDirectory);
             if (info.Exists)
             {
                 rootnode = new TreeNode(info.Name,1,1);
                 rootnode.Tag = info;
                 GetDirectories(info.GetDirectories(), rootnode);
-                FolderView.Nodes.Clear();
-                FolderView.Nodes.Add(rootnode);
-            }
+                FolderView.Nodes.Add(rootnode); 
+            } 
         }
 
         /// <summary>
@@ -106,9 +155,10 @@ namespace eCTD_indexer
         /// <param name="rootNode"></param>
         private void GetDirectories(DirectoryInfo[] subDirs, TreeNode rootNode)
         {
-            TreeNode aNode;
+            TreeNode aNode; // Array.Sort(unsortedNames, new MyComparer());
             DirectoryInfo[] subsubDirs;
             FileInfo[] subsubFiles;
+            Array.Sort(subDirs, new MyComparer());
             foreach (DirectoryInfo item in subDirs)
             {
                 aNode = new TreeNode(item.Name, 1, 1);
@@ -141,6 +191,7 @@ namespace eCTD_indexer
         {
             this.FolderView_InitializeShowFolder(e.Node);
             this.selectedtreenode = e.Node;
+            this.set1stLevel(e.Node.FullPath);
         }
 
         /// <summary>
@@ -173,12 +224,12 @@ namespace eCTD_indexer
                 this.selectedpath += path;
             }
 
-            // Show the content of the folder in the right list.
+            // Show the content of the folder in the left list.
             this.FolderView_ShowFolder();
         }
 
         /// <summary>
-        /// Refresh the view of the folder.
+        /// Refresh the view of the folder and expand the view.
         /// </summary>
         public void FolderView_ShowFolder()
         {
@@ -376,7 +427,7 @@ namespace eCTD_indexer
                 {
                     contextMenuFileListView.Show(Cursor.Position);
                 }
-            } 
+            }
         }
 
         /// <summary>
@@ -395,7 +446,12 @@ namespace eCTD_indexer
                 {
                     contextMenuFolderView.Show(FolderView, e.Location);
                 }
-            } 
+            }
+            else if (e.Button == MouseButtons.Left)
+            {
+                // Save the expanded TreeSturcure
+                this.SaveAllExpandedNodesList();
+            }
         }
 
         /// <summary>
@@ -404,12 +460,16 @@ namespace eCTD_indexer
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void tsmiCreateFolder_Click(object sender, EventArgs e)
-        {            
+        {
+            this.SaveAllExpandedNodesList();
             UserDialog.CreateDirectory cf = new UserDialog.CreateDirectory(this.eCTDirs.getSubDirectories(FolderView.SelectedNode.Text), this.selectedpath);
             if(cf.ShowDialog() == DialogResult.OK)
             {
                 // Refresh the view on the folders and files.
                 this.Refresh();
+
+                // Restore
+                this.RestoreTreeViewState();
             }            
         }
 
@@ -450,7 +510,7 @@ namespace eCTD_indexer
                         if (MessageBox.Show("Delete this file?\n\n" + file2delete, "Delete file?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
                             File.Delete(file2delete);
-                            this.Refresh();
+                            FolderView_ShowFolder();
                         }
                     }
                     else if (this.FileListView.SelectedItems[0].SubItems[1].Text == "Directory")
@@ -500,5 +560,108 @@ namespace eCTD_indexer
                 }
             }
         }
+
+        #region Restore expanded TreeNodeCollection
+        // For more information about this region have a look at this post:
+        // http://stackoverflow.com/questions/8308258/expand-selected-node-after-refresh-treeview-in-c-sharp
+
+        private void UpdateExpandedList(ref List<string> expNodeList, TreeNode node)
+        {
+            if (node.IsExpanded) expNodeList.Add(node.FullPath);
+            foreach (TreeNode n in node.Nodes)
+            {
+                if (n.IsExpanded) UpdateExpandedList(ref expNodeList, n);
+            }
+        }
+
+        /// <summary>
+        /// Save the expanded node list.
+        /// </summary>
+        public void SaveAllExpandedNodesList()
+        {
+            this.ExpandedTreeNodeStructure = GetAllExpandedNodesList(this.FolderView);
+        }
+
+        private List<String> GetAllExpandedNodesList(TreeView tree)
+        {
+            var expandedNodesList = new List<string>();
+
+            foreach (TreeNode node in tree.Nodes)
+            {
+                UpdateExpandedList(ref expandedNodesList, node);
+            }
+            return expandedNodesList;
+        }
+
+
+        private void ExpandNodes(TreeNode node, string nodeFullPath)
+        {
+            if (node.FullPath == nodeFullPath) node.Expand();
+            foreach (TreeNode n in node.Nodes)
+            {
+                if (n.Nodes.Count > 0) ExpandNodes(n, nodeFullPath);
+            }
+        }
+
+        /// <summary>
+        /// Restore the expanded node tree list which has been saved by SaveAllExpandedNodesList.
+        /// </summary>
+        public void RestoreTreeViewState()
+        {
+            if (this.ExpandedTreeNodeStructure != null)
+            {
+                if (this.ExpandedTreeNodeStructure.Count > 0)
+                {
+                    this.RestoreTreeViewState(this.FolderView, this.ExpandedTreeNodeStructure);
+                }
+            }
+        }
+
+        private void RestoreTreeViewState(TreeView tree, List<string> expandedState)
+        {
+            foreach (TreeNode node in tree.Nodes)
+            {
+                foreach (var state in expandedState)
+                {
+                    ExpandNodes(node, state);
+                }
+            }
+        }
+        #endregion
+
+        #region Have a look at https://stackoverflow.com/a/4802868
+        private void SizeLastColumn(ListView lv)
+        {
+            lv.Columns[lv.Columns.Count - 1].Width = -2;
+        }
+
+        private void FileExplorerUserControl_Load(object sender, EventArgs e)
+        {
+            SizeLastColumn(FileListView);
+        }
+
+        private void FileListView_Resize(object sender, EventArgs e)
+        {
+            SizeLastColumn((ListView)sender);
+        }
+        #endregion
     }
+
+    public class MyComparer : IComparer<DirectoryInfo>
+    {
+        [System.Runtime.InteropServices.DllImport("shlwapi.dll", CharSet = System.Runtime.InteropServices.CharSet.Unicode, ExactSpelling = true)]
+        static extern int StrCmpLogicalW(String x, String y);
+
+        /*public int Compare(string x, string y)
+        {
+            return StrCmpLogicalW(x, y);
+        }*/
+
+
+        public int Compare(DirectoryInfo x, DirectoryInfo y)
+        {
+            return StrCmpLogicalW(x.Name, y.Name);
+        }
+    }
+
 }

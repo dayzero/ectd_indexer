@@ -169,7 +169,6 @@ namespace eCTD_indexer
             this.label8 = new System.Windows.Forms.Label();
             this.comboBoxMode = new System.Windows.Forms.ComboBox();
             this.labelSequence = new System.Windows.Forms.Label();
-            this.lSubmissionIdentifier = new System.Windows.Forms.Label();
             this.textBoxHRApp = new System.Windows.Forms.TextBox();
             this.textBoxHR = new System.Windows.Forms.TextBox();
             this.checkBoxHR = new System.Windows.Forms.CheckBox();
@@ -181,19 +180,43 @@ namespace eCTD_indexer
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.tsbCreate = new System.Windows.Forms.ToolStripButton();
             this.tsbOpenDossier = new System.Windows.Forms.ToolStripButton();
+            this.tsbAdoptInformation = new System.Windows.Forms.ToolStripButton();
             this.tsbDeleteEmptyFolder = new System.Windows.Forms.ToolStripButton();
+            this.tsbDiagnostic = new System.Windows.Forms.ToolStripButton();
             this.tsbCreateXMLFiles = new System.Windows.Forms.ToolStripButton();
+            this.tsbPackDossier = new System.Windows.Forms.ToolStripButton();
             this.tsbAssemble = new System.Windows.Forms.ToolStripButton();
             this.tsbRefreshFolderView = new System.Windows.Forms.ToolStripButton();
             this.tsbCloseDossier = new System.Windows.Forms.ToolStripButton();
             this.tsbOptions = new System.Windows.Forms.ToolStripButton();
             this.tsbCloseApp = new System.Windows.Forms.ToolStripButton();
             this.tsbAbout = new System.Windows.Forms.ToolStripButton();
+            this.pbNumberCopy = new System.Windows.Forms.PictureBox();
+            this.pbTrackingNoCopy = new System.Windows.Forms.PictureBox();
+            this.pbINNCopy = new System.Windows.Forms.PictureBox();
+            this.pbIdentifierCopy = new System.Windows.Forms.PictureBox();
+            this.tbIdentifier = new System.Windows.Forms.TextBox();
+            this.pbProcedureTypeCopy = new System.Windows.Forms.PictureBox();
+            this.pbSubmissionTypeCopy = new System.Windows.Forms.PictureBox();
+            this.pbModeCopy = new System.Windows.Forms.PictureBox();
+            this.pbRelSeqCopy = new System.Windows.Forms.PictureBox();
+            this.pbSubDescCopy = new System.Windows.Forms.PictureBox();
+            this.pbSubmissionUnitCopy = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.toolStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNumberCopy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTrackingNoCopy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbINNCopy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbIdentifierCopy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProcedureTypeCopy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSubmissionTypeCopy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbModeCopy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRelSeqCopy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSubDescCopy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSubmissionUnitCopy)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxTrackNo
@@ -238,7 +261,7 @@ namespace eCTD_indexer
             "consolidating",
             "corrigendum",
             "reformat"});
-            this.comboBoxSubmUnit.Location = new System.Drawing.Point(430, 146);
+            this.comboBoxSubmUnit.Location = new System.Drawing.Point(457, 146);
             this.comboBoxSubmUnit.Name = "comboBoxSubmUnit";
             this.comboBoxSubmUnit.Size = new System.Drawing.Size(212, 21);
             this.comboBoxSubmUnit.TabIndex = 105;
@@ -336,7 +359,7 @@ namespace eCTD_indexer
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(340, 48);
+            this.label12.Location = new System.Drawing.Point(367, 48);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(26, 13);
             this.label12.TabIndex = 21;
@@ -344,7 +367,7 @@ namespace eCTD_indexer
             // 
             // textBoxINN
             // 
-            this.textBoxINN.Location = new System.Drawing.Point(430, 45);
+            this.textBoxINN.Location = new System.Drawing.Point(457, 45);
             this.textBoxINN.Name = "textBoxINN";
             this.textBoxINN.Size = new System.Drawing.Size(213, 20);
             this.textBoxINN.TabIndex = 5;
@@ -352,7 +375,7 @@ namespace eCTD_indexer
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(340, 123);
+            this.label13.Location = new System.Drawing.Point(367, 123);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(69, 13);
             this.label13.TabIndex = 23;
@@ -360,7 +383,7 @@ namespace eCTD_indexer
             // 
             // textBoxSubmDescr
             // 
-            this.textBoxSubmDescr.Location = new System.Drawing.Point(430, 120);
+            this.textBoxSubmDescr.Location = new System.Drawing.Point(457, 120);
             this.textBoxSubmDescr.Name = "textBoxSubmDescr";
             this.textBoxSubmDescr.Size = new System.Drawing.Size(213, 20);
             this.textBoxSubmDescr.TabIndex = 7;
@@ -368,7 +391,7 @@ namespace eCTD_indexer
             // labelSubmissionUnit
             // 
             this.labelSubmissionUnit.AutoSize = true;
-            this.labelSubmissionUnit.Location = new System.Drawing.Point(340, 149);
+            this.labelSubmissionUnit.Location = new System.Drawing.Point(367, 149);
             this.labelSubmissionUnit.Name = "labelSubmissionUnit";
             this.labelSubmissionUnit.Size = new System.Drawing.Size(80, 13);
             this.labelSubmissionUnit.TabIndex = 87;
@@ -470,7 +493,7 @@ namespace eCTD_indexer
             // checkBoxEU
             // 
             this.checkBoxEU.AutoSize = true;
-            this.checkBoxEU.Location = new System.Drawing.Point(343, 565);
+            this.checkBoxEU.Location = new System.Drawing.Point(370, 565);
             this.checkBoxEU.Name = "checkBoxEU";
             this.checkBoxEU.Size = new System.Drawing.Size(67, 17);
             this.checkBoxEU.TabIndex = 105;
@@ -482,7 +505,7 @@ namespace eCTD_indexer
             // checkBoxED
             // 
             this.checkBoxED.AutoSize = true;
-            this.checkBoxED.Location = new System.Drawing.Point(343, 539);
+            this.checkBoxED.Location = new System.Drawing.Point(370, 539);
             this.checkBoxED.Name = "checkBoxED";
             this.checkBoxED.Size = new System.Drawing.Size(76, 17);
             this.checkBoxED.TabIndex = 105;
@@ -578,7 +601,7 @@ namespace eCTD_indexer
             // checkBoxIT
             // 
             this.checkBoxIT.AutoSize = true;
-            this.checkBoxIT.Location = new System.Drawing.Point(343, 194);
+            this.checkBoxIT.Location = new System.Drawing.Point(370, 194);
             this.checkBoxIT.Name = "checkBoxIT";
             this.checkBoxIT.Size = new System.Drawing.Size(62, 17);
             this.checkBoxIT.TabIndex = 60;
@@ -590,7 +613,7 @@ namespace eCTD_indexer
             // checkBoxLV
             // 
             this.checkBoxLV.AutoSize = true;
-            this.checkBoxLV.Location = new System.Drawing.Point(343, 286);
+            this.checkBoxLV.Location = new System.Drawing.Point(370, 286);
             this.checkBoxLV.Name = "checkBoxLV";
             this.checkBoxLV.Size = new System.Drawing.Size(63, 17);
             this.checkBoxLV.TabIndex = 72;
@@ -602,7 +625,7 @@ namespace eCTD_indexer
             // checkBoxLI
             // 
             this.checkBoxLI.AutoSize = true;
-            this.checkBoxLI.Location = new System.Drawing.Point(343, 217);
+            this.checkBoxLI.Location = new System.Drawing.Point(370, 217);
             this.checkBoxLI.Name = "checkBoxLI";
             this.checkBoxLI.Size = new System.Drawing.Size(57, 17);
             this.checkBoxLI.TabIndex = 63;
@@ -623,7 +646,7 @@ namespace eCTD_indexer
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(434, 177);
+            this.label21.Location = new System.Drawing.Point(461, 177);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(78, 13);
             this.label21.TabIndex = 58;
@@ -632,7 +655,7 @@ namespace eCTD_indexer
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(340, 177);
+            this.label22.Location = new System.Drawing.Point(367, 177);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(84, 13);
             this.label22.TabIndex = 57;
@@ -650,7 +673,7 @@ namespace eCTD_indexer
             // checkBoxUK
             // 
             this.checkBoxUK.AutoSize = true;
-            this.checkBoxUK.Location = new System.Drawing.Point(343, 516);
+            this.checkBoxUK.Location = new System.Drawing.Point(370, 516);
             this.checkBoxUK.Name = "checkBoxUK";
             this.checkBoxUK.Size = new System.Drawing.Size(76, 17);
             this.checkBoxUK.TabIndex = 102;
@@ -662,7 +685,7 @@ namespace eCTD_indexer
             // checkBoxSE
             // 
             this.checkBoxSE.AutoSize = true;
-            this.checkBoxSE.Location = new System.Drawing.Point(343, 447);
+            this.checkBoxSE.Location = new System.Drawing.Point(370, 447);
             this.checkBoxSE.Name = "checkBoxSE";
             this.checkBoxSE.Size = new System.Drawing.Size(66, 17);
             this.checkBoxSE.TabIndex = 93;
@@ -686,7 +709,7 @@ namespace eCTD_indexer
             // checkBoxSI
             // 
             this.checkBoxSI.AutoSize = true;
-            this.checkBoxSI.Location = new System.Drawing.Point(343, 470);
+            this.checkBoxSI.Location = new System.Drawing.Point(370, 470);
             this.checkBoxSI.Name = "checkBoxSI";
             this.checkBoxSI.Size = new System.Drawing.Size(74, 17);
             this.checkBoxSI.TabIndex = 96;
@@ -698,7 +721,7 @@ namespace eCTD_indexer
             // checkBoxSK
             // 
             this.checkBoxSK.AutoSize = true;
-            this.checkBoxSK.Location = new System.Drawing.Point(343, 493);
+            this.checkBoxSK.Location = new System.Drawing.Point(370, 493);
             this.checkBoxSK.Name = "checkBoxSK";
             this.checkBoxSK.Size = new System.Drawing.Size(68, 17);
             this.checkBoxSK.TabIndex = 99;
@@ -710,7 +733,7 @@ namespace eCTD_indexer
             // checkBoxRO
             // 
             this.checkBoxRO.AutoSize = true;
-            this.checkBoxRO.Location = new System.Drawing.Point(343, 424);
+            this.checkBoxRO.Location = new System.Drawing.Point(370, 424);
             this.checkBoxRO.Name = "checkBoxRO";
             this.checkBoxRO.Size = new System.Drawing.Size(86, 17);
             this.checkBoxRO.TabIndex = 90;
@@ -722,7 +745,7 @@ namespace eCTD_indexer
             // checkBoxPT
             // 
             this.checkBoxPT.AutoSize = true;
-            this.checkBoxPT.Location = new System.Drawing.Point(343, 401);
+            this.checkBoxPT.Location = new System.Drawing.Point(370, 401);
             this.checkBoxPT.Name = "checkBoxPT";
             this.checkBoxPT.Size = new System.Drawing.Size(99, 17);
             this.checkBoxPT.TabIndex = 87;
@@ -734,7 +757,7 @@ namespace eCTD_indexer
             // checkBoxPL
             // 
             this.checkBoxPL.AutoSize = true;
-            this.checkBoxPL.Location = new System.Drawing.Point(343, 378);
+            this.checkBoxPL.Location = new System.Drawing.Point(370, 378);
             this.checkBoxPL.Name = "checkBoxPL";
             this.checkBoxPL.Size = new System.Drawing.Size(71, 17);
             this.checkBoxPL.TabIndex = 84;
@@ -746,7 +769,7 @@ namespace eCTD_indexer
             // checkBoxNO
             // 
             this.checkBoxNO.AutoSize = true;
-            this.checkBoxNO.Location = new System.Drawing.Point(343, 355);
+            this.checkBoxNO.Location = new System.Drawing.Point(370, 355);
             this.checkBoxNO.Name = "checkBoxNO";
             this.checkBoxNO.Size = new System.Drawing.Size(77, 17);
             this.checkBoxNO.TabIndex = 81;
@@ -758,7 +781,7 @@ namespace eCTD_indexer
             // checkBoxNL
             // 
             this.checkBoxNL.AutoSize = true;
-            this.checkBoxNL.Location = new System.Drawing.Point(343, 332);
+            this.checkBoxNL.Location = new System.Drawing.Point(370, 332);
             this.checkBoxNL.Name = "checkBoxNL";
             this.checkBoxNL.Size = new System.Drawing.Size(66, 17);
             this.checkBoxNL.TabIndex = 78;
@@ -770,7 +793,7 @@ namespace eCTD_indexer
             // checkBoxMT
             // 
             this.checkBoxMT.AutoSize = true;
-            this.checkBoxMT.Location = new System.Drawing.Point(343, 309);
+            this.checkBoxMT.Location = new System.Drawing.Point(370, 309);
             this.checkBoxMT.Name = "checkBoxMT";
             this.checkBoxMT.Size = new System.Drawing.Size(99, 17);
             this.checkBoxMT.TabIndex = 75;
@@ -782,7 +805,7 @@ namespace eCTD_indexer
             // checkBoxLU
             // 
             this.checkBoxLU.AutoSize = true;
-            this.checkBoxLU.Location = new System.Drawing.Point(343, 263);
+            this.checkBoxLU.Location = new System.Drawing.Point(370, 263);
             this.checkBoxLU.Name = "checkBoxLU";
             this.checkBoxLU.Size = new System.Drawing.Size(92, 17);
             this.checkBoxLU.TabIndex = 69;
@@ -794,7 +817,7 @@ namespace eCTD_indexer
             // checkBoxLT
             // 
             this.checkBoxLT.AutoSize = true;
-            this.checkBoxLT.Location = new System.Drawing.Point(343, 240);
+            this.checkBoxLT.Location = new System.Drawing.Point(370, 240);
             this.checkBoxLT.Name = "checkBoxLT";
             this.checkBoxLT.Size = new System.Drawing.Size(72, 17);
             this.checkBoxLT.TabIndex = 66;
@@ -860,7 +883,7 @@ namespace eCTD_indexer
             // textBoxED
             // 
             this.textBoxED.Enabled = false;
-            this.textBoxED.Location = new System.Drawing.Point(437, 539);
+            this.textBoxED.Location = new System.Drawing.Point(464, 539);
             this.textBoxED.Name = "textBoxED";
             this.textBoxED.Size = new System.Drawing.Size(100, 20);
             this.textBoxED.TabIndex = 106;
@@ -869,7 +892,7 @@ namespace eCTD_indexer
             // textBoxEU
             // 
             this.textBoxEU.Enabled = false;
-            this.textBoxEU.Location = new System.Drawing.Point(437, 562);
+            this.textBoxEU.Location = new System.Drawing.Point(464, 562);
             this.textBoxEU.Name = "textBoxEU";
             this.textBoxEU.Size = new System.Drawing.Size(100, 20);
             this.textBoxEU.TabIndex = 106;
@@ -941,7 +964,7 @@ namespace eCTD_indexer
             // textBoxIT
             // 
             this.textBoxIT.Enabled = false;
-            this.textBoxIT.Location = new System.Drawing.Point(437, 194);
+            this.textBoxIT.Location = new System.Drawing.Point(464, 194);
             this.textBoxIT.Name = "textBoxIT";
             this.textBoxIT.Size = new System.Drawing.Size(100, 20);
             this.textBoxIT.TabIndex = 61;
@@ -950,7 +973,7 @@ namespace eCTD_indexer
             // textBoxLV
             // 
             this.textBoxLV.Enabled = false;
-            this.textBoxLV.Location = new System.Drawing.Point(437, 286);
+            this.textBoxLV.Location = new System.Drawing.Point(464, 286);
             this.textBoxLV.Name = "textBoxLV";
             this.textBoxLV.Size = new System.Drawing.Size(100, 20);
             this.textBoxLV.TabIndex = 73;
@@ -959,7 +982,7 @@ namespace eCTD_indexer
             // textBoxLI
             // 
             this.textBoxLI.Enabled = false;
-            this.textBoxLI.Location = new System.Drawing.Point(437, 217);
+            this.textBoxLI.Location = new System.Drawing.Point(464, 217);
             this.textBoxLI.Name = "textBoxLI";
             this.textBoxLI.Size = new System.Drawing.Size(100, 20);
             this.textBoxLI.TabIndex = 64;
@@ -968,7 +991,7 @@ namespace eCTD_indexer
             // textBoxUK
             // 
             this.textBoxUK.Enabled = false;
-            this.textBoxUK.Location = new System.Drawing.Point(437, 516);
+            this.textBoxUK.Location = new System.Drawing.Point(464, 516);
             this.textBoxUK.Name = "textBoxUK";
             this.textBoxUK.Size = new System.Drawing.Size(100, 20);
             this.textBoxUK.TabIndex = 103;
@@ -977,7 +1000,7 @@ namespace eCTD_indexer
             // textBoxSE
             // 
             this.textBoxSE.Enabled = false;
-            this.textBoxSE.Location = new System.Drawing.Point(437, 447);
+            this.textBoxSE.Location = new System.Drawing.Point(464, 447);
             this.textBoxSE.Name = "textBoxSE";
             this.textBoxSE.Size = new System.Drawing.Size(100, 20);
             this.textBoxSE.TabIndex = 94;
@@ -995,7 +1018,7 @@ namespace eCTD_indexer
             // textBoxSI
             // 
             this.textBoxSI.Enabled = false;
-            this.textBoxSI.Location = new System.Drawing.Point(437, 470);
+            this.textBoxSI.Location = new System.Drawing.Point(464, 470);
             this.textBoxSI.Name = "textBoxSI";
             this.textBoxSI.Size = new System.Drawing.Size(100, 20);
             this.textBoxSI.TabIndex = 97;
@@ -1004,7 +1027,7 @@ namespace eCTD_indexer
             // textBoxSK
             // 
             this.textBoxSK.Enabled = false;
-            this.textBoxSK.Location = new System.Drawing.Point(437, 493);
+            this.textBoxSK.Location = new System.Drawing.Point(464, 493);
             this.textBoxSK.Name = "textBoxSK";
             this.textBoxSK.Size = new System.Drawing.Size(100, 20);
             this.textBoxSK.TabIndex = 100;
@@ -1013,7 +1036,7 @@ namespace eCTD_indexer
             // textBoxRO
             // 
             this.textBoxRO.Enabled = false;
-            this.textBoxRO.Location = new System.Drawing.Point(437, 424);
+            this.textBoxRO.Location = new System.Drawing.Point(464, 424);
             this.textBoxRO.Name = "textBoxRO";
             this.textBoxRO.Size = new System.Drawing.Size(100, 20);
             this.textBoxRO.TabIndex = 91;
@@ -1022,7 +1045,7 @@ namespace eCTD_indexer
             // textBoxPT
             // 
             this.textBoxPT.Enabled = false;
-            this.textBoxPT.Location = new System.Drawing.Point(437, 401);
+            this.textBoxPT.Location = new System.Drawing.Point(464, 401);
             this.textBoxPT.Name = "textBoxPT";
             this.textBoxPT.Size = new System.Drawing.Size(100, 20);
             this.textBoxPT.TabIndex = 88;
@@ -1031,7 +1054,7 @@ namespace eCTD_indexer
             // textBoxPL
             // 
             this.textBoxPL.Enabled = false;
-            this.textBoxPL.Location = new System.Drawing.Point(437, 378);
+            this.textBoxPL.Location = new System.Drawing.Point(464, 378);
             this.textBoxPL.Name = "textBoxPL";
             this.textBoxPL.Size = new System.Drawing.Size(100, 20);
             this.textBoxPL.TabIndex = 85;
@@ -1040,7 +1063,7 @@ namespace eCTD_indexer
             // textBoxNO
             // 
             this.textBoxNO.Enabled = false;
-            this.textBoxNO.Location = new System.Drawing.Point(437, 355);
+            this.textBoxNO.Location = new System.Drawing.Point(464, 355);
             this.textBoxNO.Name = "textBoxNO";
             this.textBoxNO.Size = new System.Drawing.Size(100, 20);
             this.textBoxNO.TabIndex = 82;
@@ -1049,7 +1072,7 @@ namespace eCTD_indexer
             // textBoxNL
             // 
             this.textBoxNL.Enabled = false;
-            this.textBoxNL.Location = new System.Drawing.Point(437, 332);
+            this.textBoxNL.Location = new System.Drawing.Point(464, 332);
             this.textBoxNL.Name = "textBoxNL";
             this.textBoxNL.Size = new System.Drawing.Size(100, 20);
             this.textBoxNL.TabIndex = 79;
@@ -1058,7 +1081,7 @@ namespace eCTD_indexer
             // textBoxMT
             // 
             this.textBoxMT.Enabled = false;
-            this.textBoxMT.Location = new System.Drawing.Point(437, 309);
+            this.textBoxMT.Location = new System.Drawing.Point(464, 309);
             this.textBoxMT.Name = "textBoxMT";
             this.textBoxMT.Size = new System.Drawing.Size(100, 20);
             this.textBoxMT.TabIndex = 76;
@@ -1067,7 +1090,7 @@ namespace eCTD_indexer
             // textBoxLU
             // 
             this.textBoxLU.Enabled = false;
-            this.textBoxLU.Location = new System.Drawing.Point(437, 263);
+            this.textBoxLU.Location = new System.Drawing.Point(464, 263);
             this.textBoxLU.Name = "textBoxLU";
             this.textBoxLU.Size = new System.Drawing.Size(100, 20);
             this.textBoxLU.TabIndex = 70;
@@ -1076,7 +1099,7 @@ namespace eCTD_indexer
             // textBoxLT
             // 
             this.textBoxLT.Enabled = false;
-            this.textBoxLT.Location = new System.Drawing.Point(437, 240);
+            this.textBoxLT.Location = new System.Drawing.Point(464, 240);
             this.textBoxLT.Name = "textBoxLT";
             this.textBoxLT.Size = new System.Drawing.Size(100, 20);
             this.textBoxLT.TabIndex = 67;
@@ -1094,7 +1117,7 @@ namespace eCTD_indexer
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(540, 177);
+            this.label4.Location = new System.Drawing.Point(567, 177);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 13);
             this.label4.TabIndex = 82;
@@ -1103,7 +1126,7 @@ namespace eCTD_indexer
             // textBoxITApp
             // 
             this.textBoxITApp.Enabled = false;
-            this.textBoxITApp.Location = new System.Drawing.Point(543, 193);
+            this.textBoxITApp.Location = new System.Drawing.Point(570, 193);
             this.textBoxITApp.Name = "textBoxITApp";
             this.textBoxITApp.Size = new System.Drawing.Size(100, 20);
             this.textBoxITApp.TabIndex = 62;
@@ -1175,7 +1198,7 @@ namespace eCTD_indexer
             // textBoxEDApp
             // 
             this.textBoxEDApp.Enabled = false;
-            this.textBoxEDApp.Location = new System.Drawing.Point(543, 539);
+            this.textBoxEDApp.Location = new System.Drawing.Point(570, 539);
             this.textBoxEDApp.Name = "textBoxEDApp";
             this.textBoxEDApp.Size = new System.Drawing.Size(100, 20);
             this.textBoxEDApp.TabIndex = 107;
@@ -1184,7 +1207,7 @@ namespace eCTD_indexer
             // textBoxEUApp
             // 
             this.textBoxEUApp.Enabled = false;
-            this.textBoxEUApp.Location = new System.Drawing.Point(543, 562);
+            this.textBoxEUApp.Location = new System.Drawing.Point(570, 562);
             this.textBoxEUApp.Name = "textBoxEUApp";
             this.textBoxEUApp.Size = new System.Drawing.Size(100, 20);
             this.textBoxEUApp.TabIndex = 107;
@@ -1256,7 +1279,7 @@ namespace eCTD_indexer
             // textBoxUKApp
             // 
             this.textBoxUKApp.Enabled = false;
-            this.textBoxUKApp.Location = new System.Drawing.Point(543, 516);
+            this.textBoxUKApp.Location = new System.Drawing.Point(570, 516);
             this.textBoxUKApp.Name = "textBoxUKApp";
             this.textBoxUKApp.Size = new System.Drawing.Size(100, 20);
             this.textBoxUKApp.TabIndex = 104;
@@ -1265,7 +1288,7 @@ namespace eCTD_indexer
             // textBoxSEApp
             // 
             this.textBoxSEApp.Enabled = false;
-            this.textBoxSEApp.Location = new System.Drawing.Point(543, 447);
+            this.textBoxSEApp.Location = new System.Drawing.Point(570, 447);
             this.textBoxSEApp.Name = "textBoxSEApp";
             this.textBoxSEApp.Size = new System.Drawing.Size(100, 20);
             this.textBoxSEApp.TabIndex = 95;
@@ -1283,7 +1306,7 @@ namespace eCTD_indexer
             // textBoxSIApp
             // 
             this.textBoxSIApp.Enabled = false;
-            this.textBoxSIApp.Location = new System.Drawing.Point(543, 470);
+            this.textBoxSIApp.Location = new System.Drawing.Point(570, 470);
             this.textBoxSIApp.Name = "textBoxSIApp";
             this.textBoxSIApp.Size = new System.Drawing.Size(100, 20);
             this.textBoxSIApp.TabIndex = 98;
@@ -1292,7 +1315,7 @@ namespace eCTD_indexer
             // textBoxSKApp
             // 
             this.textBoxSKApp.Enabled = false;
-            this.textBoxSKApp.Location = new System.Drawing.Point(543, 493);
+            this.textBoxSKApp.Location = new System.Drawing.Point(570, 493);
             this.textBoxSKApp.Name = "textBoxSKApp";
             this.textBoxSKApp.Size = new System.Drawing.Size(100, 20);
             this.textBoxSKApp.TabIndex = 101;
@@ -1301,7 +1324,7 @@ namespace eCTD_indexer
             // textBoxROApp
             // 
             this.textBoxROApp.Enabled = false;
-            this.textBoxROApp.Location = new System.Drawing.Point(543, 424);
+            this.textBoxROApp.Location = new System.Drawing.Point(570, 424);
             this.textBoxROApp.Name = "textBoxROApp";
             this.textBoxROApp.Size = new System.Drawing.Size(100, 20);
             this.textBoxROApp.TabIndex = 92;
@@ -1310,7 +1333,7 @@ namespace eCTD_indexer
             // textBoxPTApp
             // 
             this.textBoxPTApp.Enabled = false;
-            this.textBoxPTApp.Location = new System.Drawing.Point(543, 401);
+            this.textBoxPTApp.Location = new System.Drawing.Point(570, 401);
             this.textBoxPTApp.Name = "textBoxPTApp";
             this.textBoxPTApp.Size = new System.Drawing.Size(100, 20);
             this.textBoxPTApp.TabIndex = 89;
@@ -1319,7 +1342,7 @@ namespace eCTD_indexer
             // textBoxPLApp
             // 
             this.textBoxPLApp.Enabled = false;
-            this.textBoxPLApp.Location = new System.Drawing.Point(543, 378);
+            this.textBoxPLApp.Location = new System.Drawing.Point(570, 378);
             this.textBoxPLApp.Name = "textBoxPLApp";
             this.textBoxPLApp.Size = new System.Drawing.Size(100, 20);
             this.textBoxPLApp.TabIndex = 86;
@@ -1328,7 +1351,7 @@ namespace eCTD_indexer
             // textBoxNOApp
             // 
             this.textBoxNOApp.Enabled = false;
-            this.textBoxNOApp.Location = new System.Drawing.Point(543, 355);
+            this.textBoxNOApp.Location = new System.Drawing.Point(570, 355);
             this.textBoxNOApp.Name = "textBoxNOApp";
             this.textBoxNOApp.Size = new System.Drawing.Size(100, 20);
             this.textBoxNOApp.TabIndex = 83;
@@ -1337,7 +1360,7 @@ namespace eCTD_indexer
             // textBoxNLApp
             // 
             this.textBoxNLApp.Enabled = false;
-            this.textBoxNLApp.Location = new System.Drawing.Point(543, 332);
+            this.textBoxNLApp.Location = new System.Drawing.Point(570, 332);
             this.textBoxNLApp.Name = "textBoxNLApp";
             this.textBoxNLApp.Size = new System.Drawing.Size(100, 20);
             this.textBoxNLApp.TabIndex = 80;
@@ -1346,7 +1369,7 @@ namespace eCTD_indexer
             // textBoxMTApp
             // 
             this.textBoxMTApp.Enabled = false;
-            this.textBoxMTApp.Location = new System.Drawing.Point(543, 309);
+            this.textBoxMTApp.Location = new System.Drawing.Point(570, 309);
             this.textBoxMTApp.Name = "textBoxMTApp";
             this.textBoxMTApp.Size = new System.Drawing.Size(100, 20);
             this.textBoxMTApp.TabIndex = 77;
@@ -1355,7 +1378,7 @@ namespace eCTD_indexer
             // textBoxLUApp
             // 
             this.textBoxLUApp.Enabled = false;
-            this.textBoxLUApp.Location = new System.Drawing.Point(543, 263);
+            this.textBoxLUApp.Location = new System.Drawing.Point(570, 263);
             this.textBoxLUApp.Name = "textBoxLUApp";
             this.textBoxLUApp.Size = new System.Drawing.Size(100, 20);
             this.textBoxLUApp.TabIndex = 71;
@@ -1364,7 +1387,7 @@ namespace eCTD_indexer
             // textBoxLTApp
             // 
             this.textBoxLTApp.Enabled = false;
-            this.textBoxLTApp.Location = new System.Drawing.Point(543, 240);
+            this.textBoxLTApp.Location = new System.Drawing.Point(570, 240);
             this.textBoxLTApp.Name = "textBoxLTApp";
             this.textBoxLTApp.Size = new System.Drawing.Size(100, 20);
             this.textBoxLTApp.TabIndex = 68;
@@ -1373,7 +1396,7 @@ namespace eCTD_indexer
             // textBoxLIApp
             // 
             this.textBoxLIApp.Enabled = false;
-            this.textBoxLIApp.Location = new System.Drawing.Point(543, 217);
+            this.textBoxLIApp.Location = new System.Drawing.Point(570, 217);
             this.textBoxLIApp.Name = "textBoxLIApp";
             this.textBoxLIApp.Size = new System.Drawing.Size(100, 20);
             this.textBoxLIApp.TabIndex = 65;
@@ -1382,7 +1405,7 @@ namespace eCTD_indexer
             // textBoxLVApp
             // 
             this.textBoxLVApp.Enabled = false;
-            this.textBoxLVApp.Location = new System.Drawing.Point(543, 286);
+            this.textBoxLVApp.Location = new System.Drawing.Point(570, 286);
             this.textBoxLVApp.Name = "textBoxLVApp";
             this.textBoxLVApp.Size = new System.Drawing.Size(100, 20);
             this.textBoxLVApp.TabIndex = 74;
@@ -1391,7 +1414,7 @@ namespace eCTD_indexer
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(340, 97);
+            this.label2.Location = new System.Drawing.Point(367, 97);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 13);
             this.label2.TabIndex = 87;
@@ -1399,7 +1422,7 @@ namespace eCTD_indexer
             // 
             // textBoxRelSeq
             // 
-            this.textBoxRelSeq.Location = new System.Drawing.Point(430, 94);
+            this.textBoxRelSeq.Location = new System.Drawing.Point(457, 94);
             this.textBoxRelSeq.Name = "textBoxRelSeq";
             this.textBoxRelSeq.Size = new System.Drawing.Size(213, 20);
             this.textBoxRelSeq.TabIndex = 6;
@@ -1446,19 +1469,11 @@ namespace eCTD_indexer
             // labelSequence
             // 
             this.labelSequence.AutoSize = true;
-            this.labelSequence.Location = new System.Drawing.Point(340, 71);
+            this.labelSequence.Location = new System.Drawing.Point(367, 71);
             this.labelSequence.Name = "labelSequence";
             this.labelSequence.Size = new System.Drawing.Size(47, 13);
             this.labelSequence.TabIndex = 120;
             this.labelSequence.Text = "Identifier";
-            // 
-            // lSubmissionIdentifier
-            // 
-            this.lSubmissionIdentifier.AutoSize = true;
-            this.lSubmissionIdentifier.Location = new System.Drawing.Point(430, 71);
-            this.lSubmissionIdentifier.Name = "lSubmissionIdentifier";
-            this.lSubmissionIdentifier.Size = new System.Drawing.Size(0, 13);
-            this.lSubmissionIdentifier.TabIndex = 121;
             // 
             // textBoxHRApp
             // 
@@ -1535,6 +1550,17 @@ namespace eCTD_indexer
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.pbSubmissionUnitCopy);
+            this.splitContainer1.Panel2.Controls.Add(this.pbSubDescCopy);
+            this.splitContainer1.Panel2.Controls.Add(this.pbRelSeqCopy);
+            this.splitContainer1.Panel2.Controls.Add(this.pbModeCopy);
+            this.splitContainer1.Panel2.Controls.Add(this.pbSubmissionTypeCopy);
+            this.splitContainer1.Panel2.Controls.Add(this.pbProcedureTypeCopy);
+            this.splitContainer1.Panel2.Controls.Add(this.pbNumberCopy);
+            this.splitContainer1.Panel2.Controls.Add(this.pbTrackingNoCopy);
+            this.splitContainer1.Panel2.Controls.Add(this.pbINNCopy);
+            this.splitContainer1.Panel2.Controls.Add(this.pbIdentifierCopy);
+            this.splitContainer1.Panel2.Controls.Add(this.tbIdentifier);
             this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Controls.Add(this.label8);
             this.splitContainer1.Panel2.Controls.Add(this.label7);
@@ -1563,7 +1589,6 @@ namespace eCTD_indexer
             this.splitContainer1.Panel2.Controls.Add(this.textBoxLU);
             this.splitContainer1.Panel2.Controls.Add(this.comboBoxSubmType);
             this.splitContainer1.Panel2.Controls.Add(this.textBoxED);
-            this.splitContainer1.Panel2.Controls.Add(this.lSubmissionIdentifier);
             this.splitContainer1.Panel2.Controls.Add(this.textBoxMT);
             this.splitContainer1.Panel2.Controls.Add(this.textBoxEU);
             this.splitContainer1.Panel2.Controls.Add(this.labelSequence);
@@ -1664,8 +1689,8 @@ namespace eCTD_indexer
             this.splitContainer1.Panel2.Controls.Add(this.textBoxLVApp);
             this.splitContainer1.Panel2.Controls.Add(this.textBoxITApp);
             this.splitContainer1.Panel2.Controls.Add(this.checkBoxHU);
-            this.splitContainer1.Size = new System.Drawing.Size(1229, 766);
-            this.splitContainer1.SplitterDistance = 557;
+            this.splitContainer1.Size = new System.Drawing.Size(1369, 825);
+            this.splitContainer1.SplitterDistance = 646;
             this.splitContainer1.TabIndex = 122;
             // 
             // fileExplorerUserControl
@@ -1674,7 +1699,7 @@ namespace eCTD_indexer
             this.fileExplorerUserControl.Location = new System.Drawing.Point(0, 39);
             this.fileExplorerUserControl.Margin = new System.Windows.Forms.Padding(2);
             this.fileExplorerUserControl.Name = "fileExplorerUserControl";
-            this.fileExplorerUserControl.Size = new System.Drawing.Size(557, 727);
+            this.fileExplorerUserControl.Size = new System.Drawing.Size(646, 786);
             this.fileExplorerUserControl.TabIndex = 123;
             // 
             // toolStrip
@@ -1683,8 +1708,11 @@ namespace eCTD_indexer
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbCreate,
             this.tsbOpenDossier,
+            this.tsbAdoptInformation,
             this.tsbDeleteEmptyFolder,
+            this.tsbDiagnostic,
             this.tsbCreateXMLFiles,
+            this.tsbPackDossier,
             this.tsbAssemble,
             this.tsbRefreshFolderView,
             this.tsbCloseDossier,
@@ -1694,7 +1722,7 @@ namespace eCTD_indexer
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip.Size = new System.Drawing.Size(557, 39);
+            this.toolStrip.Size = new System.Drawing.Size(646, 39);
             this.toolStrip.Stretch = true;
             this.toolStrip.TabIndex = 122;
             this.toolStrip.Text = "toolStrip";
@@ -1719,15 +1747,35 @@ namespace eCTD_indexer
             this.tsbOpenDossier.Text = "Open Dossier";
             this.tsbOpenDossier.Click += new System.EventHandler(this.tsbOpenDossier_Click);
             // 
+            // tsbAdoptInformation
+            // 
+            this.tsbAdoptInformation.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbAdoptInformation.Image = global::eCTD_indexer.Properties.Resources.Actions_go_jump_icon_72x72;
+            this.tsbAdoptInformation.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbAdoptInformation.Name = "tsbAdoptInformation";
+            this.tsbAdoptInformation.Size = new System.Drawing.Size(36, 36);
+            this.tsbAdoptInformation.Text = "Adopt information from previous sequence";
+            this.tsbAdoptInformation.Click += new System.EventHandler(this.tsbAdoptInformation_Click);
+            // 
             // tsbDeleteEmptyFolder
             // 
             this.tsbDeleteEmptyFolder.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbDeleteEmptyFolder.Image = global::eCTD_indexer.Properties.Resources.Actions_tab_close_other_icon_72x72;
+            this.tsbDeleteEmptyFolder.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_clear_icon;
             this.tsbDeleteEmptyFolder.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbDeleteEmptyFolder.Name = "tsbDeleteEmptyFolder";
             this.tsbDeleteEmptyFolder.Size = new System.Drawing.Size(36, 36);
             this.tsbDeleteEmptyFolder.Text = "Delete all empty directories";
             this.tsbDeleteEmptyFolder.Click += new System.EventHandler(this.tsbDeleteEmptyFolder_Click);
+            // 
+            // tsbDiagnostic
+            // 
+            this.tsbDiagnostic.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbDiagnostic.Image = global::eCTD_indexer.Properties.Resources.Apps_system_diagnosis_icon;
+            this.tsbDiagnostic.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbDiagnostic.Name = "tsbDiagnostic";
+            this.tsbDiagnostic.Size = new System.Drawing.Size(36, 36);
+            this.tsbDiagnostic.Text = "Dossier Diagnostic";
+            this.tsbDiagnostic.Click += new System.EventHandler(this.tsbDiagnostic_Click);
             // 
             // tsbCreateXMLFiles
             // 
@@ -1738,6 +1786,16 @@ namespace eCTD_indexer
             this.tsbCreateXMLFiles.Size = new System.Drawing.Size(36, 36);
             this.tsbCreateXMLFiles.Text = "Create XML files";
             this.tsbCreateXMLFiles.Click += new System.EventHandler(this.tsbCreateXMLFiles_Click);
+            // 
+            // tsbPackDossier
+            // 
+            this.tsbPackDossier.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbPackDossier.Image = global::eCTD_indexer.Properties.Resources.Apps_utilities_file_archiver_icon;
+            this.tsbPackDossier.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbPackDossier.Name = "tsbPackDossier";
+            this.tsbPackDossier.Size = new System.Drawing.Size(36, 36);
+            this.tsbPackDossier.Text = "Zip dossier";
+            this.tsbPackDossier.Click += new System.EventHandler(this.tsbPackDossier_Click);
             // 
             // tsbAssemble
             // 
@@ -1799,11 +1857,130 @@ namespace eCTD_indexer
             this.tsbAbout.Text = "About eCTD indexer";
             this.tsbAbout.Click += new System.EventHandler(this.tsbAbout_Click);
             // 
+            // pbNumberCopy
+            // 
+            this.pbNumberCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
+            this.pbNumberCopy.Location = new System.Drawing.Point(326, 145);
+            this.pbNumberCopy.Name = "pbNumberCopy";
+            this.pbNumberCopy.Size = new System.Drawing.Size(36, 21);
+            this.pbNumberCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbNumberCopy.TabIndex = 126;
+            this.pbNumberCopy.TabStop = false;
+            this.pbNumberCopy.Click += new System.EventHandler(this.pbNumberCopy_Click);
+            // 
+            // pbTrackingNoCopy
+            // 
+            this.pbTrackingNoCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
+            this.pbTrackingNoCopy.Location = new System.Drawing.Point(326, 45);
+            this.pbTrackingNoCopy.Name = "pbTrackingNoCopy";
+            this.pbTrackingNoCopy.Size = new System.Drawing.Size(36, 21);
+            this.pbTrackingNoCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbTrackingNoCopy.TabIndex = 125;
+            this.pbTrackingNoCopy.TabStop = false;
+            this.pbTrackingNoCopy.Click += new System.EventHandler(this.pbTrackingNoCopy_Click);
+            // 
+            // pbINNCopy
+            // 
+            this.pbINNCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
+            this.pbINNCopy.Location = new System.Drawing.Point(674, 44);
+            this.pbINNCopy.Name = "pbINNCopy";
+            this.pbINNCopy.Size = new System.Drawing.Size(36, 21);
+            this.pbINNCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbINNCopy.TabIndex = 124;
+            this.pbINNCopy.TabStop = false;
+            this.pbINNCopy.Click += new System.EventHandler(this.pbINNCopy_Click);
+            // 
+            // pbIdentifierCopy
+            // 
+            this.pbIdentifierCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
+            this.pbIdentifierCopy.Location = new System.Drawing.Point(674, 69);
+            this.pbIdentifierCopy.Name = "pbIdentifierCopy";
+            this.pbIdentifierCopy.Size = new System.Drawing.Size(36, 21);
+            this.pbIdentifierCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbIdentifierCopy.TabIndex = 123;
+            this.pbIdentifierCopy.TabStop = false;
+            this.pbIdentifierCopy.Click += new System.EventHandler(this.pbIdentifierCopy_Click);
+            // 
+            // tbIdentifier
+            // 
+            this.tbIdentifier.Location = new System.Drawing.Point(457, 69);
+            this.tbIdentifier.Name = "tbIdentifier";
+            this.tbIdentifier.Size = new System.Drawing.Size(213, 20);
+            this.tbIdentifier.TabIndex = 122;
+            this.tbIdentifier.Enter += new System.EventHandler(this.tbIdentifier_Enter);
+            this.tbIdentifier.Leave += new System.EventHandler(this.tbIdentifier_Leave);
+            // 
+            // pbProcedureTypeCopy
+            // 
+            this.pbProcedureTypeCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
+            this.pbProcedureTypeCopy.Location = new System.Drawing.Point(325, 71);
+            this.pbProcedureTypeCopy.Name = "pbProcedureTypeCopy";
+            this.pbProcedureTypeCopy.Size = new System.Drawing.Size(36, 21);
+            this.pbProcedureTypeCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbProcedureTypeCopy.TabIndex = 127;
+            this.pbProcedureTypeCopy.TabStop = false;
+            this.pbProcedureTypeCopy.Click += new System.EventHandler(this.pbProcedureTypeCopy_Click);
+            // 
+            // pbSubmissionTypeCopy
+            // 
+            this.pbSubmissionTypeCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
+            this.pbSubmissionTypeCopy.Location = new System.Drawing.Point(325, 98);
+            this.pbSubmissionTypeCopy.Name = "pbSubmissionTypeCopy";
+            this.pbSubmissionTypeCopy.Size = new System.Drawing.Size(36, 21);
+            this.pbSubmissionTypeCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbSubmissionTypeCopy.TabIndex = 128;
+            this.pbSubmissionTypeCopy.TabStop = false;
+            this.pbSubmissionTypeCopy.Click += new System.EventHandler(this.pbSubmissionTypeCopy_Click);
+            // 
+            // pbModeCopy
+            // 
+            this.pbModeCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
+            this.pbModeCopy.Location = new System.Drawing.Point(325, 121);
+            this.pbModeCopy.Name = "pbModeCopy";
+            this.pbModeCopy.Size = new System.Drawing.Size(36, 21);
+            this.pbModeCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbModeCopy.TabIndex = 129;
+            this.pbModeCopy.TabStop = false;
+            this.pbModeCopy.Click += new System.EventHandler(this.pbModeCopy_Click);
+            // 
+            // pbRelSeqCopy
+            // 
+            this.pbRelSeqCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
+            this.pbRelSeqCopy.Location = new System.Drawing.Point(674, 95);
+            this.pbRelSeqCopy.Name = "pbRelSeqCopy";
+            this.pbRelSeqCopy.Size = new System.Drawing.Size(36, 21);
+            this.pbRelSeqCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbRelSeqCopy.TabIndex = 130;
+            this.pbRelSeqCopy.TabStop = false;
+            this.pbRelSeqCopy.Click += new System.EventHandler(this.pbRelSeqCopy_Click);
+            // 
+            // pbSubDescCopy
+            // 
+            this.pbSubDescCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
+            this.pbSubDescCopy.Location = new System.Drawing.Point(674, 121);
+            this.pbSubDescCopy.Name = "pbSubDescCopy";
+            this.pbSubDescCopy.Size = new System.Drawing.Size(36, 21);
+            this.pbSubDescCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbSubDescCopy.TabIndex = 131;
+            this.pbSubDescCopy.TabStop = false;
+            this.pbSubDescCopy.Click += new System.EventHandler(this.pbSubDescCopy_Click);
+            // 
+            // pbSubmissionUnitCopy
+            // 
+            this.pbSubmissionUnitCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
+            this.pbSubmissionUnitCopy.Location = new System.Drawing.Point(674, 148);
+            this.pbSubmissionUnitCopy.Name = "pbSubmissionUnitCopy";
+            this.pbSubmissionUnitCopy.Size = new System.Drawing.Size(36, 21);
+            this.pbSubmissionUnitCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbSubmissionUnitCopy.TabIndex = 132;
+            this.pbSubmissionUnitCopy.TabStop = false;
+            this.pbSubmissionUnitCopy.Click += new System.EventHandler(this.pbSubmissionUnitCopy_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1229, 766);
+            this.ClientSize = new System.Drawing.Size(1369, 825);
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainWindow";
@@ -1819,6 +1996,16 @@ namespace eCTD_indexer
             this.splitContainer1.ResumeLayout(false);
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNumberCopy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTrackingNoCopy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbINNCopy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbIdentifierCopy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProcedureTypeCopy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSubmissionTypeCopy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbModeCopy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRelSeqCopy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSubDescCopy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSubmissionUnitCopy)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1947,7 +2134,6 @@ namespace eCTD_indexer
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox comboBoxMode;
         private System.Windows.Forms.Label labelSequence;
-        private System.Windows.Forms.Label lSubmissionIdentifier;
         private System.Windows.Forms.TextBox textBoxHRApp;
         private System.Windows.Forms.TextBox textBoxHR;
         private System.Windows.Forms.CheckBox checkBoxHR;
@@ -1967,6 +2153,20 @@ namespace eCTD_indexer
         private System.Windows.Forms.ToolStripButton tsbCloseApp;
         private System.Windows.Forms.ToolStripButton tsbOptions;
         private System.Windows.Forms.ToolStripButton tsbAssemble;
+        private System.Windows.Forms.ToolStripButton tsbDiagnostic;
+        private System.Windows.Forms.TextBox tbIdentifier;
+        private System.Windows.Forms.PictureBox pbIdentifierCopy;
+        private System.Windows.Forms.PictureBox pbINNCopy;
+        private System.Windows.Forms.PictureBox pbNumberCopy;
+        private System.Windows.Forms.PictureBox pbTrackingNoCopy;
+        private System.Windows.Forms.ToolStripButton tsbAdoptInformation;
+        private System.Windows.Forms.ToolStripButton tsbPackDossier;
+        private System.Windows.Forms.PictureBox pbModeCopy;
+        private System.Windows.Forms.PictureBox pbSubmissionTypeCopy;
+        private System.Windows.Forms.PictureBox pbProcedureTypeCopy;
+        private System.Windows.Forms.PictureBox pbSubmissionUnitCopy;
+        private System.Windows.Forms.PictureBox pbSubDescCopy;
+        private System.Windows.Forms.PictureBox pbRelSeqCopy;
     }
 }
 
