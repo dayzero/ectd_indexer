@@ -4,7 +4,7 @@
 library
 C#
 .cs
-C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnostic\obj\Release\
+\\mac\Home\Documents\Visual Studio 2017\Projects\ectd_indexer\eCTD_Diagnostic\obj\Release\
 eCTD_Diagnostic
 none
 false
@@ -13,8 +13,8 @@ TRACE
 2419903590
 
 71654183578
-13-1829996574
+13624978899
 MainWindow.xaml;Themes\Generic.xaml;
 
-False
+True
 

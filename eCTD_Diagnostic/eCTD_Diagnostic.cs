@@ -34,6 +34,7 @@ using System.Text.RegularExpressions;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Schema;
+using System.Security.Cryptography;
 
 namespace eCTD_Diagnostic
 {
@@ -138,7 +139,7 @@ namespace eCTD_Diagnostic
             cl.Add(this._07_5());
             cl.Add(this._07_6());
 
-            // Insert Criteria MD5 hash file
+            // Insert Criteria of 8.x
             eCTD_Criteria _08header = new eCTD_Criteria();
             _08header.SubNode = false;
             _08header.Category = eCTD_Category.Index_MD5_txt;
@@ -149,7 +150,7 @@ namespace eCTD_Diagnostic
             cl.Add(this._08_2());
             cl.Add(this._08_3());
 
-            // Insert Criteria MD5 hash file
+            // Insert Criteria of 9.x
             eCTD_Criteria _09header = new eCTD_Criteria();
             _09header.SubNode = false;
             _09header.Category = eCTD_Category.EU_regional_XML;
@@ -166,6 +167,27 @@ namespace eCTD_Diagnostic
             cl.Add(this._09_8());
             cl.Add(this._09_9());
 
+            // Insert Criteria of 10.x
+            eCTD_Criteria _10header = new eCTD_Criteria();
+            _10header.SubNode = false;
+            _10header.Category = eCTD_Category.Submission_Structure;
+            cl.Add(_10header);
+
+            // Check every criteria of 10.x
+            cl.Add(this._10_1());
+
+
+            // Insert Criteria of 11.x
+            eCTD_Criteria _11header = new eCTD_Criteria();
+            _11header.SubNode = false;
+            _11header.Category = eCTD_Category.leaf_attributes;
+            cl.Add(_11header);
+
+            // Check every criteria of 11.x
+            cl.Add(this._11_1());
+            cl.Add(this._11_2());
+            cl.Add(this._11_3());
+
             // Sum-up the status of all sub-nodes
             cl[0].Status = this.SumUpSubItems(cl, 1, 1, 5);
             cl[6].Status = this.SumUpSubItems(cl, 2, 1, 3);
@@ -176,6 +198,8 @@ namespace eCTD_Diagnostic
             cl[26].Status = this.SumUpSubItems(cl, 7, 1, 6);
             cl[31].Status = this.SumUpSubItems(cl, 8, 1, 3);
             cl[35].Status = this.SumUpSubItems(cl, 9, 1, 9);
+            cl[47].Status = this.SumUpSubItems(cl, 10, 1, 1);
+            cl[49].Status = this.SumUpSubItems(cl, 11, 1, 3);
 
             // Return the list of checked criteria.
             return cl;
@@ -224,11 +248,11 @@ namespace eCTD_Diagnostic
         /// Does the ich-ectd-3-2.dtd file exist 
         /// </summary>
         /// <returns></returns>
-        public eCTD_Criteria _01_1() 
+        public eCTD_Criteria _01_1()
         {
             eCTD_Criteria c = new eCTD_Criteria();
             c.Number = new eCTD_Number(eCTD_Number._01_1);
-            c.Category =  eCTD_Category.ICH_DTD;
+            c.Category = eCTD_Category.ICH_DTD;
             c.ValidationCriterion = "The specified filename is used";
             c.Comments = "File is named ich-ectd-3-2.dtd";
             c.TypeOfCheck = "P/F";
@@ -303,10 +327,11 @@ namespace eCTD_Diagnostic
                         fs.Read(fileData, 0, (int)fs.Length);
                         byte[] checkSum = md5.ComputeHash(fileData);
                         String result = BitConverter.ToString(checkSum).Replace("-", String.Empty);
-                        if(result.ToLower() == "1d6f631cc6b6357f0f4fe378e5f79a27")
+                        if (result.ToLower() == "1d6f631cc6b6357f0f4fe378e5f79a27")
                         {
                             c.Status = NodeType.OK;
-                        } else
+                        }
+                        else
                         {
                             c.Status = NodeType.Failed;
                             c.ErrorReason = "The ich-ectd-3-2.dtd file is invalid because an incorrect MD5 hash been calculated for the ich-ectd-3-2.dtd file in your dossier.";
@@ -320,7 +345,8 @@ namespace eCTD_Diagnostic
                     if (ex is IOException || ex is ArgumentException)
                     {
                         c.ErrorReason = "File not found";
-                    } else
+                    }
+                    else
                     {
                         c.ErrorReason = "Exception has been thrown when valdating no. 1.3";
                     }
@@ -356,7 +382,7 @@ namespace eCTD_Diagnostic
                 if (r.Match(this.Path2Sequence).Success)
                 {
                     // IF 0000 everything is ok
-                    if(this.Path2Sequence.EndsWith("0000"))
+                    if (this.Path2Sequence.EndsWith("0000"))
                     {
                         c.Status = NodeType.OK;
                         return c;
@@ -386,7 +412,8 @@ namespace eCTD_Diagnostic
                                     c.Status = NodeType.Failed;
                                     return c;
                                 }
-                            } else
+                            }
+                            else
                             {
                                 // If one seq number is not found, give a warning to the user and tell him that only one seqence number is missing and that the rest might be ok.
                                 c.Status = NodeType.Warning;
@@ -397,7 +424,7 @@ namespace eCTD_Diagnostic
                     }
 
                     c.Status = NodeType.OK;
-                    return c;                    
+                    return c;
                 }
             }
 
@@ -405,7 +432,7 @@ namespace eCTD_Diagnostic
             c.Status = NodeType.Failed;
             return c;
         }
-        
+
         /// <summary>
         /// Following sequences has correct sequence number?
         /// </summary>
@@ -1128,8 +1155,8 @@ namespace eCTD_Diagnostic
             c.Category = eCTD_Category.Index_XML;
             c.ValidationCriterion = "The file is well formed";
             c.Comments = "Well formed with respect to the rules of the XML specification";
-            c.TypeOfCheck = "P/F"; 
-            
+            c.TypeOfCheck = "P/F";
+
             try
             {
                 String xmlfile = this.Path2Sequence + @"\index.xml";
@@ -1183,14 +1210,14 @@ namespace eCTD_Diagnostic
                     // Set the validation settings.
                     XmlReaderSettings settings = new XmlReaderSettings();
                     settings.DtdProcessing = DtdProcessing.Parse;
-                    settings.ValidationType = ValidationType.DTD;                    
+                    settings.ValidationType = ValidationType.DTD;
 
                     // Create the XmlReader object.
                     XmlReader reader = XmlReader.Create(xmlfile, settings);
 
                     // Parse the file.  
-                    while (reader.Read());
-                    
+                    while (reader.Read()) ;
+
                     c.Status = NodeType.OK;
                 }
                 else
@@ -1228,7 +1255,7 @@ namespace eCTD_Diagnostic
             String condition4 = _01_4().Status;
             String condition5 = _01_5().Status;
 
-            if(condition1 == NodeType.OK &&
+            if (condition1 == NodeType.OK &&
                 condition2 == NodeType.OK &&
                 condition3 == NodeType.OK &&
                 condition4 == NodeType.OK &&
@@ -1541,7 +1568,7 @@ namespace eCTD_Diagnostic
                     XmlReader reader = XmlReader.Create(xmlfile, settings);
 
                     // Parse the file.  
-                    while (reader.Read()) ;
+                    while (reader.Read()) {; }
 
                     c.Status = NodeType.OK;
                 }
@@ -1676,7 +1703,7 @@ namespace eCTD_Diagnostic
             else
             {
                 c.Status = NodeType.Failed;
-            }            
+            }
 
             return c;
         }
@@ -1716,13 +1743,15 @@ namespace eCTD_Diagnostic
                 // Create previous path string
                 int previousseq = Convert.ToInt32(this.Path2Sequence.Substring(this.Path2Sequence.Length - 4, 4)) - 1;
                 string previousseqstr = previousseq.ToString();
-                if(previousseqstr.Length == 1)
+                if (previousseqstr.Length == 1)
                 {
                     previousseqstr = "000" + previousseqstr;
-                } else if(previousseqstr.Length == 2)
+                }
+                else if (previousseqstr.Length == 2)
                 {
                     previousseqstr = "00" + previousseqstr;
-                } else if(previousseqstr.Length == 3)
+                }
+                else if (previousseqstr.Length == 3)
                 {
                     previousseqstr = "0" + previousseqstr;
                 }
@@ -1732,7 +1761,6 @@ namespace eCTD_Diagnostic
 
                 if (File.Exists(EURegionalPreviousXML))
                 {
-
                     // Load the previous xml file
                     XmlTextReader myReaderPrevious = new XmlTextReader(EURegionalPreviousXML);
                     XmlDocument mySourceDocPrevious = new XmlDocument();
@@ -1766,12 +1794,12 @@ namespace eCTD_Diagnostic
                 else
                 {
                     c.Status = NodeType.Warning;
-                } 
+                }
             }
             else
             {
                 c.Status = NodeType.Failed;
-            } 
+            }
 
             return c;
         }
@@ -1871,6 +1899,239 @@ namespace eCTD_Diagnostic
             }
 
             return c;
+        }
+
+
+        public eCTD_Criteria _10_1()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._10_1);
+            c.Category = eCTD_Category.Submission_Structure;
+            c.ValidationCriterion = "All the lowest level heading elements in the XML.";
+            c.Comments = "";
+            c.TypeOfCheck = "P/F";
+            c.Status = NodeType.OK;
+
+            String EURegionalXML = this.Path2Sequence + @"\m1\eu\eu-regional.xml";
+            String IndexXML = this.Path2Sequence + @"\index.xml";
+
+            // Check the EU-Regional.xml file
+            var docEURegional = XDocument.Load(EURegionalXML);
+            var docIndexXML = XDocument.Load(IndexXML);
+
+            if (!XMLToolbox.TreeHasSingleChildNodes(docEURegional.Root.Elements().ElementAt(1)) ||
+                !XMLToolbox.TreeHasSingleChildNodes(docIndexXML.Root))
+            {
+                c.Status = NodeType.Failed;
+            }
+
+            return c;
+        }
+
+        public eCTD_Criteria _11_1()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._11_1);
+            c.Category = eCTD_Category.leaf_attributes;
+            c.ValidationCriterion = "The leaf attribute 'checksum-type' has a value of md5 or MD5.";
+            c.Comments = "";
+            c.TypeOfCheck = "P/F";
+            c.Status = NodeType.OK;
+
+            String EURegionalXML = this.Path2Sequence + @"\m1\eu\eu-regional.xml";
+            String IndexXML = this.Path2Sequence + @"\index.xml";
+
+            #region Check the EU-Regional.xml file
+            XmlTextReader myReader = new XmlTextReader(EURegionalXML);
+            XmlDocument mySourceDoc = new XmlDocument();
+            mySourceDoc.Load(myReader);
+            myReader.Close();
+
+            XmlNodeList xnl = mySourceDoc.SelectNodes("//leaf/@checksum-type");
+
+            for (int i = 0; i < xnl.Count; i++)
+            {
+                if (xnl[i].Value != "md5" && xnl[i].Value != "MD5")
+                {
+                    c.Status = NodeType.Failed;
+                }
+            }
+            #endregion
+
+            #region Check the index.xml file
+            myReader = new XmlTextReader(IndexXML);
+            mySourceDoc = new XmlDocument();
+            mySourceDoc.Load(myReader);
+            myReader.Close();
+
+            xnl = mySourceDoc.SelectNodes("//leaf/@checksum-type");
+
+            for (int i = 0; i < xnl.Count; i++)
+            {
+                if (xnl[i].Value != "md5" && xnl[i].Value != "MD5")
+                {
+                    c.Status = NodeType.Failed;
+                }
+            }
+            #endregion
+
+            return c;
+        }
+
+        public eCTD_Criteria _11_2()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._11_2);
+            c.Category = eCTD_Category.leaf_attributes;
+            c.ValidationCriterion = "The regenerated checksum for each file matches the value in the leaf attribute 'checksum'";
+            c.Comments = "Compare the MD5 value in the xml file and the calculated MD5 value.";
+            c.TypeOfCheck = "P/F";
+            c.Status = NodeType.OK;
+
+            String EURegionalXML = this.Path2Sequence + @"\m1\eu\eu-regional.xml";
+            String IndexXML = this.Path2Sequence + @"\index.xml";
+
+            #region Check the EU-Regional.xml file
+            // Read file
+            XmlTextReader myReader = new XmlTextReader(EURegionalXML);
+            XmlDocument mySourceDoc = new XmlDocument();
+            mySourceDoc.Load(myReader);
+            myReader.Close();
+
+            // Get the checksum information
+            XmlNodeList xnl1 = mySourceDoc.SelectNodes("//leaf/@checksum");
+
+            // Add the xml namespace for xlink
+            XmlNamespaceManager namespaces = new XmlNamespaceManager(mySourceDoc.NameTable);
+            namespaces.AddNamespace("xlink", "http://www.w3c.org/1999/xlink");
+
+            // Get the file links
+            XmlNodeList xnl2 = mySourceDoc.SelectNodes("//leaf/@xlink:href",namespaces);
+
+            // Create MD5 hashsum for every file
+            for(int i=0;i<xnl1.Count;i++)
+            {
+                String filepath = this.Path2Sequence + @"\m1\eu\" + xnl2[i].Value;
+                filepath = filepath.Replace("/", @"\");
+                String md5 = MD5Calculator.ComputeMD5Checksum(filepath);
+
+                // Compare the md5 hashsum in the file and the calculated one
+                if(md5 != xnl1[i].Value)
+                {
+                    c.Status = NodeType.Failed;
+                }
+
+            }
+            #endregion
+
+            #region Check the index.xml file
+            // Read file
+            myReader = new XmlTextReader(IndexXML);
+            mySourceDoc = new XmlDocument();
+            mySourceDoc.Load(myReader);
+            myReader.Close();
+
+            // Get the checksum information
+            xnl1 = mySourceDoc.SelectNodes("//leaf/@checksum");
+
+            // Get the file links
+            xnl2 = mySourceDoc.SelectNodes("//leaf/@xlink:href", namespaces);
+
+            // Create MD5 hashsum for every file
+            for (int i = 0; i < xnl1.Count; i++)
+            {
+                String filepath = this.Path2Sequence + @"\"+ xnl2[i].Value;
+                filepath = filepath.Replace("/", @"\");
+                String md5 = MD5Calculator.ComputeMD5Checksum(filepath);
+
+                // Compare the md5 hashsum in the file and the calculated one
+                if (md5 != xnl1[i].Value)
+                {
+                    c.Status = NodeType.Failed;
+                }
+
+            }
+            #endregion
+
+            return c;
+        }
+
+        public eCTD_Criteria _11_3()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._11_3);
+            c.Category = eCTD_Category.leaf_attributes;
+            c.ValidationCriterion = "For every leaf the 'title' attribute is not empty";
+            c.Comments = "";
+            c.TypeOfCheck = "P/F";
+            c.Status = NodeType.OK;
+
+            String EURegionalXML = this.Path2Sequence + @"\m1\eu\eu-regional.xml";
+            String IndexXML = this.Path2Sequence + @"\index.xml";
+
+            #region Check the EU-Regional.xml file
+            XmlTextReader myReader = new XmlTextReader(EURegionalXML);
+            XmlDocument mySourceDoc = new XmlDocument();
+            mySourceDoc.Load(myReader);
+            myReader.Close();
+
+            XmlNodeList xnl = mySourceDoc.SelectNodes("//title");
+
+            for (int i = 0; i < xnl.Count; i++)
+            {
+                if (xnl[i].InnerText == "")
+                {
+                    c.Status = NodeType.Failed;
+                }
+            }
+            #endregion
+
+            #region Check the index.xml file
+            myReader = new XmlTextReader(IndexXML);
+            mySourceDoc = new XmlDocument();
+            mySourceDoc.Load(myReader);
+            myReader.Close();
+
+            xnl = mySourceDoc.SelectNodes("//title");
+
+            for (int i = 0; i < xnl.Count; i++)
+            {
+                if (xnl[i].InnerText == "" )
+                {
+                    c.Status = NodeType.Failed;
+                }
+            }
+            #endregion
+
+            return c;
+        }
+    }
+
+
+    internal static class MD5Calculator
+    {
+        /// <summary>
+        /// Returns MD5 checksum for file passed
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public static String ComputeMD5Checksum(string path)
+        {
+            try
+            {
+                using (FileStream fs = File.OpenRead(path))
+                {
+                    MD5 md5 = new MD5CryptoServiceProvider();
+                    byte[] fileData = new byte[fs.Length];
+                    fs.Read(fileData, 0, (int)fs.Length);
+                    byte[] checkSum = md5.ComputeHash(fileData);
+                    string result = BitConverter.ToString(checkSum).Replace("-", String.Empty);
+                    return result.ToLower();
+                }
+            }
+            catch (Exception)
+            {    return "ERROR";
+            }
         }
     }
 
