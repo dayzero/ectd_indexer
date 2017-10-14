@@ -187,6 +187,7 @@ namespace eCTD_Diagnostic
             cl.Add(this._11_1());
             cl.Add(this._11_2());
             cl.Add(this._11_3());
+            cl.Add(this._11_4());
 
             // Sum-up the status of all sub-nodes
             cl[0].Status = this.SumUpSubItems(cl, 1, 1, 5);
@@ -199,7 +200,7 @@ namespace eCTD_Diagnostic
             cl[31].Status = this.SumUpSubItems(cl, 8, 1, 3);
             cl[35].Status = this.SumUpSubItems(cl, 9, 1, 9);
             cl[47].Status = this.SumUpSubItems(cl, 10, 1, 1);
-            cl[49].Status = this.SumUpSubItems(cl, 11, 1, 3);
+            cl[49].Status = this.SumUpSubItems(cl, 11, 1, 4);
 
             // Return the list of checked criteria.
             return cl;
@@ -2099,6 +2100,110 @@ namespace eCTD_Diagnostic
                 if (xnl[i].InnerText == "" )
                 {
                     c.Status = NodeType.Failed;
+                }
+            }
+            #endregion
+
+            return c;
+        }
+
+
+        public eCTD_Criteria _11_4()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._11_4);
+            c.Category = eCTD_Category.leaf_attributes;
+            c.ValidationCriterion = "All leaves with an operation attribute value must have a value for the cross reference (xlink:href).";
+            c.Comments = "";
+            c.TypeOfCheck = "P/F";
+            c.Status = NodeType.OK;
+
+            String EURegionalXML = this.Path2Sequence + @"\m1\eu\eu-regional.xml";
+            String IndexXML = this.Path2Sequence + @"\index.xml";
+
+            #region Check the EU-Regional.xml file
+            XmlTextReader myReader = new XmlTextReader(EURegionalXML);
+            XmlDocument mySourceDoc = new XmlDocument();
+            mySourceDoc.Load(myReader);
+            myReader.Close();
+
+            // Get the xml nodes with attribute operation
+            XmlNodeList xnl = mySourceDoc.SelectNodes("//leaf/@operation");
+
+            // Have a look on each "operation" node 
+           foreach(XmlNode n in xnl)
+            {
+                // Go on if the value is new, replace or append
+                if (n.Value == "new" || n.Value == "replace" || n.Value == "append")
+                {
+                    // Get the complete node with all information as xlink:href
+                    XmlNode OwnerElement = ((XmlAttribute)n).OwnerElement;
+                    String OwnerElementValue = OwnerElement.Attributes["xlink:href"].Value;
+                    
+                    // When we get information, go on
+                    if(OwnerElementValue != "")
+                    {
+                        // Build up the complete path to the file and check if it exists.
+                        String filepath = this.Path2Sequence + @"\m1\eu\" + OwnerElementValue;
+                        filepath = filepath.Replace("/", @"\");
+                        if (!File.Exists(filepath))
+                        {
+                            c.Status = NodeType.Failed;
+                        }
+                    }
+                    else
+                    {
+                        c.Status = NodeType.Failed;
+                    }
+                }
+                else if(n.Value != "delete")
+                {
+                    c.Status = NodeType.Failed;
+                }
+            }
+            #endregion
+
+            #region Check the index.xml file
+            if (c.Status == NodeType.OK)
+            {
+                myReader = new XmlTextReader(IndexXML);
+                mySourceDoc = new XmlDocument();
+                mySourceDoc.Load(myReader);
+                myReader.Close();
+
+                // Get the xml nodes with attribute operation
+                xnl = mySourceDoc.SelectNodes("//leaf/@operation");
+
+                // Have a look on each "operation" node 
+                foreach (XmlNode n in xnl)
+                {
+                    // Go on if the value is new, replace or append
+                    if (n.Value == "new" || n.Value == "replace" || n.Value == "append")
+                    {
+                        // Get the complete node with all information as xlink:href
+                        XmlNode OwnerElement = ((XmlAttribute)n).OwnerElement;
+                        String OwnerElementValue = OwnerElement.Attributes["xlink:href"].Value;
+
+                        // When we get information, go on
+                        if (OwnerElementValue != "")
+                        {
+                            // Build up the complete path to the file and check if it exists.
+                            String filepath = this.Path2Sequence + @"\" + OwnerElementValue;
+                            filepath = filepath.Replace("/", @"\");
+                            if (!File.Exists(filepath))
+                            {
+                                c.Status = NodeType.Failed;
+                            }
+                        }
+                        else if (n.Value != "delete")
+                        {
+                            c.Status = NodeType.Failed;
+                        }
+                    }
+                    else
+                    {
+                        c.Status = NodeType.Failed;
+                    }
                 }
             }
             #endregion
