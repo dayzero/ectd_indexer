@@ -188,6 +188,10 @@ namespace eCTD_Diagnostic
             cl.Add(this._11_2());
             cl.Add(this._11_3());
             cl.Add(this._11_4());
+            cl.Add(this._11_5());
+            cl.Add(this._11_6());
+            cl.Add(this._11_7());
+            cl.Add(this._11_8());
 
             // Sum-up the status of all sub-nodes
             cl[0].Status = this.SumUpSubItems(cl, 1, 1, 5);
@@ -200,7 +204,7 @@ namespace eCTD_Diagnostic
             cl[31].Status = this.SumUpSubItems(cl, 8, 1, 3);
             cl[35].Status = this.SumUpSubItems(cl, 9, 1, 9);
             cl[47].Status = this.SumUpSubItems(cl, 10, 1, 1);
-            cl[49].Status = this.SumUpSubItems(cl, 11, 1, 4);
+            cl[49].Status = this.SumUpSubItems(cl, 11, 1, 8);
 
             // Return the list of checked criteria.
             return cl;
@@ -2007,17 +2011,17 @@ namespace eCTD_Diagnostic
             namespaces.AddNamespace("xlink", "http://www.w3c.org/1999/xlink");
 
             // Get the file links
-            XmlNodeList xnl2 = mySourceDoc.SelectNodes("//leaf/@xlink:href",namespaces);
+            XmlNodeList xnl2 = mySourceDoc.SelectNodes("//leaf/@xlink:href", namespaces);
 
             // Create MD5 hashsum for every file
-            for(int i=0;i<xnl1.Count;i++)
+            for (int i = 0; i < xnl1.Count; i++)
             {
                 String filepath = this.Path2Sequence + @"\m1\eu\" + xnl2[i].Value;
                 filepath = filepath.Replace("/", @"\");
                 String md5 = MD5Calculator.ComputeMD5Checksum(filepath);
 
                 // Compare the md5 hashsum in the file and the calculated one
-                if(md5 != xnl1[i].Value)
+                if (md5 != xnl1[i].Value)
                 {
                     c.Status = NodeType.Failed;
                 }
@@ -2041,7 +2045,7 @@ namespace eCTD_Diagnostic
             // Create MD5 hashsum for every file
             for (int i = 0; i < xnl1.Count; i++)
             {
-                String filepath = this.Path2Sequence + @"\"+ xnl2[i].Value;
+                String filepath = this.Path2Sequence + @"\" + xnl2[i].Value;
                 filepath = filepath.Replace("/", @"\");
                 String md5 = MD5Calculator.ComputeMD5Checksum(filepath);
 
@@ -2097,7 +2101,7 @@ namespace eCTD_Diagnostic
 
             for (int i = 0; i < xnl.Count; i++)
             {
-                if (xnl[i].InnerText == "" )
+                if (xnl[i].InnerText == "")
                 {
                     c.Status = NodeType.Failed;
                 }
@@ -2106,7 +2110,6 @@ namespace eCTD_Diagnostic
 
             return c;
         }
-
 
         public eCTD_Criteria _11_4()
         {
@@ -2131,7 +2134,7 @@ namespace eCTD_Diagnostic
             XmlNodeList xnl = mySourceDoc.SelectNodes("//leaf/@operation");
 
             // Have a look on each "operation" node 
-           foreach(XmlNode n in xnl)
+            foreach (XmlNode n in xnl)
             {
                 // Go on if the value is new, replace or append
                 if (n.Value == "new" || n.Value == "replace" || n.Value == "append")
@@ -2139,9 +2142,9 @@ namespace eCTD_Diagnostic
                     // Get the complete node with all information as xlink:href
                     XmlNode OwnerElement = ((XmlAttribute)n).OwnerElement;
                     String OwnerElementValue = OwnerElement.Attributes["xlink:href"].Value;
-                    
+
                     // When we get information, go on
-                    if(OwnerElementValue != "")
+                    if (OwnerElementValue.CompareTo("") != 0)
                     {
                         // Build up the complete path to the file and check if it exists.
                         String filepath = this.Path2Sequence + @"\m1\eu\" + OwnerElementValue;
@@ -2156,7 +2159,7 @@ namespace eCTD_Diagnostic
                         c.Status = NodeType.Failed;
                     }
                 }
-                else if(n.Value != "delete")
+                else if (n.Value != "delete")
                 {
                     c.Status = NodeType.Failed;
                 }
@@ -2185,7 +2188,7 @@ namespace eCTD_Diagnostic
                         String OwnerElementValue = OwnerElement.Attributes["xlink:href"].Value;
 
                         // When we get information, go on
-                        if (OwnerElementValue != "")
+                        if (OwnerElementValue.CompareTo("") != 0)
                         {
                             // Build up the complete path to the file and check if it exists.
                             String filepath = this.Path2Sequence + @"\" + OwnerElementValue;
@@ -2195,12 +2198,12 @@ namespace eCTD_Diagnostic
                                 c.Status = NodeType.Failed;
                             }
                         }
-                        else if (n.Value != "delete")
+                        else
                         {
                             c.Status = NodeType.Failed;
                         }
                     }
-                    else
+                    else if (n.Value != "delete")
                     {
                         c.Status = NodeType.Failed;
                     }
@@ -2210,10 +2213,473 @@ namespace eCTD_Diagnostic
 
             return c;
         }
+
+        public eCTD_Criteria _11_5()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._11_5);
+            c.Category = eCTD_Category.leaf_attributes;
+            c.ValidationCriterion = "All leaves with an operation attribute value of delete must have no value.";
+            c.Comments = "";
+            c.TypeOfCheck = "P/F";
+            c.Status = NodeType.OK;
+
+            String EURegionalXML = this.Path2Sequence + @"\m1\eu\eu-regional.xml";
+            String IndexXML = this.Path2Sequence + @"\index.xml";
+
+            #region Check the EU-Regional.xml file
+            XmlTextReader myReader = new XmlTextReader(EURegionalXML);
+            XmlDocument mySourceDoc = new XmlDocument();
+            mySourceDoc.Load(myReader);
+            myReader.Close();
+
+            // Get the xml nodes with attribute operation
+            XmlNodeList xnl = mySourceDoc.SelectNodes("//leaf/@operation");
+
+            // Have a look on each "operation" node 
+            foreach (XmlNode n in xnl)
+            {
+                // Go on if the value is new, replace or append
+                if (n.Value == "delete")
+                {
+                    // Get the complete node with all information as xlink:href
+                    XmlNode OwnerElement = ((XmlAttribute)n).OwnerElement;
+                    String OwnerElementValue = OwnerElement.Attributes["xlink:href"].Value;
+
+                    // When we get information, we detected an error
+                    if (OwnerElementValue.CompareTo("") != 0)
+                    {
+                        c.Status = NodeType.Failed;
+                    }
+                }
+            }
+            #endregion
+
+            #region Check the index.xml file
+            if (c.Status == NodeType.OK)
+            {
+                myReader = new XmlTextReader(IndexXML);
+                mySourceDoc = new XmlDocument();
+                mySourceDoc.Load(myReader);
+                myReader.Close();
+
+                // Get the xml nodes with attribute operation
+                xnl = mySourceDoc.SelectNodes("//leaf/@operation");
+
+                // Have a look on each "operation" node 
+                foreach (XmlNode n in xnl)
+                {
+                    // Go on if the value is new, replace or append
+                    if (n.Value == "delete")
+                    {
+                        // Get the complete node with all information as xlink:href
+                        XmlNode OwnerElement = ((XmlAttribute)n).OwnerElement;
+                        String OwnerElementValue = OwnerElement.Attributes["xlink:href"].Value;
+
+                        // When we get information, go on
+                        if (OwnerElementValue.CompareTo("") != 0)
+                        {
+                            c.Status = NodeType.Failed;
+                        }
+                    }
+                }
+            }
+            #endregion
+
+            return c;
+        }
+
+        public eCTD_Criteria _11_6()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._11_6);
+            c.Category = eCTD_Category.leaf_attributes;
+            c.ValidationCriterion = "The file referenced by the cross reference (xlink:href) must exist in the same or a previously sequence.";
+            c.Comments = "The link within the XML leaf element is valid, i.e. the target exists.";
+            c.TypeOfCheck = "P/F";
+            c.Status = NodeType.OK;
+
+            String EURegionalXML = this.Path2Sequence + @"\m1\eu\eu-regional.xml";
+            String IndexXML = this.Path2Sequence + @"\index.xml";
+
+            #region Check the EU-Regional.xml file
+            if (File.Exists(EURegionalXML))
+            {
+                // Read the actual xml file
+                XmlTextReader myReader = new XmlTextReader(EURegionalXML);
+                XmlDocument mySourceDoc = new XmlDocument();
+                mySourceDoc.Load(myReader);
+                myReader.Close();
+
+                // Have a look at the current sequence number
+                // Get the xml nodes with attribute operation
+                XmlNodeList xnl = mySourceDoc.SelectNodes("//leaf/@operation");
+
+                // Have a look on each "operation" node 
+                foreach (XmlNode n in xnl)
+                {
+                    // Get the complete node with all information as xlink:href
+                    XmlNode OwnerElement = ((XmlAttribute)n).OwnerElement;
+                    String OwnerElementValue = OwnerElement.Attributes["xlink:href"].Value;
+
+                    // When we get information, we detected an error
+                    if (OwnerElementValue.CompareTo("") != 0)
+                    {
+                        // Build up the complete path to the file and check if it exists.
+                        String filepath = this.Path2Sequence + @"\m1\eu\" + OwnerElementValue;
+                        filepath = filepath.Replace("/", @"\");
+                        if (!File.Exists(filepath))
+                        {
+                            c.Status = NodeType.Failed;
+                        }
+                    }
+                    else
+                    {
+                        c.Status = NodeType.Failed;
+                    }
+                }
+
+                // Create previous path string
+                int previousseq = Convert.ToInt32(this.Path2Sequence.Substring(this.Path2Sequence.Length - 4, 4)) - 1;
+
+                while (previousseq > 0 && c.Status != NodeType.Warning && c.Status != NodeType.Failed)
+                {
+                    string previousseqstr = previousseq.ToString();
+                    if (previousseqstr.Length == 1)
+                    {
+                        previousseqstr = "000" + previousseqstr;
+                    }
+                    else if (previousseqstr.Length == 2)
+                    {
+                        previousseqstr = "00" + previousseqstr;
+                    }
+                    else if (previousseqstr.Length == 3)
+                    {
+                        previousseqstr = "0" + previousseqstr;
+                    }
+
+                    String Path2PreviousSequence = this.Path2Sequence.Substring(0, this.Path2Sequence.Length - 4) + previousseqstr;
+                    String EURegionalPreviousXML = Path2PreviousSequence + @"\m1\eu\eu-regional.xml";
+
+                    // Check the value in the previous version
+                    if (File.Exists(EURegionalPreviousXML))
+                    {
+                        // Load the previous xml file
+                        XmlTextReader myReaderPrevious = new XmlTextReader(EURegionalPreviousXML);
+                        XmlDocument mySourceDocPrevious = new XmlDocument();
+                        mySourceDocPrevious.Load(myReaderPrevious);
+                        myReaderPrevious.Close();
+
+                        // Get the xml nodes with attribute operation
+                        XmlNodeList previous_xnl = mySourceDocPrevious.SelectNodes("//leaf/@operation");
+
+                        // Have a look on each "operation" node 
+                        foreach (XmlNode n in previous_xnl)
+                        {
+                            // Get the complete node with all information as xlink:href
+                            XmlNode OwnerElement = ((XmlAttribute)n).OwnerElement;
+                            String OwnerElementValue = OwnerElement.Attributes["xlink:href"].Value;
+
+                            // When we get information, we detected an error
+                            if (OwnerElementValue.CompareTo("") == 0)
+                            {
+                                // Build up the complete path to the file and check if it exists.
+                                String filepath = Path2PreviousSequence + @"\m1\eu\" + OwnerElementValue;
+                                filepath = filepath.Replace("/", @"\");
+                                if (!File.Exists(filepath))
+                                {
+                                    c.Status = NodeType.Failed;
+                                }
+                            }
+                            else
+                            {
+                                c.Status = NodeType.Failed;
+                            }
+                        }
+                    }
+
+                    previousseq--;
+                }
+            }
+            else
+            {
+                c.Status = NodeType.Failed;
+            }
+            #endregion
+
+            #region XML File
+            if (File.Exists(IndexXML))
+            {
+                // Read the actual xml file
+                XmlTextReader myReader = new XmlTextReader(IndexXML);
+                XmlDocument mySourceDoc = new XmlDocument();
+                mySourceDoc.Load(myReader);
+                myReader.Close();
+
+                // Have a look at the current sequence number
+                // Get the xml nodes with attribute operation
+                XmlNodeList xnl = mySourceDoc.SelectNodes("//leaf/@operation");
+
+                // Have a look on each "operation" node 
+                foreach (XmlNode n in xnl)
+                {
+                    // Get the complete node with all information as xlink:href
+                    XmlNode OwnerElement = ((XmlAttribute)n).OwnerElement;
+                    String OwnerElementValue = OwnerElement.Attributes["xlink:href"].Value;
+
+                    // When we get information, we detected an error
+                    if (OwnerElementValue.CompareTo("") != 0)
+                    {
+                        // Build up the complete path to the file and check if it exists.
+                        String filepath = this.Path2Sequence + @"\" + OwnerElementValue;
+                        filepath = filepath.Replace("/", @"\");
+                        if (!File.Exists(filepath))
+                        {
+                            c.Status = NodeType.Failed;
+                        }
+                    }
+                    else
+                    {
+                        c.Status = NodeType.Failed;
+                    }
+                }
+
+                // Create previous path string
+                int previousseq = Convert.ToInt32(this.Path2Sequence.Substring(this.Path2Sequence.Length - 4, 4)) - 1;
+
+                while (previousseq > 0 && c.Status != NodeType.Warning && c.Status != NodeType.Failed)
+                {
+                    string previousseqstr = previousseq.ToString();
+                    if (previousseqstr.Length == 1)
+                    {
+                        previousseqstr = "000" + previousseqstr;
+                    }
+                    else if (previousseqstr.Length == 2)
+                    {
+                        previousseqstr = "00" + previousseqstr;
+                    }
+                    else if (previousseqstr.Length == 3)
+                    {
+                        previousseqstr = "0" + previousseqstr;
+                    }
+
+                    String Path2PreviousSequence = this.Path2Sequence.Substring(0, this.Path2Sequence.Length - 4) + previousseqstr;
+                    String PreviousIndexXML = Path2PreviousSequence + @"\index.xml";
+
+                    // Check the value in the previous version
+                    if (File.Exists(PreviousIndexXML))
+                    {
+                        // Load the previous xml file
+                        XmlTextReader myReaderPrevious = new XmlTextReader(PreviousIndexXML);
+                        XmlDocument mySourceDocPrevious = new XmlDocument();
+                        mySourceDocPrevious.Load(myReaderPrevious);
+                        myReaderPrevious.Close();
+
+                        // Get the xml nodes with attribute operation
+                        XmlNodeList previous_xnl = mySourceDocPrevious.SelectNodes("//leaf/@operation");
+
+                        // Have a look on each "operation" node 
+                        foreach (XmlNode n in previous_xnl)
+                        {
+                            // Get the complete node with all information as xlink:href
+                            XmlNode OwnerElement = ((XmlAttribute)n).OwnerElement;
+                            String OwnerElementValue = OwnerElement.Attributes["xlink:href"].Value;
+
+                            // When we get information, we detected an error
+                            if (OwnerElementValue.CompareTo("") == 0)
+                            {
+                                // Build up the complete path to the file and check if it exists.
+                                String filepath = Path2PreviousSequence + @"\" + OwnerElementValue;
+                                filepath = filepath.Replace("/", @"\");
+                                if (!File.Exists(filepath))
+                                {
+                                    c.Status = NodeType.Failed;
+                                }
+                            }
+                            else
+                            {
+                                c.Status = NodeType.Failed;
+                            }
+                        }
+                    }
+
+                    previousseq--;
+                }
+            }
+            else
+            {
+                c.Status = NodeType.Failed;
+            }
+            #endregion
+
+            return c;
+        }
+
+        public eCTD_Criteria _11_7()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._11_7);
+            c.Category = eCTD_Category.leaf_attributes;
+            c.ValidationCriterion = "All leaves with an operation attribute value of replace, delete or append must have a value for modified-file.";
+            c.Comments = "";
+            c.TypeOfCheck = "P/F";
+            c.Status = NodeType.OK;
+
+            String EURegionalXML = this.Path2Sequence + @"\m1\eu\eu-regional.xml";
+            String IndexXML = this.Path2Sequence + @"\index.xml";
+
+            #region Check the EU-Regional.xml file
+            XmlTextReader myReader = new XmlTextReader(EURegionalXML);
+            XmlDocument mySourceDoc = new XmlDocument();
+            mySourceDoc.Load(myReader);
+            myReader.Close();
+
+            // Get the xml nodes with attribute operation
+            XmlNodeList xnl = mySourceDoc.SelectNodes("//leaf/@operation");
+
+            // Have a look on each "operation" node 
+            foreach (XmlNode n in xnl)
+            {
+                // Go on if the value is new, replace or append
+                if (n.Value == "delete" || n.Value == "replace" || n.Value == "append")
+                {
+                    // Get the complete node with all information as xlink:href
+                    XmlNode OwnerElement = ((XmlAttribute)n).OwnerElement;
+
+                    try
+                    {
+                        String OwnerElementValue = OwnerElement.Attributes["modified-file"].Value;                    
+
+                        // When we get information, go on
+                        if (OwnerElementValue.CompareTo("") == 0)
+                        {
+                            c.Status = NodeType.Failed;
+                        }
+                    }
+                    catch (NullReferenceException) { c.Status = NodeType.Failed; }
+                }
+                
+            }
+            #endregion
+
+            #region Check the index.xml file
+            if (c.Status == NodeType.OK)
+            {
+                myReader = new XmlTextReader(IndexXML);
+                mySourceDoc = new XmlDocument();
+                mySourceDoc.Load(myReader);
+                myReader.Close();
+
+                // Get the xml nodes with attribute operation
+                xnl = mySourceDoc.SelectNodes("//leaf/@operation");
+
+                // Have a look on each "operation" node 
+                foreach (XmlNode n in xnl)
+                {
+                    // Go on if the value is new, replace or append
+                    if (n.Value == "delete" || n.Value == "replace" || n.Value == "append")
+                    {
+                        // Get the complete node with all information as xlink:href
+                        XmlNode OwnerElement = ((XmlAttribute)n).OwnerElement;
+                        try
+                        {
+                            String OwnerElementValue = OwnerElement.Attributes["modified-file"].Value;
+
+                            // When we get information, go on
+                            if (OwnerElementValue.CompareTo("") == 0)
+                            {
+                                c.Status = NodeType.Failed;
+                            }
+                        }
+                        catch (NullReferenceException) { c.Status = NodeType.Failed; }
+                    }
+                }
+            }
+            #endregion
+
+            return c;
+        }
+
+
+        public eCTD_Criteria _11_8()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._11_8);
+            c.Category = eCTD_Category.leaf_attributes;
+            c.ValidationCriterion = "All leaves with an operation attribute value of new must have no value for modified-file.";
+            c.Comments = "";
+            c.TypeOfCheck = "P/F";
+            c.Status = NodeType.OK;
+
+            String EURegionalXML = this.Path2Sequence + @"\m1\eu\eu-regional.xml";
+            String IndexXML = this.Path2Sequence + @"\index.xml";
+
+            #region Check the EU-Regional.xml file
+            XmlTextReader myReader = new XmlTextReader(EURegionalXML);
+            XmlDocument mySourceDoc = new XmlDocument();
+            mySourceDoc.Load(myReader);
+            myReader.Close();
+
+            // Get the xml nodes with attribute operation
+            XmlNodeList xnl = mySourceDoc.SelectNodes("//leaf/@operation");
+
+            // Have a look on each "operation" node 
+            foreach (XmlNode n in xnl)
+            {
+                // Go on if the value is new, replace or append
+                if (n.Value == "new")
+                {
+                    // Get the complete node with all information as xlink:href
+                    XmlNode OwnerElement = ((XmlAttribute)n).OwnerElement;
+
+                    try
+                    {
+                        String OwnerElementValue = OwnerElement.Attributes["modified-file"].Value;
+
+                        // The attribute does not need to be included, or can be declared but with a null value.
+                    }
+                    catch (NullReferenceException) { c.Status = NodeType.Failed; }
+                }
+
+            }
+            #endregion
+
+            #region Check the index.xml file
+            if (c.Status == NodeType.OK)
+            {
+                myReader = new XmlTextReader(IndexXML);
+                mySourceDoc = new XmlDocument();
+                mySourceDoc.Load(myReader);
+                myReader.Close();
+
+                // Get the xml nodes with attribute operation
+                xnl = mySourceDoc.SelectNodes("//leaf/@operation");
+
+                // Have a look on each "operation" node 
+                foreach (XmlNode n in xnl)
+                {
+                    // Go on if the value is new, replace or append
+                    if (n.Value == "new" )
+                    {
+                        // Get the complete node with all information as xlink:href
+                        XmlNode OwnerElement = ((XmlAttribute)n).OwnerElement;
+
+                        try
+                        {
+                            // The attribute does not need to be included, or can be declared but with a null value.
+                            String OwnerElementValue = OwnerElement.Attributes["modified-file"].Value;
+                        }
+                        catch (NullReferenceException) { c.Status = NodeType.Failed; }
+                    }
+                }
+            }
+            #endregion
+
+            return c;
+        }
     }
 
-
-    internal static class MD5Calculator
+internal static class MD5Calculator
     {
         /// <summary>
         /// Returns MD5 checksum for file passed
