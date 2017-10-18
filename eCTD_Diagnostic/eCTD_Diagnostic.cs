@@ -192,6 +192,35 @@ namespace eCTD_Diagnostic
             cl.Add(this._11_6());
             cl.Add(this._11_7());
             cl.Add(this._11_8());
+            cl.Add(this._11_9());
+            cl.Add(this._11_10());
+
+            // Insert Criteria of 12.x
+            eCTD_Criteria _12header = new eCTD_Criteria();
+            _12header.SubNode = false;
+            _12header.Category = eCTD_Category.Node_extensions;
+            cl.Add(_12header);
+
+            cl.Add(this._12_1());
+
+            // Insert Criteria of 13.x
+            eCTD_Criteria _13header = new eCTD_Criteria();
+            _13header.SubNode = false;
+            _13header.Category = eCTD_Category.Sequence_number;
+            cl.Add(_13header);
+
+            cl.Add(this._13_1());
+            cl.Add(this._13_2());
+            cl.Add(this._13_3());
+
+            // Insert Criteria of 14.x
+            eCTD_Criteria _14header = new eCTD_Criteria();
+            _14header.SubNode = false;
+            _14header.Category = eCTD_Category.Envelope_Attributes;
+            cl.Add(_14header);
+
+            cl.Add(this._14_1());
+            cl.Add(this._14_2());
 
             // Sum-up the status of all sub-nodes
             cl[0].Status = this.SumUpSubItems(cl, 1, 1, 5);
@@ -204,7 +233,10 @@ namespace eCTD_Diagnostic
             cl[31].Status = this.SumUpSubItems(cl, 8, 1, 3);
             cl[35].Status = this.SumUpSubItems(cl, 9, 1, 9);
             cl[47].Status = this.SumUpSubItems(cl, 10, 1, 1);
-            cl[49].Status = this.SumUpSubItems(cl, 11, 1, 8);
+            cl[49].Status = this.SumUpSubItems(cl, 11, 1, 10);
+            cl[60].Status = this.SumUpSubItems(cl, 12, 1, 1);
+            cl[62].Status = this.SumUpSubItems(cl, 13, 1, 3);
+            cl[66].Status = this.SumUpSubItems(cl, 14, 1, 2);
 
             // Return the list of checked criteria.
             return cl;
@@ -230,15 +262,18 @@ namespace eCTD_Diagnostic
                 for (int i = 0; i < cl.Count && pointer <= diff; i++)
                 {
                     int subno = sub_start + pointer;
-                    if (cl[i].Number != null)
+                    if (cl[i] != null)
                     {
-                        if (cl[i].Number.value == CategoryNo.ToString() + "." + subno.ToString())
+                        if (cl[i].Number != null)
                         {
-                            if (cl[i].Status == NodeType.Failed)
-                            { return NodeType.Failed; }
-                            else
+                            if (cl[i].Number.value == CategoryNo.ToString() + "." + subno.ToString())
                             {
-                                pointer++;
+                                if (cl[i].Status == NodeType.Failed)
+                                { return NodeType.Failed; }
+                                else
+                                {
+                                    pointer++;
+                                }
                             }
                         }
                     }
@@ -2548,7 +2583,7 @@ namespace eCTD_Diagnostic
 
                     try
                     {
-                        String OwnerElementValue = OwnerElement.Attributes["modified-file"].Value;                    
+                        String OwnerElementValue = OwnerElement.Attributes["modified-file"].Value;
 
                         // When we get information, go on
                         if (OwnerElementValue.CompareTo("") == 0)
@@ -2558,7 +2593,7 @@ namespace eCTD_Diagnostic
                     }
                     catch (NullReferenceException) { c.Status = NodeType.Failed; }
                 }
-                
+
             }
             #endregion
 
@@ -2599,7 +2634,6 @@ namespace eCTD_Diagnostic
 
             return c;
         }
-
 
         public eCTD_Criteria _11_8()
         {
@@ -2659,7 +2693,7 @@ namespace eCTD_Diagnostic
                 foreach (XmlNode n in xnl)
                 {
                     // Go on if the value is new, replace or append
-                    if (n.Value == "new" )
+                    if (n.Value == "new")
                     {
                         // Get the complete node with all information as xlink:href
                         XmlNode OwnerElement = ((XmlAttribute)n).OwnerElement;
@@ -2677,9 +2711,298 @@ namespace eCTD_Diagnostic
 
             return c;
         }
+
+        public eCTD_Criteria _11_9()
+        {
+            return null;
+        }
+
+        public eCTD_Criteria _11_10()
+        {
+            return null;
+        }
+
+        public eCTD_Criteria _12_1()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._12_1);
+            c.Category = eCTD_Category.Node_extensions;
+            c.ValidationCriterion = "For every node-extension the 'title' attribute is not empty";
+            c.Comments = "";
+            c.TypeOfCheck = "P/F";
+            c.Status = NodeType.OK;
+
+            String EURegionalXML = this.Path2Sequence + @"\m1\eu\eu-regional.xml";
+            String IndexXML = this.Path2Sequence + @"\index.xml";
+
+            #region Check the EU-Regional.xml file
+            XmlTextReader myReader = new XmlTextReader(EURegionalXML);
+            XmlDocument mySourceDoc = new XmlDocument();
+            mySourceDoc.Load(myReader);
+            myReader.Close();
+
+            XmlNodeList xnl = mySourceDoc.SelectNodes("//title");
+
+            for (int i = 0; i < xnl.Count; i++)
+            {
+                if (xnl[i].InnerText == "")
+                {
+                    c.Status = NodeType.Failed;
+                }
+            }
+            #endregion
+
+            #region Check the index.xml file
+            myReader = new XmlTextReader(IndexXML);
+            mySourceDoc = new XmlDocument();
+            mySourceDoc.Load(myReader);
+            myReader.Close();
+
+            xnl = mySourceDoc.SelectNodes("//title");
+
+            for (int i = 0; i < xnl.Count; i++)
+            {
+                if (xnl[i].InnerText == "")
+                {
+                    c.Status = NodeType.Failed;
+                }
+            }
+            #endregion
+
+            return c;
+        }
+
+        public eCTD_Criteria _13_1()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._13_1);
+            c.Category = eCTD_Category.Sequence_number;
+            c.ValidationCriterion = "The sequence folder name is a 4 digit number ";
+            c.Comments = "";
+            c.TypeOfCheck = "P/F";
+            c.Status = NodeType.OK;
+
+            String EURegionalXML = this.Path2Sequence + @"\m1\eu\eu-regional.xml";
+
+            XmlTextReader myReader = new XmlTextReader(EURegionalXML);
+            XmlDocument mySourceDoc = new XmlDocument();
+            mySourceDoc.Load(myReader);
+            myReader.Close();
+
+            XmlNodeList xnl = mySourceDoc.SelectNodes("//sequence");
+
+            for (int i = 0; i < xnl.Count; i++)
+            {
+                if (xnl[i].InnerText == "")
+                {
+                    c.Status = NodeType.Failed;
+                }
+                else
+                {
+                    Regex r = new Regex(@"[0-9]{4}", RegexOptions.IgnoreCase);
+
+                    // Match the regular expression pattern against the SearchTerm;
+                    // Change column name to ID if the user searches for a ID.
+                    if (!r.Match(xnl[i].InnerText).Success)
+                    {
+                        c.Status = NodeType.Failed;
+                    }
+                }
+            }
+
+            return c;
+        }
+
+        public eCTD_Criteria _13_2()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._13_2);
+            c.Category = eCTD_Category.Sequence_number;
+            c.ValidationCriterion = "The sequence number (folder name) has not already been used.";
+            c.Comments = "This criteia has always been reached.";
+            c.TypeOfCheck = "P/F";
+            c.Status = NodeType.OK;
+
+            // On a file based system this criteria can not be checked because no where is
+            // written down if the dossier has submitted before. The user has to note that.
+            // So from the file based programm perspective this criteia has always been reached.
+
+            return c;
+        }
+
+        public eCTD_Criteria _13_3()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._13_3);
+            c.Category = eCTD_Category.Sequence_number;
+            c.ValidationCriterion = "The sequence folder name matches the sequence number in each envelope in eu-regional.xml .";
+            c.Comments = "";
+            c.TypeOfCheck = "P/F";
+            c.Status = NodeType.OK;
+
+            // This criteria is reached if the criteria 13.1 is reached.
+            // Also criteria 11.2 is checked here because it means that the sequence number has
+            // been used in the other leafs correctly.
+            if (this._13_1().Status != NodeType.OK)
+            { c.Status = NodeType.Failed; }
+            else
+            {
+                if (this._11_2().Status != NodeType.OK)
+                { c.Status = NodeType.Failed; }
+            }
+
+            return c;
+        }
+
+        public eCTD_Criteria _14_1()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._14_1);
+            c.Category = eCTD_Category.Envelope_Attributes;
+            c.ValidationCriterion = "The country attribute value of 'ema' is used if the procedure type is 'centralised'.";
+            c.Comments = "This should be 'ema'.";
+            c.TypeOfCheck = "P/F";
+            c.Status = NodeType.OK;
+
+
+            String EURegionalXML = this.Path2Sequence + @"\m1\eu\eu-regional.xml";
+
+            XmlTextReader myReader = new XmlTextReader(EURegionalXML);
+            XmlDocument mySourceDoc = new XmlDocument();
+            mySourceDoc.Load(myReader);
+            myReader.Close();
+
+            XmlNode xmlnode = mySourceDoc.SelectSingleNode("//procedure");
+
+            // Find the value for type
+            if(xmlnode.Attributes != null)
+            {
+                if(xmlnode.Attributes.Count == 1)
+                {
+                    XmlAttribute xa = xmlnode.Attributes[0];
+                    if(xa.Name.CompareTo("type") == 0)
+                    {
+                        // If it is a centralised dossier, then go on
+                        if(xa.Value.CompareTo("'centralised'") == 0)
+                        {
+                            XmlNode countrynode = mySourceDoc.SelectSingleNode("//envelope");
+                            if(countrynode.Attributes != null)
+                            {
+                                if(countrynode.Attributes.Count == 1)
+                                {
+                                    // If the country attribute is not ema at this centralised procedure than this criteria is failed.
+                                    if(countrynode.Attributes[0].Value.CompareTo("ema") != 0)
+                                    {
+                                        c.Status = NodeType.Failed;
+                                    }                                    
+                                }
+                                else
+                                {
+                                    c.Status = NodeType.Failed;
+                                }
+                            }
+                            else
+                            {
+                                c.Status = NodeType.Failed;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        c.Status = NodeType.Failed;
+                    }
+                }
+                else
+                {
+                    c.Status = NodeType.Failed;
+                }
+            }
+            else
+            { c.Status = NodeType.Failed; }
+           
+
+            return c;
+        }
+
+        public eCTD_Criteria _14_2()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._14_2);
+            c.Category = eCTD_Category.Envelope_Attributes;
+            c.ValidationCriterion = "There are one or more country specific envelopes if the procedure type is  'mutual-recognition' or 'decentralised'.";
+            c.Comments = "The country attribute value must not be 'ema'.";
+            c.TypeOfCheck = "P/F";
+            c.Status = NodeType.OK;
+
+
+            String EURegionalXML = this.Path2Sequence + @"\m1\eu\eu-regional.xml";
+
+            #region procedure type
+            XmlTextReader myReader = new XmlTextReader(EURegionalXML);
+            XmlDocument mySourceDoc = new XmlDocument();
+            mySourceDoc.Load(myReader);
+            myReader.Close();
+
+            XmlNode xmlnode = mySourceDoc.SelectSingleNode("//procedure");
+
+            // Check which process type is chosen.
+            if (xmlnode.Attributes != null)
+            {
+                if (xmlnode.Attributes.Count == 1)
+                {
+                    XmlAttribute xa = xmlnode.Attributes[0];
+                    if (xa.Name.CompareTo("type") == 0)
+                    {
+                        // When an centralised or mutal-recognition procedere is chosen.
+                        if (xa.Value.CompareTo("'centralised'") == 0 || xa.Value.CompareTo("mutual-recognition") == 0)
+                        {
+                            XmlTextReader myReaderSpecific = new XmlTextReader(EURegionalXML);
+                            XmlDocument mySourceDocSpecific = new XmlDocument();
+                            mySourceDoc.Load(myReaderSpecific);
+                            myReaderSpecific.Close();
+
+                            // Get ths specific enevlopes to check which country is choosen.
+                            XmlNodeList xmlnodeList = mySourceDocSpecific.SelectNodes("//m1-eu/m1-0-cover/specific");
+
+                            if (xmlnodeList != null)
+                            {
+                                int countries = 0;
+                                for (int i = 0; i < xmlnodeList.Count; i++)
+                                {
+                                    if (xmlnodeList[i].Attributes.Count > 0)
+                                    {
+                                        // When there is a country written down in this note (not common!)
+                                        // then add 1 to the counter.
+                                        if (xmlnodeList[i].Attributes[0].Value.CompareTo("common") != 0)
+                                        {
+                                            countries++;
+                                        }
+                                    }
+                                }
+
+                                if (countries < 1)
+                                {
+                                    c.Status = NodeType.Failed;
+                                }
+
+                            }
+                            else
+                            {
+                                c.Status = NodeType.Failed;
+                            }
+                        }
+                    }
+                }
+                #endregion               
+            }
+            return c;
+        }
+
+
+
     }
 
-internal static class MD5Calculator
+    internal static class MD5Calculator
     {
         /// <summary>
         /// Returns MD5 checksum for file passed
@@ -2731,7 +3054,7 @@ internal static class MD5Calculator
         public static string Index_MD5_txt { get { return "Index MD5 txt"; } }
         public static string EU_regional_XML { get { return "EU_regional_XML"; } }
         public static string Submission_Structure { get { return "Submission Structure"; } }
-        public static string leaf_attributes { get { return "leaf attributes"; } }
+        public static string leaf_attributes { get { return "Leaf attributes"; } }
         public static string Node_extensions { get { return "Node extensions"; } }
         public static string Sequence_number { get { return "Sequence number"; } }
         public static string Envelope_Attributes { get { return "Envelope Attributes"; } }

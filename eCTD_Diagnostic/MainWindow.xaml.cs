@@ -83,30 +83,34 @@ namespace eCTD_Diagnostic
 
             for (int i = 0; i < cl.Count; i++)
             {
-                if (cl[i].SubNode)
+                if (cl[i] != null)
                 {
-                    _2stlevel = new eCTD_TreeViewItem(cl[i].Status, cl[i].Number.value, cl[i].ValidationCriterion, cl[i].Comments);
-                    current.Items.Add(_2stlevel);
-                    current = _1stlevel;
+                    if (cl[i].SubNode)
+                    {
+                        _2stlevel = new eCTD_TreeViewItem(cl[i].Status, cl[i].Number.value, cl[i].ValidationCriterion, cl[i].Comments);
+                        current.Items.Add(_2stlevel);
+                        current = _1stlevel;
 
-                    // Count the results
-                    if(cl[i].Status == NodeType.OK)
-                    {
-                        green++;
-                    } else if(cl[i].Status == NodeType.Failed)
-                    {
-                        red++;
+                        // Count the results
+                        if (cl[i].Status == NodeType.OK)
+                        {
+                            green++;
+                        }
+                        else if (cl[i].Status == NodeType.Failed)
+                        {
+                            red++;
+                        }
+                        else if (cl[i].Status == NodeType.Warning)
+                        {
+                            yellow++;
+                        }
                     }
-                    else if(cl[i].Status == NodeType.Warning)
-                    { 
-                        yellow++; 
+                    else
+                    {
+                        _1stlevel = new eCTD_TreeViewItem(cl[i].Status, "", cl[i].Category, "");
+                        this.tvResult.Items.Add(_1stlevel);
+                        current = _1stlevel;
                     }
-                }
-                else
-                {
-                    _1stlevel = new eCTD_TreeViewItem(cl[i].Status, "", cl[i].Category, "");
-                    this.tvResult.Items.Add(_1stlevel);
-                    current = _1stlevel;
                 }
             }
 
