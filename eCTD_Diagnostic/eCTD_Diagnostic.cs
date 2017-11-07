@@ -221,6 +221,7 @@ namespace eCTD_Diagnostic
 
             cl.Add(this._14_1());
             cl.Add(this._14_2());
+            cl.Add(this._14_3());
 
             // Sum-up the status of all sub-nodes
             cl[0].Status = this.SumUpSubItems(cl, 1, 1, 5);
@@ -2929,11 +2930,10 @@ namespace eCTD_Diagnostic
             eCTD_Criteria c = new eCTD_Criteria();
             c.Number = new eCTD_Number(eCTD_Number._14_2);
             c.Category = eCTD_Category.Envelope_Attributes;
-            c.ValidationCriterion = "There are one or more country specific envelopes if the procedure type is  'mutual-recognition' or 'decentralised'.";
+            c.ValidationCriterion = "There are country specific envelopes if the procedure type is  'mutual-recognition' or 'decentralised'.";
             c.Comments = "The country attribute value must not be 'ema'.";
             c.TypeOfCheck = "P/F";
             c.Status = NodeType.OK;
-
 
             String EURegionalXML = this.Path2Sequence + @"\m1\eu\eu-regional.xml";
 
@@ -2954,11 +2954,11 @@ namespace eCTD_Diagnostic
                     if (xa.Name.CompareTo("type") == 0)
                     {
                         // When an centralised or mutal-recognition procedere is chosen.
-                        if (xa.Value.CompareTo("'centralised'") == 0 || xa.Value.CompareTo("mutual-recognition") == 0)
+                        if (xa.Value.CompareTo("decentralised") == 0 || xa.Value.CompareTo("mutual-recognition") == 0)
                         {
                             XmlTextReader myReaderSpecific = new XmlTextReader(EURegionalXML);
                             XmlDocument mySourceDocSpecific = new XmlDocument();
-                            mySourceDoc.Load(myReaderSpecific);
+                            mySourceDocSpecific.Load(myReaderSpecific);
                             myReaderSpecific.Close();
 
                             // Get ths specific enevlopes to check which country is choosen.
@@ -2995,6 +2995,88 @@ namespace eCTD_Diagnostic
                 }
                 #endregion               
             }
+            return c;
+        }
+
+        public eCTD_Criteria _14_3()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._14_3);
+            c.Category = eCTD_Category.Envelope_Attributes;
+            c.ValidationCriterion = "There is a single country specific envelope if the procedure type is 'national'.";
+            c.Comments = "The country attribute value must not be 'ema'.";
+            c.TypeOfCheck = "P/F";
+            c.Status = NodeType.OK;
+
+
+            String EURegionalXML = this.Path2Sequence + @"\m1\eu\eu-regional.xml";
+            XmlTextReader myReader = new XmlTextReader(EURegionalXML);
+            XmlDocument mySourceDoc = new XmlDocument();
+            mySourceDoc.Load(myReader);
+            myReader.Close();
+
+            XmlNode xmlnode = mySourceDoc.SelectSingleNode("//procedure");
+
+            // Check which process type is chosen.
+            if (xmlnode.Attributes != null)
+            {
+                if (xmlnode.Attributes.Count == 1)
+                {
+                    XmlAttribute xa = xmlnode.Attributes[0];
+                    if (xa.Name.CompareTo("type") == 0)
+                    {
+                        // When an centralised or mutal-recognition procedere is chosen.
+                        if (xa.Value.CompareTo("national") == 0)
+                        {
+                            XmlTextReader myReaderSpecific = new XmlTextReader(EURegionalXML);
+                            XmlDocument mySourceDocSpecific = new XmlDocument();
+                            mySourceDocSpecific.Load(myReaderSpecific);
+                            myReaderSpecific.Close();
+
+                            // Get ths specific enevlopes to check which country is choosen.
+                            XmlNodeList xmlnodeList = mySourceDocSpecific.SelectNodes("//m1-eu/m1-0-cover/specific");
+
+                            if (xmlnodeList != null)
+                            {
+                                int not_national = 0;
+                                String nation = "";
+
+                                for (int i = 0; i < xmlnodeList.Count; i++)
+                                {
+                                    if (xmlnodeList[i].Attributes.Count > 0)
+                                    {
+                                        // At the beginning "nation" has no characters and the value is not common
+                                        if (nation.CompareTo("") == 0 && xmlnodeList[i].Attributes[0].Value.CompareTo("common") != 0)
+                                        {
+                                            nation = xmlnodeList[i].Attributes[0].Value;
+                                        }
+                                        // So if there were a nationality selected in a previous node,
+                                        // the same value or the value "common" has to be used.
+                                        else if(nation.CompareTo(xmlnodeList[i].Attributes[0].Value) != 0 &&
+                                            nation.CompareTo("common") != 0 &&
+                                            nation.CompareTo("") != 0)
+                                        {
+                                            not_national++;
+                                        }
+                                    }
+                                }
+
+                                if (not_national > 0)
+                                {
+                                    c.Status = NodeType.Failed;
+                                }
+
+                            }
+                            else
+                            {
+                                c.Status = NodeType.Failed;
+                            }
+                        }
+                    }
+                }
+
+            }
+
             return c;
         }
 
