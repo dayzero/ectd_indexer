@@ -201,6 +201,7 @@ namespace eCTD_Diagnostic
             _12header.Category = eCTD_Category.Node_extensions;
             cl.Add(_12header);
 
+            // Insert Criteria of 12.x
             cl.Add(this._12_1());
 
             // Insert Criteria of 13.x
@@ -222,22 +223,24 @@ namespace eCTD_Diagnostic
             cl.Add(this._14_1());
             cl.Add(this._14_2());
             cl.Add(this._14_3());
+            cl.Add(this._14_4());
+            cl.Add(this._14_5());
 
             // Sum-up the status of all sub-nodes
-            cl[0].Status = this.SumUpSubItems(cl, 1, 1, 5);
-            cl[6].Status = this.SumUpSubItems(cl, 2, 1, 3);
-            cl[10].Status = this.SumUpSubItems(cl, 3, 1, 3);
-            cl[14].Status = this.SumUpSubItems(cl, 4, 1, 3);
-            cl[18].Status = this.SumUpSubItems(cl, 5, 1, 3);
-            cl[22].Status = this.SumUpSubItems(cl, 6, 1, 3);
-            cl[26].Status = this.SumUpSubItems(cl, 7, 1, 6);
-            cl[31].Status = this.SumUpSubItems(cl, 8, 1, 3);
-            cl[35].Status = this.SumUpSubItems(cl, 9, 1, 9);
-            cl[47].Status = this.SumUpSubItems(cl, 10, 1, 1);
-            cl[49].Status = this.SumUpSubItems(cl, 11, 1, 10);
-            cl[60].Status = this.SumUpSubItems(cl, 12, 1, 1);
-            cl[62].Status = this.SumUpSubItems(cl, 13, 1, 3);
-            cl[66].Status = this.SumUpSubItems(cl, 14, 1, 2);
+            cl[0].Status = this.SumUpSubItems(cl, 1, 1, 5); // Count 5
+            cl[6].Status = this.SumUpSubItems(cl, 2, 7, 9); // Count 3
+            cl[10].Status = this.SumUpSubItems(cl, 3, 11, 13); // Count 3
+            cl[14].Status = this.SumUpSubItems(cl, 4, 15, 17); // Count 3
+            cl[18].Status = this.SumUpSubItems(cl, 5, 19, 21); // Count 3
+            cl[22].Status = this.SumUpSubItems(cl, 6, 23, 25); // Count 3
+            cl[26].Status = this.SumUpSubItems(cl, 7, 27, 32); // Count 6
+            cl[33].Status = this.SumUpSubItems(cl, 8, 34, 36); // Count 3
+            cl[37].Status = this.SumUpSubItems(cl, 9, 38, 47); // Count 9
+            cl[48].Status = this.SumUpSubItems(cl, 10, 49, 49); // Count 1
+            cl[50].Status = this.SumUpSubItems(cl, 11, 51, 60); // Count 10
+            cl[61].Status = this.SumUpSubItems(cl, 12, 62, 62); // Count 1
+            cl[63].Status = this.SumUpSubItems(cl, 13, 64, 66); // Count 3
+            cl[67].Status = this.SumUpSubItems(cl, 14, 68, 72); // Count 5
 
             // Return the list of checked criteria.
             return cl;
@@ -260,7 +263,7 @@ namespace eCTD_Diagnostic
             {
                 int pointer = 0;
 
-                for (int i = 0; i < cl.Count && pointer <= diff; i++)
+                for (int i = sub_start; i < sub_start && pointer <= diff; i++)
                 {
                     int subno = sub_start + pointer;
                     if (cl[i] != null)
@@ -2876,26 +2879,26 @@ namespace eCTD_Diagnostic
             XmlNode xmlnode = mySourceDoc.SelectSingleNode("//procedure");
 
             // Find the value for type
-            if(xmlnode.Attributes != null)
+            if (xmlnode.Attributes != null)
             {
-                if(xmlnode.Attributes.Count == 1)
+                if (xmlnode.Attributes.Count == 1)
                 {
                     XmlAttribute xa = xmlnode.Attributes[0];
-                    if(xa.Name.CompareTo("type") == 0)
+                    if (xa.Name.CompareTo("type") == 0)
                     {
                         // If it is a centralised dossier, then go on
-                        if(xa.Value.CompareTo("'centralised'") == 0)
+                        if (xa.Value.CompareTo("'centralised'") == 0)
                         {
                             XmlNode countrynode = mySourceDoc.SelectSingleNode("//envelope");
-                            if(countrynode.Attributes != null)
+                            if (countrynode.Attributes != null)
                             {
-                                if(countrynode.Attributes.Count == 1)
+                                if (countrynode.Attributes.Count == 1)
                                 {
                                     // If the country attribute is not ema at this centralised procedure than this criteria is failed.
-                                    if(countrynode.Attributes[0].Value.CompareTo("ema") != 0)
+                                    if (countrynode.Attributes[0].Value.CompareTo("ema") != 0)
                                     {
                                         c.Status = NodeType.Failed;
-                                    }                                    
+                                    }
                                 }
                                 else
                                 {
@@ -2920,7 +2923,7 @@ namespace eCTD_Diagnostic
             }
             else
             { c.Status = NodeType.Failed; }
-           
+
 
             return c;
         }
@@ -3052,7 +3055,7 @@ namespace eCTD_Diagnostic
                                         }
                                         // So if there were a nationality selected in a previous node,
                                         // the same value or the value "common" has to be used.
-                                        else if(nation.CompareTo(xmlnodeList[i].Attributes[0].Value) != 0 &&
+                                        else if (nation.CompareTo(xmlnodeList[i].Attributes[0].Value) != 0 &&
                                             nation.CompareTo("common") != 0 &&
                                             nation.CompareTo("") != 0)
                                         {
@@ -3081,7 +3084,34 @@ namespace eCTD_Diagnostic
         }
 
 
+        public eCTD_Criteria _14_4()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._14_4);
+            c.Category = eCTD_Category.Envelope_Attributes;
+            c.ValidationCriterion = "For every country attribute, there is an EU envelope with a matching country attribute value.";
+            c.Comments = "";
+            c.TypeOfCheck = "P/F";
+            c.Status = NodeType.OK;
 
+
+            return c;
+        }
+
+
+        public eCTD_Criteria _14_5()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._14_3);
+            c.Category = eCTD_Category.Envelope_Attributes;
+            c.ValidationCriterion = "There is a single envelope with the country attribute value of edqm if type is cep";
+            c.Comments = "This should be 'edqm'. It is expected to use 'centralised' as the procedure type.";
+            c.TypeOfCheck = "P/F";
+            c.Status = NodeType.OK;
+
+
+            return c;
+        }
     }
 
     internal static class MD5Calculator
