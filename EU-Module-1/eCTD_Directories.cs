@@ -410,10 +410,12 @@ namespace eCTD_indexer
                 return returnvalue;
             }
 
-            if (root == "10-cover" || root =="12-form"
+            if (root == "10-cover" || root =="12-form" || root == "132-mockup" 
+                || root == "133-specimen" || root == "134-consultation"
+                || root == "135-approved" 
                 || root == "additional-data" || root == "responses")
             {
-                returnvalue.Add("common");
+                this.addCountries(ref returnvalue);
                 return returnvalue;
             }
 
@@ -538,14 +540,16 @@ namespace eCTD_indexer
 
             #endregion
 
-
+            #region m4
             if (root == "m4")
             {
                 returnvalue.Add("42-stud-rep");
                 returnvalue.Add("43-lit-ref");
                 return returnvalue;
             }
+            #endregion
 
+            #region
             if (root == "m5")
             {
                 returnvalue.Add("52-tab-list");
@@ -553,6 +557,7 @@ namespace eCTD_indexer
                 returnvalue.Add("54-lit-ref");
                 return returnvalue;
             }
+            #endregion
 
             return returnvalue;
         }
@@ -644,6 +649,45 @@ namespace eCTD_indexer
             {
                 //MessageBox.Show(e.ToString(), "The delete process failed");
             }
+        }
+
+        private void addCountries(ref List<String> directoryList)
+        {
+            // All  Countries == common
+            directoryList.Add("common");
+
+            // Countries
+            directoryList.Add("at");
+            directoryList.Add("be");
+            directoryList.Add("bg");
+            directoryList.Add("cy");
+            directoryList.Add("cz");
+            directoryList.Add("de");
+            directoryList.Add("dk");
+            directoryList.Add("ee");
+            directoryList.Add("el");
+            directoryList.Add("ema");
+            directoryList.Add("es");
+            directoryList.Add("fi");
+            directoryList.Add("hr");
+            directoryList.Add("hu");
+            directoryList.Add("ie");
+            directoryList.Add("is");
+            directoryList.Add("it");
+            directoryList.Add("li");
+            directoryList.Add("lt");
+            directoryList.Add("lu");
+            directoryList.Add("lv");
+            directoryList.Add("mt");
+            directoryList.Add("nl");
+            directoryList.Add("no");
+            directoryList.Add("pl");
+            directoryList.Add("pt");
+            directoryList.Add("ro");
+            directoryList.Add("se");
+            directoryList.Add("si");
+            directoryList.Add("sk");
+            directoryList.Add("uk");
         }
     }
 }
