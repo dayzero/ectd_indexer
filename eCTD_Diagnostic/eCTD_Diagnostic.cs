@@ -1814,7 +1814,17 @@ namespace eCTD_Diagnostic
                     // Get the previous uuid
                     XmlNode uuidNodePrevious;
                     uuidNodePrevious = mySourceDocPrevious.SelectSingleNode("//identifier");
-                    String UUIDPrevious = uuidNodePrevious.InnerText;
+
+                    String UUIDPrevious = "";
+                    if (uuidNodePrevious != null)
+                    {
+                        UUIDPrevious = uuidNodePrevious.InnerText;
+                    }
+                    else
+                    {
+                        c.Status = NodeType.Warning;
+                        return c;
+                    }
 
                     // Are both uuids valid?
                     Regex isGuid = new Regex(@"^(\{){0,1}[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}(\}){0,1}$", RegexOptions.Compiled);

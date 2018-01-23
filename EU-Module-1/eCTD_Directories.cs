@@ -362,7 +362,7 @@ namespace eCTD_indexer
         /// </summary>
         /// <param name="root"></param>
         /// <returns>List of all eCTD subdirectories</returns>
-        public List<String> getSubDirectories(String root)
+        public List<String> getSubDirectories(String root, String fullpath)
         {
             List<String> returnvalue = new List<String>();
 
@@ -428,6 +428,21 @@ namespace eCTD_indexer
                 returnvalue.Add("135-approved");
                 returnvalue.Add("136-braille");
                 return returnvalue;
+            }
+
+            if( root == "131-spclabelpl")
+            {
+                this.addCountries(ref returnvalue);
+                return returnvalue;
+            }
+
+            if( root == "de")
+            {
+                if(fullpath.Contains(@"m1\eu\13-pi\131-spclabelpl\"))
+                {
+                    this.addCountries(ref returnvalue);
+                    return returnvalue;
+                }
             }
 
             if (root == "14-expert")

@@ -24,6 +24,9 @@ namespace eCTD_indexer.UserDialog
             this.selectablesequences = new List<pathinfos>();
             this.dirfullpath = fullpath;
 
+            // Sort sequence list
+            sequences = sequences.OrderBy(q => q).ToList();
+
             foreach (String dir in sequences)
             {
                 selectablesequences.Add(new pathinfos(dir));
