@@ -2728,7 +2728,116 @@ namespace eCTD_Diagnostic
 
         public eCTD_Criteria _11_9()
         {
-            return null;
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._11_9);
+            c.Category = eCTD_Category.leaf_attributes;
+            c.ValidationCriterion = "The leaf referenced by the modified file must exist in a previously submitted sequence within the same eCTD application. Applies to all leaves except for those with a specific country attribute.";
+            c.Comments = "This test applies to all procedures. 'common', 'ema', or 'edqm' are not considered to be country specific attributes";
+            c.TypeOfCheck = "P/F";
+
+            //System.Xml.XmlNodeList leafElements;
+            List<List<string>> leafList = new List<List<string>>();
+            System.Xml.XmlNode modifiedLeaf;
+            //int someNumber;
+            string referencedIndex;
+            string modifiedID;
+            int idIndex;
+            
+            /// read index.xml in current sequence, find replace and delete operation attributes
+            string indexPath = Path2Sequence + Path.DirectorySeparatorChar + "index.xml";
+            if (File.Exists(indexPath))
+            {
+                XmlTextReader mySequenceReader = new XmlTextReader(indexPath);
+                XmlDocument sequenceSourceDoc = new XmlDocument();
+                sequenceSourceDoc.Load(mySequenceReader);
+                mySequenceReader.Close();
+                System.Xml.XmlNodeList leafItems;
+                leafItems = sequenceSourceDoc.SelectNodes("//leaf");
+                                
+                foreach (System.Xml.XmlNode leaf in leafItems)
+                {
+                    if (leaf.Attributes["operation"].InnerText == "replace" || leaf.Attributes["operation"].InnerText == "delete")
+                    {
+                        idIndex = leaf.Attributes["modified-file"].InnerText.IndexOf("#") + 1;
+                        modifiedID = leaf.Attributes["modified-file"].InnerText.Substring(idIndex, leaf.Attributes["modified-file"].InnerText.Length - idIndex);
+                        referencedIndex = Path2Sequence.Substring(0, Path2Sequence.Length - 4) + leaf.Attributes["modified-file"].InnerText.Substring(3, 4) + Path.DirectorySeparatorChar + "index.xml";
+                        if (File.Exists(referencedIndex))
+                        {
+                            mySequenceReader = new XmlTextReader(referencedIndex);
+                            XmlDocument modifiedSequence = new XmlDocument();
+                            modifiedSequence.Load(mySequenceReader);
+                            mySequenceReader.Close();
+                            
+                            modifiedLeaf = modifiedSequence.SelectSingleNode("//leaf[@ID='" + modifiedID + "']");
+
+                            XmlNode node1 = leaf.ParentNode;
+                            XmlNode node2 = modifiedLeaf.ParentNode;                                                      
+
+                            while (node1.Name != "ectd:ectd")
+                            {
+                                //get the attributes of the nodes in the current sequence and the referenced sequence
+                                XmlAttributeCollection node1AttributeCollection = node1.Attributes;
+                                XmlAttributeCollection node2AttributeCollection = node2.Attributes;
+
+                                //check if the attributes are equal
+                                if (node1AttributeCollection.Count == node2AttributeCollection.Count)
+                                {
+                                    if (node1AttributeCollection.Count >= 0)
+                                    {
+                                        //declare arrays, copy the attributes to arrays, sort the arrays and then compare the values
+                                        XmlAttribute[] node1array = new XmlAttribute[node1AttributeCollection.Count];
+                                        XmlAttribute[] node2array = new XmlAttribute[node1AttributeCollection.Count];
+
+                                        node1AttributeCollection.CopyTo(node1array, 0);
+                                        node2AttributeCollection.CopyTo(node2array, 0);
+                                        
+                                        for (int i = 0; i < node1array.Count(); i++)
+                                        {
+                                            if (node1array[i].Name != node2array[i].Name || node1array[i].Value !=node2array[i].Value)
+                                            {
+                                                c.Status = NodeType.Failed;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                                //check if the node names are equal
+                                if (node1.Name != node2.Name)
+                                {
+                                    c.Status = NodeType.Failed;
+                                }
+
+                                //if the names and attributes are equal, move to the next node up in the tree, otherwise break the loop. If the next node is root, validation is complete.
+                                if (c.Status != NodeType.Failed)                                
+                                {
+                                    if (node1.ParentNode.Name == "ectd:ectd")
+                                    {
+                                        c.Status = NodeType.OK;
+                                    }
+                                    node1 = node1.ParentNode;
+                                    node2 = node2.ParentNode;
+                                }
+
+                                else
+                                {
+                                    break;
+                                }
+                            }                                
+                        }
+                        else
+                        {
+                            c.Status = NodeType.Failed;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                c.Status = NodeType.Failed;
+            }
+            return c;
+        }
         }
 
         public eCTD_Criteria _11_10()
