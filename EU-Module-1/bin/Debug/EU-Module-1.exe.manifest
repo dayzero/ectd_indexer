@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="eCTD_Diagnostic.dll" size="128512">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="eCTD_Diagnostic.dll" size="127488">
       <assemblyIdentity name="eCTD_Diagnostic" version="0.4.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>qBElyKENnYk52An5eERlPWnfTJldFa5AyNwBZIJTMGU=</dsig:DigestValue>
+        <dsig:DigestValue>e2CnBqJCSqTn/8txxrFuggwnVs/WBDD6NluNTM5rPA8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -62,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>sUvoQ8KfIcswuAOzAnGN42QdiwNDEo1Jm0xQjENtA+c=</dsig:DigestValue>
+        <dsig:DigestValue>9Xg+kD0hBcDEuaM13754FtySGqeM5qDDiG495j6Ikkw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -84,7 +84,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>EApSsJKgXXsJsK5Vmae0e8Ye88aJ6cBiIUZ4kMrp/VI=</dsig:DigestValue>
+      <dsig:DigestValue>UWHg4G5tMEbVPQexPsiYX4qNTpSApicz7WQyYItZboE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\Application.ico" size="15086">

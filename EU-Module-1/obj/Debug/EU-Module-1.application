@@ -4,7 +4,7 @@
   <description asmv2:publisher="EU-Module-1" asmv2:product="EU-Module-1" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <deployment install="false" mapFileExtensions="true" />
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
-    <framework targetVersion="4.5.1" profile="Full" supportedRuntime="4.0.30319" />
+    <framework targetVersion="4.5.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
     <dependentAssembly dependencyType="install" codebase="EU-Module-1.exe.manifest" size="5366">
@@ -14,7 +14,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>XIgM/uKZF8c86Xzp0ehhJNqObABY8ae+dRXBd8ONRfc=</dsig:DigestValue>
+        <dsig:DigestValue>lqbYRjdgC0uEbJYamx7KSqpcC/PURYoAtIJ3E+/+Pfw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
