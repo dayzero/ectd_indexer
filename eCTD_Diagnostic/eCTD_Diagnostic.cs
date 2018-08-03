@@ -226,6 +226,18 @@ namespace eCTD_Diagnostic
             cl.Add(this._14_4());
             cl.Add(this._14_5());
 
+            // Insert Criteria of 15.x
+            eCTD_Criteria _15header = new eCTD_Criteria();
+            _15header.SubNode = false;
+            _15header.Category = eCTD_Category.Files_Folders;
+            cl.Add(_15header);
+
+            cl.Add(this._15_1());
+            cl.Add(this._15_2());
+            cl.Add(this._15_3());
+            cl.Add(this._15_4());
+            cl.Add(this._15_5());
+
             // Sum-up the status of all sub-nodes
             cl[0].Status = this.SumUpSubItems(cl, 1, 1, 5); // Count 5
             cl[6].Status = this.SumUpSubItems(cl, 2, 7, 9); // Count 3
@@ -235,12 +247,13 @@ namespace eCTD_Diagnostic
             cl[22].Status = this.SumUpSubItems(cl, 6, 23, 25); // Count 3
             cl[26].Status = this.SumUpSubItems(cl, 7, 27, 32); // Count 6
             cl[33].Status = this.SumUpSubItems(cl, 8, 34, 36); // Count 3
-            cl[37].Status = this.SumUpSubItems(cl, 9, 38, 47); // Count 9
-            cl[48].Status = this.SumUpSubItems(cl, 10, 49, 49); // Count 1
-            cl[50].Status = this.SumUpSubItems(cl, 11, 51, 60); // Count 10
-            cl[61].Status = this.SumUpSubItems(cl, 12, 62, 62); // Count 1
-            cl[63].Status = this.SumUpSubItems(cl, 13, 64, 66); // Count 3
-            cl[67].Status = this.SumUpSubItems(cl, 14, 68, 72); // Count 5
+            cl[37].Status = this.SumUpSubItems(cl, 9, 38, 46); // Count 9
+            cl[47].Status = this.SumUpSubItems(cl, 10, 48, 48); // Count 1
+            cl[49].Status = this.SumUpSubItems(cl, 11, 50, 59); // Count 10
+            cl[60].Status = this.SumUpSubItems(cl, 12, 61, 61); // Count 1
+            cl[62].Status = this.SumUpSubItems(cl, 13, 63, 65); // Count 3
+            cl[66].Status = this.SumUpSubItems(cl, 14, 67, 71); // Count 5
+            cl[72].Status = this.SumUpSubItems(cl, 15, 73, 78); // Count 5
 
             // Return the list of checked criteria.
             return cl;
@@ -263,7 +276,7 @@ namespace eCTD_Diagnostic
             {
                 int pointer = 0;
 
-                for (int i = sub_start; i < sub_start && pointer <= diff; i++)
+                for (int i = sub_start; i <= sub_start && pointer <= diff; i++)
                 {
                     int subno = sub_start + pointer;
                     if (cl[i] != null)
@@ -1970,11 +1983,17 @@ namespace eCTD_Diagnostic
             String IndexXML = this.Path2Sequence + @"\index.xml";
 
             // Check the EU-Regional.xml file
-            var docEURegional = XDocument.Load(EURegionalXML);
-            var docIndexXML = XDocument.Load(IndexXML);
+            if (File.Exists(EURegionalXML))
+            {
+                var docEURegional = XDocument.Load(EURegionalXML);
+                var docIndexXML = XDocument.Load(IndexXML);
 
-            if (!XMLToolbox.TreeHasSingleChildNodes(docEURegional.Root.Elements().ElementAt(1)) ||
-                !XMLToolbox.TreeHasSingleChildNodes(docIndexXML.Root))
+                if (!XMLToolbox.TreeHasSingleChildNodes(docEURegional.Root.Elements().ElementAt(1)) ||
+                    !XMLToolbox.TreeHasSingleChildNodes(docIndexXML.Root))
+                {
+                    c.Status = NodeType.Failed;
+                }
+            } else
             {
                 c.Status = NodeType.Failed;
             }
@@ -1996,36 +2015,44 @@ namespace eCTD_Diagnostic
             String IndexXML = this.Path2Sequence + @"\index.xml";
 
             #region Check the EU-Regional.xml file
-            XmlTextReader myReader = new XmlTextReader(EURegionalXML);
-            XmlDocument mySourceDoc = new XmlDocument();
-            mySourceDoc.Load(myReader);
-            myReader.Close();
-
-            XmlNodeList xnl = mySourceDoc.SelectNodes("//leaf/@checksum-type");
-
-            for (int i = 0; i < xnl.Count; i++)
+            if (File.Exists(EURegionalXML) && File.Exists(IndexXML))
             {
-                if (xnl[i].Value != "md5" && xnl[i].Value != "MD5")
+                XmlTextReader myReader = new XmlTextReader(EURegionalXML);
+                XmlDocument mySourceDoc = new XmlDocument();
+                mySourceDoc.Load(myReader);
+                myReader.Close();
+
+                XmlNodeList xnl = mySourceDoc.SelectNodes("//leaf/@checksum-type");
+
+                for (int i = 0; i < xnl.Count; i++)
                 {
-                    c.Status = NodeType.Failed;
+                    if (xnl[i].Value != "md5" && xnl[i].Value != "MD5")
+                    {
+                        c.Status = NodeType.Failed;
+                    }
+                }
+
+                #endregion
+
+                #region Check the index.xml file
+                myReader = new XmlTextReader(IndexXML);
+                mySourceDoc = new XmlDocument();
+                mySourceDoc.Load(myReader);
+                myReader.Close();
+
+                xnl = mySourceDoc.SelectNodes("//leaf/@checksum-type");
+
+                for (int i = 0; i < xnl.Count; i++)
+                {
+                    if (xnl[i].Value != "md5" && xnl[i].Value != "MD5")
+                    {
+                        c.Status = NodeType.Failed;
+                    }
                 }
             }
-            #endregion
-
-            #region Check the index.xml file
-            myReader = new XmlTextReader(IndexXML);
-            mySourceDoc = new XmlDocument();
-            mySourceDoc.Load(myReader);
-            myReader.Close();
-
-            xnl = mySourceDoc.SelectNodes("//leaf/@checksum-type");
-
-            for (int i = 0; i < xnl.Count; i++)
+            else
             {
-                if (xnl[i].Value != "md5" && xnl[i].Value != "MD5")
-                {
-                    c.Status = NodeType.Failed;
-                }
+                c.Status = NodeType.Failed;
             }
             #endregion
 
@@ -3230,6 +3257,179 @@ namespace eCTD_Diagnostic
 
             return c;
         }
+
+        public eCTD_Criteria _15_1()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._15_1);
+            c.Category = eCTD_Category.Files_Folders;
+            c.ValidationCriterion = "The files provided in the folders for Module 1 are in acceptable formats.";
+            c.Comments = "XML (where a specification exists), PDF, JPEG/JPG, PNG, SVG and GIF";
+            c.TypeOfCheck = "P/F";
+            c.Status = NodeType.OK;
+
+            if (Directory.Exists(this.Path2Sequence + @"\m1"))
+            {
+                var allfiles = System.IO.Directory.GetFiles(
+                this.Path2Sequence + @"\m1",
+                 "*.*",
+                System.IO.SearchOption.AllDirectories);
+
+                foreach (string file in allfiles)
+                {
+                    if (!file.Contains("util"))
+                    {
+                        if (!file.EndsWith(".xml") && !file.EndsWith(".pdf") && !file.EndsWith(".jpeg")
+                            && !file.EndsWith(".jpg") && !file.EndsWith(".svg") && !file.EndsWith(".gif"))
+                        {
+                            if (!file.Contains("index-md5.txt"))
+                            {
+                                c.Status = NodeType.Failed;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return c;
+        }
+
+        public eCTD_Criteria _15_2()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._15_2);
+            c.Category = eCTD_Category.Files_Folders;
+            c.ValidationCriterion = "The files provided in the folders for Module 2-5 are in acceptable formats";
+            c.Comments = "Refer to ICH eCTD specification.  This is XML, PDF, JPEG/JPG, PNG, SVG and GIF.";
+            c.TypeOfCheck = "P/F";
+            c.Status = NodeType.OK;
+
+            // Modules 2-5
+            String[] modules = new string[4] { "m2","m3","m4","m5" };
+
+            for (int i = 0; i < modules.Length; i++)
+            {
+                if(Directory.Exists(this.Path2Sequence + @"\" + modules[i]))
+                {
+                    var allfiles = System.IO.Directory.GetFiles(
+                    this.Path2Sequence + @"\" + modules[i],
+                    "*.*",
+                    System.IO.SearchOption.AllDirectories);
+
+                    foreach (string file in allfiles)
+                    {
+                        if (!file.Contains("util"))
+                        {
+                            if (!file.EndsWith(".xml") && !file.EndsWith(".pdf") && !file.EndsWith(".jpeg")
+                                && !file.EndsWith(".jpg") && !file.EndsWith(".svg") && !file.EndsWith(".gif"))
+                            {
+                              c.Status = NodeType.Failed;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return c;
+        }
+
+        public eCTD_Criteria _15_3()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._15_3);
+            c.Category = eCTD_Category.Files_Folders;
+            c.ValidationCriterion = "Total file folder path length must not exceed 180 characters.";
+            c.Comments = "Counting starts from the first digit of the sequence number in the sequence number folder name, and includes the filename.";
+            c.TypeOfCheck = "P/F";
+            c.Status = NodeType.OK;
+
+
+            var allfiles = System.IO.Directory.GetFiles(
+            this.Path2Sequence + @"\m1",
+             "*.*",
+            System.IO.SearchOption.AllDirectories);
+
+            int fullpathcount = 0;
+            int path2sequencecount = this.Path2Sequence.Length;
+
+            foreach (string file in allfiles)
+            {
+                fullpathcount = file.Length;
+                int result = fullpathcount - path2sequencecount + 4; // 4 sequence character count
+
+                if(result > 180)
+                {
+                    c.Status = NodeType.Failed;
+                }
+            }
+
+            return c;
+        }
+
+
+        public eCTD_Criteria _15_4()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._15_4);
+            c.Category = eCTD_Category.Files_Folders;
+            c.ValidationCriterion = "File names, including the extension, must not exceed 64 characters";
+            c.Comments = "";
+            c.TypeOfCheck = "P/F";
+            c.Status = NodeType.OK;
+
+            var allfiles = System.IO.Directory.GetFiles(
+            this.Path2Sequence,
+             "*.*",
+            System.IO.SearchOption.AllDirectories);
+
+            int path2sequencecount = this.Path2Sequence.Length;
+            string[] stringSeparators = new string[] { @"\" };
+
+            foreach (string file in allfiles)
+            {
+                String [] strparts = file.Split(stringSeparators, StringSplitOptions.None);
+                int result = strparts[strparts.Length - 1].Length;
+
+                if (result > 64)
+                {
+                    c.Status = NodeType.Failed;
+                }
+            }
+
+            return c;
+        }
+
+        public eCTD_Criteria _15_5()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._15_5);
+            c.Category = eCTD_Category.Files_Folders;
+            c.ValidationCriterion = "Folder names must not exceed 64 characters";
+            c.Comments = "";
+            c.TypeOfCheck = "P/F";
+            c.Status = NodeType.OK;
+
+            var allfiles = System.IO.Directory.GetFiles(
+            this.Path2Sequence,
+             "*.*",
+            System.IO.SearchOption.AllDirectories);
+
+            int path2sequencecount = this.Path2Sequence.Length;
+            string[] stringSeparators = new string[] { @"\" };
+
+            foreach (string file in allfiles)
+            {
+                String[] strparts = file.Split(stringSeparators, StringSplitOptions.None);
+                int result = strparts[strparts.Length - 2].Length;
+
+                if (result > 64)
+                {
+                    c.Status = NodeType.Failed;
+                }
+            }
+
+            return c;
+        }
     }
 
     internal static class MD5Calculator
@@ -3282,7 +3482,7 @@ namespace eCTD_Diagnostic
         public static string EU_M1_stylesheet { get { return "EU M1 stylesheet"; } }
         public static string Index_XML { get { return "Index XML"; } }
         public static string Index_MD5_txt { get { return "Index MD5 txt"; } }
-        public static string EU_regional_XML { get { return "EU_regional_XML"; } }
+        public static string EU_regional_XML { get { return "EURegional XML"; } }
         public static string Submission_Structure { get { return "Submission Structure"; } }
         public static string leaf_attributes { get { return "Leaf attributes"; } }
         public static string Node_extensions { get { return "Node extensions"; } }
