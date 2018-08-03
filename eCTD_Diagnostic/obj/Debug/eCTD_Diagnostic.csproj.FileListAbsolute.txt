@@ -38,7 +38,6 @@ C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnost
 \\mac\Home\Documents\Visual Studio 2017\Projects\ectd_indexer\eCTD_Diagnostic\bin\Debug\Resources\Actions-edit-copy-icon.png
 \\mac\Home\Documents\Visual Studio 2017\Projects\ectd_indexer\eCTD_Diagnostic\bin\Debug\eCTD_Diagnostic.dll
 \\mac\Home\Documents\Visual Studio 2017\Projects\ectd_indexer\eCTD_Diagnostic\bin\Debug\eCTD_Diagnostic.pdb
-\\mac\Home\Documents\Visual Studio 2017\Projects\ectd_indexer\eCTD_Diagnostic\obj\Debug\eCTD_Diagnostic.csprojResolveAssemblyReference.cache
 \\mac\Home\Documents\Visual Studio 2017\Projects\ectd_indexer\eCTD_Diagnostic\obj\Debug\MainWindow.baml
 \\mac\Home\Documents\Visual Studio 2017\Projects\ectd_indexer\eCTD_Diagnostic\obj\Debug\MainWindow.g.cs
 \\mac\Home\Documents\Visual Studio 2017\Projects\ectd_indexer\eCTD_Diagnostic\obj\Debug\GeneratedInternalTypeHelper.g.cs
@@ -51,3 +50,4 @@ C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\eCTD_Diagnost
 \\mac\Home\Documents\Visual Studio 2017\Projects\ectd_indexer\eCTD_Diagnostic\obj\Debug\eCTD_Diagnostic.csproj.CoreCompileInputs.cache
 \\mac\Home\Documents\Visual Studio 2017\Projects\ectd_indexer\eCTD_Diagnostic\obj\Debug\eCTD_Diagnostic.dll
 \\mac\Home\Documents\Visual Studio 2017\Projects\ectd_indexer\eCTD_Diagnostic\obj\Debug\eCTD_Diagnostic.pdb
+\\Mac\Home\Documents\Visual Studio 2017\Projects\ectd_indexer\eCTD_Diagnostic\obj\Debug\eCTD_Diagnostic.csprojAssemblyReference.cache

@@ -59,7 +59,6 @@ C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\o
 \\mac\Home\Documents\Visual Studio 2017\Projects\ectd_indexer\EU-Module-1\bin\Debug\eCTD_Diagnostic.dll
 \\mac\Home\Documents\Visual Studio 2017\Projects\ectd_indexer\EU-Module-1\bin\Debug\ObjectListView.dll
 \\mac\Home\Documents\Visual Studio 2017\Projects\ectd_indexer\EU-Module-1\bin\Debug\eCTD_Diagnostic.pdb
-\\mac\Home\Documents\Visual Studio 2017\Projects\ectd_indexer\EU-Module-1\obj\Debug\eCTD-indexer.csprojResolveAssemblyReference.cache
 \\mac\Home\Documents\Visual Studio 2017\Projects\ectd_indexer\EU-Module-1\obj\Debug\eCTD_indexer.AboutBox.resources
 \\mac\Home\Documents\Visual Studio 2017\Projects\ectd_indexer\EU-Module-1\obj\Debug\eCTD_indexer.FileExplorerUserControl.resources
 \\mac\Home\Documents\Visual Studio 2017\Projects\ectd_indexer\EU-Module-1\obj\Debug\eCTD_indexer.MainWindow.resources
@@ -75,3 +74,5 @@ C:\Users\Fabian\Documents\Visual Studio 2013\Projects\ectd_indexer\EU-Module-1\o
 \\mac\Home\Documents\Visual Studio 2017\Projects\ectd_indexer\EU-Module-1\obj\Debug\EU-Module-1.application
 \\mac\Home\Documents\Visual Studio 2017\Projects\ectd_indexer\EU-Module-1\obj\Debug\EU-Module-1.exe
 \\mac\Home\Documents\Visual Studio 2017\Projects\ectd_indexer\EU-Module-1\obj\Debug\EU-Module-1.pdb
+\\Mac\Home\Documents\Visual Studio 2017\Projects\ectd_indexer\EU-Module-1\obj\Debug\eCTD-indexer.csproj.CopyComplete
+\\Mac\Home\Documents\Visual Studio 2017\Projects\ectd_indexer\EU-Module-1\obj\Debug\eCTD-indexer.csprojAssemblyReference.cache

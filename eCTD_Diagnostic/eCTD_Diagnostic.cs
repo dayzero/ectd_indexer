@@ -2838,7 +2838,6 @@ namespace eCTD_Diagnostic
             }
             return c;
         }
-        }
 
         public eCTD_Criteria _11_10()
         {
