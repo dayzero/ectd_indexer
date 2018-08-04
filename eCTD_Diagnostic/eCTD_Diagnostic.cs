@@ -237,6 +237,8 @@ namespace eCTD_Diagnostic
             cl.Add(this._15_3());
             cl.Add(this._15_4());
             cl.Add(this._15_5());
+            cl.Add(this._15_6());
+            cl.Add(this._15_7());
 
             // Sum-up the status of all sub-nodes
             cl[0].Status = this.SumUpSubItems(cl, 1, 1, 5); // Count 5
@@ -253,7 +255,7 @@ namespace eCTD_Diagnostic
             cl[60].Status = this.SumUpSubItems(cl, 12, 61, 61); // Count 1
             cl[62].Status = this.SumUpSubItems(cl, 13, 63, 65); // Count 3
             cl[66].Status = this.SumUpSubItems(cl, 14, 67, 71); // Count 5
-            cl[72].Status = this.SumUpSubItems(cl, 15, 73, 78); // Count 5
+            cl[72].Status = this.SumUpSubItems(cl, 15, 73, 80); // Count 7
 
             // Return the list of checked criteria.
             return cl;
@@ -3423,6 +3425,77 @@ namespace eCTD_Diagnostic
                 int result = strparts[strparts.Length - 2].Length;
 
                 if (result > 64)
+                {
+                    c.Status = NodeType.Failed;
+                }
+            }
+
+            return c;
+        }
+
+
+        public eCTD_Criteria _15_6()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._15_6);
+            c.Category = eCTD_Category.Files_Folders;
+            c.ValidationCriterion = "Only valid characters are used in file names";
+            c.Comments = "";
+            c.TypeOfCheck = "P/F";
+            c.Status = NodeType.OK;
+
+            var allfiles = System.IO.Directory.GetFiles(
+            this.Path2Sequence,
+             "*.*",
+            System.IO.SearchOption.AllDirectories);
+
+            int path2sequencecount = this.Path2Sequence.Length;
+            string[] stringSeparators = new string[] { @"\" };
+
+            foreach (string file in allfiles)
+            {
+                String[] strparts = file.Split(stringSeparators, StringSplitOptions.None);
+
+                Regex r = new Regex(@"^[a-z0-9-]{1,}.[a-z]{3,3}$", RegexOptions.None);
+
+                // Match the regular expression pattern against the SearchTerm;
+                // Change column name to ID if the user searches for a ID.
+                if (!r.Match(strparts[strparts.Length - 1]).Success)
+                {
+                    c.Status = NodeType.Failed;
+                }
+            }
+
+            return c;
+        }
+
+        public eCTD_Criteria _15_7()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._15_7);
+            c.Category = eCTD_Category.Files_Folders;
+            c.ValidationCriterion = "Only valid characters are used in folder names";
+            c.Comments = "";
+            c.TypeOfCheck = "P/F";
+            c.Status = NodeType.OK;
+
+            var allfiles = System.IO.Directory.GetFiles(
+            this.Path2Sequence,
+             "*.*",
+            System.IO.SearchOption.AllDirectories);
+
+            int path2sequencecount = this.Path2Sequence.Length;
+            string[] stringSeparators = new string[] { @"\" };
+
+            foreach (string file in allfiles)
+            {
+                String[] strparts = file.Split(stringSeparators, StringSplitOptions.None);
+
+                Regex r = new Regex(@"^[a-z0-9-]{1,}$", RegexOptions.None);
+
+                // Match the regular expression pattern against the SearchTerm;
+                // Change column name to ID if the user searches for a ID.
+                if (!r.Match(strparts[strparts.Length - 2]).Success)
                 {
                     c.Status = NodeType.Failed;
                 }
