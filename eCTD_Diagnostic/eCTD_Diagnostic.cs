@@ -239,6 +239,9 @@ namespace eCTD_Diagnostic
             cl.Add(this._15_5());
             cl.Add(this._15_6());
             cl.Add(this._15_7());
+            cl.Add(this._15_8());
+            cl.Add(this._15_9());
+            cl.Add(this._15_10());
 
             // Sum-up the status of all sub-nodes
             cl[0].Status = this.SumUpSubItems(cl, 1, 1, 5); // Count 5
@@ -255,7 +258,7 @@ namespace eCTD_Diagnostic
             cl[60].Status = this.SumUpSubItems(cl, 12, 61, 61); // Count 1
             cl[62].Status = this.SumUpSubItems(cl, 13, 63, 65); // Count 3
             cl[66].Status = this.SumUpSubItems(cl, 14, 67, 71); // Count 5
-            cl[72].Status = this.SumUpSubItems(cl, 15, 73, 80); // Count 7
+            cl[72].Status = this.SumUpSubItems(cl, 15, 73, 83); // Count 9
 
             // Return the list of checked criteria.
             return cl;
@@ -3498,6 +3501,85 @@ namespace eCTD_Diagnostic
                 if (!r.Match(strparts[strparts.Length - 2]).Success)
                 {
                     c.Status = NodeType.Failed;
+                }
+            }
+
+            return c;
+        }
+
+
+        public eCTD_Criteria _15_8()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._15_8);
+            c.Category = eCTD_Category.Files_Folders;
+            c.ValidationCriterion = "There are no unreferenced files in M1, M2, M3, M4 and M5 folders.";
+            c.Comments = "Warning because this criteria has not been implemented yet";
+            c.TypeOfCheck = "P/F";
+            c.Status = NodeType.Warning; // Because this criteria has not been implemented yet.
+
+           
+
+            return c;
+        }
+
+        public eCTD_Criteria _15_9()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._15_9);
+            c.Category = eCTD_Category.Files_Folders;
+            c.ValidationCriterion = "The only files in the sequence folder (/XXXX/…) are the index.xml and index-md5.txt";
+            c.Comments = "";
+            c.TypeOfCheck = "P/F";
+            c.Status = NodeType.OK;
+
+            var allfiles = System.IO.Directory.GetFiles(
+            this.Path2Sequence,
+             "*.*",
+            System.IO.SearchOption.TopDirectoryOnly);
+
+            if (allfiles.Length == 2)
+            {
+                foreach (string file in allfiles)
+                {
+                    if (file != this.Path2Sequence + @"\index.xml" &&
+                        file != this.Path2Sequence + @"\index-md5.txt")
+                    {
+                        c.Status = NodeType.Failed;
+                    }
+                }
+            } else
+            {
+                c.Status = NodeType.Failed;
+            }
+
+            return c;
+        }
+
+        public eCTD_Criteria _15_10()
+        {
+            eCTD_Criteria c = new eCTD_Criteria();
+            c.Number = new eCTD_Number(eCTD_Number._15_10);
+            c.Category = eCTD_Category.Files_Folders;
+            c.ValidationCriterion = "There are no empty folders";
+            c.Comments = "";
+            c.TypeOfCheck = "P/F";
+            c.Status = NodeType.OK;
+
+            // Have a look on each folder
+            foreach (var directory in Directory.EnumerateDirectories(this.Path2Sequence, "*.*", System.IO.SearchOption.AllDirectories))
+            {
+                // If there are no files in it, then
+                if(!Directory.EnumerateFileSystemEntries(directory).Any())
+                {
+                    // Check if the folder has to be empty. For instance, the
+                    // directory "m1", "m2" and so on has to be empty by definition
+                    // Or spoken in general: If there is an empty folder which
+                    // contains an sub-folder then the folder is not really empty.
+                    if(Directory.GetDirectories(directory).Length == 0)
+                    {
+                        c.Status = NodeType.Failed;
+                    }
                 }
             }
 
