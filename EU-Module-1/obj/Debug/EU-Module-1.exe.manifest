@@ -4,7 +4,7 @@
   <description asmv2:iconFile="Resources\Application.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="EU-Module-1" version="0.4.0.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="EU-Module-1" version="0.5.0.0" language="neutral" processorArchitecture="msil" />
     <commandLine file="EU-Module-1.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -56,13 +56,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EU-Module-1.exe" size="642048">
-      <assemblyIdentity name="EU-Module-1" version="0.4.0.0" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="EU-Module-1" version="0.5.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>J9b6bEqT3R2+FN8k5hV+NJ0qcETk9VYYh+HE65okrYw=</dsig:DigestValue>
+        <dsig:DigestValue>z/jQ/VYS++X3JCUYW/qrqMN7p00m/kC2Vq/XtEBOz90=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
