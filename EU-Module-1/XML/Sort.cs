@@ -444,7 +444,7 @@ namespace eCTD_indexer
             {
                 foreach (XmlNode paediatrics in m1paediatrics)
                 {
-                    while ((paediatrics != paediatrics.ParentNode.LastChild) && (paediatrics.NextSibling.Name != ("m1-responses") || (paediatrics.NextSibling.Name != "m1-additional-data")))
+                    while ((paediatrics != paediatrics.ParentNode.LastChild) && (paediatrics.NextSibling.Name != ("m1-responses") || (paediatrics.NextSibling.Name != "m1-responses"))) // m1-additional-data replaced by m1-responses
                     {
                         XmlNode parent = paediatrics.ParentNode;
                         XmlNode nextSibling = paediatrics.NextSibling;

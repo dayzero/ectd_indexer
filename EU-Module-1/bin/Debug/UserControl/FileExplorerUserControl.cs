@@ -462,7 +462,7 @@ namespace eCTD_indexer
         private void tsmiCreateFolder_Click(object sender, EventArgs e)
         {
             this.SaveAllExpandedNodesList();
-            UserDialog.CreateDirectory cf = new UserDialog.CreateDirectory(this.eCTDirs.getSubDirectories(FolderView.SelectedNode.Text), this.selectedpath);
+            UserDialog.CreateDirectory cf = new UserDialog.CreateDirectory(this.eCTDirs.getSubDirectories(FolderView.SelectedNode.Text, this.selectedpath), this.selectedpath);
             if(cf.ShowDialog() == DialogResult.OK)
             {
                 // Refresh the view on the folders and files.

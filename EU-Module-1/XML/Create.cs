@@ -170,6 +170,7 @@ namespace eCTD_indexer.XML
                 {
                     using (var sr = new StreamWriter(file, Encoding.UTF8))
                     {
+                        sr.AutoFlush = true;
                         //StreamWriter sr = File.CreateText(xmlOutput);
                         DateTime dt = DateTime.Now;
 
@@ -228,6 +229,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("      <m1-0-cover>");
                                 m10open = true;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("10-cover"))
                             {
                                 if (filenameListArray[p, 0].Contains("common")) envelope.country = "common";
@@ -250,17 +252,20 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("          </specific>");
                                 idcounter++;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("10-cover") == false && m10open == true)
                             {
                                 sr.WriteLine("      </m1-0-cover>");
                                 m10open = false;
                                 idcounter = 0;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("12-form") && m12open == false)
                             {
                                 sr.WriteLine("      <m1-2-form>");
                                 m12open = true;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("12-form"))
                             {
                                 if (filenameListArray[p, 0].Contains("common")) envelope.appCountry = "common";
@@ -285,22 +290,26 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("          </specific>");
                                 idcounter++;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("12-form") == false && m12open == true)
                             {
                                 sr.WriteLine("      </m1-2-form>");
                                 m12open = false;
                                 idcounter = 0;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("13-pi") && m13open == false)
                             {
                                 sr.WriteLine("      <m1-3-pi>");
                                 m13open = true;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("131-spclabelpl") && m131spcopen == false)
                             {
                                 sr.WriteLine("          <m1-3-1-spc-label-pl>");
                                 m131spcopen = true;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("131-spclabelpl"))
                             {
                                 envelope.country = filePathList[filePathList.IndexOf("131-spclabelpl") + 1];
@@ -324,17 +333,20 @@ namespace eCTD_indexer.XML
                                 idcounter++;
                                 envelope.m131identifier = "";
                             }
+                            
                             if (filenameListArray[p, 0].Contains("131-spclabelpl") == false && m131spcopen == true)
                             {
                                 sr.WriteLine("          </m1-3-1-spc-label-pl>");
                                 m131spcopen = false;
                                 idcounter = 0;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("132-mockup") && m132open == false)
                             {
                                 sr.WriteLine("          <m1-3-2-mockup>");
                                 m132open = true;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("132-mockup"))
                             {
                                 int mockupNameFinder = filenameListArray[p, 0].IndexOf("mockup-") + 7;
@@ -352,18 +364,21 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("              </specific>");
                                 idcounter++;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("132-mockup") == false && m132open == true)
                             {
                                 sr.WriteLine("          </m1-3-2-mockup>");
                                 m132open = false;
                                 idcounter = 0;
                             }
+                            
 
                             if (filenameListArray[p, 0].Contains("133-specimen") && m133open == false)
                             {
                                 sr.WriteLine("          <m1-3-3-specimen>");
                                 m133open = true;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("133-specimen"))
                             {
                                 envelope.country = filePathList[filePathList.IndexOf("133-specimen") + 1];
@@ -378,17 +393,20 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("              </specific>");
                                 idcounter++;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("133-specimen") == false && m133open == true)
                             {
                                 sr.WriteLine("          </m1-3-3-specimen>");
                                 m133open = false;
                                 idcounter = 0;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("134-consultation") && m134open == false)
                             {
                                 sr.WriteLine("          <m1-3-4-consultation>");
                                 m134open = true;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("134-consultation"))
                             {
                                 envelope.country = filePathList[filePathList.IndexOf("134-consultation") + 1];
@@ -403,17 +421,20 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("            </specific>");
                                 idcounter++;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("134-consultation") == false && m134open == true)
                             {
                                 sr.WriteLine("          </m1-3-4-consultation>");
                                 m134open = false;
                                 idcounter = 0;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("135-approved") && m135open == false)
                             {
                                 sr.WriteLine("          <m1-3-5-approved>");
                                 m135open = true;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("135-approved"))
                             {
                                 envelope.country = filePathList[filePathList.IndexOf("135-approved") + 1];
@@ -428,12 +449,14 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("              </specific>");
                                 idcounter++;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("135-approved") == false && m135open == true)
                             {
                                 sr.WriteLine("          </m1-3-5-approved>");
                                 m135open = false;
                                 idcounter = 0;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("136-braille"))
                             {
                                 sr.WriteLine("          <m1-3-6-braille>");
@@ -445,17 +468,19 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("              </leaf>");
                                 sr.WriteLine("          </m1-3-6-braille>");
                             }
+                            
                             if (filenameListArray[p, 0].Contains("13-pi") == false && m13open == true)
                             {
                                 sr.WriteLine("      </m1-3-pi>");
                                 m13open = false;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("14-expert") && m14open == false)
                             {
                                 sr.WriteLine("      <m1-4-expert>");
                                 m14open = true;
                             }
-
+                            
                             if (filenameListArray[p, 0].Contains("141-quality"))
                             {
                                 sr.WriteLine("          <m1-4-1-quality>");
@@ -467,6 +492,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("              </leaf>");
                                 sr.WriteLine("          </m1-4-1-quality>");
                             }
+                            
                             if (filenameListArray[p, 0].Contains("142-nonclinical"))
                             {
                                 sr.WriteLine("          <m1-4-2-non-clinical>");
@@ -478,6 +504,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("              </leaf>");
                                 sr.WriteLine("          </m1-4-2-non-clinical>");
                             }
+                            
                             if (filenameListArray[p, 0].Contains("143-clinical"))
                             {
                                 sr.WriteLine("          <m1-4-3-clinical>");
@@ -489,18 +516,20 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("              </leaf>");
                                 sr.WriteLine("          </m1-4-3-clinical>");
                             }
+                            
                             if (filenameListArray[p, 0].Contains("14-expert") == false && m14open == true)
                             {
                                 sr.WriteLine("      </m1-4-expert>");
                                 m14open = false;
                             }
 
-
+                            
                             if (filenameListArray[p, 0].Contains("15-specific") && m15open == false)
                             {
                                 sr.WriteLine("      <m1-5-specific>");
                                 m15open = true;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("151-bibliographic"))
                             {
                                 sr.WriteLine("          <m1-5-1-bibliographic>");
@@ -512,6 +541,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("              </leaf>");
                                 sr.WriteLine("          </m1-5-1-bibliographic>");
                             }
+                            
                             if (filenameListArray[p, 0].Contains("152-generic-hybrid-bio-similar"))
                             {
                                 sr.WriteLine("          <m1-5-2-generic-hybrid-bio-similar>");
@@ -523,6 +553,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("              </leaf>");
                                 sr.WriteLine("          </m1-5-2-generic-hybrid-bio-similar>");
                             }
+                            
                             if (filenameListArray[p, 0].Contains("153-data-market-exclusivity"))
                             {
                                 sr.WriteLine("          <m1-5-3-data-market-exclusivity>");
@@ -534,6 +565,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("              </leaf>");
                                 sr.WriteLine("          </m1-5-3-data-market-exclusivity>");
                             }
+                            
                             if (filenameListArray[p, 0].Contains("154-exceptional"))
                             {
                                 sr.WriteLine("          <m1-5-4-exceptional-circumstances>");
@@ -545,6 +577,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("              </leaf>");
                                 sr.WriteLine("          </m1-5-4-exceptional-circumstances>");
                             }
+                            
                             if (filenameListArray[p, 0].Contains("155-conditional-ma"))
                             {
                                 sr.WriteLine("          <m1-5-5-conditional-ma>");
@@ -556,18 +589,20 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("              </leaf>");
                                 sr.WriteLine("          </m1-5-5-conditional-ma>");
                             }
+                            
                             if (filenameListArray[p, 0].Contains("15-specific") == false && m15open == true)
                             {
                                 sr.WriteLine("      </m1-5-specific>");
                                 m15open = false;
                             }
 
-
+                            
                             if (filenameListArray[p, 0].Contains("16-environrisk") && m16open == false)
                             {
                                 sr.WriteLine("      <m1-6-environrisk>");
                                 m16open = true;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("161-nongmo"))
                             {
                                 sr.WriteLine("          <m1-6-1-non-gmo>");
@@ -579,6 +614,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("              </leaf>");
                                 sr.WriteLine("          </m1-6-1-non-gmo>");
                             }
+                            
                             if (filenameListArray[p, 0].Contains("162-gmo"))
                             {
                                 sr.WriteLine("          <m1-6-2-gmo>");
@@ -590,18 +626,20 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("              </leaf>");
                                 sr.WriteLine("          </m1-6-2-gmo>");
                             }
+                            
                             if (filenameListArray[p, 0].Contains("16-environrisk") == false && m16open == true)
                             {
                                 sr.WriteLine("      </m1-6-environrisk>");
                                 m16open = false;
                             }
 
-
+                            
                             if (filenameListArray[p, 0].Contains("17-orphan") && m17open == false)
                             {
                                 sr.WriteLine("      <m1-7-orphan>");
                                 m17open = true;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("171-similarity"))
                             {
                                 sr.WriteLine("          <m1-7-1-similarity>");
@@ -613,6 +651,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("              </leaf>");
                                 sr.WriteLine("          </m1-7-1-similarity>");
                             }
+                            
                             if (filenameListArray[p, 0].Contains("172-market-exclusivity"))
                             {
                                 sr.WriteLine("          <m1-7-2-market-exclusivity>");
@@ -624,22 +663,25 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("              </leaf>");
                                 sr.WriteLine("          </m1-7-2-market-exclusivity>");
                             }
+                            
                             if (filenameListArray[p, 0].Contains("17-orphan") == false && m17open == true)
                             {
                                 sr.WriteLine("      </m1-7-orphan>");
                                 m17open = false;
                             }
-
+                            
                             if (filenameListArray[p, 0].Contains("18-pharmacovigilance") && m18open == false)
                             {
                                 sr.WriteLine("      <m1-8-pharmacovigilance>");
                                 m18open = true;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("181-phvig-system") && m181open == false)
                             {
                                 sr.WriteLine("          <m1-8-1-pharmacovigilance-system>");
                                 m181open = true;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("181-phvig-system"))
                             {
                                 sr.WriteLine("              <leaf ID=\"m18-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
@@ -650,11 +692,13 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("              </leaf>");
                                 idcounter++;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("181-phvig-system") == false && m181open == true)
                             {
                                 sr.WriteLine("          </m1-8-1-pharmacovigilance-system>");
                                 m181open = false;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("182-riskmgt-system"))
                             {
                                 sr.WriteLine("          <m1-8-2-risk-management-system>");
@@ -667,12 +711,14 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("          </m1-8-2-risk-management-system>");
                                 idcounter++;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("18-pharmacovigilance") == false && m18open == true)
                             {
                                 sr.WriteLine("      </m1-8-pharmacovigilance>");
                                 m18open = false;
                                 idcounter = 0;
                             }
+                           
                             if (filenameListArray[p, 0].Contains("19-clinical-trials"))
                             {
                                 sr.WriteLine("      <m1-9-clinical-trials>");
@@ -684,6 +730,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("          </leaf>");
                                 sr.WriteLine("      </m1-9-clinical-trials>");
                             }
+                            
                             if (filenameListArray[p, 0].Contains("110-paediatrics"))
                             {
                                 sr.WriteLine("      <m1-10-paediatrics>");
@@ -695,11 +742,13 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("          </leaf>");
                                 sr.WriteLine("      </m1-10-paediatrics>");
                             }
+                            
                             if (filenameListArray[p, 0].Contains("additional-data") && m1additionalopen == false)
                             {
                                 sr.WriteLine("      <m1-additional-data>");
                                 m1additionalopen = true;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("additional-data"))
                             {
                                 envelope.country = filePathList[filePathList.IndexOf("additional-data") + 1];
@@ -714,17 +763,20 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("          </specific>");
                                 idcounter++;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("additional-data") == false && m1additionalopen == true)
                             {
                                 sr.WriteLine("      </m1-additional-data>");
                                 m1additionalopen = false;
                                 idcounter = 0;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("eu" + Path.DirectorySeparatorChar + "responses") && m1responsesopen == false)
                             {
                                 sr.WriteLine("      <m1-responses>");
                                 m1responsesopen = true;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("eu" + Path.DirectorySeparatorChar + "responses"))
                             {
                                 envelope.country = filePathList[filePathList.IndexOf("responses") + 1];
@@ -739,6 +791,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("          </specific>");
                                 idcounter++;
                             }
+                            
                             if (filenameListArray[p, 0].Contains("eu" + Path.DirectorySeparatorChar + "responses") == false && m1responsesopen == true)
                             {
                                 sr.WriteLine("      </m1-responses>");
@@ -746,6 +799,7 @@ namespace eCTD_indexer.XML
                                 idcounter = 0;
                             }
                         }
+
                         //end of XML file
                         if (m10open == true) sr.WriteLine("      </m1-0-cover>");
                         if (m12open == true) sr.WriteLine("      </m1-2-form>");
