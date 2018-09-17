@@ -283,7 +283,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("          <specific country=\"{0}\">", envelope.appCountry);
                                 sr.WriteLine("              <leaf ID=\"m12-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 sr.WriteLine("                  checksum=\"{0}\"", filenameListArray[p, 2]);
-                                sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 sr.WriteLine("                  xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 sr.WriteLine("                  <title>{0}</title>", formTitle);
                                 sr.WriteLine("              </leaf>");
@@ -325,7 +325,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("              <pi-doc type=\"{0}\" xml:lang=\"{1}\" country=\"{2}\">", envelope.m131identifier, envelope.language, envelope.country);
                                 sr.WriteLine("                  <leaf ID=\"m131-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 sr.WriteLine("                      checksum=\"{0}\"", filenameListArray[p, 2]);
-                                sr.WriteLine("                      modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){sr.WriteLine("                      modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 sr.WriteLine("                      xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 sr.WriteLine("                      <title>{0}</title>", envelope.m131identifier);
                                 sr.WriteLine("                  </leaf>");
@@ -357,7 +357,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("              <specific country=\"{0}\">", envelope.country);
                                 sr.WriteLine("                  <leaf ID=\"m132-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 sr.WriteLine("                      checksum=\"{0}\"", filenameListArray[p, 2]);
-                                sr.WriteLine("                      modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){sr.WriteLine("                      modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 sr.WriteLine("                      xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 sr.WriteLine("                      <title>Mock-up {0}</title>", mockupTitle);
                                 sr.WriteLine("                  </leaf>");
@@ -386,7 +386,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("            <specific country=\"{0}\">", envelope.country);
                                 sr.WriteLine("                  <leaf ID=\"m133-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 sr.WriteLine("                      checksum=\"{0}\"", filenameListArray[p, 2]);
-                                sr.WriteLine("                      modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){sr.WriteLine("                      modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 sr.WriteLine("                      xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 sr.WriteLine("                      <title>Specimen</title>");
                                 sr.WriteLine("                  </leaf>");
@@ -414,7 +414,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("            <specific country=\"{0}\">", envelope.country);
                                 sr.WriteLine("                <leaf ID=\"m134-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 sr.WriteLine("                    checksum=\"{0}\"", filenameListArray[p, 2]);
-                                sr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){sr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 sr.WriteLine("                    xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 sr.WriteLine("                    <title>Consultation with Target Patient Groups</title>");
                                 sr.WriteLine("                </leaf>");
@@ -442,7 +442,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("            <specific country=\"{0}\">", envelope.country);
                                 sr.WriteLine("                  <leaf ID=\"m135-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 sr.WriteLine("                      checksum=\"{0}\"", filenameListArray[p, 2]);
-                                sr.WriteLine("                      modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){sr.WriteLine("                      modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 sr.WriteLine("                      xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 sr.WriteLine("                      <title>Product Information already approved in the Member States</title>");
                                 sr.WriteLine("                  </leaf>");
@@ -462,7 +462,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("          <m1-3-6-braille>");
                                 sr.WriteLine("              <leaf ID=\"m136\" operation=\"{0}\" checksum-type=\"md5\"", filenameListArray[p, 3]);
                                 sr.WriteLine("                  checksum=\"{0}\"", filenameListArray[p, 2]);
-                                sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 sr.WriteLine("                  xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 sr.WriteLine("                  <title>Braille</title>");
                                 sr.WriteLine("              </leaf>");
@@ -486,7 +486,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("          <m1-4-1-quality>");
                                 sr.WriteLine("              <leaf ID=\"m141\" operation=\"{0}\" checksum-type=\"md5\"", filenameListArray[p, 3]);
                                 sr.WriteLine("                  checksum=\"{0}\"", filenameListArray[p, 2]);
-                                sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 sr.WriteLine("                  xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 sr.WriteLine("                  <title>Quality</title>");
                                 sr.WriteLine("              </leaf>");
@@ -498,7 +498,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("          <m1-4-2-non-clinical>");
                                 sr.WriteLine("              <leaf ID=\"m142\" operation=\"{0}\" checksum-type=\"md5\"", filenameListArray[p, 3]);
                                 sr.WriteLine("                  checksum=\"{0}\"", filenameListArray[p, 2]);
-                                sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 sr.WriteLine("                  xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 sr.WriteLine("                  <title>Non-Clinical</title>");
                                 sr.WriteLine("              </leaf>");
@@ -510,7 +510,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("          <m1-4-3-clinical>");
                                 sr.WriteLine("              <leaf ID=\"m143\" operation=\"{0}\" checksum-type=\"md5\"", filenameListArray[p, 3]);
                                 sr.WriteLine("                  checksum=\"{0}\"", filenameListArray[p, 2]);
-                                sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 sr.WriteLine("                  xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 sr.WriteLine("                  <title>Clinical</title>");
                                 sr.WriteLine("              </leaf>");
@@ -535,7 +535,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("          <m1-5-1-bibliographic>");
                                 sr.WriteLine("              <leaf ID=\"m151\" operation=\"{0}\" checksum-type=\"md5\"", filenameListArray[p, 3]);
                                 sr.WriteLine("                  checksum=\"{0}\"", filenameListArray[p, 2]);
-                                sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 sr.WriteLine("                  xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 sr.WriteLine("                  <title>Information for Bibliographical Applications</title>");
                                 sr.WriteLine("              </leaf>");
@@ -547,7 +547,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("          <m1-5-2-generic-hybrid-bio-similar>");
                                 sr.WriteLine("              <leaf ID=\"m152\" operation=\"{0}\" checksum-type=\"md5\"", filenameListArray[p, 3]);
                                 sr.WriteLine("                  checksum=\"{0}\"", filenameListArray[p, 2]);
-                                sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 sr.WriteLine("                  xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 sr.WriteLine("                  <title>Information for Generic, �Hybrid� or Bio-similar Applications</title>");
                                 sr.WriteLine("              </leaf>");
@@ -559,7 +559,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("          <m1-5-3-data-market-exclusivity>");
                                 sr.WriteLine("              <leaf ID=\"m153\" operation=\"{0}\" checksum-type=\"md5\"", filenameListArray[p, 3]);
                                 sr.WriteLine("                  checksum=\"{0}\"", filenameListArray[p, 2]);
-                                sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 sr.WriteLine("                  xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 sr.WriteLine("                  <title>(Extended) Data/Market Exclusivity</title>");
                                 sr.WriteLine("              </leaf>");
@@ -571,7 +571,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("          <m1-5-4-exceptional-circumstances>");
                                 sr.WriteLine("              <leaf ID=\"m154\" operation=\"{0}\" checksum-type=\"md5\"", filenameListArray[p, 3]);
                                 sr.WriteLine("                  checksum=\"{0}\"", filenameListArray[p, 2]);
-                                sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 sr.WriteLine("                  xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 sr.WriteLine("                  <title>Exceptional Circumstances</title>");
                                 sr.WriteLine("              </leaf>");
@@ -583,7 +583,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("          <m1-5-5-conditional-ma>");
                                 sr.WriteLine("              <leaf ID=\"m155\" operation=\"{0}\" checksum-type=\"md5\"", filenameListArray[p, 3]);
                                 sr.WriteLine("                  checksum=\"{0}\"", filenameListArray[p, 2]);
-                                sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 sr.WriteLine("                  xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 sr.WriteLine("                  <title>Conditional Marketing Authorisation</title>");
                                 sr.WriteLine("              </leaf>");
@@ -608,7 +608,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("          <m1-6-1-non-gmo>");
                                 sr.WriteLine("              <leaf ID=\"m161nongmo\" operation=\"{0}\" checksum-type=\"md5\"", filenameListArray[p, 3]);
                                 sr.WriteLine("                  checksum=\"{0}\"", filenameListArray[p, 2]);
-                                sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 sr.WriteLine("                  xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 sr.WriteLine("                  <title>Non-GMO</title>");
                                 sr.WriteLine("              </leaf>");
@@ -620,7 +620,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("          <m1-6-2-gmo>");
                                 sr.WriteLine("              <leaf ID=\"m161gmo\" operation=\"{0}\" checksum-type=\"md5\"", filenameListArray[p, 3]);
                                 sr.WriteLine("                  checksum=\"{0}\"", filenameListArray[p, 2]);
-                                sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 sr.WriteLine("                  xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 sr.WriteLine("                  <title>GMO</title>");
                                 sr.WriteLine("              </leaf>");
@@ -645,7 +645,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("          <m1-7-1-similarity>");
                                 sr.WriteLine("              <leaf ID=\"m171\" operation=\"{0}\" checksum-type=\"md5\"", filenameListArray[p, 3]);
                                 sr.WriteLine("                  checksum=\"{0}\"", filenameListArray[p, 2]);
-                                sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 sr.WriteLine("                  xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 sr.WriteLine("                  <title>Similarity</title>");
                                 sr.WriteLine("              </leaf>");
@@ -657,7 +657,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("          <m1-7-2-market-exclusivity>");
                                 sr.WriteLine("              <leaf ID=\"m172\" operation=\"{0}\" checksum-type=\"md5\"", filenameListArray[p, 3]);
                                 sr.WriteLine("                  checksum=\"{0}\"", filenameListArray[p, 2]);
-                                sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 sr.WriteLine("                  xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 sr.WriteLine("                  <title>Market Exclusivity</title>");
                                 sr.WriteLine("              </leaf>");
@@ -686,7 +686,7 @@ namespace eCTD_indexer.XML
                             {
                                 sr.WriteLine("              <leaf ID=\"m18-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 sr.WriteLine("                  checksum=\"{0}\"", filenameListArray[p, 2]);
-                                sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 sr.WriteLine("                  xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 sr.WriteLine("                  <title>Pharmacovigilance System</title>");
                                 sr.WriteLine("              </leaf>");
@@ -704,7 +704,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("          <m1-8-2-risk-management-system>");
                                 sr.WriteLine("              <leaf ID=\"m18-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 sr.WriteLine("                  checksum=\"{0}\"", filenameListArray[p, 2]);
-                                sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 sr.WriteLine("                  xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 sr.WriteLine("                  <title>Risk-management System</title>");
                                 sr.WriteLine("              </leaf>");
@@ -724,7 +724,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("      <m1-9-clinical-trials>");
                                 sr.WriteLine("          <leaf ID=\"m19\" operation=\"{0}\" checksum-type=\"md5\"", filenameListArray[p, 3]);
                                 sr.WriteLine("              checksum=\"{0}\"", filenameListArray[p, 2]);
-                                sr.WriteLine("              modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){sr.WriteLine("              modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 sr.WriteLine("              xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 sr.WriteLine("              <title>Information relating to Clinical Trials</title>");
                                 sr.WriteLine("          </leaf>");
@@ -736,7 +736,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("      <m1-10-paediatrics>");
                                 sr.WriteLine("          <leaf ID=\"m110\" operation=\"{0}\" checksum-type=\"md5\"", filenameListArray[p, 3]);
                                 sr.WriteLine("              checksum=\"{0}\"", filenameListArray[p, 2]);
-                                sr.WriteLine("              modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){sr.WriteLine("              modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 sr.WriteLine("              xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 sr.WriteLine("              <title>Information relating to Paediatrics</title>");
                                 sr.WriteLine("          </leaf>");
@@ -756,7 +756,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("          <specific country=\"{0}\">", envelope.country);
                                 sr.WriteLine("              <leaf ID=\"m1add-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 sr.WriteLine("                  checksum=\"{0}\"", filenameListArray[p, 2]);
-                                sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 sr.WriteLine("                  xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 sr.WriteLine("                  <title>Additional Data</title>");
                                 sr.WriteLine("              </leaf>");
@@ -784,7 +784,7 @@ namespace eCTD_indexer.XML
                                 sr.WriteLine("          <specific country=\"{0}\">", envelope.country);
                                 sr.WriteLine("              <leaf ID=\"m1res-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 sr.WriteLine("                  checksum=\"{0}\"", filenameListArray[p, 2]);
-                                sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 sr.WriteLine("                  xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 sr.WriteLine("                  <title>Responses to Questions</title>");
                                 sr.WriteLine("              </leaf>");
@@ -1158,7 +1158,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("    <m1-administrative-information-and-prescribing-information>");
                                 swr.WriteLine("        <leaf ID=\"m1-{0}\" operation=\"new\" checksum-type=\"md5\"", idcounter);
                                 swr.WriteLine("            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("            modified-file=\"{0}\"", filenameListArray[p, 4]); ;
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("            <title>EU Regional Module 1</title>");
                                 swr.WriteLine("        </leaf>");
@@ -1176,7 +1176,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("        <leaf ID=\"m2-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("            modified-file=\"{0}\"", filenameListArray[p, 4]); ;
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("            <title>Cover Letter</title>");
                                 swr.WriteLine("        </leaf>");
@@ -1192,7 +1192,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("            <leaf ID=\"m22-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                <title>Introduction</title>");
                                 swr.WriteLine("            </leaf>");
@@ -1217,7 +1217,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("            <leaf ID=\"m23-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                <title>Quality Overall Summary</title>");
                                 swr.WriteLine("            </leaf>");
@@ -1228,7 +1228,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("            <m2-3-a-appendices>");
                                 swr.WriteLine("                <leaf ID=\"m23a-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                    checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                    xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                    <title>Appendices</title>");
                                 swr.WriteLine("                </leaf>");
@@ -1244,7 +1244,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                <leaf ID=\"m23p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                    checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                    xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                    <title>Drug Product</title>");
                                 swr.WriteLine("                 </leaf>");
@@ -1274,7 +1274,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("            <m2-3-s-drug-substance substance=\"{0}\" manufacturer=\"{1}\">", api, manufacturer);
                                 swr.WriteLine("                <leaf ID=\"m23s-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                    checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                    xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                    <title>Drug Substance</title>");
                                 swr.WriteLine("                </leaf>");
@@ -1287,7 +1287,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("            <m2-3-introduction>");
                                 swr.WriteLine("                <leaf ID=\"m23i-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                    checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                    xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                    <title>Introduction</title>");
                                 swr.WriteLine("                </leaf>");
@@ -1299,7 +1299,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("            <m2-3-r-regional-information>");
                                 swr.WriteLine("                <leaf ID=\"m23r-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                    checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                    xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                    <title>Regional information</title>");
                                 swr.WriteLine("                </leaf>");
@@ -1320,7 +1320,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("            <leaf ID=\"m24-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                <title>2.4 Nonclinical Overview</title>");
                                 swr.WriteLine("            </leaf>");
@@ -1340,7 +1340,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("            <leaf ID=\"m25-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                <title>2.5 Clinical Overview</title>");
                                 swr.WriteLine("            </leaf>");
@@ -1367,7 +1367,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("            <leaf ID=\"m26-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                <title>2.6 Nonclinical Written and Tabulated Summaries</title>");
                                 swr.WriteLine("            </leaf>");
@@ -1378,7 +1378,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("            <m2-6-1-introduction>");
                                 swr.WriteLine("                <leaf ID=\"m26-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                    checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                    xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                    <title>2.6.1 Introduction</title>");
                                 swr.WriteLine("                </leaf>");
@@ -1390,7 +1390,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("            <m2-6-2-pharmacology-written-summary>");
                                 swr.WriteLine("                <leaf ID=\"m26-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                    checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                    xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                    <title>2.6.2 Pharmacology Written Summary</title>");
                                 swr.WriteLine("                </leaf>");
@@ -1402,7 +1402,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("            <m2-6-3-pharmacology-tabulated-summary>");
                                 swr.WriteLine("                <leaf ID=\"m26-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                    checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                    xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                    <title>2.6.3 Pharmacology Tabulated Summary</title>");
                                 swr.WriteLine("                </leaf>");
@@ -1414,7 +1414,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("            <m2-6-4-pharmacokinetics-written-summary>");
                                 swr.WriteLine("                <leaf ID=\"m26-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                    checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                    xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                    <title>2.6.4 Pharmacokinetics Written Summary</title>");
                                 swr.WriteLine("                </leaf>");
@@ -1426,7 +1426,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("            <m2-6-5-pharmacokinetics-tabulated-summary>");
                                 swr.WriteLine("                <leaf ID=\"m26-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                    checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                    xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                    <title>2.6.5 Pharmacokinetics Tabulated Summary</title>");
                                 swr.WriteLine("                </leaf>");
@@ -1438,7 +1438,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("            <m2-6-6-toxicology-written-summary>");
                                 swr.WriteLine("                <leaf ID=\"m26-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                    checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                    xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                    <title>2.6.6 Toxicology Written Summary</title>");
                                 swr.WriteLine("                </leaf>");
@@ -1450,7 +1450,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("            <m2-6-7-toxicology-tabulated-summary>");
                                 swr.WriteLine("                <leaf ID=\"m26-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                    checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                    xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                    <title>2.6.7 Toxicology Tabulated Summary</title>");
                                 swr.WriteLine("                </leaf>");
@@ -1477,7 +1477,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                <leaf ID=\"m27-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                    checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                    xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                    <title>2.7 Clinical Summary</title>");
                                 swr.WriteLine("                </leaf>");
@@ -1488,7 +1488,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("            <m2-7-1-summary-of-biopharmaceutic-studies-and-associated-analytical-methods>");
                                 swr.WriteLine("                <leaf ID=\"m27-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                    checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                    xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                    <title>2.7.1 Summary of Biopharmaceutic Studies and Associated Analytical Methods</title>");
                                 swr.WriteLine("                </leaf>");
@@ -1500,7 +1500,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("            <m2-7-2-summary-of-clinical-pharmacology-studies>");
                                 swr.WriteLine("                <leaf ID=\"m27-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                    checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                    xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                    <title>2.7.2 Summary of Clinical Pharmacology Studies</title>");
                                 swr.WriteLine("                </leaf>");
@@ -1513,7 +1513,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("            <m2-7-3-summary-of-clinical-efficacy indication=\"{0}\">", indication);
                                 swr.WriteLine("                <leaf ID=\"m27-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                    checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                    xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                    <title>2.7.3 Summary of Clinical Efficacy - {0}</title>", indication);
                                 swr.WriteLine("                </leaf>");
@@ -1526,7 +1526,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("            <m2-7-4-summary-of-clinical-safety>");
                                 swr.WriteLine("                <leaf ID=\"m27-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                    checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                    xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                    <title>2.7.4 Summary of Clinical Safety</title>");
                                 swr.WriteLine("                </leaf>");
@@ -1538,7 +1538,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("            <m2-7-5-literature-references>");
                                 swr.WriteLine("                <leaf ID=\"m27-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                    checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                    xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                    <title>2.7.5 Literature References</title>");
                                 swr.WriteLine("                </leaf>");
@@ -1550,7 +1550,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("            <m2-7-6-synopses-of-individual-studies>");
                                 swr.WriteLine("                <leaf ID=\"m27-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                    checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                    xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                    <title>2.7.6 Synopses of Individual Studies</title>");
                                 swr.WriteLine("                </leaf>");
@@ -1592,7 +1592,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                <leaf ID=\"m32a-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                    checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                    xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                    <title>3.2.A Appendices</title>");
                                 swr.WriteLine("                </leaf>");
@@ -1607,7 +1607,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                    <leaf ID=\"m32a-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                        checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                        xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                        <title>3.2.A.1 Facilities and Equipment</title>");
                                 swr.WriteLine("                    </leaf>");
@@ -1627,7 +1627,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                    <leaf ID=\"m32a-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                        checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                        xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                        <title>3.2.A.2 Adventitious Agents Safety Evaluation</title>");
                                 swr.WriteLine("                    </leaf>");
@@ -1648,7 +1648,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                    <leaf ID=\"m32a-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                        checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                        xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                        <title>3.2.A.3 Excipients</title>");
                                 swr.WriteLine("                    </leaf>");
@@ -1793,7 +1793,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                    checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                    xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                    <title>3.2.P Drug Product</title>");
                                 swr.WriteLine("                </leaf>");
@@ -1808,7 +1808,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                    <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                        checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                        xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                        <title>3.2.P.1 Description and Composition of the Drug Product</title>");
                                 swr.WriteLine("                    </leaf>");
@@ -1828,7 +1828,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                    <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                        checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                        xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                        <title>3.2.P.2 Pharmaceutical Development</title>");
                                 swr.WriteLine("                    </leaf>");
@@ -1853,7 +1853,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                    <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                        checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                        xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                        <title>3.2.P.3 Manufacture</title>");
                                 swr.WriteLine("                    </leaf>");
@@ -1864,7 +1864,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("                    <m3-2-p-3-1-manufacturers>");
                                 swr.WriteLine("                        <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.P.3.1 Manufacturer(s)</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -1876,7 +1876,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("                    <m3-2-p-3-2-batch-formula>");
                                 swr.WriteLine("                        <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.P.3.2 Batch Formula</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -1888,7 +1888,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("                    <m3-2-p-3-3-description-of-manufacturing-process-and-process-controls>");
                                 swr.WriteLine("                        <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.P.3.3 Description of Manufacturing Process and Process Controls</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -1900,7 +1900,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("                    <m3-2-p-3-4-controls-of-critical-steps-and-intermediates>");
                                 swr.WriteLine("                        <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.P.3.4 Controls of Critical Steps and Intermediates</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -1916,7 +1916,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                        <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.P.3.5 Process Validation and/or Evaluation</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -1976,7 +1976,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                    <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                        checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                        xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                        <title>3.2.P.4 Excipients</title>");
                                 swr.WriteLine("                    </leaf>");
@@ -1987,7 +1987,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("                    <m3-2-p-4-1-specifications>");
                                 swr.WriteLine("                        <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.P.4.1 Specifications</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -1999,7 +1999,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("                    <m3-2-p-4-2-analytical-procedures>");
                                 swr.WriteLine("                        <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.P.4.2 Analytical Procedures</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -2011,7 +2011,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("                    <m3-2-p-4-3-validation-of-analytical-procedures>");
                                 swr.WriteLine("                        <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.P.4.3 Validation of Analytical Procedures</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -2023,7 +2023,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("                    <m3-2-p-4-4-justification-of-specifications>");
                                 swr.WriteLine("                        <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.P.4.4 Justification of Specifications</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -2035,7 +2035,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("                    <m3-2-p-4-5-excipients-of-human-or-animal-origin>");
                                 swr.WriteLine("                        <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.P.4.5 Excipients of Human or Animal Origin</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -2047,7 +2047,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("                    <m3-2-p-4-6-novel-excipients>");
                                 swr.WriteLine("                        <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.P.4.6 Novel Excipients</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -2091,7 +2091,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                        <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.P.5.1 Specification(s)</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -2111,7 +2111,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                        <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.P.5.2 Analytical Procedures</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -2131,7 +2131,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                        <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.P.5.3 Validation of Analytical Procedures</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -2151,7 +2151,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                        <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.P.5.4 Batch Analyses</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -2171,7 +2171,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                        <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.P.5.5 Characterisation of Impurities</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -2192,7 +2192,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                        <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.P.5.6 Justification of Specifications</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -2217,7 +2217,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                    <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                        checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                        xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                        <title>3.2.P.6 Reference Standards or Materials</title>");
                                 swr.WriteLine("                    </leaf>");
@@ -2237,7 +2237,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                    <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                        checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                        xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                        <title>3.2.P.7 Container Closure System</title>");
                                 swr.WriteLine("                    </leaf>");
@@ -2260,7 +2260,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                    <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                        checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                        xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                        <title>3.2.P.8 Stability</title>");
                                 swr.WriteLine("                    </leaf>");
@@ -2275,7 +2275,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                        <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.P.8.2 Post-approval Stability Protocol and Stability Commitment</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -2295,7 +2295,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                        <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.P.8.3 Stability Data</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -2316,7 +2316,7 @@ namespace eCTD_indexer.XML
 
                                 swr.WriteLine("                        <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.P.8.1 Stability Summary and Conclusion</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -2346,7 +2346,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                <leaf ID=\"m32r-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                    checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                    xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                    <title>3.2.R Regional Information</title>");
                                 swr.WriteLine("                </leaf>");
@@ -2552,7 +2552,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                    <leaf ID=\"m3-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                        checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                        xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                        <title>3.2.S.1 General Information</title>");
                                 swr.WriteLine("                    </leaf>");
@@ -2563,7 +2563,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("                    <m3-2-s-1-1-nomenclature>");
                                 swr.WriteLine("                        <leaf ID=\"m3-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.S.1.1 Nomenclature</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -2575,7 +2575,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("                    <m3-2-s-1-2-structure>");
                                 swr.WriteLine("                        <leaf ID=\"m3-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.S.1.2 Structure</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -2587,7 +2587,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("                    <m3-2-s-1-3-general-properties>");
                                 swr.WriteLine("                        <leaf ID=\"m3-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.S.1.3 General Properties</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -2614,7 +2614,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                    <leaf ID=\"m3-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                        checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                        xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                        <title>3.2.S.2 Manufacture</title>");
                                 swr.WriteLine("                    </leaf>");
@@ -2628,7 +2628,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                        <leaf ID=\"m3-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.S.2.4 Controls of Critical Steps and Intermediates</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -2648,7 +2648,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                        <leaf ID=\"m3-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.S.2.3 Control of Materials</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -2669,7 +2669,7 @@ namespace eCTD_indexer.XML
 
                                 swr.WriteLine("                         <leaf ID=\"m3-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                             <title>3.2.S.2.1 Manufacturer(s)</title>");
                                 swr.WriteLine("                         </leaf>");
@@ -2689,7 +2689,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                        <leaf ID=\"m3-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.S.2.2 Description of Manufacturing Process and Process Controls</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -2709,7 +2709,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                        <leaf ID=\"m3-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.S.2.6 Manufacturing Process Development</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -2730,7 +2730,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                        <leaf ID=\"m3-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.S.2.5 Process Validation and/or Evaluation</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -2757,7 +2757,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                    <leaf ID=\"m3-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                        checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                        xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                        <title>3.2.S.3 Characterisation</title>");
                                 swr.WriteLine("                    </leaf>");
@@ -2768,7 +2768,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("                    <m3-2-s-3-1-elucidation-of-structure-and-other-characteristics>");
                                 swr.WriteLine("                        <leaf ID=\"m3-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.S.3.1 Elucidation of Structure and Other Characteristics</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -2780,7 +2780,7 @@ namespace eCTD_indexer.XML
                                 swr.WriteLine("                    <m3-2-s-3-2-impurities>");
                                 swr.WriteLine("                        <leaf ID=\"m3-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.S.3.2 Impurities</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -2806,7 +2806,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                    <leaf ID=\"m3-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                        checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                        xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                        <title>3.2.S.4 Control of Drug Substance</title>");
                                 swr.WriteLine("                    </leaf>");
@@ -2821,7 +2821,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                        <leaf ID=\"m3-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.S.4.1 Specifications</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -2841,7 +2841,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                        <leaf ID=\"m3-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.S.4.2 Analytical Procedures</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -2861,7 +2861,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                        <leaf ID=\"m3-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.S.4.3 Validation of Analytical Procedures</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -2881,7 +2881,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                        <leaf ID=\"m3-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.S.4.4 Batch Analyses</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -2901,7 +2901,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                        <leaf ID=\"m3-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.S.4.5 Justification of Specification</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -2926,7 +2926,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                    <leaf ID=\"m3-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                        checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                        xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                        <title>3.2.S.5 Reference Standards or Materials</title>");
                                 swr.WriteLine("                    </leaf>");
@@ -2946,7 +2946,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                    <leaf ID=\"m3-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                        checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                        xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                        <title>3.2.S.6 Container Closure System</title>");
                                 swr.WriteLine("                    </leaf>");
@@ -2969,7 +2969,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                    <leaf ID=\"m3-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                        checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                        modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                        xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                        <title>3.2.S.7 Stability</title>");
                                 swr.WriteLine("                    </leaf>");
@@ -2984,7 +2984,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                        <leaf ID=\"m3-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.S.7.2 Post-approval Stability Protocol and Stability Commitment</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -3004,7 +3004,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                        <leaf ID=\"m3-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.S.7.3 Stability Data</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -3024,7 +3024,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("                        <leaf ID=\"m3-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                            <title>3.2.S.7.1 Stability Summary and Conclusions</title>");
                                 swr.WriteLine("                        </leaf>");
@@ -3062,7 +3062,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("            <leaf ID=\"m33-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("                checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("                modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("                modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("                xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("                <title>3.3 Literature Reference - {0}</title>", idcounter.ToString());
                                 swr.WriteLine("            </leaf>");
@@ -3093,7 +3093,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4 Nonclinical Study Reports</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3111,7 +3111,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2 Study Reports</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3130,7 +3130,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.1 Pharmacology</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3145,7 +3145,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.1.1 Primary Pharmacodynamics</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3165,7 +3165,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.1.2 Secondary Pharmacodynamics</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3185,7 +3185,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.1.3 Safety Pharmacology</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3205,7 +3205,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.1.4 Pharmacodynamic Drug Interactions</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3238,7 +3238,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.2 Pharmacokinetics</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3253,7 +3253,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.2.1 Analytical Methods and Validation Reports</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3273,7 +3273,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.2.2 Absorption</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3293,7 +3293,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.2.3 Distribution</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3313,7 +3313,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.2.4 Metabolism</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3333,7 +3333,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.2.5 Excretion</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3353,7 +3353,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.2.6 Pharmacokinetic Drug Interactions</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3373,7 +3373,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.2.7 Other Pharmacokinetic Studies</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3405,7 +3405,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.3 Toxicology</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3420,7 +3420,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.3.1 Single-Dose Toxicity</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3440,7 +3440,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.3.2 Repeat-Dose Toxicity</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3462,7 +3462,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.3.3 Genotoxicity</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3477,7 +3477,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.3.3.1 In vitro</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3497,7 +3497,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.3.3.2 In vivo</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3525,7 +3525,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.3.4 Carcinogenicity</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3540,7 +3540,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.3.4.1 Long-term studies</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3560,7 +3560,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.3.4.2 Short- or medium-term studies</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3580,7 +3580,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.3.4.3 Other studies</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3609,7 +3609,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.3.5 Reproductive and Developmental Toxicity</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3624,7 +3624,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.3.5.1 Fertility and early embryonic development</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3644,7 +3644,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.3.5.2 Embryo-fetal development</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3664,7 +3664,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.3.5.3 Prenatal and postnatal development, including maternal function</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3684,7 +3684,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.3.5.4 Studies in which the offspring (juvenile animals) are dosed and/or further evaluated</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3709,7 +3709,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.3.6 Local Tolerance</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3736,7 +3736,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.3.7 Other Toxicity Studies</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3751,7 +3751,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.3.7.1 Antigenicity</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3771,7 +3771,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.3.7.2 Immunotoxicity</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3791,7 +3791,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.3.7.3 Mechanistic studies</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3811,7 +3811,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.3.7.4 Dependence</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3831,7 +3831,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.3.7.5 Metabolites</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3851,7 +3851,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.3.7.6 Impurities</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3871,7 +3871,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m4-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>4.2.3.7.7 Other</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3907,7 +3907,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("     <leaf ID=\"m43-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("         checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("         xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("         <title>4.3 Literature Reference - {0}</title>", filenameListArray[p, 0].Substring(filenameListArray[p, 0].LastIndexOf(Path.DirectorySeparatorChar) + 1, (filenameListArray[p, 0].Length - (filenameListArray[p, 0].LastIndexOf(Path.DirectorySeparatorChar) + 5))));
                                 swr.WriteLine("     </leaf>");
@@ -3939,7 +3939,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m5-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>5.2 Tabular Listing of all Clinical Studies</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3967,7 +3967,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m5-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>5.3 Clinical Study Reports</title>");
                                 swr.WriteLine("          </leaf>");
@@ -3987,7 +3987,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m5-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>5.3.1 Reports of Biopharmaceutic Studies</title>");
                                 swr.WriteLine("          </leaf>");
@@ -4002,7 +4002,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m5-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>5.3.1.1 Bioavailability (BA) Study Reports</title>");
                                 swr.WriteLine("          </leaf>");
@@ -4022,7 +4022,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m5-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>5.3.1.2 Comparative BA and Bioequivalence (BE) Study Reports</title>");
                                 swr.WriteLine("          </leaf>");
@@ -4042,7 +4042,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m5-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>5.3.1.3 In vitro - In vivo Correlation Study Reports</title>");
                                 swr.WriteLine("          </leaf>");
@@ -4062,7 +4062,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("         <leaf ID=\"m5-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("             checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("             <title>5.3.1.4 Reports of Bioanalytical and Analytical Methods for Human Studies</title>");
                                 swr.WriteLine("          </leaf>");
@@ -4090,7 +4090,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("     <leaf ID=\"m5-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("         checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("         xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("         <title>5.3.2 Reports of Studies Pertinent to Pharmacokinetics using Human Biomaterials</title>");
                                 swr.WriteLine("     </leaf>");
@@ -4105,7 +4105,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("     <leaf ID=\"m5-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("         checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("         xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("         <title>5.3.2.1 Plasma Protein Binding Study Reports</title>");
                                 swr.WriteLine("     </leaf>");
@@ -4125,7 +4125,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("     <leaf ID=\"m5-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("         checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("         xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("         <title>5.3.2.2 Reports of Hepatic Metabolism and Drug Interaction Studies</title>");
                                 swr.WriteLine("     </leaf>");
@@ -4145,7 +4145,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("     <leaf ID=\"m5-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("         checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("         xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("         <title>5.3.2.3 Reports of Studies Using Other Human Biomaterials</title>");
                                 swr.WriteLine("     </leaf>");
@@ -4175,7 +4175,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("     <leaf ID=\"m5-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("         checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("         xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("         <title>5.3.3 Reports of Human Pharmacokinetic (PK) Studies</title>");
                                 swr.WriteLine("     </leaf>");
@@ -4190,7 +4190,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("     <leaf ID=\"m5-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("         checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("         xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("         <title>5.3.3.1 Healthy Subject PK and Initial Tolerability Study Reports</title>");
                                 swr.WriteLine("     </leaf>");
@@ -4210,7 +4210,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("     <leaf ID=\"m5-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("         checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("         xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("         <title>5.3.3.2 Patient PK and Initial Tolerability Study Reports</title>");
                                 swr.WriteLine("     </leaf>");
@@ -4230,7 +4230,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("     <leaf ID=\"m5-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("         checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("         xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("         <title>5.3.3.3 Intrinsic Factor PK Study Reports</title>");
                                 swr.WriteLine("     </leaf>");
@@ -4250,7 +4250,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("     <leaf ID=\"m5-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("         checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("         xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("         <title>5.3.3.4 Extrinsic Factor PK Study Reports</title>");
                                 swr.WriteLine("     </leaf>");
@@ -4270,7 +4270,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("     <leaf ID=\"m5-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("         checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("         xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("         <title>5.3.3.5 Population PK Study Reports</title>");
                                 swr.WriteLine("     </leaf>");
@@ -4297,7 +4297,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("     <leaf ID=\"m5-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("         checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("         xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("         <title>5.3.4 Reports of Human Pharmacodynamic (PD) Studies</title>");
                                 swr.WriteLine("     </leaf>");
@@ -4312,7 +4312,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("     <leaf ID=\"m5-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("         checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("         xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("         <title>5.3.4.1 Healthy Subject PD and PK/PD Study Reports</title>");
                                 swr.WriteLine("     </leaf>");
@@ -4332,7 +4332,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("     <leaf ID=\"m5-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("         checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("         xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("         <title>5.3.4.2 Patient PD and PK/PD Study Reports</title>");
                                 swr.WriteLine("     </leaf>");
@@ -4403,7 +4403,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("     <leaf ID=\"m5-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("         checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("         xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("         <title>5.3.5 Reports of Efficacy and Safety Studies</title>");
                                 swr.WriteLine("     </leaf>");
@@ -4418,7 +4418,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("     <leaf ID=\"m5-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("         checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("         xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("         <title>5.3.5.1 Study Reports of Controlled Clinical Studies Pertinent to the Claimed Indication</title>");
                                 swr.WriteLine("     </leaf>");
@@ -4438,7 +4438,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("     <leaf ID=\"m5-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("         checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("         xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("         <title>5.3.5.2 Study Reports of Uncontrolled Clinical Studies</title>");
                                 swr.WriteLine("     </leaf>");
@@ -4458,7 +4458,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("     <leaf ID=\"m5-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("         checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("         xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("         <title>5.3.5.3 Reports of Analyses of Data from More than One Study</title>");
                                 swr.WriteLine("     </leaf>");
@@ -4478,7 +4478,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("     <leaf ID=\"m5-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("         checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("         xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("         <title>5.3.5.4 Other Study Reports</title>");
                                 swr.WriteLine("     </leaf>");
@@ -4503,7 +4503,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("     <leaf ID=\"m5-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("         checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("         xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("         <title>5.3.6 Reports of Postmarketing Experience</title>");
                                 swr.WriteLine("     </leaf>");
@@ -4524,7 +4524,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("     <leaf ID=\"m537-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("         checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("         xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("         <title>5.3.7 Case Report Forms and Individual Patient Listings - {0}</title>", idcounter.ToString());
                                 swr.WriteLine("     </leaf>");
@@ -4550,7 +4550,7 @@ namespace eCTD_indexer.XML
                             {
                                 swr.WriteLine("     <leaf ID=\"m54-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                                 swr.WriteLine("         checksum=\"{0}\"", filenameListArray[p, 2]);
-                                swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);
+                                if (filenameListArray[p, 4] != ""){swr.WriteLine("         modified-file=\"{0}\"", filenameListArray[p, 4]);}
                                 swr.WriteLine("         xlink:href=\"{0}\">", filenameListArray[p, 1]);
                                 swr.WriteLine("         <title>5.4 Literature Reference - {0}</title>", filenameListArray[p, 0].Substring(filenameListArray[p, 0].LastIndexOf(Path.DirectorySeparatorChar) + 1, (filenameListArray[p, 0].Length - (filenameListArray[p, 0].LastIndexOf(Path.DirectorySeparatorChar) + 5))));
                                 swr.WriteLine("     </leaf>");
