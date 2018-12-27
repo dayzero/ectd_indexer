@@ -16,9 +16,9 @@ namespace eCTD_indexer
             InitializeComponent();
             this.Text = String.Format("Info über {0}", AssemblyTitle);
             this.labelProductName.Text = AssemblyProduct;
-            this.labelVersion.Text = String.Format("Version {0}-20180809", AssemblyVersion);
+            this.labelVersion.Text = String.Format("Version {0}-20181227", AssemblyVersion);
             this.labelCopyright.Text = AssemblyCopyright;
-            this.labelCompanyName.Text = "Released on 2018-08";//AssemblyCompany;
+            this.labelCompanyName.Text = "Released on 2018-12";//AssemblyCompany;
             //this.textBoxDescription.Text = AssemblyDescription;
         }
 
@@ -136,7 +136,7 @@ namespace eCTD_indexer
 
             this.textBoxDescription.Text = sb.ToString();
 
-            this.labelVersion.Text += " - EU M1 v.3.0.2, eCTD v.3.2";
+            this.labelVersion.Text += " - EU M1 v.3.0.3, eCTD v.3.2.2";
         }
     }
 }
