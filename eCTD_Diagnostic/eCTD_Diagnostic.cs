@@ -1260,7 +1260,7 @@ namespace eCTD_Diagnostic
             c.ValidationCriterion = "The file is valid";
             c.Comments = "Valid with respect to the ICH eCTD DTD file included in the util/dtd folder";
             c.TypeOfCheck = "P/F";
-
+            int i = 1;
             try
             {
                 String xmlfile = this.Path2Sequence + @"\index.xml";
@@ -1273,12 +1273,14 @@ namespace eCTD_Diagnostic
                     XmlReaderSettings settings = new XmlReaderSettings();
                     settings.DtdProcessing = DtdProcessing.Parse;
                     settings.ValidationType = ValidationType.DTD;
+                    settings.ValidationEventHandler += new ValidationEventHandler(ValidationCallBack);
+                    settings.IgnoreComments = true;
 
                     // Create the XmlReader object.
                     XmlReader reader = XmlReader.Create(xmlfile, settings);
 
                     // Parse the file.  
-                    while (reader.Read()) ;
+                    while (reader.Read()) i++;
 
                     c.Status = NodeType.OK;
                 }
@@ -1295,6 +1297,11 @@ namespace eCTD_Diagnostic
                 c.ErrorReason = "The file is not well formed with respect to the rules of the XML specification.";
             }
             return c;
+        }
+        // Display any validation errors.
+        private static void ValidationCallBack(object sender, ValidationEventArgs e)
+        {
+            Console.WriteLine("Validation Error: {0}", e.Message);
         }
 
         /// <summary>
