@@ -1264,7 +1264,7 @@ namespace eCTD_Diagnostic
             try
             {
                 String xmlfile = this.Path2Sequence + @"\index.xml";
-
+                
                 // Check we actually have the file
                 if (File.Exists(xmlfile) && File.Exists(this.Path2Sequence + @"\util\dtd\ich-ectd-3-2.dtd"))
                 {
