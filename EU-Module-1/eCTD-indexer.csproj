@@ -81,6 +81,7 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="QuickCheck\071_Filenames.cs" />
     <Compile Include="UserDialog\AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>

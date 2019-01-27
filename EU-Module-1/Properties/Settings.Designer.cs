@@ -26,12 +26,12 @@ namespace eCTD_indexer.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("C:\\")]
-        public string LastDossierLocation {
+        public string LastDossierSequencesLocation {
             get {
-                return ((string)(this["LastDossierLocation"]));
+                return ((string)(this["LastDossierSequencesLocation"]));
             }
             set {
-                this["LastDossierLocation"] = value;
+                this["LastDossierSequencesLocation"] = value;
             }
         }
         
@@ -44,6 +44,18 @@ namespace eCTD_indexer.Properties {
             }
             set {
                 this["AskClose"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\")]
+        public string LastDossier {
+            get {
+                return ((string)(this["LastDossier"]));
+            }
+            set {
+                this["LastDossier"] = value;
             }
         }
     }
