@@ -47,134 +47,6 @@ namespace eCTD_indexer
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-            this.textBoxTrackNo = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBoxProcType = new System.Windows.Forms.ComboBox();
-            this.comboBoxSubmUnit = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBoxSubmType = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBoxINN = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBoxSubmDescr = new System.Windows.Forms.TextBox();
-            this.labelSubmissionUnit = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.checkBoxAT = new System.Windows.Forms.CheckBox();
-            this.checkBoxBE = new System.Windows.Forms.CheckBox();
-            this.checkBoxBG = new System.Windows.Forms.CheckBox();
-            this.checkBoxCY = new System.Windows.Forms.CheckBox();
-            this.checkBoxCZ = new System.Windows.Forms.CheckBox();
-            this.checkBoxDK = new System.Windows.Forms.CheckBox();
-            this.checkBoxEE = new System.Windows.Forms.CheckBox();
-            this.checkBoxEU = new System.Windows.Forms.CheckBox();
-            this.checkBoxED = new System.Windows.Forms.CheckBox();
-            this.checkBoxFI = new System.Windows.Forms.CheckBox();
-            this.checkBoxFR = new System.Windows.Forms.CheckBox();
-            this.checkBoxDE = new System.Windows.Forms.CheckBox();
-            this.checkBoxEL = new System.Windows.Forms.CheckBox();
-            this.checkBoxHU = new System.Windows.Forms.CheckBox();
-            this.checkBoxIS = new System.Windows.Forms.CheckBox();
-            this.checkBoxIE = new System.Windows.Forms.CheckBox();
-            this.checkBoxIT = new System.Windows.Forms.CheckBox();
-            this.checkBoxLV = new System.Windows.Forms.CheckBox();
-            this.checkBoxLI = new System.Windows.Forms.CheckBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.textBoxAT = new System.Windows.Forms.TextBox();
-            this.checkBoxUK = new System.Windows.Forms.CheckBox();
-            this.checkBoxSE = new System.Windows.Forms.CheckBox();
-            this.checkBoxES = new System.Windows.Forms.CheckBox();
-            this.checkBoxSI = new System.Windows.Forms.CheckBox();
-            this.checkBoxSK = new System.Windows.Forms.CheckBox();
-            this.checkBoxRO = new System.Windows.Forms.CheckBox();
-            this.checkBoxPT = new System.Windows.Forms.CheckBox();
-            this.checkBoxPL = new System.Windows.Forms.CheckBox();
-            this.checkBoxNO = new System.Windows.Forms.CheckBox();
-            this.checkBoxNL = new System.Windows.Forms.CheckBox();
-            this.checkBoxMT = new System.Windows.Forms.CheckBox();
-            this.checkBoxLU = new System.Windows.Forms.CheckBox();
-            this.checkBoxLT = new System.Windows.Forms.CheckBox();
-            this.textBoxBE = new System.Windows.Forms.TextBox();
-            this.textBoxBG = new System.Windows.Forms.TextBox();
-            this.textBoxCY = new System.Windows.Forms.TextBox();
-            this.textBoxCZ = new System.Windows.Forms.TextBox();
-            this.textBoxDK = new System.Windows.Forms.TextBox();
-            this.textBoxEE = new System.Windows.Forms.TextBox();
-            this.textBoxED = new System.Windows.Forms.TextBox();
-            this.textBoxEU = new System.Windows.Forms.TextBox();
-            this.textBoxFI = new System.Windows.Forms.TextBox();
-            this.textBoxFR = new System.Windows.Forms.TextBox();
-            this.textBoxDE = new System.Windows.Forms.TextBox();
-            this.textBoxEL = new System.Windows.Forms.TextBox();
-            this.textBoxHU = new System.Windows.Forms.TextBox();
-            this.textBoxIS = new System.Windows.Forms.TextBox();
-            this.textBoxIE = new System.Windows.Forms.TextBox();
-            this.textBoxIT = new System.Windows.Forms.TextBox();
-            this.textBoxLV = new System.Windows.Forms.TextBox();
-            this.textBoxLI = new System.Windows.Forms.TextBox();
-            this.textBoxUK = new System.Windows.Forms.TextBox();
-            this.textBoxSE = new System.Windows.Forms.TextBox();
-            this.textBoxES = new System.Windows.Forms.TextBox();
-            this.textBoxSI = new System.Windows.Forms.TextBox();
-            this.textBoxSK = new System.Windows.Forms.TextBox();
-            this.textBoxRO = new System.Windows.Forms.TextBox();
-            this.textBoxPT = new System.Windows.Forms.TextBox();
-            this.textBoxPL = new System.Windows.Forms.TextBox();
-            this.textBoxNO = new System.Windows.Forms.TextBox();
-            this.textBoxNL = new System.Windows.Forms.TextBox();
-            this.textBoxMT = new System.Windows.Forms.TextBox();
-            this.textBoxLU = new System.Windows.Forms.TextBox();
-            this.textBoxLT = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBoxITApp = new System.Windows.Forms.TextBox();
-            this.textBoxIEApp = new System.Windows.Forms.TextBox();
-            this.textBoxISApp = new System.Windows.Forms.TextBox();
-            this.textBoxHUApp = new System.Windows.Forms.TextBox();
-            this.textBoxELApp = new System.Windows.Forms.TextBox();
-            this.textBoxDEApp = new System.Windows.Forms.TextBox();
-            this.textBoxFRApp = new System.Windows.Forms.TextBox();
-            this.textBoxFIApp = new System.Windows.Forms.TextBox();
-            this.textBoxEDApp = new System.Windows.Forms.TextBox();
-            this.textBoxEUApp = new System.Windows.Forms.TextBox();
-            this.textBoxEEApp = new System.Windows.Forms.TextBox();
-            this.textBoxDKApp = new System.Windows.Forms.TextBox();
-            this.textBoxCZApp = new System.Windows.Forms.TextBox();
-            this.textBoxCYApp = new System.Windows.Forms.TextBox();
-            this.textBoxBGApp = new System.Windows.Forms.TextBox();
-            this.textBoxBEApp = new System.Windows.Forms.TextBox();
-            this.textBoxATApp = new System.Windows.Forms.TextBox();
-            this.textBoxUKApp = new System.Windows.Forms.TextBox();
-            this.textBoxSEApp = new System.Windows.Forms.TextBox();
-            this.textBoxESApp = new System.Windows.Forms.TextBox();
-            this.textBoxSIApp = new System.Windows.Forms.TextBox();
-            this.textBoxSKApp = new System.Windows.Forms.TextBox();
-            this.textBoxROApp = new System.Windows.Forms.TextBox();
-            this.textBoxPTApp = new System.Windows.Forms.TextBox();
-            this.textBoxPLApp = new System.Windows.Forms.TextBox();
-            this.textBoxNOApp = new System.Windows.Forms.TextBox();
-            this.textBoxNLApp = new System.Windows.Forms.TextBox();
-            this.textBoxMTApp = new System.Windows.Forms.TextBox();
-            this.textBoxLUApp = new System.Windows.Forms.TextBox();
-            this.textBoxLTApp = new System.Windows.Forms.TextBox();
-            this.textBoxLIApp = new System.Windows.Forms.TextBox();
-            this.textBoxLVApp = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBoxRelSeq = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBoxNumber = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.comboBoxMode = new System.Windows.Forms.ComboBox();
-            this.labelSequence = new System.Windows.Forms.Label();
-            this.textBoxHRApp = new System.Windows.Forms.TextBox();
-            this.textBoxHR = new System.Windows.Forms.TextBox();
-            this.checkBoxHR = new System.Windows.Forms.CheckBox();
-            this.textBoxDE2App = new System.Windows.Forms.TextBox();
-            this.textBoxDE2 = new System.Windows.Forms.TextBox();
-            this.checkBoxDE2 = new System.Windows.Forms.CheckBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.tsbCreate = new System.Windows.Forms.ToolStripButton();
@@ -182,8 +54,8 @@ namespace eCTD_indexer
             this.tsbOpenLastDossier = new System.Windows.Forms.ToolStripButton();
             this.tsbAdoptInformation = new System.Windows.Forms.ToolStripButton();
             this.tsbDeleteEmptyFolder = new System.Windows.Forms.ToolStripButton();
-            this.tsbDiagnostic = new System.Windows.Forms.ToolStripButton();
             this.tsbCreateXMLFiles = new System.Windows.Forms.ToolStripButton();
+            this.tsbDiagnostic = new System.Windows.Forms.ToolStripButton();
             this.tsbPackDossier = new System.Windows.Forms.ToolStripButton();
             this.tsbAssemble = new System.Windows.Forms.ToolStripButton();
             this.tsbRefreshFolderView = new System.Windows.Forms.ToolStripButton();
@@ -196,12 +68,20 @@ namespace eCTD_indexer
             this.newDossierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openDossierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openLastDossierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsbiCloseDossier = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsbideleteAllEmptyDirectoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmiProperties = new System.Windows.Forms.ToolStripMenuItem();
             this.checkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.completeValidationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.fileNamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createXMLFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zipDossierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pbSubmissionUnitCopy = new System.Windows.Forms.PictureBox();
@@ -215,15 +95,135 @@ namespace eCTD_indexer
             this.pbINNCopy = new System.Windows.Forms.PictureBox();
             this.pbIdentifierCopy = new System.Windows.Forms.PictureBox();
             this.tbIdentifier = new System.Windows.Forms.TextBox();
-            this.tsbiCloseDossier = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsbideleteAllEmptyDirectoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.createToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.createXMLFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.zipDossierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBoxIS = new System.Windows.Forms.TextBox();
+            this.textBoxDE2App = new System.Windows.Forms.TextBox();
+            this.textBoxIE = new System.Windows.Forms.TextBox();
+            this.textBoxTrackNo = new System.Windows.Forms.TextBox();
+            this.textBoxHU = new System.Windows.Forms.TextBox();
+            this.textBoxDE2 = new System.Windows.Forms.TextBox();
+            this.textBoxIT = new System.Windows.Forms.TextBox();
+            this.textBoxEL = new System.Windows.Forms.TextBox();
+            this.checkBoxDE2 = new System.Windows.Forms.CheckBox();
+            this.textBoxLV = new System.Windows.Forms.TextBox();
+            this.comboBoxProcType = new System.Windows.Forms.ComboBox();
+            this.textBoxDE = new System.Windows.Forms.TextBox();
+            this.textBoxHRApp = new System.Windows.Forms.TextBox();
+            this.textBoxLI = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxFR = new System.Windows.Forms.TextBox();
+            this.textBoxHR = new System.Windows.Forms.TextBox();
+            this.textBoxLT = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxFI = new System.Windows.Forms.TextBox();
+            this.checkBoxHR = new System.Windows.Forms.CheckBox();
+            this.textBoxLU = new System.Windows.Forms.TextBox();
+            this.comboBoxSubmType = new System.Windows.Forms.ComboBox();
+            this.textBoxED = new System.Windows.Forms.TextBox();
+            this.textBoxMT = new System.Windows.Forms.TextBox();
+            this.textBoxEU = new System.Windows.Forms.TextBox();
+            this.labelSequence = new System.Windows.Forms.Label();
+            this.textBoxNL = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBoxEE = new System.Windows.Forms.TextBox();
+            this.comboBoxMode = new System.Windows.Forms.ComboBox();
+            this.textBoxNO = new System.Windows.Forms.TextBox();
+            this.textBoxINN = new System.Windows.Forms.TextBox();
+            this.textBoxDK = new System.Windows.Forms.TextBox();
+            this.comboBoxSubmUnit = new System.Windows.Forms.ComboBox();
+            this.textBoxPL = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBoxCZ = new System.Windows.Forms.TextBox();
+            this.textBoxNumber = new System.Windows.Forms.TextBox();
+            this.textBoxPT = new System.Windows.Forms.TextBox();
+            this.labelSubmissionUnit = new System.Windows.Forms.Label();
+            this.textBoxCY = new System.Windows.Forms.TextBox();
+            this.textBoxRO = new System.Windows.Forms.TextBox();
+            this.textBoxSubmDescr = new System.Windows.Forms.TextBox();
+            this.textBoxBG = new System.Windows.Forms.TextBox();
+            this.textBoxSK = new System.Windows.Forms.TextBox();
+            this.textBoxBE = new System.Windows.Forms.TextBox();
+            this.textBoxSI = new System.Windows.Forms.TextBox();
+            this.checkBoxUK = new System.Windows.Forms.CheckBox();
+            this.textBoxES = new System.Windows.Forms.TextBox();
+            this.checkBoxSE = new System.Windows.Forms.CheckBox();
+            this.textBoxSE = new System.Windows.Forms.TextBox();
+            this.checkBoxES = new System.Windows.Forms.CheckBox();
+            this.textBoxRelSeq = new System.Windows.Forms.TextBox();
+            this.textBoxUK = new System.Windows.Forms.TextBox();
+            this.checkBoxSI = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.checkBoxSK = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.checkBoxRO = new System.Windows.Forms.CheckBox();
+            this.textBoxATApp = new System.Windows.Forms.TextBox();
+            this.checkBoxPT = new System.Windows.Forms.CheckBox();
+            this.textBoxBEApp = new System.Windows.Forms.TextBox();
+            this.checkBoxPL = new System.Windows.Forms.CheckBox();
+            this.textBoxUKApp = new System.Windows.Forms.TextBox();
+            this.textBoxBGApp = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.checkBoxNO = new System.Windows.Forms.CheckBox();
+            this.textBoxSEApp = new System.Windows.Forms.TextBox();
+            this.textBoxCYApp = new System.Windows.Forms.TextBox();
+            this.checkBoxAT = new System.Windows.Forms.CheckBox();
+            this.checkBoxNL = new System.Windows.Forms.CheckBox();
+            this.textBoxESApp = new System.Windows.Forms.TextBox();
+            this.textBoxCZApp = new System.Windows.Forms.TextBox();
+            this.checkBoxBE = new System.Windows.Forms.CheckBox();
+            this.checkBoxMT = new System.Windows.Forms.CheckBox();
+            this.textBoxSIApp = new System.Windows.Forms.TextBox();
+            this.textBoxDKApp = new System.Windows.Forms.TextBox();
+            this.checkBoxBG = new System.Windows.Forms.CheckBox();
+            this.checkBoxLU = new System.Windows.Forms.CheckBox();
+            this.textBoxSKApp = new System.Windows.Forms.TextBox();
+            this.textBoxEEApp = new System.Windows.Forms.TextBox();
+            this.checkBoxCY = new System.Windows.Forms.CheckBox();
+            this.checkBoxLT = new System.Windows.Forms.CheckBox();
+            this.textBoxROApp = new System.Windows.Forms.TextBox();
+            this.textBoxEUApp = new System.Windows.Forms.TextBox();
+            this.checkBoxCZ = new System.Windows.Forms.CheckBox();
+            this.textBoxAT = new System.Windows.Forms.TextBox();
+            this.textBoxPTApp = new System.Windows.Forms.TextBox();
+            this.textBoxEDApp = new System.Windows.Forms.TextBox();
+            this.checkBoxDK = new System.Windows.Forms.CheckBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.textBoxPLApp = new System.Windows.Forms.TextBox();
+            this.textBoxFIApp = new System.Windows.Forms.TextBox();
+            this.checkBoxEE = new System.Windows.Forms.CheckBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.textBoxNOApp = new System.Windows.Forms.TextBox();
+            this.textBoxFRApp = new System.Windows.Forms.TextBox();
+            this.checkBoxED = new System.Windows.Forms.CheckBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.textBoxNLApp = new System.Windows.Forms.TextBox();
+            this.textBoxDEApp = new System.Windows.Forms.TextBox();
+            this.checkBoxEU = new System.Windows.Forms.CheckBox();
+            this.checkBoxLI = new System.Windows.Forms.CheckBox();
+            this.textBoxMTApp = new System.Windows.Forms.TextBox();
+            this.textBoxELApp = new System.Windows.Forms.TextBox();
+            this.checkBoxFI = new System.Windows.Forms.CheckBox();
+            this.checkBoxLV = new System.Windows.Forms.CheckBox();
+            this.textBoxLUApp = new System.Windows.Forms.TextBox();
+            this.textBoxHUApp = new System.Windows.Forms.TextBox();
+            this.checkBoxFR = new System.Windows.Forms.CheckBox();
+            this.checkBoxIT = new System.Windows.Forms.CheckBox();
+            this.textBoxLTApp = new System.Windows.Forms.TextBox();
+            this.textBoxISApp = new System.Windows.Forms.TextBox();
+            this.checkBoxDE = new System.Windows.Forms.CheckBox();
+            this.checkBoxIE = new System.Windows.Forms.CheckBox();
+            this.textBoxLIApp = new System.Windows.Forms.TextBox();
+            this.textBoxIEApp = new System.Windows.Forms.TextBox();
+            this.checkBoxEL = new System.Windows.Forms.CheckBox();
+            this.checkBoxIS = new System.Windows.Forms.CheckBox();
+            this.textBoxLVApp = new System.Windows.Forms.TextBox();
+            this.textBoxITApp = new System.Windows.Forms.TextBox();
+            this.checkBoxHU = new System.Windows.Forms.CheckBox();
             this.fileExplorerUserControl = new eCTD_indexer.FileExplorerUserControl();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsmiProperties = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -242,1457 +242,12 @@ namespace eCTD_indexer
             ((System.ComponentModel.ISupportInitialize)(this.pbIdentifierCopy)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBoxTrackNo
-            // 
-            this.textBoxTrackNo.AcceptsReturn = true;
-            this.textBoxTrackNo.Location = new System.Drawing.Point(216, 87);
-            this.textBoxTrackNo.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxTrackNo.Name = "textBoxTrackNo";
-            this.textBoxTrackNo.Size = new System.Drawing.Size(420, 31);
-            this.textBoxTrackNo.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 92);
-            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Tracking no";
-            // 
-            // comboBoxProcType
-            // 
-            this.comboBoxProcType.FormattingEnabled = true;
-            this.comboBoxProcType.Items.AddRange(new object[] {
-            "centralised",
-            "national",
-            "mutual-recognition",
-            "decentralised"});
-            this.comboBoxProcType.Location = new System.Drawing.Point(216, 131);
-            this.comboBoxProcType.Margin = new System.Windows.Forms.Padding(6);
-            this.comboBoxProcType.Name = "comboBoxProcType";
-            this.comboBoxProcType.Size = new System.Drawing.Size(420, 33);
-            this.comboBoxProcType.TabIndex = 1;
-            // 
-            // comboBoxSubmUnit
-            // 
-            this.comboBoxSubmUnit.FormattingEnabled = true;
-            this.comboBoxSubmUnit.Items.AddRange(new object[] {
-            "initial",
-            "validation-response",
-            "response",
-            "additional-info",
-            "closing",
-            "consolidating",
-            "corrigendum",
-            "reformat"});
-            this.comboBoxSubmUnit.Location = new System.Drawing.Point(914, 281);
-            this.comboBoxSubmUnit.Margin = new System.Windows.Forms.Padding(6);
-            this.comboBoxSubmUnit.Name = "comboBoxSubmUnit";
-            this.comboBoxSubmUnit.Size = new System.Drawing.Size(420, 33);
-            this.comboBoxSubmUnit.TabIndex = 105;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(34, 137);
-            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(158, 25);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Procedure type";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(34, 187);
-            this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(170, 25);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Submission type";
-            // 
-            // comboBoxSubmType
-            // 
-            this.comboBoxSubmType.FormattingEnabled = true;
-            this.comboBoxSubmType.Items.AddRange(new object[] {
-            "maa",
-            "var-type1a",
-            "var-type1ain",
-            "var-type1b",
-            "var-type2",
-            "var-nat",
-            "extension",
-            "rup",
-            "psur",
-            "psusa",
-            "rmp",
-            "renewal",
-            "pam-sob",
-            "pam-anx",
-            "pam-mea",
-            "pam-leg",
-            "pam-sda",
-            "pam-capa",
-            "pam-p45",
-            "pam-p46",
-            "pam-paes",
-            "pam-rec",
-            "pass107n",
-            "pass107q",
-            "asmf",
-            "pmf",
-            "referral-20",
-            "referral-294",
-            "referral-29p",
-            "referral-30",
-            "referral-31",
-            "referral-35",
-            "referral-5-3",
-            "referral-107i",
-            "referral-16c1c",
-            "referral-16c4",
-            "annual-reassessment",
-            "usr",
-            "clin-data-pub-rp",
-            "clin-data-pub-fv",
-            "paed-7-8-30",
-            "paed-29",
-            "paed-45",
-            "paed-46",
-            "article-58",
-            "notification-61-3",
-            "transfer-ma",
-            "lifting-suspension",
-            "withdrawal",
-            "cep",
-            "none"});
-            this.comboBoxSubmType.Location = new System.Drawing.Point(216, 181);
-            this.comboBoxSubmType.Margin = new System.Windows.Forms.Padding(6);
-            this.comboBoxSubmType.Name = "comboBoxSubmType";
-            this.comboBoxSubmType.Size = new System.Drawing.Size(420, 33);
-            this.comboBoxSubmType.TabIndex = 2;
-            this.comboBoxSubmType.Tag = "7";
-            this.comboBoxSubmType.SelectedIndexChanged += new System.EventHandler(this.comboBoxSubmType_SelectedIndexChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(28, 48);
-            this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(274, 26);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "EU envelope information";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(734, 92);
-            this.label12.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(47, 25);
-            this.label12.TabIndex = 21;
-            this.label12.Text = "INN";
-            // 
-            // textBoxINN
-            // 
-            this.textBoxINN.Location = new System.Drawing.Point(914, 87);
-            this.textBoxINN.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxINN.Name = "textBoxINN";
-            this.textBoxINN.Size = new System.Drawing.Size(422, 31);
-            this.textBoxINN.TabIndex = 5;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(734, 237);
-            this.label13.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(138, 25);
-            this.label13.TabIndex = 23;
-            this.label13.Text = "Subm. descr.";
-            // 
-            // textBoxSubmDescr
-            // 
-            this.textBoxSubmDescr.Location = new System.Drawing.Point(914, 231);
-            this.textBoxSubmDescr.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxSubmDescr.Name = "textBoxSubmDescr";
-            this.textBoxSubmDescr.Size = new System.Drawing.Size(422, 31);
-            this.textBoxSubmDescr.TabIndex = 7;
-            // 
-            // labelSubmissionUnit
-            // 
-            this.labelSubmissionUnit.AutoSize = true;
-            this.labelSubmissionUnit.Location = new System.Drawing.Point(734, 287);
-            this.labelSubmissionUnit.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.labelSubmissionUnit.Name = "labelSubmissionUnit";
-            this.labelSubmissionUnit.Size = new System.Drawing.Size(164, 25);
-            this.labelSubmissionUnit.TabIndex = 87;
-            this.labelSubmissionUnit.Text = "Submission unit";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(34, 340);
-            this.label19.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(165, 25);
-            this.label19.TabIndex = 37;
-            this.label19.Text = "Country/Agency";
-            // 
-            // checkBoxAT
-            // 
-            this.checkBoxAT.AutoSize = true;
-            this.checkBoxAT.Location = new System.Drawing.Point(38, 373);
-            this.checkBoxAT.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxAT.Name = "checkBoxAT";
-            this.checkBoxAT.Size = new System.Drawing.Size(136, 29);
-            this.checkBoxAT.TabIndex = 9;
-            this.checkBoxAT.Tag = "AT";
-            this.checkBoxAT.Text = "AT-BASG";
-            this.checkBoxAT.UseVisualStyleBackColor = true;
-            this.checkBoxAT.CheckedChanged += new System.EventHandler(this.checkBoxAT_CheckedChanged);
-            // 
-            // checkBoxBE
-            // 
-            this.checkBoxBE.AutoSize = true;
-            this.checkBoxBE.Location = new System.Drawing.Point(38, 417);
-            this.checkBoxBE.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxBE.Name = "checkBoxBE";
-            this.checkBoxBE.Size = new System.Drawing.Size(153, 29);
-            this.checkBoxBE.TabIndex = 12;
-            this.checkBoxBE.Tag = "BE";
-            this.checkBoxBE.Text = "BE-FAMHP";
-            this.checkBoxBE.UseVisualStyleBackColor = true;
-            this.checkBoxBE.CheckedChanged += new System.EventHandler(this.checkBoxBE_CheckedChanged);
-            // 
-            // checkBoxBG
-            // 
-            this.checkBoxBG.AutoSize = true;
-            this.checkBoxBG.Location = new System.Drawing.Point(38, 462);
-            this.checkBoxBG.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxBG.Name = "checkBoxBG";
-            this.checkBoxBG.Size = new System.Drawing.Size(124, 29);
-            this.checkBoxBG.TabIndex = 15;
-            this.checkBoxBG.Tag = "BG";
-            this.checkBoxBG.Text = "BG-BDA";
-            this.checkBoxBG.UseVisualStyleBackColor = true;
-            this.checkBoxBG.CheckedChanged += new System.EventHandler(this.checkBoxBG_CheckedChanged);
-            // 
-            // checkBoxCY
-            // 
-            this.checkBoxCY.AutoSize = true;
-            this.checkBoxCY.Location = new System.Drawing.Point(38, 506);
-            this.checkBoxCY.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxCY.Name = "checkBoxCY";
-            this.checkBoxCY.Size = new System.Drawing.Size(124, 29);
-            this.checkBoxCY.TabIndex = 18;
-            this.checkBoxCY.Tag = "CY";
-            this.checkBoxCY.Text = "CY-PHS";
-            this.checkBoxCY.UseVisualStyleBackColor = true;
-            this.checkBoxCY.CheckedChanged += new System.EventHandler(this.checkBoxCY_CheckedChanged);
-            // 
-            // checkBoxCZ
-            // 
-            this.checkBoxCZ.AutoSize = true;
-            this.checkBoxCZ.Location = new System.Drawing.Point(38, 550);
-            this.checkBoxCZ.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxCZ.Name = "checkBoxCZ";
-            this.checkBoxCZ.Size = new System.Drawing.Size(134, 29);
-            this.checkBoxCZ.TabIndex = 21;
-            this.checkBoxCZ.Tag = "CZ";
-            this.checkBoxCZ.Text = "CZ-SUKL";
-            this.checkBoxCZ.UseVisualStyleBackColor = true;
-            this.checkBoxCZ.CheckedChanged += new System.EventHandler(this.checkBoxCZ_CheckedChanged);
-            // 
-            // checkBoxDK
-            // 
-            this.checkBoxDK.AutoSize = true;
-            this.checkBoxDK.Location = new System.Drawing.Point(38, 688);
-            this.checkBoxDK.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxDK.Name = "checkBoxDK";
-            this.checkBoxDK.Size = new System.Drawing.Size(141, 29);
-            this.checkBoxDK.TabIndex = 30;
-            this.checkBoxDK.Tag = "DK";
-            this.checkBoxDK.Text = "DK-DKMA";
-            this.checkBoxDK.UseVisualStyleBackColor = true;
-            this.checkBoxDK.CheckedChanged += new System.EventHandler(this.checkBoxDK_CheckedChanged);
-            // 
-            // checkBoxEE
-            // 
-            this.checkBoxEE.AutoSize = true;
-            this.checkBoxEE.Location = new System.Drawing.Point(38, 733);
-            this.checkBoxEE.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxEE.Name = "checkBoxEE";
-            this.checkBoxEE.Size = new System.Drawing.Size(125, 29);
-            this.checkBoxEE.TabIndex = 33;
-            this.checkBoxEE.Tag = "EE";
-            this.checkBoxEE.Text = "EE-SAM";
-            this.checkBoxEE.UseVisualStyleBackColor = true;
-            this.checkBoxEE.CheckedChanged += new System.EventHandler(this.checkBoxEE_CheckedChanged);
-            // 
-            // checkBoxEU
-            // 
-            this.checkBoxEU.AutoSize = true;
-            this.checkBoxEU.Location = new System.Drawing.Point(740, 1087);
-            this.checkBoxEU.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxEU.Name = "checkBoxEU";
-            this.checkBoxEU.Size = new System.Drawing.Size(126, 29);
-            this.checkBoxEU.TabIndex = 105;
-            this.checkBoxEU.Tag = "EMA";
-            this.checkBoxEU.Text = "EU-EMA";
-            this.checkBoxEU.UseVisualStyleBackColor = true;
-            this.checkBoxEU.CheckedChanged += new System.EventHandler(this.checkBoxEU_CheckedChanged);
-            // 
-            // checkBoxED
-            // 
-            this.checkBoxED.AutoSize = true;
-            this.checkBoxED.Location = new System.Drawing.Point(740, 1037);
-            this.checkBoxED.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxED.Name = "checkBoxED";
-            this.checkBoxED.Size = new System.Drawing.Size(143, 29);
-            this.checkBoxED.TabIndex = 105;
-            this.checkBoxED.Tag = "EDQM";
-            this.checkBoxED.Text = "EU-EDQM";
-            this.checkBoxED.UseVisualStyleBackColor = true;
-            this.checkBoxED.CheckedChanged += new System.EventHandler(this.checkBoxED_CheckedChanged);
-            // 
-            // checkBoxFI
-            // 
-            this.checkBoxFI.AutoSize = true;
-            this.checkBoxFI.Location = new System.Drawing.Point(38, 865);
-            this.checkBoxFI.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxFI.Name = "checkBoxFI";
-            this.checkBoxFI.Size = new System.Drawing.Size(133, 29);
-            this.checkBoxFI.TabIndex = 42;
-            this.checkBoxFI.Tag = "FI";
-            this.checkBoxFI.Text = "FI-FIMEA";
-            this.checkBoxFI.UseVisualStyleBackColor = true;
-            this.checkBoxFI.CheckedChanged += new System.EventHandler(this.checkBoxFI_CheckedChanged);
-            // 
-            // checkBoxFR
-            // 
-            this.checkBoxFR.AutoSize = true;
-            this.checkBoxFR.Location = new System.Drawing.Point(38, 910);
-            this.checkBoxFR.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxFR.Name = "checkBoxFR";
-            this.checkBoxFR.Size = new System.Drawing.Size(140, 29);
-            this.checkBoxFR.TabIndex = 45;
-            this.checkBoxFR.Tag = "FR";
-            this.checkBoxFR.Text = "FR-ANSM";
-            this.checkBoxFR.UseVisualStyleBackColor = true;
-            this.checkBoxFR.CheckedChanged += new System.EventHandler(this.checkBoxFR_CheckedChanged);
-            // 
-            // checkBoxDE
-            // 
-            this.checkBoxDE.AutoSize = true;
-            this.checkBoxDE.Location = new System.Drawing.Point(38, 594);
-            this.checkBoxDE.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxDE.Name = "checkBoxDE";
-            this.checkBoxDE.Size = new System.Drawing.Size(154, 29);
-            this.checkBoxDE.TabIndex = 24;
-            this.checkBoxDE.Tag = "DE";
-            this.checkBoxDE.Text = "DE-BFARM";
-            this.checkBoxDE.UseVisualStyleBackColor = true;
-            this.checkBoxDE.CheckedChanged += new System.EventHandler(this.checkBoxDE_CheckedChanged);
-            // 
-            // checkBoxEL
-            // 
-            this.checkBoxEL.AutoSize = true;
-            this.checkBoxEL.Location = new System.Drawing.Point(38, 777);
-            this.checkBoxEL.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxEL.Name = "checkBoxEL";
-            this.checkBoxEL.Size = new System.Drawing.Size(120, 29);
-            this.checkBoxEL.TabIndex = 36;
-            this.checkBoxEL.Tag = "EL";
-            this.checkBoxEL.Text = "EL-EOF";
-            this.checkBoxEL.UseVisualStyleBackColor = true;
-            this.checkBoxEL.CheckedChanged += new System.EventHandler(this.checkBoxEL_CheckedChanged);
-            // 
-            // checkBoxHU
-            // 
-            this.checkBoxHU.AutoSize = true;
-            this.checkBoxHU.Location = new System.Drawing.Point(40, 998);
-            this.checkBoxHU.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxHU.Name = "checkBoxHU";
-            this.checkBoxHU.Size = new System.Drawing.Size(133, 29);
-            this.checkBoxHU.TabIndex = 51;
-            this.checkBoxHU.Tag = "HU";
-            this.checkBoxHU.Text = "HU-OGYI";
-            this.checkBoxHU.UseVisualStyleBackColor = true;
-            this.checkBoxHU.CheckedChanged += new System.EventHandler(this.checkBoxHU_CheckedChanged);
-            // 
-            // checkBoxIS
-            // 
-            this.checkBoxIS.AutoSize = true;
-            this.checkBoxIS.Location = new System.Drawing.Point(40, 1087);
-            this.checkBoxIS.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxIS.Name = "checkBoxIS";
-            this.checkBoxIS.Size = new System.Drawing.Size(122, 29);
-            this.checkBoxIS.TabIndex = 57;
-            this.checkBoxIS.Tag = "IS";
-            this.checkBoxIS.Text = "IS-IMCA";
-            this.checkBoxIS.UseVisualStyleBackColor = true;
-            this.checkBoxIS.CheckedChanged += new System.EventHandler(this.checkBoxIS_CheckedChanged);
-            // 
-            // checkBoxIE
-            // 
-            this.checkBoxIE.AutoSize = true;
-            this.checkBoxIE.Location = new System.Drawing.Point(40, 1042);
-            this.checkBoxIE.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxIE.Name = "checkBoxIE";
-            this.checkBoxIE.Size = new System.Drawing.Size(128, 29);
-            this.checkBoxIE.TabIndex = 54;
-            this.checkBoxIE.Tag = "IE";
-            this.checkBoxIE.Text = "IE-HPRA";
-            this.checkBoxIE.UseVisualStyleBackColor = true;
-            this.checkBoxIE.CheckedChanged += new System.EventHandler(this.checkBoxIE_CheckedChanged);
-            // 
-            // checkBoxIT
-            // 
-            this.checkBoxIT.AutoSize = true;
-            this.checkBoxIT.Location = new System.Drawing.Point(740, 373);
-            this.checkBoxIT.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxIT.Name = "checkBoxIT";
-            this.checkBoxIT.Size = new System.Drawing.Size(115, 29);
-            this.checkBoxIT.TabIndex = 60;
-            this.checkBoxIT.Tag = "IT";
-            this.checkBoxIT.Text = "IT-AIFA";
-            this.checkBoxIT.UseVisualStyleBackColor = true;
-            this.checkBoxIT.CheckedChanged += new System.EventHandler(this.checkBoxIT_CheckedChanged);
-            // 
-            // checkBoxLV
-            // 
-            this.checkBoxLV.AutoSize = true;
-            this.checkBoxLV.Location = new System.Drawing.Point(740, 550);
-            this.checkBoxLV.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxLV.Name = "checkBoxLV";
-            this.checkBoxLV.Size = new System.Drawing.Size(118, 29);
-            this.checkBoxLV.TabIndex = 72;
-            this.checkBoxLV.Tag = "LV";
-            this.checkBoxLV.Text = "LV-ZVA";
-            this.checkBoxLV.UseVisualStyleBackColor = true;
-            this.checkBoxLV.CheckedChanged += new System.EventHandler(this.checkBoxLV_CheckedChanged);
-            // 
-            // checkBoxLI
-            // 
-            this.checkBoxLI.AutoSize = true;
-            this.checkBoxLI.Location = new System.Drawing.Point(740, 417);
-            this.checkBoxLI.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxLI.Name = "checkBoxLI";
-            this.checkBoxLI.Size = new System.Drawing.Size(106, 29);
-            this.checkBoxLI.TabIndex = 63;
-            this.checkBoxLI.Tag = "LI";
-            this.checkBoxLI.Text = "LI-LLV";
-            this.checkBoxLI.UseVisualStyleBackColor = true;
-            this.checkBoxLI.CheckedChanged += new System.EventHandler(this.checkBoxLI_CheckedChanged);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(222, 340);
-            this.label20.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(153, 25);
-            this.label20.TabIndex = 0;
-            this.label20.Text = "Invented name";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(922, 340);
-            this.label21.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(153, 25);
-            this.label21.TabIndex = 58;
-            this.label21.Text = "Invented name";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(734, 340);
-            this.label22.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(165, 25);
-            this.label22.TabIndex = 57;
-            this.label22.Text = "Country/Agency";
-            // 
-            // textBoxAT
-            // 
-            this.textBoxAT.Enabled = false;
-            this.textBoxAT.Location = new System.Drawing.Point(230, 375);
-            this.textBoxAT.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxAT.Name = "textBoxAT";
-            this.textBoxAT.Size = new System.Drawing.Size(196, 31);
-            this.textBoxAT.TabIndex = 10;
-            this.textBoxAT.Tag = "AT";
-            // 
-            // checkBoxUK
-            // 
-            this.checkBoxUK.AutoSize = true;
-            this.checkBoxUK.Location = new System.Drawing.Point(740, 992);
-            this.checkBoxUK.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxUK.Name = "checkBoxUK";
-            this.checkBoxUK.Size = new System.Drawing.Size(142, 29);
-            this.checkBoxUK.TabIndex = 102;
-            this.checkBoxUK.Tag = "UK";
-            this.checkBoxUK.Text = "UK-MHRA";
-            this.checkBoxUK.UseVisualStyleBackColor = true;
-            this.checkBoxUK.CheckedChanged += new System.EventHandler(this.checkBoxUK_CheckedChanged);
-            // 
-            // checkBoxSE
-            // 
-            this.checkBoxSE.AutoSize = true;
-            this.checkBoxSE.Location = new System.Drawing.Point(740, 860);
-            this.checkBoxSE.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxSE.Name = "checkBoxSE";
-            this.checkBoxSE.Size = new System.Drawing.Size(125, 29);
-            this.checkBoxSE.TabIndex = 93;
-            this.checkBoxSE.Tag = "SE";
-            this.checkBoxSE.Text = "SE-MPA";
-            this.checkBoxSE.UseVisualStyleBackColor = true;
-            this.checkBoxSE.CheckedChanged += new System.EventHandler(this.checkBoxSE_CheckedChanged);
-            // 
-            // checkBoxES
-            // 
-            this.checkBoxES.AutoSize = true;
-            this.checkBoxES.Location = new System.Drawing.Point(38, 821);
-            this.checkBoxES.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxES.Name = "checkBoxES";
-            this.checkBoxES.Size = new System.Drawing.Size(153, 29);
-            this.checkBoxES.TabIndex = 39;
-            this.checkBoxES.Tag = "ES";
-            this.checkBoxES.Text = "ES-AEMPS";
-            this.checkBoxES.UseVisualStyleBackColor = true;
-            this.checkBoxES.CheckedChanged += new System.EventHandler(this.checkBoxES_CheckedChanged);
-            // 
-            // checkBoxSI
-            // 
-            this.checkBoxSI.AutoSize = true;
-            this.checkBoxSI.Location = new System.Drawing.Point(740, 904);
-            this.checkBoxSI.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxSI.Name = "checkBoxSI";
-            this.checkBoxSI.Size = new System.Drawing.Size(140, 29);
-            this.checkBoxSI.TabIndex = 96;
-            this.checkBoxSI.Tag = "SI";
-            this.checkBoxSI.Text = "SI-JAZMP";
-            this.checkBoxSI.UseVisualStyleBackColor = true;
-            this.checkBoxSI.CheckedChanged += new System.EventHandler(this.checkBoxSI_CheckedChanged);
-            // 
-            // checkBoxSK
-            // 
-            this.checkBoxSK.AutoSize = true;
-            this.checkBoxSK.Location = new System.Drawing.Point(740, 948);
-            this.checkBoxSK.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxSK.Name = "checkBoxSK";
-            this.checkBoxSK.Size = new System.Drawing.Size(128, 29);
-            this.checkBoxSK.TabIndex = 99;
-            this.checkBoxSK.Tag = "SK";
-            this.checkBoxSK.Text = "SK-SIDC";
-            this.checkBoxSK.UseVisualStyleBackColor = true;
-            this.checkBoxSK.CheckedChanged += new System.EventHandler(this.checkBoxSK_CheckedChanged);
-            // 
-            // checkBoxRO
-            // 
-            this.checkBoxRO.AutoSize = true;
-            this.checkBoxRO.Location = new System.Drawing.Point(740, 815);
-            this.checkBoxRO.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxRO.Name = "checkBoxRO";
-            this.checkBoxRO.Size = new System.Drawing.Size(162, 29);
-            this.checkBoxRO.TabIndex = 90;
-            this.checkBoxRO.Tag = "RO";
-            this.checkBoxRO.Text = "RO-ANMMD";
-            this.checkBoxRO.UseVisualStyleBackColor = true;
-            this.checkBoxRO.CheckedChanged += new System.EventHandler(this.checkBoxRO_CheckedChanged);
-            // 
-            // checkBoxPT
-            // 
-            this.checkBoxPT.AutoSize = true;
-            this.checkBoxPT.Location = new System.Drawing.Point(740, 771);
-            this.checkBoxPT.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxPT.Name = "checkBoxPT";
-            this.checkBoxPT.Size = new System.Drawing.Size(187, 29);
-            this.checkBoxPT.TabIndex = 87;
-            this.checkBoxPT.Tag = "PT";
-            this.checkBoxPT.Text = "PT-INFARMED";
-            this.checkBoxPT.UseVisualStyleBackColor = true;
-            this.checkBoxPT.CheckedChanged += new System.EventHandler(this.checkBoxPT_CheckedChanged);
-            // 
-            // checkBoxPL
-            // 
-            this.checkBoxPL.AutoSize = true;
-            this.checkBoxPL.Location = new System.Drawing.Point(740, 727);
-            this.checkBoxPL.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxPL.Name = "checkBoxPL";
-            this.checkBoxPL.Size = new System.Drawing.Size(133, 29);
-            this.checkBoxPL.TabIndex = 84;
-            this.checkBoxPL.Tag = "PL";
-            this.checkBoxPL.Text = "PL-URPL";
-            this.checkBoxPL.UseVisualStyleBackColor = true;
-            this.checkBoxPL.CheckedChanged += new System.EventHandler(this.checkBoxPL_CheckedChanged);
-            // 
-            // checkBoxNO
-            // 
-            this.checkBoxNO.AutoSize = true;
-            this.checkBoxNO.Location = new System.Drawing.Point(740, 683);
-            this.checkBoxNO.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxNO.Name = "checkBoxNO";
-            this.checkBoxNO.Size = new System.Drawing.Size(145, 29);
-            this.checkBoxNO.TabIndex = 81;
-            this.checkBoxNO.Tag = "NO";
-            this.checkBoxNO.Text = "NO-NOMA";
-            this.checkBoxNO.UseVisualStyleBackColor = true;
-            this.checkBoxNO.CheckedChanged += new System.EventHandler(this.checkBoxNO_CheckedChanged);
-            // 
-            // checkBoxNL
-            // 
-            this.checkBoxNL.AutoSize = true;
-            this.checkBoxNL.Location = new System.Drawing.Point(740, 638);
-            this.checkBoxNL.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxNL.Name = "checkBoxNL";
-            this.checkBoxNL.Size = new System.Drawing.Size(124, 29);
-            this.checkBoxNL.TabIndex = 78;
-            this.checkBoxNL.Tag = "NL";
-            this.checkBoxNL.Text = "NL-MEB";
-            this.checkBoxNL.UseVisualStyleBackColor = true;
-            this.checkBoxNL.CheckedChanged += new System.EventHandler(this.checkBoxNL_CheckedChanged);
-            // 
-            // checkBoxMT
-            // 
-            this.checkBoxMT.AutoSize = true;
-            this.checkBoxMT.Location = new System.Drawing.Point(740, 594);
-            this.checkBoxMT.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxMT.Name = "checkBoxMT";
-            this.checkBoxMT.Size = new System.Drawing.Size(186, 29);
-            this.checkBoxMT.TabIndex = 75;
-            this.checkBoxMT.Tag = "MT";
-            this.checkBoxMT.Text = "MT-MEDAUTH";
-            this.checkBoxMT.UseVisualStyleBackColor = true;
-            this.checkBoxMT.CheckedChanged += new System.EventHandler(this.checkBoxMT_CheckedChanged);
-            // 
-            // checkBoxLU
-            // 
-            this.checkBoxLU.AutoSize = true;
-            this.checkBoxLU.Location = new System.Drawing.Point(740, 506);
-            this.checkBoxLU.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxLU.Name = "checkBoxLU";
-            this.checkBoxLU.Size = new System.Drawing.Size(172, 29);
-            this.checkBoxLU.TabIndex = 69;
-            this.checkBoxLU.Tag = "LU";
-            this.checkBoxLU.Text = "LU-MINSANT";
-            this.checkBoxLU.UseVisualStyleBackColor = true;
-            this.checkBoxLU.CheckedChanged += new System.EventHandler(this.checkBoxLU_CheckedChanged);
-            // 
-            // checkBoxLT
-            // 
-            this.checkBoxLT.AutoSize = true;
-            this.checkBoxLT.Location = new System.Drawing.Point(740, 462);
-            this.checkBoxLT.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxLT.Name = "checkBoxLT";
-            this.checkBoxLT.Size = new System.Drawing.Size(137, 29);
-            this.checkBoxLT.TabIndex = 66;
-            this.checkBoxLT.Tag = "LT";
-            this.checkBoxLT.Text = "LT-SMCA";
-            this.checkBoxLT.UseVisualStyleBackColor = true;
-            this.checkBoxLT.CheckedChanged += new System.EventHandler(this.checkBoxLT_CheckedChanged);
-            // 
-            // textBoxBE
-            // 
-            this.textBoxBE.Enabled = false;
-            this.textBoxBE.Location = new System.Drawing.Point(230, 417);
-            this.textBoxBE.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxBE.Name = "textBoxBE";
-            this.textBoxBE.Size = new System.Drawing.Size(196, 31);
-            this.textBoxBE.TabIndex = 13;
-            this.textBoxBE.Tag = "BE";
-            // 
-            // textBoxBG
-            // 
-            this.textBoxBG.Enabled = false;
-            this.textBoxBG.Location = new System.Drawing.Point(230, 462);
-            this.textBoxBG.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxBG.Name = "textBoxBG";
-            this.textBoxBG.Size = new System.Drawing.Size(196, 31);
-            this.textBoxBG.TabIndex = 16;
-            this.textBoxBG.Tag = "BG";
-            // 
-            // textBoxCY
-            // 
-            this.textBoxCY.Enabled = false;
-            this.textBoxCY.Location = new System.Drawing.Point(230, 506);
-            this.textBoxCY.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxCY.Name = "textBoxCY";
-            this.textBoxCY.Size = new System.Drawing.Size(196, 31);
-            this.textBoxCY.TabIndex = 19;
-            this.textBoxCY.Tag = "CY";
-            // 
-            // textBoxCZ
-            // 
-            this.textBoxCZ.Enabled = false;
-            this.textBoxCZ.Location = new System.Drawing.Point(230, 550);
-            this.textBoxCZ.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxCZ.Name = "textBoxCZ";
-            this.textBoxCZ.Size = new System.Drawing.Size(196, 31);
-            this.textBoxCZ.TabIndex = 22;
-            this.textBoxCZ.Tag = "CZ";
-            // 
-            // textBoxDK
-            // 
-            this.textBoxDK.Enabled = false;
-            this.textBoxDK.Location = new System.Drawing.Point(230, 688);
-            this.textBoxDK.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxDK.Name = "textBoxDK";
-            this.textBoxDK.Size = new System.Drawing.Size(196, 31);
-            this.textBoxDK.TabIndex = 31;
-            this.textBoxDK.Tag = "DK";
-            // 
-            // textBoxEE
-            // 
-            this.textBoxEE.Enabled = false;
-            this.textBoxEE.Location = new System.Drawing.Point(230, 733);
-            this.textBoxEE.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxEE.Name = "textBoxEE";
-            this.textBoxEE.Size = new System.Drawing.Size(196, 31);
-            this.textBoxEE.TabIndex = 34;
-            this.textBoxEE.Tag = "EE";
-            // 
-            // textBoxED
-            // 
-            this.textBoxED.Enabled = false;
-            this.textBoxED.Location = new System.Drawing.Point(928, 1037);
-            this.textBoxED.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxED.Name = "textBoxED";
-            this.textBoxED.Size = new System.Drawing.Size(196, 31);
-            this.textBoxED.TabIndex = 106;
-            this.textBoxED.Tag = "EDQM";
-            // 
-            // textBoxEU
-            // 
-            this.textBoxEU.Enabled = false;
-            this.textBoxEU.Location = new System.Drawing.Point(928, 1081);
-            this.textBoxEU.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxEU.Name = "textBoxEU";
-            this.textBoxEU.Size = new System.Drawing.Size(196, 31);
-            this.textBoxEU.TabIndex = 106;
-            this.textBoxEU.Tag = "EMA";
-            // 
-            // textBoxFI
-            // 
-            this.textBoxFI.Enabled = false;
-            this.textBoxFI.Location = new System.Drawing.Point(230, 865);
-            this.textBoxFI.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxFI.Name = "textBoxFI";
-            this.textBoxFI.Size = new System.Drawing.Size(196, 31);
-            this.textBoxFI.TabIndex = 43;
-            this.textBoxFI.Tag = "FI";
-            // 
-            // textBoxFR
-            // 
-            this.textBoxFR.Enabled = false;
-            this.textBoxFR.Location = new System.Drawing.Point(230, 910);
-            this.textBoxFR.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxFR.Name = "textBoxFR";
-            this.textBoxFR.Size = new System.Drawing.Size(196, 31);
-            this.textBoxFR.TabIndex = 46;
-            this.textBoxFR.Tag = "FR";
-            // 
-            // textBoxDE
-            // 
-            this.textBoxDE.Enabled = false;
-            this.textBoxDE.Location = new System.Drawing.Point(230, 594);
-            this.textBoxDE.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxDE.Name = "textBoxDE";
-            this.textBoxDE.Size = new System.Drawing.Size(196, 31);
-            this.textBoxDE.TabIndex = 25;
-            this.textBoxDE.Tag = "DE";
-            // 
-            // textBoxEL
-            // 
-            this.textBoxEL.Enabled = false;
-            this.textBoxEL.Location = new System.Drawing.Point(230, 777);
-            this.textBoxEL.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxEL.Name = "textBoxEL";
-            this.textBoxEL.Size = new System.Drawing.Size(196, 31);
-            this.textBoxEL.TabIndex = 37;
-            this.textBoxEL.Tag = "EL";
-            // 
-            // textBoxHU
-            // 
-            this.textBoxHU.Enabled = false;
-            this.textBoxHU.Location = new System.Drawing.Point(232, 998);
-            this.textBoxHU.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxHU.Name = "textBoxHU";
-            this.textBoxHU.Size = new System.Drawing.Size(196, 31);
-            this.textBoxHU.TabIndex = 52;
-            this.textBoxHU.Tag = "HU";
-            // 
-            // textBoxIS
-            // 
-            this.textBoxIS.Enabled = false;
-            this.textBoxIS.Location = new System.Drawing.Point(232, 1087);
-            this.textBoxIS.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxIS.Name = "textBoxIS";
-            this.textBoxIS.Size = new System.Drawing.Size(196, 31);
-            this.textBoxIS.TabIndex = 58;
-            this.textBoxIS.Tag = "IS";
-            // 
-            // textBoxIE
-            // 
-            this.textBoxIE.Enabled = false;
-            this.textBoxIE.Location = new System.Drawing.Point(232, 1042);
-            this.textBoxIE.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxIE.Name = "textBoxIE";
-            this.textBoxIE.Size = new System.Drawing.Size(196, 31);
-            this.textBoxIE.TabIndex = 55;
-            this.textBoxIE.Tag = "IE";
-            // 
-            // textBoxIT
-            // 
-            this.textBoxIT.Enabled = false;
-            this.textBoxIT.Location = new System.Drawing.Point(928, 373);
-            this.textBoxIT.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxIT.Name = "textBoxIT";
-            this.textBoxIT.Size = new System.Drawing.Size(196, 31);
-            this.textBoxIT.TabIndex = 61;
-            this.textBoxIT.Tag = "IT";
-            // 
-            // textBoxLV
-            // 
-            this.textBoxLV.Enabled = false;
-            this.textBoxLV.Location = new System.Drawing.Point(928, 550);
-            this.textBoxLV.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxLV.Name = "textBoxLV";
-            this.textBoxLV.Size = new System.Drawing.Size(196, 31);
-            this.textBoxLV.TabIndex = 73;
-            this.textBoxLV.Tag = "LV";
-            // 
-            // textBoxLI
-            // 
-            this.textBoxLI.Enabled = false;
-            this.textBoxLI.Location = new System.Drawing.Point(928, 417);
-            this.textBoxLI.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxLI.Name = "textBoxLI";
-            this.textBoxLI.Size = new System.Drawing.Size(196, 31);
-            this.textBoxLI.TabIndex = 64;
-            this.textBoxLI.Tag = "LI";
-            // 
-            // textBoxUK
-            // 
-            this.textBoxUK.Enabled = false;
-            this.textBoxUK.Location = new System.Drawing.Point(928, 992);
-            this.textBoxUK.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxUK.Name = "textBoxUK";
-            this.textBoxUK.Size = new System.Drawing.Size(196, 31);
-            this.textBoxUK.TabIndex = 103;
-            this.textBoxUK.Tag = "UK";
-            // 
-            // textBoxSE
-            // 
-            this.textBoxSE.Enabled = false;
-            this.textBoxSE.Location = new System.Drawing.Point(928, 860);
-            this.textBoxSE.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxSE.Name = "textBoxSE";
-            this.textBoxSE.Size = new System.Drawing.Size(196, 31);
-            this.textBoxSE.TabIndex = 94;
-            this.textBoxSE.Tag = "SE";
-            // 
-            // textBoxES
-            // 
-            this.textBoxES.Enabled = false;
-            this.textBoxES.Location = new System.Drawing.Point(230, 821);
-            this.textBoxES.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxES.Name = "textBoxES";
-            this.textBoxES.Size = new System.Drawing.Size(196, 31);
-            this.textBoxES.TabIndex = 40;
-            this.textBoxES.Tag = "ES";
-            // 
-            // textBoxSI
-            // 
-            this.textBoxSI.Enabled = false;
-            this.textBoxSI.Location = new System.Drawing.Point(928, 904);
-            this.textBoxSI.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxSI.Name = "textBoxSI";
-            this.textBoxSI.Size = new System.Drawing.Size(196, 31);
-            this.textBoxSI.TabIndex = 97;
-            this.textBoxSI.Tag = "SI";
-            // 
-            // textBoxSK
-            // 
-            this.textBoxSK.Enabled = false;
-            this.textBoxSK.Location = new System.Drawing.Point(928, 948);
-            this.textBoxSK.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxSK.Name = "textBoxSK";
-            this.textBoxSK.Size = new System.Drawing.Size(196, 31);
-            this.textBoxSK.TabIndex = 100;
-            this.textBoxSK.Tag = "SK";
-            // 
-            // textBoxRO
-            // 
-            this.textBoxRO.Enabled = false;
-            this.textBoxRO.Location = new System.Drawing.Point(928, 815);
-            this.textBoxRO.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxRO.Name = "textBoxRO";
-            this.textBoxRO.Size = new System.Drawing.Size(196, 31);
-            this.textBoxRO.TabIndex = 91;
-            this.textBoxRO.Tag = "RO";
-            // 
-            // textBoxPT
-            // 
-            this.textBoxPT.Enabled = false;
-            this.textBoxPT.Location = new System.Drawing.Point(928, 771);
-            this.textBoxPT.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxPT.Name = "textBoxPT";
-            this.textBoxPT.Size = new System.Drawing.Size(196, 31);
-            this.textBoxPT.TabIndex = 88;
-            this.textBoxPT.Tag = "PT";
-            // 
-            // textBoxPL
-            // 
-            this.textBoxPL.Enabled = false;
-            this.textBoxPL.Location = new System.Drawing.Point(928, 727);
-            this.textBoxPL.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxPL.Name = "textBoxPL";
-            this.textBoxPL.Size = new System.Drawing.Size(196, 31);
-            this.textBoxPL.TabIndex = 85;
-            this.textBoxPL.Tag = "PL";
-            // 
-            // textBoxNO
-            // 
-            this.textBoxNO.Enabled = false;
-            this.textBoxNO.Location = new System.Drawing.Point(928, 683);
-            this.textBoxNO.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxNO.Name = "textBoxNO";
-            this.textBoxNO.Size = new System.Drawing.Size(196, 31);
-            this.textBoxNO.TabIndex = 82;
-            this.textBoxNO.Tag = "NO";
-            // 
-            // textBoxNL
-            // 
-            this.textBoxNL.Enabled = false;
-            this.textBoxNL.Location = new System.Drawing.Point(928, 638);
-            this.textBoxNL.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxNL.Name = "textBoxNL";
-            this.textBoxNL.Size = new System.Drawing.Size(196, 31);
-            this.textBoxNL.TabIndex = 79;
-            this.textBoxNL.Tag = "NL";
-            // 
-            // textBoxMT
-            // 
-            this.textBoxMT.Enabled = false;
-            this.textBoxMT.Location = new System.Drawing.Point(928, 594);
-            this.textBoxMT.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxMT.Name = "textBoxMT";
-            this.textBoxMT.Size = new System.Drawing.Size(196, 31);
-            this.textBoxMT.TabIndex = 76;
-            this.textBoxMT.Tag = "MT";
-            // 
-            // textBoxLU
-            // 
-            this.textBoxLU.Enabled = false;
-            this.textBoxLU.Location = new System.Drawing.Point(928, 506);
-            this.textBoxLU.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxLU.Name = "textBoxLU";
-            this.textBoxLU.Size = new System.Drawing.Size(196, 31);
-            this.textBoxLU.TabIndex = 70;
-            this.textBoxLU.Tag = "LU";
-            // 
-            // textBoxLT
-            // 
-            this.textBoxLT.Enabled = false;
-            this.textBoxLT.Location = new System.Drawing.Point(928, 462);
-            this.textBoxLT.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxLT.Name = "textBoxLT";
-            this.textBoxLT.Size = new System.Drawing.Size(196, 31);
-            this.textBoxLT.TabIndex = 67;
-            this.textBoxLT.Tag = "LT";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(434, 340);
-            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 25);
-            this.label3.TabIndex = 81;
-            this.label3.Text = "Applicant";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1134, 340);
-            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 25);
-            this.label4.TabIndex = 82;
-            this.label4.Text = "Applicant";
-            // 
-            // textBoxITApp
-            // 
-            this.textBoxITApp.Enabled = false;
-            this.textBoxITApp.Location = new System.Drawing.Point(1140, 371);
-            this.textBoxITApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxITApp.Name = "textBoxITApp";
-            this.textBoxITApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxITApp.TabIndex = 62;
-            this.textBoxITApp.Tag = "IT";
-            // 
-            // textBoxIEApp
-            // 
-            this.textBoxIEApp.Enabled = false;
-            this.textBoxIEApp.Location = new System.Drawing.Point(444, 1042);
-            this.textBoxIEApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxIEApp.Name = "textBoxIEApp";
-            this.textBoxIEApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxIEApp.TabIndex = 56;
-            this.textBoxIEApp.Tag = "IE";
-            // 
-            // textBoxISApp
-            // 
-            this.textBoxISApp.Enabled = false;
-            this.textBoxISApp.Location = new System.Drawing.Point(444, 1087);
-            this.textBoxISApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxISApp.Name = "textBoxISApp";
-            this.textBoxISApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxISApp.TabIndex = 59;
-            this.textBoxISApp.Tag = "IS";
-            // 
-            // textBoxHUApp
-            // 
-            this.textBoxHUApp.Enabled = false;
-            this.textBoxHUApp.Location = new System.Drawing.Point(444, 998);
-            this.textBoxHUApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxHUApp.Name = "textBoxHUApp";
-            this.textBoxHUApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxHUApp.TabIndex = 53;
-            this.textBoxHUApp.Tag = "HU";
-            // 
-            // textBoxELApp
-            // 
-            this.textBoxELApp.Enabled = false;
-            this.textBoxELApp.Location = new System.Drawing.Point(442, 777);
-            this.textBoxELApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxELApp.Name = "textBoxELApp";
-            this.textBoxELApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxELApp.TabIndex = 38;
-            this.textBoxELApp.Tag = "EL";
-            // 
-            // textBoxDEApp
-            // 
-            this.textBoxDEApp.Enabled = false;
-            this.textBoxDEApp.Location = new System.Drawing.Point(442, 594);
-            this.textBoxDEApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxDEApp.Name = "textBoxDEApp";
-            this.textBoxDEApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxDEApp.TabIndex = 26;
-            this.textBoxDEApp.Tag = "DE";
-            // 
-            // textBoxFRApp
-            // 
-            this.textBoxFRApp.Enabled = false;
-            this.textBoxFRApp.Location = new System.Drawing.Point(442, 910);
-            this.textBoxFRApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxFRApp.Name = "textBoxFRApp";
-            this.textBoxFRApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxFRApp.TabIndex = 47;
-            this.textBoxFRApp.Tag = "FR";
-            // 
-            // textBoxFIApp
-            // 
-            this.textBoxFIApp.Enabled = false;
-            this.textBoxFIApp.Location = new System.Drawing.Point(442, 865);
-            this.textBoxFIApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxFIApp.Name = "textBoxFIApp";
-            this.textBoxFIApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxFIApp.TabIndex = 44;
-            this.textBoxFIApp.Tag = "FI";
-            // 
-            // textBoxEDApp
-            // 
-            this.textBoxEDApp.Enabled = false;
-            this.textBoxEDApp.Location = new System.Drawing.Point(1140, 1037);
-            this.textBoxEDApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxEDApp.Name = "textBoxEDApp";
-            this.textBoxEDApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxEDApp.TabIndex = 107;
-            this.textBoxEDApp.Tag = "EDQM";
-            // 
-            // textBoxEUApp
-            // 
-            this.textBoxEUApp.Enabled = false;
-            this.textBoxEUApp.Location = new System.Drawing.Point(1140, 1081);
-            this.textBoxEUApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxEUApp.Name = "textBoxEUApp";
-            this.textBoxEUApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxEUApp.TabIndex = 107;
-            this.textBoxEUApp.Tag = "EMA";
-            // 
-            // textBoxEEApp
-            // 
-            this.textBoxEEApp.Enabled = false;
-            this.textBoxEEApp.Location = new System.Drawing.Point(442, 733);
-            this.textBoxEEApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxEEApp.Name = "textBoxEEApp";
-            this.textBoxEEApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxEEApp.TabIndex = 35;
-            this.textBoxEEApp.Tag = "EE";
-            // 
-            // textBoxDKApp
-            // 
-            this.textBoxDKApp.Enabled = false;
-            this.textBoxDKApp.Location = new System.Drawing.Point(442, 688);
-            this.textBoxDKApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxDKApp.Name = "textBoxDKApp";
-            this.textBoxDKApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxDKApp.TabIndex = 32;
-            this.textBoxDKApp.Tag = "DK";
-            // 
-            // textBoxCZApp
-            // 
-            this.textBoxCZApp.Enabled = false;
-            this.textBoxCZApp.Location = new System.Drawing.Point(442, 550);
-            this.textBoxCZApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxCZApp.Name = "textBoxCZApp";
-            this.textBoxCZApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxCZApp.TabIndex = 23;
-            this.textBoxCZApp.Tag = "CZ";
-            // 
-            // textBoxCYApp
-            // 
-            this.textBoxCYApp.Enabled = false;
-            this.textBoxCYApp.Location = new System.Drawing.Point(442, 506);
-            this.textBoxCYApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxCYApp.Name = "textBoxCYApp";
-            this.textBoxCYApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxCYApp.TabIndex = 20;
-            this.textBoxCYApp.Tag = "CY";
-            // 
-            // textBoxBGApp
-            // 
-            this.textBoxBGApp.Enabled = false;
-            this.textBoxBGApp.Location = new System.Drawing.Point(442, 462);
-            this.textBoxBGApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxBGApp.Name = "textBoxBGApp";
-            this.textBoxBGApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxBGApp.TabIndex = 17;
-            this.textBoxBGApp.Tag = "BG";
-            // 
-            // textBoxBEApp
-            // 
-            this.textBoxBEApp.Enabled = false;
-            this.textBoxBEApp.Location = new System.Drawing.Point(442, 417);
-            this.textBoxBEApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxBEApp.Name = "textBoxBEApp";
-            this.textBoxBEApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxBEApp.TabIndex = 14;
-            this.textBoxBEApp.Tag = "BE";
-            // 
-            // textBoxATApp
-            // 
-            this.textBoxATApp.Enabled = false;
-            this.textBoxATApp.Location = new System.Drawing.Point(442, 373);
-            this.textBoxATApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxATApp.Name = "textBoxATApp";
-            this.textBoxATApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxATApp.TabIndex = 11;
-            this.textBoxATApp.Tag = "AT";
-            // 
-            // textBoxUKApp
-            // 
-            this.textBoxUKApp.Enabled = false;
-            this.textBoxUKApp.Location = new System.Drawing.Point(1140, 992);
-            this.textBoxUKApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxUKApp.Name = "textBoxUKApp";
-            this.textBoxUKApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxUKApp.TabIndex = 104;
-            this.textBoxUKApp.Tag = "UK";
-            // 
-            // textBoxSEApp
-            // 
-            this.textBoxSEApp.Enabled = false;
-            this.textBoxSEApp.Location = new System.Drawing.Point(1140, 860);
-            this.textBoxSEApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxSEApp.Name = "textBoxSEApp";
-            this.textBoxSEApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxSEApp.TabIndex = 95;
-            this.textBoxSEApp.Tag = "SE";
-            // 
-            // textBoxESApp
-            // 
-            this.textBoxESApp.Enabled = false;
-            this.textBoxESApp.Location = new System.Drawing.Point(442, 821);
-            this.textBoxESApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxESApp.Name = "textBoxESApp";
-            this.textBoxESApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxESApp.TabIndex = 41;
-            this.textBoxESApp.Tag = "ES";
-            // 
-            // textBoxSIApp
-            // 
-            this.textBoxSIApp.Enabled = false;
-            this.textBoxSIApp.Location = new System.Drawing.Point(1140, 904);
-            this.textBoxSIApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxSIApp.Name = "textBoxSIApp";
-            this.textBoxSIApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxSIApp.TabIndex = 98;
-            this.textBoxSIApp.Tag = "SI";
-            // 
-            // textBoxSKApp
-            // 
-            this.textBoxSKApp.Enabled = false;
-            this.textBoxSKApp.Location = new System.Drawing.Point(1140, 948);
-            this.textBoxSKApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxSKApp.Name = "textBoxSKApp";
-            this.textBoxSKApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxSKApp.TabIndex = 101;
-            this.textBoxSKApp.Tag = "SK";
-            // 
-            // textBoxROApp
-            // 
-            this.textBoxROApp.Enabled = false;
-            this.textBoxROApp.Location = new System.Drawing.Point(1140, 815);
-            this.textBoxROApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxROApp.Name = "textBoxROApp";
-            this.textBoxROApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxROApp.TabIndex = 92;
-            this.textBoxROApp.Tag = "RO";
-            // 
-            // textBoxPTApp
-            // 
-            this.textBoxPTApp.Enabled = false;
-            this.textBoxPTApp.Location = new System.Drawing.Point(1140, 771);
-            this.textBoxPTApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxPTApp.Name = "textBoxPTApp";
-            this.textBoxPTApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxPTApp.TabIndex = 89;
-            this.textBoxPTApp.Tag = "PT";
-            // 
-            // textBoxPLApp
-            // 
-            this.textBoxPLApp.Enabled = false;
-            this.textBoxPLApp.Location = new System.Drawing.Point(1140, 727);
-            this.textBoxPLApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxPLApp.Name = "textBoxPLApp";
-            this.textBoxPLApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxPLApp.TabIndex = 86;
-            this.textBoxPLApp.Tag = "PL";
-            // 
-            // textBoxNOApp
-            // 
-            this.textBoxNOApp.Enabled = false;
-            this.textBoxNOApp.Location = new System.Drawing.Point(1140, 683);
-            this.textBoxNOApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxNOApp.Name = "textBoxNOApp";
-            this.textBoxNOApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxNOApp.TabIndex = 83;
-            this.textBoxNOApp.Tag = "NO";
-            // 
-            // textBoxNLApp
-            // 
-            this.textBoxNLApp.Enabled = false;
-            this.textBoxNLApp.Location = new System.Drawing.Point(1140, 638);
-            this.textBoxNLApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxNLApp.Name = "textBoxNLApp";
-            this.textBoxNLApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxNLApp.TabIndex = 80;
-            this.textBoxNLApp.Tag = "NL";
-            // 
-            // textBoxMTApp
-            // 
-            this.textBoxMTApp.Enabled = false;
-            this.textBoxMTApp.Location = new System.Drawing.Point(1140, 594);
-            this.textBoxMTApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxMTApp.Name = "textBoxMTApp";
-            this.textBoxMTApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxMTApp.TabIndex = 77;
-            this.textBoxMTApp.Tag = "MT";
-            // 
-            // textBoxLUApp
-            // 
-            this.textBoxLUApp.Enabled = false;
-            this.textBoxLUApp.Location = new System.Drawing.Point(1140, 506);
-            this.textBoxLUApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxLUApp.Name = "textBoxLUApp";
-            this.textBoxLUApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxLUApp.TabIndex = 71;
-            this.textBoxLUApp.Tag = "LU";
-            // 
-            // textBoxLTApp
-            // 
-            this.textBoxLTApp.Enabled = false;
-            this.textBoxLTApp.Location = new System.Drawing.Point(1140, 462);
-            this.textBoxLTApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxLTApp.Name = "textBoxLTApp";
-            this.textBoxLTApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxLTApp.TabIndex = 68;
-            this.textBoxLTApp.Tag = "LT";
-            // 
-            // textBoxLIApp
-            // 
-            this.textBoxLIApp.Enabled = false;
-            this.textBoxLIApp.Location = new System.Drawing.Point(1140, 417);
-            this.textBoxLIApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxLIApp.Name = "textBoxLIApp";
-            this.textBoxLIApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxLIApp.TabIndex = 65;
-            this.textBoxLIApp.Tag = "LI";
-            // 
-            // textBoxLVApp
-            // 
-            this.textBoxLVApp.Enabled = false;
-            this.textBoxLVApp.Location = new System.Drawing.Point(1140, 550);
-            this.textBoxLVApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxLVApp.Name = "textBoxLVApp";
-            this.textBoxLVApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxLVApp.TabIndex = 74;
-            this.textBoxLVApp.Tag = "LV";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(734, 187);
-            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(153, 25);
-            this.label2.TabIndex = 87;
-            this.label2.Text = "Rel. Sequence";
-            // 
-            // textBoxRelSeq
-            // 
-            this.textBoxRelSeq.Location = new System.Drawing.Point(914, 181);
-            this.textBoxRelSeq.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxRelSeq.Name = "textBoxRelSeq";
-            this.textBoxRelSeq.Size = new System.Drawing.Size(422, 31);
-            this.textBoxRelSeq.TabIndex = 6;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(38, 235);
-            this.label10.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(66, 25);
-            this.label10.TabIndex = 115;
-            this.label10.Text = "Mode";
-            // 
-            // textBoxNumber
-            // 
-            this.textBoxNumber.Enabled = false;
-            this.textBoxNumber.Location = new System.Drawing.Point(216, 273);
-            this.textBoxNumber.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxNumber.Name = "textBoxNumber";
-            this.textBoxNumber.Size = new System.Drawing.Size(420, 31);
-            this.textBoxNumber.TabIndex = 4;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(38, 279);
-            this.label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(87, 25);
-            this.label8.TabIndex = 117;
-            this.label8.Text = "Number";
-            // 
-            // comboBoxMode
-            // 
-            this.comboBoxMode.Enabled = false;
-            this.comboBoxMode.FormattingEnabled = true;
-            this.comboBoxMode.Items.AddRange(new object[] {
-            "single",
-            "grouping",
-            "worksharing "});
-            this.comboBoxMode.Location = new System.Drawing.Point(216, 229);
-            this.comboBoxMode.Margin = new System.Windows.Forms.Padding(6);
-            this.comboBoxMode.Name = "comboBoxMode";
-            this.comboBoxMode.Size = new System.Drawing.Size(420, 33);
-            this.comboBoxMode.TabIndex = 3;
-            // 
-            // labelSequence
-            // 
-            this.labelSequence.AutoSize = true;
-            this.labelSequence.Location = new System.Drawing.Point(734, 137);
-            this.labelSequence.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.labelSequence.Name = "labelSequence";
-            this.labelSequence.Size = new System.Drawing.Size(94, 25);
-            this.labelSequence.TabIndex = 120;
-            this.labelSequence.Text = "Identifier";
-            // 
-            // textBoxHRApp
-            // 
-            this.textBoxHRApp.Enabled = false;
-            this.textBoxHRApp.Location = new System.Drawing.Point(442, 954);
-            this.textBoxHRApp.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxHRApp.Name = "textBoxHRApp";
-            this.textBoxHRApp.Size = new System.Drawing.Size(196, 31);
-            this.textBoxHRApp.TabIndex = 50;
-            this.textBoxHRApp.Tag = "HR";
-            // 
-            // textBoxHR
-            // 
-            this.textBoxHR.Enabled = false;
-            this.textBoxHR.Location = new System.Drawing.Point(230, 954);
-            this.textBoxHR.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxHR.Name = "textBoxHR";
-            this.textBoxHR.Size = new System.Drawing.Size(196, 31);
-            this.textBoxHR.TabIndex = 49;
-            this.textBoxHR.Tag = "HR";
-            // 
-            // checkBoxHR
-            // 
-            this.checkBoxHR.AutoSize = true;
-            this.checkBoxHR.Location = new System.Drawing.Point(38, 954);
-            this.checkBoxHR.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxHR.Name = "checkBoxHR";
-            this.checkBoxHR.Size = new System.Drawing.Size(169, 29);
-            this.checkBoxHR.TabIndex = 48;
-            this.checkBoxHR.Tag = "HR";
-            this.checkBoxHR.Text = "HR-HALMED";
-            this.checkBoxHR.UseVisualStyleBackColor = true;
-            this.checkBoxHR.CheckedChanged += new System.EventHandler(this.checkBoxHR_CheckedChanged);
-            // 
-            // textBoxDE2App
-            // 
-            this.textBoxDE2App.Enabled = false;
-            this.textBoxDE2App.Location = new System.Drawing.Point(442, 638);
-            this.textBoxDE2App.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxDE2App.Name = "textBoxDE2App";
-            this.textBoxDE2App.Size = new System.Drawing.Size(196, 31);
-            this.textBoxDE2App.TabIndex = 29;
-            this.textBoxDE2App.Tag = "DE2";
-            // 
-            // textBoxDE2
-            // 
-            this.textBoxDE2.Enabled = false;
-            this.textBoxDE2.Location = new System.Drawing.Point(230, 638);
-            this.textBoxDE2.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxDE2.Name = "textBoxDE2";
-            this.textBoxDE2.Size = new System.Drawing.Size(196, 31);
-            this.textBoxDE2.TabIndex = 28;
-            this.textBoxDE2.Tag = "DE2";
-            // 
-            // checkBoxDE2
-            // 
-            this.checkBoxDE2.AutoSize = true;
-            this.checkBoxDE2.Location = new System.Drawing.Point(38, 638);
-            this.checkBoxDE2.Margin = new System.Windows.Forms.Padding(6);
-            this.checkBoxDE2.Name = "checkBoxDE2";
-            this.checkBoxDE2.Size = new System.Drawing.Size(113, 29);
-            this.checkBoxDE2.TabIndex = 27;
-            this.checkBoxDE2.Tag = "DE2";
-            this.checkBoxDE2.Text = "DE-PEI";
-            this.checkBoxDE2.UseVisualStyleBackColor = true;
-            this.checkBoxDE2.CheckedChanged += new System.EventHandler(this.checkBoxDE2_CheckedChanged);
-            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
             this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(6);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -1842,9 +397,8 @@ namespace eCTD_indexer
             this.splitContainer1.Panel2.Controls.Add(this.textBoxLVApp);
             this.splitContainer1.Panel2.Controls.Add(this.textBoxITApp);
             this.splitContainer1.Panel2.Controls.Add(this.checkBoxHU);
-            this.splitContainer1.Size = new System.Drawing.Size(2292, 1587);
-            this.splitContainer1.SplitterDistance = 1553;
-            this.splitContainer1.SplitterWidth = 8;
+            this.splitContainer1.Size = new System.Drawing.Size(962, 614);
+            this.splitContainer1.SplitterDistance = 181;
             this.splitContainer1.TabIndex = 122;
             // 
             // toolStrip
@@ -1856,8 +410,8 @@ namespace eCTD_indexer
             this.tsbOpenLastDossier,
             this.tsbAdoptInformation,
             this.tsbDeleteEmptyFolder,
-            this.tsbDiagnostic,
             this.tsbCreateXMLFiles,
+            this.tsbDiagnostic,
             this.tsbPackDossier,
             this.tsbAssemble,
             this.tsbRefreshFolderView,
@@ -1865,11 +419,10 @@ namespace eCTD_indexer
             this.tsbOptions,
             this.tsbCloseApp,
             this.tsbAbout});
-            this.toolStrip.Location = new System.Drawing.Point(0, 42);
+            this.toolStrip.Location = new System.Drawing.Point(0, 24);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
             this.toolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip.Size = new System.Drawing.Size(1553, 39);
+            this.toolStrip.Size = new System.Drawing.Size(181, 39);
             this.toolStrip.Stretch = true;
             this.toolStrip.TabIndex = 122;
             this.toolStrip.Text = "toolStrip";
@@ -1924,16 +477,6 @@ namespace eCTD_indexer
             this.tsbDeleteEmptyFolder.Text = "Delete all empty directories";
             this.tsbDeleteEmptyFolder.Click += new System.EventHandler(this.tsbDeleteEmptyFolder_Click);
             // 
-            // tsbDiagnostic
-            // 
-            this.tsbDiagnostic.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbDiagnostic.Image = global::eCTD_indexer.Properties.Resources.Apps_system_diagnosis_icon;
-            this.tsbDiagnostic.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbDiagnostic.Name = "tsbDiagnostic";
-            this.tsbDiagnostic.Size = new System.Drawing.Size(36, 36);
-            this.tsbDiagnostic.Text = "Dossier Diagnostic";
-            this.tsbDiagnostic.Click += new System.EventHandler(this.tsbDiagnostic_Click);
-            // 
             // tsbCreateXMLFiles
             // 
             this.tsbCreateXMLFiles.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -1943,6 +486,16 @@ namespace eCTD_indexer
             this.tsbCreateXMLFiles.Size = new System.Drawing.Size(36, 36);
             this.tsbCreateXMLFiles.Text = "Create XML files";
             this.tsbCreateXMLFiles.Click += new System.EventHandler(this.tsbCreateXMLFiles_Click);
+            // 
+            // tsbDiagnostic
+            // 
+            this.tsbDiagnostic.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbDiagnostic.Image = global::eCTD_indexer.Properties.Resources.Apps_system_diagnosis_icon;
+            this.tsbDiagnostic.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbDiagnostic.Name = "tsbDiagnostic";
+            this.tsbDiagnostic.Size = new System.Drawing.Size(36, 36);
+            this.tsbDiagnostic.Text = "Dossier Diagnostic";
+            this.tsbDiagnostic.Click += new System.EventHandler(this.tsbDiagnostic_Click);
             // 
             // tsbPackDossier
             // 
@@ -2025,7 +578,8 @@ namespace eCTD_indexer
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1553, 42);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(3, 1, 0, 1);
+            this.menuStrip1.Size = new System.Drawing.Size(181, 24);
             this.menuStrip1.TabIndex = 124;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -2038,34 +592,41 @@ namespace eCTD_indexer
             this.tsbiCloseDossier,
             this.closeToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 36);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 22);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newDossierToolStripMenuItem
             // 
             this.newDossierToolStripMenuItem.Name = "newDossierToolStripMenuItem";
-            this.newDossierToolStripMenuItem.Size = new System.Drawing.Size(306, 38);
+            this.newDossierToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.newDossierToolStripMenuItem.Text = "New Dossier";
             this.newDossierToolStripMenuItem.Click += new System.EventHandler(this.newDossierToolStripMenuItem_Click);
             // 
             // openDossierToolStripMenuItem
             // 
             this.openDossierToolStripMenuItem.Name = "openDossierToolStripMenuItem";
-            this.openDossierToolStripMenuItem.Size = new System.Drawing.Size(306, 38);
+            this.openDossierToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.openDossierToolStripMenuItem.Text = "Open Dossier";
             this.openDossierToolStripMenuItem.Click += new System.EventHandler(this.openDossierToolStripMenuItem_Click);
             // 
             // openLastDossierToolStripMenuItem
             // 
             this.openLastDossierToolStripMenuItem.Name = "openLastDossierToolStripMenuItem";
-            this.openLastDossierToolStripMenuItem.Size = new System.Drawing.Size(306, 38);
+            this.openLastDossierToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.openLastDossierToolStripMenuItem.Text = "Open Last Dossier";
             this.openLastDossierToolStripMenuItem.Click += new System.EventHandler(this.openLastDossierToolStripMenuItem_Click);
+            // 
+            // tsbiCloseDossier
+            // 
+            this.tsbiCloseDossier.Name = "tsbiCloseDossier";
+            this.tsbiCloseDossier.Size = new System.Drawing.Size(168, 22);
+            this.tsbiCloseDossier.Text = "Close Dossier";
+            this.tsbiCloseDossier.Click += new System.EventHandler(this.tsbiCloseDossier_Click);
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(306, 38);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.closeToolStripMenuItem.Text = "Close Application";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
@@ -2077,8 +638,34 @@ namespace eCTD_indexer
             this.toolStripSeparator2,
             this.tsmiProperties});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(67, 38);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 22);
             this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // refreshToolStripMenuItem
+            // 
+            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.refreshToolStripMenuItem.Text = "Refresh";
+            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
+            // 
+            // tsbideleteAllEmptyDirectoriesToolStripMenuItem
+            // 
+            this.tsbideleteAllEmptyDirectoriesToolStripMenuItem.Name = "tsbideleteAllEmptyDirectoriesToolStripMenuItem";
+            this.tsbideleteAllEmptyDirectoriesToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.tsbideleteAllEmptyDirectoriesToolStripMenuItem.Text = "Delete all empty directories";
+            this.tsbideleteAllEmptyDirectoriesToolStripMenuItem.Click += new System.EventHandler(this.tsbideleteAllEmptyDirectoriesToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(214, 6);
+            // 
+            // tsmiProperties
+            // 
+            this.tsmiProperties.Name = "tsmiProperties";
+            this.tsmiProperties.Size = new System.Drawing.Size(217, 22);
+            this.tsmiProperties.Text = "Properties";
+            this.tsmiProperties.Click += new System.EventHandler(this.tsmiProperties_Click);
             // 
             // checkToolStripMenuItem
             // 
@@ -2087,50 +674,72 @@ namespace eCTD_indexer
             this.toolStripSeparator1,
             this.fileNamesToolStripMenuItem});
             this.checkToolStripMenuItem.Name = "checkToolStripMenuItem";
-            this.checkToolStripMenuItem.Size = new System.Drawing.Size(92, 36);
+            this.checkToolStripMenuItem.Size = new System.Drawing.Size(52, 22);
             this.checkToolStripMenuItem.Text = "Check";
             // 
             // completeValidationToolStripMenuItem
             // 
             this.completeValidationToolStripMenuItem.Name = "completeValidationToolStripMenuItem";
-            this.completeValidationToolStripMenuItem.Size = new System.Drawing.Size(330, 38);
+            this.completeValidationToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.completeValidationToolStripMenuItem.Text = "Complete Validation";
             this.completeValidationToolStripMenuItem.Click += new System.EventHandler(this.completeValidationToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(327, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(178, 6);
             // 
             // fileNamesToolStripMenuItem
             // 
             this.fileNamesToolStripMenuItem.Name = "fileNamesToolStripMenuItem";
-            this.fileNamesToolStripMenuItem.Size = new System.Drawing.Size(330, 38);
+            this.fileNamesToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.fileNamesToolStripMenuItem.Text = "File names";
             this.fileNamesToolStripMenuItem.Click += new System.EventHandler(this.fileNamesToolStripMenuItem_Click);
+            // 
+            // createToolStripMenuItem
+            // 
+            this.createToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.createXMLFilesToolStripMenuItem,
+            this.zipDossierToolStripMenuItem});
+            this.createToolStripMenuItem.Name = "createToolStripMenuItem";
+            this.createToolStripMenuItem.Size = new System.Drawing.Size(53, 22);
+            this.createToolStripMenuItem.Text = "Create";
+            // 
+            // createXMLFilesToolStripMenuItem
+            // 
+            this.createXMLFilesToolStripMenuItem.Name = "createXMLFilesToolStripMenuItem";
+            this.createXMLFilesToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.createXMLFilesToolStripMenuItem.Text = "Create XML files";
+            this.createXMLFilesToolStripMenuItem.Click += new System.EventHandler(this.createXMLFilesToolStripMenuItem_Click);
+            // 
+            // zipDossierToolStripMenuItem
+            // 
+            this.zipDossierToolStripMenuItem.Name = "zipDossierToolStripMenuItem";
+            this.zipDossierToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.zipDossierToolStripMenuItem.Text = "Zip dossier";
+            this.zipDossierToolStripMenuItem.Click += new System.EventHandler(this.zipDossierToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(77, 36);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 22);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(179, 38);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // pbSubmissionUnitCopy
             // 
             this.pbSubmissionUnitCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
-            this.pbSubmissionUnitCopy.Location = new System.Drawing.Point(1348, 285);
-            this.pbSubmissionUnitCopy.Margin = new System.Windows.Forms.Padding(6);
+            this.pbSubmissionUnitCopy.Location = new System.Drawing.Point(674, 148);
             this.pbSubmissionUnitCopy.Name = "pbSubmissionUnitCopy";
-            this.pbSubmissionUnitCopy.Size = new System.Drawing.Size(72, 40);
+            this.pbSubmissionUnitCopy.Size = new System.Drawing.Size(36, 21);
             this.pbSubmissionUnitCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbSubmissionUnitCopy.TabIndex = 132;
             this.pbSubmissionUnitCopy.TabStop = false;
@@ -2139,10 +748,9 @@ namespace eCTD_indexer
             // pbSubDescCopy
             // 
             this.pbSubDescCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
-            this.pbSubDescCopy.Location = new System.Drawing.Point(1348, 233);
-            this.pbSubDescCopy.Margin = new System.Windows.Forms.Padding(6);
+            this.pbSubDescCopy.Location = new System.Drawing.Point(674, 121);
             this.pbSubDescCopy.Name = "pbSubDescCopy";
-            this.pbSubDescCopy.Size = new System.Drawing.Size(72, 40);
+            this.pbSubDescCopy.Size = new System.Drawing.Size(36, 21);
             this.pbSubDescCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbSubDescCopy.TabIndex = 131;
             this.pbSubDescCopy.TabStop = false;
@@ -2151,10 +759,9 @@ namespace eCTD_indexer
             // pbRelSeqCopy
             // 
             this.pbRelSeqCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
-            this.pbRelSeqCopy.Location = new System.Drawing.Point(1348, 183);
-            this.pbRelSeqCopy.Margin = new System.Windows.Forms.Padding(6);
+            this.pbRelSeqCopy.Location = new System.Drawing.Point(674, 95);
             this.pbRelSeqCopy.Name = "pbRelSeqCopy";
-            this.pbRelSeqCopy.Size = new System.Drawing.Size(72, 40);
+            this.pbRelSeqCopy.Size = new System.Drawing.Size(36, 21);
             this.pbRelSeqCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbRelSeqCopy.TabIndex = 130;
             this.pbRelSeqCopy.TabStop = false;
@@ -2163,10 +770,9 @@ namespace eCTD_indexer
             // pbModeCopy
             // 
             this.pbModeCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
-            this.pbModeCopy.Location = new System.Drawing.Point(650, 233);
-            this.pbModeCopy.Margin = new System.Windows.Forms.Padding(6);
+            this.pbModeCopy.Location = new System.Drawing.Point(325, 121);
             this.pbModeCopy.Name = "pbModeCopy";
-            this.pbModeCopy.Size = new System.Drawing.Size(72, 40);
+            this.pbModeCopy.Size = new System.Drawing.Size(36, 21);
             this.pbModeCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbModeCopy.TabIndex = 129;
             this.pbModeCopy.TabStop = false;
@@ -2175,10 +781,9 @@ namespace eCTD_indexer
             // pbSubmissionTypeCopy
             // 
             this.pbSubmissionTypeCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
-            this.pbSubmissionTypeCopy.Location = new System.Drawing.Point(650, 188);
-            this.pbSubmissionTypeCopy.Margin = new System.Windows.Forms.Padding(6);
+            this.pbSubmissionTypeCopy.Location = new System.Drawing.Point(325, 98);
             this.pbSubmissionTypeCopy.Name = "pbSubmissionTypeCopy";
-            this.pbSubmissionTypeCopy.Size = new System.Drawing.Size(72, 40);
+            this.pbSubmissionTypeCopy.Size = new System.Drawing.Size(36, 21);
             this.pbSubmissionTypeCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbSubmissionTypeCopy.TabIndex = 128;
             this.pbSubmissionTypeCopy.TabStop = false;
@@ -2187,10 +792,9 @@ namespace eCTD_indexer
             // pbProcedureTypeCopy
             // 
             this.pbProcedureTypeCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
-            this.pbProcedureTypeCopy.Location = new System.Drawing.Point(650, 137);
-            this.pbProcedureTypeCopy.Margin = new System.Windows.Forms.Padding(6);
+            this.pbProcedureTypeCopy.Location = new System.Drawing.Point(325, 71);
             this.pbProcedureTypeCopy.Name = "pbProcedureTypeCopy";
-            this.pbProcedureTypeCopy.Size = new System.Drawing.Size(72, 40);
+            this.pbProcedureTypeCopy.Size = new System.Drawing.Size(36, 21);
             this.pbProcedureTypeCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbProcedureTypeCopy.TabIndex = 127;
             this.pbProcedureTypeCopy.TabStop = false;
@@ -2199,10 +803,9 @@ namespace eCTD_indexer
             // pbNumberCopy
             // 
             this.pbNumberCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
-            this.pbNumberCopy.Location = new System.Drawing.Point(652, 279);
-            this.pbNumberCopy.Margin = new System.Windows.Forms.Padding(6);
+            this.pbNumberCopy.Location = new System.Drawing.Point(326, 145);
             this.pbNumberCopy.Name = "pbNumberCopy";
-            this.pbNumberCopy.Size = new System.Drawing.Size(72, 40);
+            this.pbNumberCopy.Size = new System.Drawing.Size(36, 21);
             this.pbNumberCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbNumberCopy.TabIndex = 126;
             this.pbNumberCopy.TabStop = false;
@@ -2211,10 +814,9 @@ namespace eCTD_indexer
             // pbTrackingNoCopy
             // 
             this.pbTrackingNoCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
-            this.pbTrackingNoCopy.Location = new System.Drawing.Point(652, 87);
-            this.pbTrackingNoCopy.Margin = new System.Windows.Forms.Padding(6);
+            this.pbTrackingNoCopy.Location = new System.Drawing.Point(326, 45);
             this.pbTrackingNoCopy.Name = "pbTrackingNoCopy";
-            this.pbTrackingNoCopy.Size = new System.Drawing.Size(72, 40);
+            this.pbTrackingNoCopy.Size = new System.Drawing.Size(36, 21);
             this.pbTrackingNoCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbTrackingNoCopy.TabIndex = 125;
             this.pbTrackingNoCopy.TabStop = false;
@@ -2223,10 +825,9 @@ namespace eCTD_indexer
             // pbINNCopy
             // 
             this.pbINNCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
-            this.pbINNCopy.Location = new System.Drawing.Point(1348, 85);
-            this.pbINNCopy.Margin = new System.Windows.Forms.Padding(6);
+            this.pbINNCopy.Location = new System.Drawing.Point(674, 44);
             this.pbINNCopy.Name = "pbINNCopy";
-            this.pbINNCopy.Size = new System.Drawing.Size(72, 40);
+            this.pbINNCopy.Size = new System.Drawing.Size(36, 21);
             this.pbINNCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbINNCopy.TabIndex = 124;
             this.pbINNCopy.TabStop = false;
@@ -2235,10 +836,9 @@ namespace eCTD_indexer
             // pbIdentifierCopy
             // 
             this.pbIdentifierCopy.Image = global::eCTD_indexer.Properties.Resources.Actions_edit_copy_icon;
-            this.pbIdentifierCopy.Location = new System.Drawing.Point(1348, 133);
-            this.pbIdentifierCopy.Margin = new System.Windows.Forms.Padding(6);
+            this.pbIdentifierCopy.Location = new System.Drawing.Point(674, 69);
             this.pbIdentifierCopy.Name = "pbIdentifierCopy";
-            this.pbIdentifierCopy.Size = new System.Drawing.Size(72, 40);
+            this.pbIdentifierCopy.Size = new System.Drawing.Size(36, 21);
             this.pbIdentifierCopy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbIdentifierCopy.TabIndex = 123;
             this.pbIdentifierCopy.TabStop = false;
@@ -2246,88 +846,1346 @@ namespace eCTD_indexer
             // 
             // tbIdentifier
             // 
-            this.tbIdentifier.Location = new System.Drawing.Point(914, 133);
-            this.tbIdentifier.Margin = new System.Windows.Forms.Padding(6);
+            this.tbIdentifier.Location = new System.Drawing.Point(457, 69);
             this.tbIdentifier.Name = "tbIdentifier";
-            this.tbIdentifier.Size = new System.Drawing.Size(422, 31);
+            this.tbIdentifier.Size = new System.Drawing.Size(213, 20);
             this.tbIdentifier.TabIndex = 122;
             this.tbIdentifier.Enter += new System.EventHandler(this.tbIdentifier_Enter);
             this.tbIdentifier.Leave += new System.EventHandler(this.tbIdentifier_Leave);
             // 
-            // tsbiCloseDossier
+            // label1
             // 
-            this.tsbiCloseDossier.Name = "tsbiCloseDossier";
-            this.tsbiCloseDossier.Size = new System.Drawing.Size(306, 38);
-            this.tsbiCloseDossier.Text = "Close Dossier";
-            this.tsbiCloseDossier.Click += new System.EventHandler(this.tsbiCloseDossier_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(16, 48);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Tracking no";
             // 
-            // tsbideleteAllEmptyDirectoriesToolStripMenuItem
+            // label8
             // 
-            this.tsbideleteAllEmptyDirectoriesToolStripMenuItem.Name = "tsbideleteAllEmptyDirectoriesToolStripMenuItem";
-            this.tsbideleteAllEmptyDirectoriesToolStripMenuItem.Size = new System.Drawing.Size(408, 38);
-            this.tsbideleteAllEmptyDirectoriesToolStripMenuItem.Text = "Delete all empty directories";
-            this.tsbideleteAllEmptyDirectoriesToolStripMenuItem.Click += new System.EventHandler(this.tsbideleteAllEmptyDirectoriesToolStripMenuItem_Click);
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(19, 145);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(44, 13);
+            this.label8.TabIndex = 117;
+            this.label8.Text = "Number";
             // 
-            // refreshToolStripMenuItem
+            // label7
             // 
-            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(408, 38);
-            this.refreshToolStripMenuItem.Text = "Refresh";
-            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(14, 25);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(146, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "EU envelope information";
             // 
-            // createToolStripMenuItem
+            // label10
             // 
-            this.createToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.createXMLFilesToolStripMenuItem,
-            this.zipDossierToolStripMenuItem});
-            this.createToolStripMenuItem.Name = "createToolStripMenuItem";
-            this.createToolStripMenuItem.Size = new System.Drawing.Size(96, 36);
-            this.createToolStripMenuItem.Text = "Create";
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(19, 122);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(34, 13);
+            this.label10.TabIndex = 115;
+            this.label10.Text = "Mode";
             // 
-            // createXMLFilesToolStripMenuItem
+            // textBoxIS
             // 
-            this.createXMLFilesToolStripMenuItem.Name = "createXMLFilesToolStripMenuItem";
-            this.createXMLFilesToolStripMenuItem.Size = new System.Drawing.Size(324, 38);
-            this.createXMLFilesToolStripMenuItem.Text = "Create XML files";
-            this.createXMLFilesToolStripMenuItem.Click += new System.EventHandler(this.createXMLFilesToolStripMenuItem_Click);
+            this.textBoxIS.Enabled = false;
+            this.textBoxIS.Location = new System.Drawing.Point(116, 565);
+            this.textBoxIS.Name = "textBoxIS";
+            this.textBoxIS.Size = new System.Drawing.Size(100, 20);
+            this.textBoxIS.TabIndex = 58;
+            this.textBoxIS.Tag = "IS";
             // 
-            // zipDossierToolStripMenuItem
+            // textBoxDE2App
             // 
-            this.zipDossierToolStripMenuItem.Name = "zipDossierToolStripMenuItem";
-            this.zipDossierToolStripMenuItem.Size = new System.Drawing.Size(324, 38);
-            this.zipDossierToolStripMenuItem.Text = "Zip dossier";
-            this.zipDossierToolStripMenuItem.Click += new System.EventHandler(this.zipDossierToolStripMenuItem_Click);
+            this.textBoxDE2App.Enabled = false;
+            this.textBoxDE2App.Location = new System.Drawing.Point(221, 332);
+            this.textBoxDE2App.Name = "textBoxDE2App";
+            this.textBoxDE2App.Size = new System.Drawing.Size(100, 20);
+            this.textBoxDE2App.TabIndex = 29;
+            this.textBoxDE2App.Tag = "DE2";
+            // 
+            // textBoxIE
+            // 
+            this.textBoxIE.Enabled = false;
+            this.textBoxIE.Location = new System.Drawing.Point(116, 542);
+            this.textBoxIE.Name = "textBoxIE";
+            this.textBoxIE.Size = new System.Drawing.Size(100, 20);
+            this.textBoxIE.TabIndex = 55;
+            this.textBoxIE.Tag = "IE";
+            // 
+            // textBoxTrackNo
+            // 
+            this.textBoxTrackNo.AcceptsReturn = true;
+            this.textBoxTrackNo.Location = new System.Drawing.Point(108, 45);
+            this.textBoxTrackNo.Name = "textBoxTrackNo";
+            this.textBoxTrackNo.Size = new System.Drawing.Size(212, 20);
+            this.textBoxTrackNo.TabIndex = 0;
+            // 
+            // textBoxHU
+            // 
+            this.textBoxHU.Enabled = false;
+            this.textBoxHU.Location = new System.Drawing.Point(116, 519);
+            this.textBoxHU.Name = "textBoxHU";
+            this.textBoxHU.Size = new System.Drawing.Size(100, 20);
+            this.textBoxHU.TabIndex = 52;
+            this.textBoxHU.Tag = "HU";
+            // 
+            // textBoxDE2
+            // 
+            this.textBoxDE2.Enabled = false;
+            this.textBoxDE2.Location = new System.Drawing.Point(115, 332);
+            this.textBoxDE2.Name = "textBoxDE2";
+            this.textBoxDE2.Size = new System.Drawing.Size(100, 20);
+            this.textBoxDE2.TabIndex = 28;
+            this.textBoxDE2.Tag = "DE2";
+            // 
+            // textBoxIT
+            // 
+            this.textBoxIT.Enabled = false;
+            this.textBoxIT.Location = new System.Drawing.Point(464, 194);
+            this.textBoxIT.Name = "textBoxIT";
+            this.textBoxIT.Size = new System.Drawing.Size(100, 20);
+            this.textBoxIT.TabIndex = 61;
+            this.textBoxIT.Tag = "IT";
+            // 
+            // textBoxEL
+            // 
+            this.textBoxEL.Enabled = false;
+            this.textBoxEL.Location = new System.Drawing.Point(115, 404);
+            this.textBoxEL.Name = "textBoxEL";
+            this.textBoxEL.Size = new System.Drawing.Size(100, 20);
+            this.textBoxEL.TabIndex = 37;
+            this.textBoxEL.Tag = "EL";
+            // 
+            // checkBoxDE2
+            // 
+            this.checkBoxDE2.AutoSize = true;
+            this.checkBoxDE2.Location = new System.Drawing.Point(19, 332);
+            this.checkBoxDE2.Name = "checkBoxDE2";
+            this.checkBoxDE2.Size = new System.Drawing.Size(61, 17);
+            this.checkBoxDE2.TabIndex = 27;
+            this.checkBoxDE2.Tag = "DE2";
+            this.checkBoxDE2.Text = "DE-PEI";
+            this.checkBoxDE2.UseVisualStyleBackColor = true;
+            this.checkBoxDE2.CheckedChanged += new System.EventHandler(this.checkBoxDE2_CheckedChanged);
+            // 
+            // textBoxLV
+            // 
+            this.textBoxLV.Enabled = false;
+            this.textBoxLV.Location = new System.Drawing.Point(464, 286);
+            this.textBoxLV.Name = "textBoxLV";
+            this.textBoxLV.Size = new System.Drawing.Size(100, 20);
+            this.textBoxLV.TabIndex = 73;
+            this.textBoxLV.Tag = "LV";
+            // 
+            // comboBoxProcType
+            // 
+            this.comboBoxProcType.FormattingEnabled = true;
+            this.comboBoxProcType.Items.AddRange(new object[] {
+            "centralised",
+            "national",
+            "mutual-recognition",
+            "decentralised"});
+            this.comboBoxProcType.Location = new System.Drawing.Point(108, 68);
+            this.comboBoxProcType.Name = "comboBoxProcType";
+            this.comboBoxProcType.Size = new System.Drawing.Size(212, 21);
+            this.comboBoxProcType.TabIndex = 1;
+            // 
+            // textBoxDE
+            // 
+            this.textBoxDE.Enabled = false;
+            this.textBoxDE.Location = new System.Drawing.Point(115, 309);
+            this.textBoxDE.Name = "textBoxDE";
+            this.textBoxDE.Size = new System.Drawing.Size(100, 20);
+            this.textBoxDE.TabIndex = 25;
+            this.textBoxDE.Tag = "DE";
+            // 
+            // textBoxHRApp
+            // 
+            this.textBoxHRApp.Enabled = false;
+            this.textBoxHRApp.Location = new System.Drawing.Point(221, 496);
+            this.textBoxHRApp.Name = "textBoxHRApp";
+            this.textBoxHRApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxHRApp.TabIndex = 50;
+            this.textBoxHRApp.Tag = "HR";
+            // 
+            // textBoxLI
+            // 
+            this.textBoxLI.Enabled = false;
+            this.textBoxLI.Location = new System.Drawing.Point(464, 217);
+            this.textBoxLI.Name = "textBoxLI";
+            this.textBoxLI.Size = new System.Drawing.Size(100, 20);
+            this.textBoxLI.TabIndex = 64;
+            this.textBoxLI.Tag = "LI";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(17, 71);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(79, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Procedure type";
+            // 
+            // textBoxFR
+            // 
+            this.textBoxFR.Enabled = false;
+            this.textBoxFR.Location = new System.Drawing.Point(115, 473);
+            this.textBoxFR.Name = "textBoxFR";
+            this.textBoxFR.Size = new System.Drawing.Size(100, 20);
+            this.textBoxFR.TabIndex = 46;
+            this.textBoxFR.Tag = "FR";
+            // 
+            // textBoxHR
+            // 
+            this.textBoxHR.Enabled = false;
+            this.textBoxHR.Location = new System.Drawing.Point(115, 496);
+            this.textBoxHR.Name = "textBoxHR";
+            this.textBoxHR.Size = new System.Drawing.Size(100, 20);
+            this.textBoxHR.TabIndex = 49;
+            this.textBoxHR.Tag = "HR";
+            // 
+            // textBoxLT
+            // 
+            this.textBoxLT.Enabled = false;
+            this.textBoxLT.Location = new System.Drawing.Point(464, 240);
+            this.textBoxLT.Name = "textBoxLT";
+            this.textBoxLT.Size = new System.Drawing.Size(100, 20);
+            this.textBoxLT.TabIndex = 67;
+            this.textBoxLT.Tag = "LT";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(17, 97);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(83, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Submission type";
+            // 
+            // textBoxFI
+            // 
+            this.textBoxFI.Enabled = false;
+            this.textBoxFI.Location = new System.Drawing.Point(115, 450);
+            this.textBoxFI.Name = "textBoxFI";
+            this.textBoxFI.Size = new System.Drawing.Size(100, 20);
+            this.textBoxFI.TabIndex = 43;
+            this.textBoxFI.Tag = "FI";
+            // 
+            // checkBoxHR
+            // 
+            this.checkBoxHR.AutoSize = true;
+            this.checkBoxHR.Location = new System.Drawing.Point(19, 496);
+            this.checkBoxHR.Name = "checkBoxHR";
+            this.checkBoxHR.Size = new System.Drawing.Size(90, 17);
+            this.checkBoxHR.TabIndex = 48;
+            this.checkBoxHR.Tag = "HR";
+            this.checkBoxHR.Text = "HR-HALMED";
+            this.checkBoxHR.UseVisualStyleBackColor = true;
+            this.checkBoxHR.CheckedChanged += new System.EventHandler(this.checkBoxHR_CheckedChanged);
+            // 
+            // textBoxLU
+            // 
+            this.textBoxLU.Enabled = false;
+            this.textBoxLU.Location = new System.Drawing.Point(464, 263);
+            this.textBoxLU.Name = "textBoxLU";
+            this.textBoxLU.Size = new System.Drawing.Size(100, 20);
+            this.textBoxLU.TabIndex = 70;
+            this.textBoxLU.Tag = "LU";
+            // 
+            // comboBoxSubmType
+            // 
+            this.comboBoxSubmType.FormattingEnabled = true;
+            this.comboBoxSubmType.Items.AddRange(new object[] {
+            "maa",
+            "var-type1a",
+            "var-type1ain",
+            "var-type1b",
+            "var-type2",
+            "var-nat",
+            "extension",
+            "rup",
+            "psur",
+            "psusa",
+            "rmp",
+            "renewal",
+            "pam-sob",
+            "pam-anx",
+            "pam-mea",
+            "pam-leg",
+            "pam-sda",
+            "pam-capa",
+            "pam-p45",
+            "pam-p46",
+            "pam-paes",
+            "pam-rec",
+            "pass107n",
+            "pass107q",
+            "asmf",
+            "pmf",
+            "referral-20",
+            "referral-294",
+            "referral-29p",
+            "referral-30",
+            "referral-31",
+            "referral-35",
+            "referral-5-3",
+            "referral-107i",
+            "referral-16c1c",
+            "referral-16c4",
+            "annual-reassessment",
+            "usr",
+            "clin-data-pub-rp",
+            "clin-data-pub-fv",
+            "paed-7-8-30",
+            "paed-29",
+            "paed-45",
+            "paed-46",
+            "article-58",
+            "notification-61-3",
+            "transfer-ma",
+            "lifting-suspension",
+            "withdrawal",
+            "cep",
+            "none"});
+            this.comboBoxSubmType.Location = new System.Drawing.Point(108, 94);
+            this.comboBoxSubmType.Name = "comboBoxSubmType";
+            this.comboBoxSubmType.Size = new System.Drawing.Size(212, 21);
+            this.comboBoxSubmType.TabIndex = 2;
+            this.comboBoxSubmType.Tag = "7";
+            this.comboBoxSubmType.SelectedIndexChanged += new System.EventHandler(this.comboBoxSubmType_SelectedIndexChanged);
+            // 
+            // textBoxED
+            // 
+            this.textBoxED.Enabled = false;
+            this.textBoxED.Location = new System.Drawing.Point(464, 539);
+            this.textBoxED.Name = "textBoxED";
+            this.textBoxED.Size = new System.Drawing.Size(100, 20);
+            this.textBoxED.TabIndex = 106;
+            this.textBoxED.Tag = "EDQM";
+            // 
+            // textBoxMT
+            // 
+            this.textBoxMT.Enabled = false;
+            this.textBoxMT.Location = new System.Drawing.Point(464, 309);
+            this.textBoxMT.Name = "textBoxMT";
+            this.textBoxMT.Size = new System.Drawing.Size(100, 20);
+            this.textBoxMT.TabIndex = 76;
+            this.textBoxMT.Tag = "MT";
+            // 
+            // textBoxEU
+            // 
+            this.textBoxEU.Enabled = false;
+            this.textBoxEU.Location = new System.Drawing.Point(464, 562);
+            this.textBoxEU.Name = "textBoxEU";
+            this.textBoxEU.Size = new System.Drawing.Size(100, 20);
+            this.textBoxEU.TabIndex = 106;
+            this.textBoxEU.Tag = "EMA";
+            // 
+            // labelSequence
+            // 
+            this.labelSequence.AutoSize = true;
+            this.labelSequence.Location = new System.Drawing.Point(367, 71);
+            this.labelSequence.Name = "labelSequence";
+            this.labelSequence.Size = new System.Drawing.Size(47, 13);
+            this.labelSequence.TabIndex = 120;
+            this.labelSequence.Text = "Identifier";
+            // 
+            // textBoxNL
+            // 
+            this.textBoxNL.Enabled = false;
+            this.textBoxNL.Location = new System.Drawing.Point(464, 332);
+            this.textBoxNL.Name = "textBoxNL";
+            this.textBoxNL.Size = new System.Drawing.Size(100, 20);
+            this.textBoxNL.TabIndex = 79;
+            this.textBoxNL.Tag = "NL";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(367, 48);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(26, 13);
+            this.label12.TabIndex = 21;
+            this.label12.Text = "INN";
+            // 
+            // textBoxEE
+            // 
+            this.textBoxEE.Enabled = false;
+            this.textBoxEE.Location = new System.Drawing.Point(115, 381);
+            this.textBoxEE.Name = "textBoxEE";
+            this.textBoxEE.Size = new System.Drawing.Size(100, 20);
+            this.textBoxEE.TabIndex = 34;
+            this.textBoxEE.Tag = "EE";
+            // 
+            // comboBoxMode
+            // 
+            this.comboBoxMode.Enabled = false;
+            this.comboBoxMode.FormattingEnabled = true;
+            this.comboBoxMode.Items.AddRange(new object[] {
+            "single",
+            "grouping",
+            "worksharing "});
+            this.comboBoxMode.Location = new System.Drawing.Point(108, 119);
+            this.comboBoxMode.Name = "comboBoxMode";
+            this.comboBoxMode.Size = new System.Drawing.Size(212, 21);
+            this.comboBoxMode.TabIndex = 3;
+            // 
+            // textBoxNO
+            // 
+            this.textBoxNO.Enabled = false;
+            this.textBoxNO.Location = new System.Drawing.Point(464, 355);
+            this.textBoxNO.Name = "textBoxNO";
+            this.textBoxNO.Size = new System.Drawing.Size(100, 20);
+            this.textBoxNO.TabIndex = 82;
+            this.textBoxNO.Tag = "NO";
+            // 
+            // textBoxINN
+            // 
+            this.textBoxINN.Location = new System.Drawing.Point(457, 45);
+            this.textBoxINN.Name = "textBoxINN";
+            this.textBoxINN.Size = new System.Drawing.Size(213, 20);
+            this.textBoxINN.TabIndex = 5;
+            // 
+            // textBoxDK
+            // 
+            this.textBoxDK.Enabled = false;
+            this.textBoxDK.Location = new System.Drawing.Point(115, 358);
+            this.textBoxDK.Name = "textBoxDK";
+            this.textBoxDK.Size = new System.Drawing.Size(100, 20);
+            this.textBoxDK.TabIndex = 31;
+            this.textBoxDK.Tag = "DK";
+            // 
+            // comboBoxSubmUnit
+            // 
+            this.comboBoxSubmUnit.FormattingEnabled = true;
+            this.comboBoxSubmUnit.Items.AddRange(new object[] {
+            "initial",
+            "validation-response",
+            "response",
+            "additional-info",
+            "closing",
+            "consolidating",
+            "corrigendum",
+            "reformat"});
+            this.comboBoxSubmUnit.Location = new System.Drawing.Point(457, 146);
+            this.comboBoxSubmUnit.Name = "comboBoxSubmUnit";
+            this.comboBoxSubmUnit.Size = new System.Drawing.Size(212, 21);
+            this.comboBoxSubmUnit.TabIndex = 105;
+            // 
+            // textBoxPL
+            // 
+            this.textBoxPL.Enabled = false;
+            this.textBoxPL.Location = new System.Drawing.Point(464, 378);
+            this.textBoxPL.Name = "textBoxPL";
+            this.textBoxPL.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPL.TabIndex = 85;
+            this.textBoxPL.Tag = "PL";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(367, 123);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(69, 13);
+            this.label13.TabIndex = 23;
+            this.label13.Text = "Subm. descr.";
+            // 
+            // textBoxCZ
+            // 
+            this.textBoxCZ.Enabled = false;
+            this.textBoxCZ.Location = new System.Drawing.Point(115, 286);
+            this.textBoxCZ.Name = "textBoxCZ";
+            this.textBoxCZ.Size = new System.Drawing.Size(100, 20);
+            this.textBoxCZ.TabIndex = 22;
+            this.textBoxCZ.Tag = "CZ";
+            // 
+            // textBoxNumber
+            // 
+            this.textBoxNumber.Enabled = false;
+            this.textBoxNumber.Location = new System.Drawing.Point(108, 142);
+            this.textBoxNumber.Name = "textBoxNumber";
+            this.textBoxNumber.Size = new System.Drawing.Size(212, 20);
+            this.textBoxNumber.TabIndex = 4;
+            // 
+            // textBoxPT
+            // 
+            this.textBoxPT.Enabled = false;
+            this.textBoxPT.Location = new System.Drawing.Point(464, 401);
+            this.textBoxPT.Name = "textBoxPT";
+            this.textBoxPT.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPT.TabIndex = 88;
+            this.textBoxPT.Tag = "PT";
+            // 
+            // labelSubmissionUnit
+            // 
+            this.labelSubmissionUnit.AutoSize = true;
+            this.labelSubmissionUnit.Location = new System.Drawing.Point(367, 149);
+            this.labelSubmissionUnit.Name = "labelSubmissionUnit";
+            this.labelSubmissionUnit.Size = new System.Drawing.Size(80, 13);
+            this.labelSubmissionUnit.TabIndex = 87;
+            this.labelSubmissionUnit.Text = "Submission unit";
+            // 
+            // textBoxCY
+            // 
+            this.textBoxCY.Enabled = false;
+            this.textBoxCY.Location = new System.Drawing.Point(115, 263);
+            this.textBoxCY.Name = "textBoxCY";
+            this.textBoxCY.Size = new System.Drawing.Size(100, 20);
+            this.textBoxCY.TabIndex = 19;
+            this.textBoxCY.Tag = "CY";
+            // 
+            // textBoxRO
+            // 
+            this.textBoxRO.Enabled = false;
+            this.textBoxRO.Location = new System.Drawing.Point(464, 424);
+            this.textBoxRO.Name = "textBoxRO";
+            this.textBoxRO.Size = new System.Drawing.Size(100, 20);
+            this.textBoxRO.TabIndex = 91;
+            this.textBoxRO.Tag = "RO";
+            // 
+            // textBoxSubmDescr
+            // 
+            this.textBoxSubmDescr.Location = new System.Drawing.Point(457, 120);
+            this.textBoxSubmDescr.Name = "textBoxSubmDescr";
+            this.textBoxSubmDescr.Size = new System.Drawing.Size(213, 20);
+            this.textBoxSubmDescr.TabIndex = 7;
+            // 
+            // textBoxBG
+            // 
+            this.textBoxBG.Enabled = false;
+            this.textBoxBG.Location = new System.Drawing.Point(115, 240);
+            this.textBoxBG.Name = "textBoxBG";
+            this.textBoxBG.Size = new System.Drawing.Size(100, 20);
+            this.textBoxBG.TabIndex = 16;
+            this.textBoxBG.Tag = "BG";
+            // 
+            // textBoxSK
+            // 
+            this.textBoxSK.Enabled = false;
+            this.textBoxSK.Location = new System.Drawing.Point(464, 493);
+            this.textBoxSK.Name = "textBoxSK";
+            this.textBoxSK.Size = new System.Drawing.Size(100, 20);
+            this.textBoxSK.TabIndex = 100;
+            this.textBoxSK.Tag = "SK";
+            // 
+            // textBoxBE
+            // 
+            this.textBoxBE.Enabled = false;
+            this.textBoxBE.Location = new System.Drawing.Point(115, 217);
+            this.textBoxBE.Name = "textBoxBE";
+            this.textBoxBE.Size = new System.Drawing.Size(100, 20);
+            this.textBoxBE.TabIndex = 13;
+            this.textBoxBE.Tag = "BE";
+            // 
+            // textBoxSI
+            // 
+            this.textBoxSI.Enabled = false;
+            this.textBoxSI.Location = new System.Drawing.Point(464, 470);
+            this.textBoxSI.Name = "textBoxSI";
+            this.textBoxSI.Size = new System.Drawing.Size(100, 20);
+            this.textBoxSI.TabIndex = 97;
+            this.textBoxSI.Tag = "SI";
+            // 
+            // checkBoxUK
+            // 
+            this.checkBoxUK.AutoSize = true;
+            this.checkBoxUK.Location = new System.Drawing.Point(370, 516);
+            this.checkBoxUK.Name = "checkBoxUK";
+            this.checkBoxUK.Size = new System.Drawing.Size(76, 17);
+            this.checkBoxUK.TabIndex = 102;
+            this.checkBoxUK.Tag = "UK";
+            this.checkBoxUK.Text = "UK-MHRA";
+            this.checkBoxUK.UseVisualStyleBackColor = true;
+            this.checkBoxUK.CheckedChanged += new System.EventHandler(this.checkBoxUK_CheckedChanged);
+            // 
+            // textBoxES
+            // 
+            this.textBoxES.Enabled = false;
+            this.textBoxES.Location = new System.Drawing.Point(115, 427);
+            this.textBoxES.Name = "textBoxES";
+            this.textBoxES.Size = new System.Drawing.Size(100, 20);
+            this.textBoxES.TabIndex = 40;
+            this.textBoxES.Tag = "ES";
+            // 
+            // checkBoxSE
+            // 
+            this.checkBoxSE.AutoSize = true;
+            this.checkBoxSE.Location = new System.Drawing.Point(370, 447);
+            this.checkBoxSE.Name = "checkBoxSE";
+            this.checkBoxSE.Size = new System.Drawing.Size(66, 17);
+            this.checkBoxSE.TabIndex = 93;
+            this.checkBoxSE.Tag = "SE";
+            this.checkBoxSE.Text = "SE-MPA";
+            this.checkBoxSE.UseVisualStyleBackColor = true;
+            this.checkBoxSE.CheckedChanged += new System.EventHandler(this.checkBoxSE_CheckedChanged);
+            // 
+            // textBoxSE
+            // 
+            this.textBoxSE.Enabled = false;
+            this.textBoxSE.Location = new System.Drawing.Point(464, 447);
+            this.textBoxSE.Name = "textBoxSE";
+            this.textBoxSE.Size = new System.Drawing.Size(100, 20);
+            this.textBoxSE.TabIndex = 94;
+            this.textBoxSE.Tag = "SE";
+            // 
+            // checkBoxES
+            // 
+            this.checkBoxES.AutoSize = true;
+            this.checkBoxES.Location = new System.Drawing.Point(19, 427);
+            this.checkBoxES.Name = "checkBoxES";
+            this.checkBoxES.Size = new System.Drawing.Size(80, 17);
+            this.checkBoxES.TabIndex = 39;
+            this.checkBoxES.Tag = "ES";
+            this.checkBoxES.Text = "ES-AEMPS";
+            this.checkBoxES.UseVisualStyleBackColor = true;
+            this.checkBoxES.CheckedChanged += new System.EventHandler(this.checkBoxES_CheckedChanged);
+            // 
+            // textBoxRelSeq
+            // 
+            this.textBoxRelSeq.Location = new System.Drawing.Point(457, 94);
+            this.textBoxRelSeq.Name = "textBoxRelSeq";
+            this.textBoxRelSeq.Size = new System.Drawing.Size(213, 20);
+            this.textBoxRelSeq.TabIndex = 6;
+            // 
+            // textBoxUK
+            // 
+            this.textBoxUK.Enabled = false;
+            this.textBoxUK.Location = new System.Drawing.Point(464, 516);
+            this.textBoxUK.Name = "textBoxUK";
+            this.textBoxUK.Size = new System.Drawing.Size(100, 20);
+            this.textBoxUK.TabIndex = 103;
+            this.textBoxUK.Tag = "UK";
+            // 
+            // checkBoxSI
+            // 
+            this.checkBoxSI.AutoSize = true;
+            this.checkBoxSI.Location = new System.Drawing.Point(370, 470);
+            this.checkBoxSI.Name = "checkBoxSI";
+            this.checkBoxSI.Size = new System.Drawing.Size(74, 17);
+            this.checkBoxSI.TabIndex = 96;
+            this.checkBoxSI.Tag = "SI";
+            this.checkBoxSI.Text = "SI-JAZMP";
+            this.checkBoxSI.UseVisualStyleBackColor = true;
+            this.checkBoxSI.CheckedChanged += new System.EventHandler(this.checkBoxSI_CheckedChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(367, 97);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(78, 13);
+            this.label2.TabIndex = 87;
+            this.label2.Text = "Rel. Sequence";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(217, 177);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 13);
+            this.label3.TabIndex = 81;
+            this.label3.Text = "Applicant";
+            // 
+            // checkBoxSK
+            // 
+            this.checkBoxSK.AutoSize = true;
+            this.checkBoxSK.Location = new System.Drawing.Point(370, 493);
+            this.checkBoxSK.Name = "checkBoxSK";
+            this.checkBoxSK.Size = new System.Drawing.Size(68, 17);
+            this.checkBoxSK.TabIndex = 99;
+            this.checkBoxSK.Tag = "SK";
+            this.checkBoxSK.Text = "SK-SIDC";
+            this.checkBoxSK.UseVisualStyleBackColor = true;
+            this.checkBoxSK.CheckedChanged += new System.EventHandler(this.checkBoxSK_CheckedChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(567, 177);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(51, 13);
+            this.label4.TabIndex = 82;
+            this.label4.Text = "Applicant";
+            // 
+            // checkBoxRO
+            // 
+            this.checkBoxRO.AutoSize = true;
+            this.checkBoxRO.Location = new System.Drawing.Point(370, 424);
+            this.checkBoxRO.Name = "checkBoxRO";
+            this.checkBoxRO.Size = new System.Drawing.Size(86, 17);
+            this.checkBoxRO.TabIndex = 90;
+            this.checkBoxRO.Tag = "RO";
+            this.checkBoxRO.Text = "RO-ANMMD";
+            this.checkBoxRO.UseVisualStyleBackColor = true;
+            this.checkBoxRO.CheckedChanged += new System.EventHandler(this.checkBoxRO_CheckedChanged);
+            // 
+            // textBoxATApp
+            // 
+            this.textBoxATApp.Enabled = false;
+            this.textBoxATApp.Location = new System.Drawing.Point(221, 194);
+            this.textBoxATApp.Name = "textBoxATApp";
+            this.textBoxATApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxATApp.TabIndex = 11;
+            this.textBoxATApp.Tag = "AT";
+            // 
+            // checkBoxPT
+            // 
+            this.checkBoxPT.AutoSize = true;
+            this.checkBoxPT.Location = new System.Drawing.Point(370, 401);
+            this.checkBoxPT.Name = "checkBoxPT";
+            this.checkBoxPT.Size = new System.Drawing.Size(99, 17);
+            this.checkBoxPT.TabIndex = 87;
+            this.checkBoxPT.Tag = "PT";
+            this.checkBoxPT.Text = "PT-INFARMED";
+            this.checkBoxPT.UseVisualStyleBackColor = true;
+            this.checkBoxPT.CheckedChanged += new System.EventHandler(this.checkBoxPT_CheckedChanged);
+            // 
+            // textBoxBEApp
+            // 
+            this.textBoxBEApp.Enabled = false;
+            this.textBoxBEApp.Location = new System.Drawing.Point(221, 217);
+            this.textBoxBEApp.Name = "textBoxBEApp";
+            this.textBoxBEApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxBEApp.TabIndex = 14;
+            this.textBoxBEApp.Tag = "BE";
+            // 
+            // checkBoxPL
+            // 
+            this.checkBoxPL.AutoSize = true;
+            this.checkBoxPL.Location = new System.Drawing.Point(370, 378);
+            this.checkBoxPL.Name = "checkBoxPL";
+            this.checkBoxPL.Size = new System.Drawing.Size(71, 17);
+            this.checkBoxPL.TabIndex = 84;
+            this.checkBoxPL.Tag = "PL";
+            this.checkBoxPL.Text = "PL-URPL";
+            this.checkBoxPL.UseVisualStyleBackColor = true;
+            this.checkBoxPL.CheckedChanged += new System.EventHandler(this.checkBoxPL_CheckedChanged);
+            // 
+            // textBoxUKApp
+            // 
+            this.textBoxUKApp.Enabled = false;
+            this.textBoxUKApp.Location = new System.Drawing.Point(570, 516);
+            this.textBoxUKApp.Name = "textBoxUKApp";
+            this.textBoxUKApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxUKApp.TabIndex = 104;
+            this.textBoxUKApp.Tag = "UK";
+            // 
+            // textBoxBGApp
+            // 
+            this.textBoxBGApp.Enabled = false;
+            this.textBoxBGApp.Location = new System.Drawing.Point(221, 240);
+            this.textBoxBGApp.Name = "textBoxBGApp";
+            this.textBoxBGApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxBGApp.TabIndex = 17;
+            this.textBoxBGApp.Tag = "BG";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(17, 177);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(84, 13);
+            this.label19.TabIndex = 37;
+            this.label19.Text = "Country/Agency";
+            // 
+            // checkBoxNO
+            // 
+            this.checkBoxNO.AutoSize = true;
+            this.checkBoxNO.Location = new System.Drawing.Point(370, 355);
+            this.checkBoxNO.Name = "checkBoxNO";
+            this.checkBoxNO.Size = new System.Drawing.Size(77, 17);
+            this.checkBoxNO.TabIndex = 81;
+            this.checkBoxNO.Tag = "NO";
+            this.checkBoxNO.Text = "NO-NOMA";
+            this.checkBoxNO.UseVisualStyleBackColor = true;
+            this.checkBoxNO.CheckedChanged += new System.EventHandler(this.checkBoxNO_CheckedChanged);
+            // 
+            // textBoxSEApp
+            // 
+            this.textBoxSEApp.Enabled = false;
+            this.textBoxSEApp.Location = new System.Drawing.Point(570, 447);
+            this.textBoxSEApp.Name = "textBoxSEApp";
+            this.textBoxSEApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxSEApp.TabIndex = 95;
+            this.textBoxSEApp.Tag = "SE";
+            // 
+            // textBoxCYApp
+            // 
+            this.textBoxCYApp.Enabled = false;
+            this.textBoxCYApp.Location = new System.Drawing.Point(221, 263);
+            this.textBoxCYApp.Name = "textBoxCYApp";
+            this.textBoxCYApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxCYApp.TabIndex = 20;
+            this.textBoxCYApp.Tag = "CY";
+            // 
+            // checkBoxAT
+            // 
+            this.checkBoxAT.AutoSize = true;
+            this.checkBoxAT.Location = new System.Drawing.Point(19, 194);
+            this.checkBoxAT.Name = "checkBoxAT";
+            this.checkBoxAT.Size = new System.Drawing.Size(72, 17);
+            this.checkBoxAT.TabIndex = 9;
+            this.checkBoxAT.Tag = "AT";
+            this.checkBoxAT.Text = "AT-BASG";
+            this.checkBoxAT.UseVisualStyleBackColor = true;
+            this.checkBoxAT.CheckedChanged += new System.EventHandler(this.checkBoxAT_CheckedChanged);
+            // 
+            // checkBoxNL
+            // 
+            this.checkBoxNL.AutoSize = true;
+            this.checkBoxNL.Location = new System.Drawing.Point(370, 332);
+            this.checkBoxNL.Name = "checkBoxNL";
+            this.checkBoxNL.Size = new System.Drawing.Size(66, 17);
+            this.checkBoxNL.TabIndex = 78;
+            this.checkBoxNL.Tag = "NL";
+            this.checkBoxNL.Text = "NL-MEB";
+            this.checkBoxNL.UseVisualStyleBackColor = true;
+            this.checkBoxNL.CheckedChanged += new System.EventHandler(this.checkBoxNL_CheckedChanged);
+            // 
+            // textBoxESApp
+            // 
+            this.textBoxESApp.Enabled = false;
+            this.textBoxESApp.Location = new System.Drawing.Point(221, 427);
+            this.textBoxESApp.Name = "textBoxESApp";
+            this.textBoxESApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxESApp.TabIndex = 41;
+            this.textBoxESApp.Tag = "ES";
+            // 
+            // textBoxCZApp
+            // 
+            this.textBoxCZApp.Enabled = false;
+            this.textBoxCZApp.Location = new System.Drawing.Point(221, 286);
+            this.textBoxCZApp.Name = "textBoxCZApp";
+            this.textBoxCZApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxCZApp.TabIndex = 23;
+            this.textBoxCZApp.Tag = "CZ";
+            // 
+            // checkBoxBE
+            // 
+            this.checkBoxBE.AutoSize = true;
+            this.checkBoxBE.Location = new System.Drawing.Point(19, 217);
+            this.checkBoxBE.Name = "checkBoxBE";
+            this.checkBoxBE.Size = new System.Drawing.Size(80, 17);
+            this.checkBoxBE.TabIndex = 12;
+            this.checkBoxBE.Tag = "BE";
+            this.checkBoxBE.Text = "BE-FAMHP";
+            this.checkBoxBE.UseVisualStyleBackColor = true;
+            this.checkBoxBE.CheckedChanged += new System.EventHandler(this.checkBoxBE_CheckedChanged);
+            // 
+            // checkBoxMT
+            // 
+            this.checkBoxMT.AutoSize = true;
+            this.checkBoxMT.Location = new System.Drawing.Point(370, 309);
+            this.checkBoxMT.Name = "checkBoxMT";
+            this.checkBoxMT.Size = new System.Drawing.Size(99, 17);
+            this.checkBoxMT.TabIndex = 75;
+            this.checkBoxMT.Tag = "MT";
+            this.checkBoxMT.Text = "MT-MEDAUTH";
+            this.checkBoxMT.UseVisualStyleBackColor = true;
+            this.checkBoxMT.CheckedChanged += new System.EventHandler(this.checkBoxMT_CheckedChanged);
+            // 
+            // textBoxSIApp
+            // 
+            this.textBoxSIApp.Enabled = false;
+            this.textBoxSIApp.Location = new System.Drawing.Point(570, 470);
+            this.textBoxSIApp.Name = "textBoxSIApp";
+            this.textBoxSIApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxSIApp.TabIndex = 98;
+            this.textBoxSIApp.Tag = "SI";
+            // 
+            // textBoxDKApp
+            // 
+            this.textBoxDKApp.Enabled = false;
+            this.textBoxDKApp.Location = new System.Drawing.Point(221, 358);
+            this.textBoxDKApp.Name = "textBoxDKApp";
+            this.textBoxDKApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxDKApp.TabIndex = 32;
+            this.textBoxDKApp.Tag = "DK";
+            // 
+            // checkBoxBG
+            // 
+            this.checkBoxBG.AutoSize = true;
+            this.checkBoxBG.Location = new System.Drawing.Point(19, 240);
+            this.checkBoxBG.Name = "checkBoxBG";
+            this.checkBoxBG.Size = new System.Drawing.Size(66, 17);
+            this.checkBoxBG.TabIndex = 15;
+            this.checkBoxBG.Tag = "BG";
+            this.checkBoxBG.Text = "BG-BDA";
+            this.checkBoxBG.UseVisualStyleBackColor = true;
+            this.checkBoxBG.CheckedChanged += new System.EventHandler(this.checkBoxBG_CheckedChanged);
+            // 
+            // checkBoxLU
+            // 
+            this.checkBoxLU.AutoSize = true;
+            this.checkBoxLU.Location = new System.Drawing.Point(370, 263);
+            this.checkBoxLU.Name = "checkBoxLU";
+            this.checkBoxLU.Size = new System.Drawing.Size(92, 17);
+            this.checkBoxLU.TabIndex = 69;
+            this.checkBoxLU.Tag = "LU";
+            this.checkBoxLU.Text = "LU-MINSANT";
+            this.checkBoxLU.UseVisualStyleBackColor = true;
+            this.checkBoxLU.CheckedChanged += new System.EventHandler(this.checkBoxLU_CheckedChanged);
+            // 
+            // textBoxSKApp
+            // 
+            this.textBoxSKApp.Enabled = false;
+            this.textBoxSKApp.Location = new System.Drawing.Point(570, 493);
+            this.textBoxSKApp.Name = "textBoxSKApp";
+            this.textBoxSKApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxSKApp.TabIndex = 101;
+            this.textBoxSKApp.Tag = "SK";
+            // 
+            // textBoxEEApp
+            // 
+            this.textBoxEEApp.Enabled = false;
+            this.textBoxEEApp.Location = new System.Drawing.Point(221, 381);
+            this.textBoxEEApp.Name = "textBoxEEApp";
+            this.textBoxEEApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxEEApp.TabIndex = 35;
+            this.textBoxEEApp.Tag = "EE";
+            // 
+            // checkBoxCY
+            // 
+            this.checkBoxCY.AutoSize = true;
+            this.checkBoxCY.Location = new System.Drawing.Point(19, 263);
+            this.checkBoxCY.Name = "checkBoxCY";
+            this.checkBoxCY.Size = new System.Drawing.Size(65, 17);
+            this.checkBoxCY.TabIndex = 18;
+            this.checkBoxCY.Tag = "CY";
+            this.checkBoxCY.Text = "CY-PHS";
+            this.checkBoxCY.UseVisualStyleBackColor = true;
+            this.checkBoxCY.CheckedChanged += new System.EventHandler(this.checkBoxCY_CheckedChanged);
+            // 
+            // checkBoxLT
+            // 
+            this.checkBoxLT.AutoSize = true;
+            this.checkBoxLT.Location = new System.Drawing.Point(370, 240);
+            this.checkBoxLT.Name = "checkBoxLT";
+            this.checkBoxLT.Size = new System.Drawing.Size(72, 17);
+            this.checkBoxLT.TabIndex = 66;
+            this.checkBoxLT.Tag = "LT";
+            this.checkBoxLT.Text = "LT-SMCA";
+            this.checkBoxLT.UseVisualStyleBackColor = true;
+            this.checkBoxLT.CheckedChanged += new System.EventHandler(this.checkBoxLT_CheckedChanged);
+            // 
+            // textBoxROApp
+            // 
+            this.textBoxROApp.Enabled = false;
+            this.textBoxROApp.Location = new System.Drawing.Point(570, 424);
+            this.textBoxROApp.Name = "textBoxROApp";
+            this.textBoxROApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxROApp.TabIndex = 92;
+            this.textBoxROApp.Tag = "RO";
+            // 
+            // textBoxEUApp
+            // 
+            this.textBoxEUApp.Enabled = false;
+            this.textBoxEUApp.Location = new System.Drawing.Point(570, 562);
+            this.textBoxEUApp.Name = "textBoxEUApp";
+            this.textBoxEUApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxEUApp.TabIndex = 107;
+            this.textBoxEUApp.Tag = "EMA";
+            // 
+            // checkBoxCZ
+            // 
+            this.checkBoxCZ.AutoSize = true;
+            this.checkBoxCZ.Location = new System.Drawing.Point(19, 286);
+            this.checkBoxCZ.Name = "checkBoxCZ";
+            this.checkBoxCZ.Size = new System.Drawing.Size(71, 17);
+            this.checkBoxCZ.TabIndex = 21;
+            this.checkBoxCZ.Tag = "CZ";
+            this.checkBoxCZ.Text = "CZ-SUKL";
+            this.checkBoxCZ.UseVisualStyleBackColor = true;
+            this.checkBoxCZ.CheckedChanged += new System.EventHandler(this.checkBoxCZ_CheckedChanged);
+            // 
+            // textBoxAT
+            // 
+            this.textBoxAT.Enabled = false;
+            this.textBoxAT.Location = new System.Drawing.Point(115, 195);
+            this.textBoxAT.Name = "textBoxAT";
+            this.textBoxAT.Size = new System.Drawing.Size(100, 20);
+            this.textBoxAT.TabIndex = 10;
+            this.textBoxAT.Tag = "AT";
+            // 
+            // textBoxPTApp
+            // 
+            this.textBoxPTApp.Enabled = false;
+            this.textBoxPTApp.Location = new System.Drawing.Point(570, 401);
+            this.textBoxPTApp.Name = "textBoxPTApp";
+            this.textBoxPTApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPTApp.TabIndex = 89;
+            this.textBoxPTApp.Tag = "PT";
+            // 
+            // textBoxEDApp
+            // 
+            this.textBoxEDApp.Enabled = false;
+            this.textBoxEDApp.Location = new System.Drawing.Point(570, 539);
+            this.textBoxEDApp.Name = "textBoxEDApp";
+            this.textBoxEDApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxEDApp.TabIndex = 107;
+            this.textBoxEDApp.Tag = "EDQM";
+            // 
+            // checkBoxDK
+            // 
+            this.checkBoxDK.AutoSize = true;
+            this.checkBoxDK.Location = new System.Drawing.Point(19, 358);
+            this.checkBoxDK.Name = "checkBoxDK";
+            this.checkBoxDK.Size = new System.Drawing.Size(75, 17);
+            this.checkBoxDK.TabIndex = 30;
+            this.checkBoxDK.Tag = "DK";
+            this.checkBoxDK.Text = "DK-DKMA";
+            this.checkBoxDK.UseVisualStyleBackColor = true;
+            this.checkBoxDK.CheckedChanged += new System.EventHandler(this.checkBoxDK_CheckedChanged);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(461, 177);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(78, 13);
+            this.label21.TabIndex = 58;
+            this.label21.Text = "Invented name";
+            // 
+            // textBoxPLApp
+            // 
+            this.textBoxPLApp.Enabled = false;
+            this.textBoxPLApp.Location = new System.Drawing.Point(570, 378);
+            this.textBoxPLApp.Name = "textBoxPLApp";
+            this.textBoxPLApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPLApp.TabIndex = 86;
+            this.textBoxPLApp.Tag = "PL";
+            // 
+            // textBoxFIApp
+            // 
+            this.textBoxFIApp.Enabled = false;
+            this.textBoxFIApp.Location = new System.Drawing.Point(221, 450);
+            this.textBoxFIApp.Name = "textBoxFIApp";
+            this.textBoxFIApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxFIApp.TabIndex = 44;
+            this.textBoxFIApp.Tag = "FI";
+            // 
+            // checkBoxEE
+            // 
+            this.checkBoxEE.AutoSize = true;
+            this.checkBoxEE.Location = new System.Drawing.Point(19, 381);
+            this.checkBoxEE.Name = "checkBoxEE";
+            this.checkBoxEE.Size = new System.Drawing.Size(66, 17);
+            this.checkBoxEE.TabIndex = 33;
+            this.checkBoxEE.Tag = "EE";
+            this.checkBoxEE.Text = "EE-SAM";
+            this.checkBoxEE.UseVisualStyleBackColor = true;
+            this.checkBoxEE.CheckedChanged += new System.EventHandler(this.checkBoxEE_CheckedChanged);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(367, 177);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(84, 13);
+            this.label22.TabIndex = 57;
+            this.label22.Text = "Country/Agency";
+            // 
+            // textBoxNOApp
+            // 
+            this.textBoxNOApp.Enabled = false;
+            this.textBoxNOApp.Location = new System.Drawing.Point(570, 355);
+            this.textBoxNOApp.Name = "textBoxNOApp";
+            this.textBoxNOApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxNOApp.TabIndex = 83;
+            this.textBoxNOApp.Tag = "NO";
+            // 
+            // textBoxFRApp
+            // 
+            this.textBoxFRApp.Enabled = false;
+            this.textBoxFRApp.Location = new System.Drawing.Point(221, 473);
+            this.textBoxFRApp.Name = "textBoxFRApp";
+            this.textBoxFRApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxFRApp.TabIndex = 47;
+            this.textBoxFRApp.Tag = "FR";
+            // 
+            // checkBoxED
+            // 
+            this.checkBoxED.AutoSize = true;
+            this.checkBoxED.Location = new System.Drawing.Point(370, 539);
+            this.checkBoxED.Name = "checkBoxED";
+            this.checkBoxED.Size = new System.Drawing.Size(76, 17);
+            this.checkBoxED.TabIndex = 105;
+            this.checkBoxED.Tag = "EDQM";
+            this.checkBoxED.Text = "EU-EDQM";
+            this.checkBoxED.UseVisualStyleBackColor = true;
+            this.checkBoxED.CheckedChanged += new System.EventHandler(this.checkBoxED_CheckedChanged);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(111, 177);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(78, 13);
+            this.label20.TabIndex = 0;
+            this.label20.Text = "Invented name";
+            // 
+            // textBoxNLApp
+            // 
+            this.textBoxNLApp.Enabled = false;
+            this.textBoxNLApp.Location = new System.Drawing.Point(570, 332);
+            this.textBoxNLApp.Name = "textBoxNLApp";
+            this.textBoxNLApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxNLApp.TabIndex = 80;
+            this.textBoxNLApp.Tag = "NL";
+            // 
+            // textBoxDEApp
+            // 
+            this.textBoxDEApp.Enabled = false;
+            this.textBoxDEApp.Location = new System.Drawing.Point(221, 309);
+            this.textBoxDEApp.Name = "textBoxDEApp";
+            this.textBoxDEApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxDEApp.TabIndex = 26;
+            this.textBoxDEApp.Tag = "DE";
+            // 
+            // checkBoxEU
+            // 
+            this.checkBoxEU.AutoSize = true;
+            this.checkBoxEU.Location = new System.Drawing.Point(370, 565);
+            this.checkBoxEU.Name = "checkBoxEU";
+            this.checkBoxEU.Size = new System.Drawing.Size(67, 17);
+            this.checkBoxEU.TabIndex = 105;
+            this.checkBoxEU.Tag = "EMA";
+            this.checkBoxEU.Text = "EU-EMA";
+            this.checkBoxEU.UseVisualStyleBackColor = true;
+            this.checkBoxEU.CheckedChanged += new System.EventHandler(this.checkBoxEU_CheckedChanged);
+            // 
+            // checkBoxLI
+            // 
+            this.checkBoxLI.AutoSize = true;
+            this.checkBoxLI.Location = new System.Drawing.Point(370, 217);
+            this.checkBoxLI.Name = "checkBoxLI";
+            this.checkBoxLI.Size = new System.Drawing.Size(57, 17);
+            this.checkBoxLI.TabIndex = 63;
+            this.checkBoxLI.Tag = "LI";
+            this.checkBoxLI.Text = "LI-LLV";
+            this.checkBoxLI.UseVisualStyleBackColor = true;
+            this.checkBoxLI.CheckedChanged += new System.EventHandler(this.checkBoxLI_CheckedChanged);
+            // 
+            // textBoxMTApp
+            // 
+            this.textBoxMTApp.Enabled = false;
+            this.textBoxMTApp.Location = new System.Drawing.Point(570, 309);
+            this.textBoxMTApp.Name = "textBoxMTApp";
+            this.textBoxMTApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxMTApp.TabIndex = 77;
+            this.textBoxMTApp.Tag = "MT";
+            // 
+            // textBoxELApp
+            // 
+            this.textBoxELApp.Enabled = false;
+            this.textBoxELApp.Location = new System.Drawing.Point(221, 404);
+            this.textBoxELApp.Name = "textBoxELApp";
+            this.textBoxELApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxELApp.TabIndex = 38;
+            this.textBoxELApp.Tag = "EL";
+            // 
+            // checkBoxFI
+            // 
+            this.checkBoxFI.AutoSize = true;
+            this.checkBoxFI.Location = new System.Drawing.Point(19, 450);
+            this.checkBoxFI.Name = "checkBoxFI";
+            this.checkBoxFI.Size = new System.Drawing.Size(70, 17);
+            this.checkBoxFI.TabIndex = 42;
+            this.checkBoxFI.Tag = "FI";
+            this.checkBoxFI.Text = "FI-FIMEA";
+            this.checkBoxFI.UseVisualStyleBackColor = true;
+            this.checkBoxFI.CheckedChanged += new System.EventHandler(this.checkBoxFI_CheckedChanged);
+            // 
+            // checkBoxLV
+            // 
+            this.checkBoxLV.AutoSize = true;
+            this.checkBoxLV.Location = new System.Drawing.Point(370, 286);
+            this.checkBoxLV.Name = "checkBoxLV";
+            this.checkBoxLV.Size = new System.Drawing.Size(63, 17);
+            this.checkBoxLV.TabIndex = 72;
+            this.checkBoxLV.Tag = "LV";
+            this.checkBoxLV.Text = "LV-ZVA";
+            this.checkBoxLV.UseVisualStyleBackColor = true;
+            this.checkBoxLV.CheckedChanged += new System.EventHandler(this.checkBoxLV_CheckedChanged);
+            // 
+            // textBoxLUApp
+            // 
+            this.textBoxLUApp.Enabled = false;
+            this.textBoxLUApp.Location = new System.Drawing.Point(570, 263);
+            this.textBoxLUApp.Name = "textBoxLUApp";
+            this.textBoxLUApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxLUApp.TabIndex = 71;
+            this.textBoxLUApp.Tag = "LU";
+            // 
+            // textBoxHUApp
+            // 
+            this.textBoxHUApp.Enabled = false;
+            this.textBoxHUApp.Location = new System.Drawing.Point(222, 519);
+            this.textBoxHUApp.Name = "textBoxHUApp";
+            this.textBoxHUApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxHUApp.TabIndex = 53;
+            this.textBoxHUApp.Tag = "HU";
+            // 
+            // checkBoxFR
+            // 
+            this.checkBoxFR.AutoSize = true;
+            this.checkBoxFR.Location = new System.Drawing.Point(19, 473);
+            this.checkBoxFR.Name = "checkBoxFR";
+            this.checkBoxFR.Size = new System.Drawing.Size(74, 17);
+            this.checkBoxFR.TabIndex = 45;
+            this.checkBoxFR.Tag = "FR";
+            this.checkBoxFR.Text = "FR-ANSM";
+            this.checkBoxFR.UseVisualStyleBackColor = true;
+            this.checkBoxFR.CheckedChanged += new System.EventHandler(this.checkBoxFR_CheckedChanged);
+            // 
+            // checkBoxIT
+            // 
+            this.checkBoxIT.AutoSize = true;
+            this.checkBoxIT.Location = new System.Drawing.Point(370, 194);
+            this.checkBoxIT.Name = "checkBoxIT";
+            this.checkBoxIT.Size = new System.Drawing.Size(62, 17);
+            this.checkBoxIT.TabIndex = 60;
+            this.checkBoxIT.Tag = "IT";
+            this.checkBoxIT.Text = "IT-AIFA";
+            this.checkBoxIT.UseVisualStyleBackColor = true;
+            this.checkBoxIT.CheckedChanged += new System.EventHandler(this.checkBoxIT_CheckedChanged);
+            // 
+            // textBoxLTApp
+            // 
+            this.textBoxLTApp.Enabled = false;
+            this.textBoxLTApp.Location = new System.Drawing.Point(570, 240);
+            this.textBoxLTApp.Name = "textBoxLTApp";
+            this.textBoxLTApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxLTApp.TabIndex = 68;
+            this.textBoxLTApp.Tag = "LT";
+            // 
+            // textBoxISApp
+            // 
+            this.textBoxISApp.Enabled = false;
+            this.textBoxISApp.Location = new System.Drawing.Point(222, 565);
+            this.textBoxISApp.Name = "textBoxISApp";
+            this.textBoxISApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxISApp.TabIndex = 59;
+            this.textBoxISApp.Tag = "IS";
+            // 
+            // checkBoxDE
+            // 
+            this.checkBoxDE.AutoSize = true;
+            this.checkBoxDE.Location = new System.Drawing.Point(19, 309);
+            this.checkBoxDE.Name = "checkBoxDE";
+            this.checkBoxDE.Size = new System.Drawing.Size(81, 17);
+            this.checkBoxDE.TabIndex = 24;
+            this.checkBoxDE.Tag = "DE";
+            this.checkBoxDE.Text = "DE-BFARM";
+            this.checkBoxDE.UseVisualStyleBackColor = true;
+            this.checkBoxDE.CheckedChanged += new System.EventHandler(this.checkBoxDE_CheckedChanged);
+            // 
+            // checkBoxIE
+            // 
+            this.checkBoxIE.AutoSize = true;
+            this.checkBoxIE.Location = new System.Drawing.Point(20, 542);
+            this.checkBoxIE.Name = "checkBoxIE";
+            this.checkBoxIE.Size = new System.Drawing.Size(69, 17);
+            this.checkBoxIE.TabIndex = 54;
+            this.checkBoxIE.Tag = "IE";
+            this.checkBoxIE.Text = "IE-HPRA";
+            this.checkBoxIE.UseVisualStyleBackColor = true;
+            this.checkBoxIE.CheckedChanged += new System.EventHandler(this.checkBoxIE_CheckedChanged);
+            // 
+            // textBoxLIApp
+            // 
+            this.textBoxLIApp.Enabled = false;
+            this.textBoxLIApp.Location = new System.Drawing.Point(570, 217);
+            this.textBoxLIApp.Name = "textBoxLIApp";
+            this.textBoxLIApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxLIApp.TabIndex = 65;
+            this.textBoxLIApp.Tag = "LI";
+            // 
+            // textBoxIEApp
+            // 
+            this.textBoxIEApp.Enabled = false;
+            this.textBoxIEApp.Location = new System.Drawing.Point(222, 542);
+            this.textBoxIEApp.Name = "textBoxIEApp";
+            this.textBoxIEApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxIEApp.TabIndex = 56;
+            this.textBoxIEApp.Tag = "IE";
+            // 
+            // checkBoxEL
+            // 
+            this.checkBoxEL.AutoSize = true;
+            this.checkBoxEL.Location = new System.Drawing.Point(19, 404);
+            this.checkBoxEL.Name = "checkBoxEL";
+            this.checkBoxEL.Size = new System.Drawing.Size(63, 17);
+            this.checkBoxEL.TabIndex = 36;
+            this.checkBoxEL.Tag = "EL";
+            this.checkBoxEL.Text = "EL-EOF";
+            this.checkBoxEL.UseVisualStyleBackColor = true;
+            this.checkBoxEL.CheckedChanged += new System.EventHandler(this.checkBoxEL_CheckedChanged);
+            // 
+            // checkBoxIS
+            // 
+            this.checkBoxIS.AutoSize = true;
+            this.checkBoxIS.Location = new System.Drawing.Point(20, 565);
+            this.checkBoxIS.Name = "checkBoxIS";
+            this.checkBoxIS.Size = new System.Drawing.Size(65, 17);
+            this.checkBoxIS.TabIndex = 57;
+            this.checkBoxIS.Tag = "IS";
+            this.checkBoxIS.Text = "IS-IMCA";
+            this.checkBoxIS.UseVisualStyleBackColor = true;
+            this.checkBoxIS.CheckedChanged += new System.EventHandler(this.checkBoxIS_CheckedChanged);
+            // 
+            // textBoxLVApp
+            // 
+            this.textBoxLVApp.Enabled = false;
+            this.textBoxLVApp.Location = new System.Drawing.Point(570, 286);
+            this.textBoxLVApp.Name = "textBoxLVApp";
+            this.textBoxLVApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxLVApp.TabIndex = 74;
+            this.textBoxLVApp.Tag = "LV";
+            // 
+            // textBoxITApp
+            // 
+            this.textBoxITApp.Enabled = false;
+            this.textBoxITApp.Location = new System.Drawing.Point(570, 193);
+            this.textBoxITApp.Name = "textBoxITApp";
+            this.textBoxITApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxITApp.TabIndex = 62;
+            this.textBoxITApp.Tag = "IT";
+            // 
+            // checkBoxHU
+            // 
+            this.checkBoxHU.AutoSize = true;
+            this.checkBoxHU.Location = new System.Drawing.Point(20, 519);
+            this.checkBoxHU.Name = "checkBoxHU";
+            this.checkBoxHU.Size = new System.Drawing.Size(71, 17);
+            this.checkBoxHU.TabIndex = 51;
+            this.checkBoxHU.Tag = "HU";
+            this.checkBoxHU.Text = "HU-OGYI";
+            this.checkBoxHU.UseVisualStyleBackColor = true;
+            this.checkBoxHU.CheckedChanged += new System.EventHandler(this.checkBoxHU_CheckedChanged);
             // 
             // fileExplorerUserControl
             // 
             this.fileExplorerUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fileExplorerUserControl.Location = new System.Drawing.Point(0, 81);
-            this.fileExplorerUserControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fileExplorerUserControl.Location = new System.Drawing.Point(0, 63);
+            this.fileExplorerUserControl.Margin = new System.Windows.Forms.Padding(2);
             this.fileExplorerUserControl.Name = "fileExplorerUserControl";
-            this.fileExplorerUserControl.Size = new System.Drawing.Size(1553, 1506);
+            this.fileExplorerUserControl.Size = new System.Drawing.Size(181, 551);
             this.fileExplorerUserControl.TabIndex = 123;
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(405, 6);
-            // 
-            // tsmiProperties
-            // 
-            this.tsmiProperties.Name = "tsmiProperties";
-            this.tsmiProperties.Size = new System.Drawing.Size(408, 38);
-            this.tsmiProperties.Text = "Properties";
-            this.tsmiProperties.Click += new System.EventHandler(this.tsmiProperties_Click);
             // 
             // MainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2292, 1587);
+            this.ClientSize = new System.Drawing.Size(962, 614);
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "6";

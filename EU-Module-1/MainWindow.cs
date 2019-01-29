@@ -1355,28 +1355,35 @@ namespace eCTD_indexer
 
         private void tsbOpenLastDossier_Click(object sender, EventArgs e)
         {
-            // Store the Sequence Directory in local variable
-            this.SeqDir = Properties.Settings.Default.LastDossier;
-
-            // First of all; Clear
-            this.fileExplorerUserControl.Clear();
-            this.ClearAllControls();
-
-            // Show the files of the root folder
-            this.fileExplorerUserControl.PopulateTreeView(this.SeqDir);
-
-            // 0000-workingdocuments
-            this.fileExplorerUserControl.PopulateTreeView(this.SeqDir + "-workingdocuments");
-
-
-            // Load the xml file / xml data
-            if (File.Exists(this.SeqDir + @"\m1\eu\eu-regional.xml"))
+            try
             {
-                this.loadXMLData();
+                // Store the Sequence Directory in local variable
+                this.SeqDir = Properties.Settings.Default.LastDossier;
 
-                // Set the Dossier as Opened
-                this.DossierOpened = true;
-            }            
+                // First of all; Clear
+                this.fileExplorerUserControl.Clear();
+                this.ClearAllControls();
+
+                // Show the files of the root folder
+                this.fileExplorerUserControl.PopulateTreeView(this.SeqDir);
+
+                // 0000-workingdocuments
+                this.fileExplorerUserControl.PopulateTreeView(this.SeqDir + "-workingdocuments");
+
+
+                // Load the xml file / xml data
+                if (File.Exists(this.SeqDir + @"\m1\eu\eu-regional.xml"))
+                {
+                    this.loadXMLData();
+
+                    // Set the Dossier as Opened
+                    this.DossierOpened = true;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("The path to the last dossier is invalid", "Invalid Path", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void openLastDossierToolStripMenuItem_Click(object sender, EventArgs e)

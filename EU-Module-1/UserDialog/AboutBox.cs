@@ -16,7 +16,7 @@ namespace eCTD_indexer
             InitializeComponent();
             this.Text = String.Format("Info über {0}", AssemblyTitle);
             this.labelProductName.Text = AssemblyProduct;
-            this.labelVersion.Text = String.Format("Version {0}-20190127", AssemblyVersion);
+            this.labelVersion.Text = String.Format("Version {0}-20190129", AssemblyVersion);
             this.labelCopyright.Text = AssemblyCopyright;
             this.labelCompanyName.Text = "Released on 2019-01";//AssemblyCompany;
             //this.textBoxDescription.Text = AssemblyDescription;
