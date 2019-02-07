@@ -12,7 +12,7 @@ namespace eCTD_indexer.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.7.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -26,12 +26,12 @@ namespace eCTD_indexer.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("C:\\")]
-        public string LastDossierLocation {
+        public string LastDossierSequencesLocation {
             get {
-                return ((string)(this["LastDossierLocation"]));
+                return ((string)(this["LastDossierSequencesLocation"]));
             }
             set {
-                this["LastDossierLocation"] = value;
+                this["LastDossierSequencesLocation"] = value;
             }
         }
         
@@ -44,6 +44,18 @@ namespace eCTD_indexer.Properties {
             }
             set {
                 this["AskClose"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\")]
+        public string LastDossier {
+            get {
+                return ((string)(this["LastDossier"]));
+            }
+            set {
+                this["LastDossier"] = value;
             }
         }
     }

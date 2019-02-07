@@ -581,12 +581,12 @@ namespace eCTD_indexer
         private void tsbOpenDossier_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog fb = new FolderBrowserDialog();
-            fb.SelectedPath = Properties.Settings.Default.LastDossierLocation;
+            fb.SelectedPath = Properties.Settings.Default.LastDossierSequencesLocation;
             fb.Description = "Please select the directory in which you find the sequence directory, working directory and so on.";
             if (fb.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 // Remember the location of this folder for next time
-                Properties.Settings.Default.LastDossierLocation = fb.SelectedPath;
+                Properties.Settings.Default.LastDossierSequencesLocation = fb.SelectedPath;
                 Properties.Settings.Default.Save();
 
                 // User has to choose the sequence which has to be open.
@@ -612,6 +612,10 @@ namespace eCTD_indexer
                     if (File.Exists(this.SeqDir + @"\m1\eu\eu-regional.xml"))
                     {
                         this.loadXMLData();
+
+                        // Remeber the last dossier
+                        Properties.Settings.Default.LastDossier = this.SeqDir;
+                        Properties.Settings.Default.Save();
                     }
 
                     // Set the Dossier as Opened
@@ -1332,9 +1336,116 @@ namespace eCTD_indexer
         private void pbSubmissionUnitCopy_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(comboBoxSubmUnit.Text);
-        } 
+        }
 
-        
+        private void newDossierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tsbCreate_Click(sender, e);
+        }
+
+        private void openDossierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tsbOpenDossier_Click(sender, e);
+        }
+
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void tsbOpenLastDossier_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Store the Sequence Directory in local variable
+                this.SeqDir = Properties.Settings.Default.LastDossier;
+
+                // First of all; Clear
+                this.fileExplorerUserControl.Clear();
+                this.ClearAllControls();
+
+                // Show the files of the root folder
+                this.fileExplorerUserControl.PopulateTreeView(this.SeqDir);
+
+                // 0000-workingdocuments
+                this.fileExplorerUserControl.PopulateTreeView(this.SeqDir + "-workingdocuments");
+
+
+                // Load the xml file / xml data
+                if (File.Exists(this.SeqDir + @"\m1\eu\eu-regional.xml"))
+                {
+                    this.loadXMLData();
+
+                    // Set the Dossier as Opened
+                    this.DossierOpened = true;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("The path to the last dossier is invalid", "Invalid Path", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void openLastDossierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tsbOpenLastDossier_Click(sender, e);
+        }
+
+        private void completeValidationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.DossierOpened)
+            {
+                eCTD_Diagnostic.MainWindow wpfwindow = new eCTD_Diagnostic.MainWindow();
+                wpfwindow.Path2Sequence = this.SeqDir;
+                ElementHost.EnableModelessKeyboardInterop(wpfwindow);
+                wpfwindow.Show();
+            }
+        }
+
+        private void fileNamesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.DossierOpened)
+            { 
+                MessageBox.Show(QuickCheck._071_Filenames.Check(this.SeqDir),"Filename Check",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+        }
+
+        private void tsbiCloseDossier_Click(object sender, EventArgs e)
+        {
+            tsbCloseDossier_Click(sender, e);
+        }
+
+        private void tsbideleteAllEmptyDirectoriesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tsbDeleteEmptyFolder_Click(sender, e);
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutBox about = new AboutBox();
+            about.ShowDialog();
+        }
+
+        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tsbRefreshFolderView_Click(sender, e);
+        }
+
+        private void createXMLFilesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tsbCreateXMLFiles_Click(sender, e);
+        }
+
+        private void zipDossierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tsbPackDossier_Click(sender, e);
+        }
+
+        private void tsmiProperties_Click(object sender, EventArgs e)
+        {
+            UserDialog.Options opt = new UserDialog.Options();
+            opt.ShowDialog();
+        }
     }
 
     internal class MD5Calculator 
