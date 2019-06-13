@@ -16,6 +16,105 @@ namespace eCTD_indexer
         /// <param name="memberStateList">List of member states</param>
         public void Create(String rootDir, List<String> memberStateList)
         {
+            //Create a list of official languages for each member state, to be used for generating language folders in 1.3.1
+            List<string> ATlang = new List<string>();
+            ATlang.Add("de");
+            List<string> BElang = new List<string>();            
+            BElang.Add("fr");
+            BElang.Add("nl");
+            BElang.Add("de");
+            List<string> BGlang = new List<string>();
+            BGlang.Add("bg");
+            List<string> CYlang = new List<string>();
+            CYlang.Add("el");
+            List<string> CZlang = new List<string>();
+            CZlang.Add("cs");
+            List<string> DElang = new List<string>();
+            DElang.Add("de");
+            List<string> DKlang = new List<string>();
+            DKlang.Add("da");
+            List<string> ELlang = new List<string>();
+            ELlang.Add("el");
+            List<string> ESlang = new List<string>();
+            ESlang.Add("es");
+            List<string> EElang = new List<string>();
+            EElang.Add("et");
+            List<string> FIlang = new List<string>();
+            FIlang.Add("fi");
+            FIlang.Add("se");
+            List<string> FRlang = new List<string>();
+            FRlang.Add("fr");
+            List<string> HRlang = new List<string>();
+            HRlang.Add("hr");
+            List<string> HUlang = new List<string>();
+            HUlang.Add("hu");
+            List<string> IElang = new List<string>();
+            IElang.Add("en");
+            List<string> ISlang = new List<string>();
+            ISlang.Add("is");
+            List<string> ITlang = new List<string>();
+            ITlang.Add("it");
+            List<string> LIlang = new List<string>();
+            LIlang.Add("de");
+            List<string> LTlang = new List<string>();
+            LTlang.Add("lt");
+            List<string> LVlang = new List<string>();
+            LVlang.Add("lv");
+            List<string> MTlang = new List<string>();
+            MTlang.Add("mt");
+            MTlang.Add("en");
+            List<string> NLlang = new List<string>();
+            NLlang.Add("nl");
+            List<string> NOlang = new List<string>();
+            NOlang.Add("no");
+            List<string> PLlang = new List<string>();
+            PLlang.Add("pl");
+            List<string> PTlang = new List<string>();
+            PTlang.Add("pt");
+            List<string> ROlang = new List<string>();
+            ROlang.Add("ro");
+            List<string> SKlang = new List<string>();
+            SKlang.Add("sk");
+            List<string> SIlang = new List<string>();
+            SIlang.Add("sl");
+            List<string> SElang = new List<string>();
+            SElang.Add("sv");
+            List<string> UKlang = new List<string>();
+            UKlang.Add("en");
+            
+            //Create a dictionary with member states and official languages, to be used for generating language folders in 1.3.1
+            Dictionary<string, List<string>> language = new Dictionary<string, List<string>>();
+            language.Add("at", ATlang);
+            language.Add("be", BElang);
+            language.Add("bg", BGlang);
+            language.Add("cy", ELlang);
+            language.Add("cz", CZlang);
+            language.Add("de", DElang);
+            language.Add("dk", DKlang);
+            language.Add("el", ELlang);
+            language.Add("es", ESlang);
+            language.Add("ee", EElang);
+            language.Add("fi", FIlang);
+            language.Add("fr", FRlang);
+            language.Add("hr", HRlang);
+            language.Add("hu", HUlang);
+            language.Add("ie", IElang);
+            language.Add("is", ISlang);
+            language.Add("it", ITlang);
+            language.Add("li", LIlang);
+            language.Add("lt", LTlang);
+            language.Add("lv", LVlang);
+            language.Add("mt", MTlang);
+            language.Add("nl", NLlang);
+            language.Add("no", NOlang);
+            language.Add("pl", PLlang);
+            language.Add("pt", PTlang);
+            language.Add("ro", ROlang);
+            language.Add("sk", SKlang);
+            language.Add("si", SIlang);
+            language.Add("se", SElang);
+            language.Add("uk", UKlang);
+            
             String sourceFile = "";
             DirectoryInfo rootDirectory = new DirectoryInfo(rootDir); // textBoxSeqDir.Text
             rootDirectory.CreateSubdirectory("m1");
@@ -48,6 +147,10 @@ namespace eCTD_indexer
                 foreach (string memberState in memberStateList)
                 {
                     rootDirectory.CreateSubdirectory("m1" + Path.DirectorySeparatorChar + "eu" + Path.DirectorySeparatorChar + "13-pi" + Path.DirectorySeparatorChar + "131-spclabelpl" + Path.DirectorySeparatorChar + memberState);
+                    foreach (string offlang in language[memberState])
+                    {
+                        rootDirectory.CreateSubdirectory("m1" + Path.DirectorySeparatorChar + "eu" + Path.DirectorySeparatorChar + "13-pi" + Path.DirectorySeparatorChar + "131-spclabelpl" + Path.DirectorySeparatorChar + memberState + Path.DirectorySeparatorChar + offlang);
+                    }
                 }
             }
 
