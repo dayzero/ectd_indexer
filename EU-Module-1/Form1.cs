@@ -1,5 +1,5 @@
 //eCTD indexer (EU Module 1)
-//Copyright 2007-2019 Ymir Vesteinsson, ymir@ectd.is
+//Copyright 2007-2020 Ymir Vesteinsson, ymir@ectd.is
 
 //This file is part of eCTD-indexer.
 
@@ -1370,7 +1370,10 @@ namespace WindowsApplication1
                         if (filenameListArray[p, 4] != "")
                         { sr.WriteLine("                  modified-file=\"{0}\"", filenameListArray[p, 4]); }
                         sr.WriteLine("                  xlink:href=\"{0}\">", filenameListArray[p, 1]);
-                        sr.WriteLine("                  <title>Responses to Questions</title>");
+                        if (filenameListArray[p, 0].Contains("-responses-"))
+                        { sr.WriteLine("                  <title>Responses - {0}</title>", filenameListArray[p,1].Substring(filenameListArray[p,1].IndexOf("-responses-")+11,filenameListArray[p,1].Length-(filenameListArray[p,1].IndexOf("-responses-")+15))); }
+                        else
+                        { sr.WriteLine("                  <title>Responses to Questions</title>"); }
                         sr.WriteLine("              </leaf>");
                         sr.WriteLine("          </specific>");
                         idcounter++;
