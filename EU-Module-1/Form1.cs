@@ -574,7 +574,7 @@ namespace WindowsApplication1
         private void button1_Click(object sender, EventArgs e) //generates eu-regional.xml
         {
             //string variables for EU envelope
-            string submissionIdentifier = this.label9.Text;
+            string submissionIdentifier = textBoxUUID.Text;
             string trackingNumber = textBoxTrackNo.Text;
             string applicant = "";
             string agency = "";
@@ -609,7 +609,7 @@ namespace WindowsApplication1
             if (submissionIdentifier == "")
             {
                 submissionIdentifier = Guid.NewGuid().ToString();
-                this.label9.Text = submissionIdentifier;
+                textBoxUUID.Text = submissionIdentifier;
             }
 
             //path to save output eu-regional.xml file
@@ -1522,20 +1522,23 @@ namespace WindowsApplication1
             bool m32a3open = false;
             bool m32ropen = false;
             bool m33open = false;
-            string substance = "0"; //used for multiple 3.2.S
-            string substance1 = "0"; //used for multiple 3.2.S
-            string product = ""; //used for multiple 3.2.P
-            string product1 = ""; //used for multiple 3.2.P
+
+            string current32s = ""; //used to handle multiple 3.2.S
+            string api = ""; //used to assign "substance" attribute in 3.2.S 
+            string manufacturer = ""; //used to assign "manufacturer" attribute in 3.2.S
+
+            string current32p = ""; //used to handle multple 3.2.P
+            string productName = ""; //used to assign "product-name" attribute in 2.3.P and 3.2.P
+            string dosageForm = ""; //used to assign "dosageform" attribute in 2.3.P and 3.2.P
+            string fpm = ""; //used to assign "manufacturer" attribute in 2.3.P and 3.2.P
+
+            string current32p4 = ""; //used to handle multple 3.2.P.4
             string excipient = ""; //used for multiple 3.2.P.4
-            string excipient1 = ""; //used for multiple 3.2.P.4
+            
             int charindex; //used for multiple 3.2.S, 3.2.P, 3.2.P.4, also used for module 5.3.5
             int startposition; //used for multiple 3.2.S, 3.2.P, 3.2.P.4, also used for module 5.3.5
             int endposition; //used for multiple 3.2.S, 3.2.P, 3.2.P.4, also used for module 5.3.5
-            string api = ""; //used to assign "substance" attribute in 3.2.S 
-            int apiIndex = 0; //used to assign "substance" attribute in 3.2.S 
-            string manufacturer = ""; //used to assign "manufacturer" attribute in 3.2.S
-            int manufacturerIndex = 0; //used to assign "manufacturer" attribute in 3.2.S
-
+            
             //module 4
             bool m4open = false;
             bool m42open = false;
@@ -1840,11 +1843,35 @@ namespace WindowsApplication1
                     }
                     if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "23-qos" + Path.DirectorySeparatorChar + "drug-product") && m23popen == false)
                     {
-                        swr.WriteLine("            <m2-3-p-drug-product>");
+                        productName = "";
+                        dosageForm = "";
+                        fpm = "";
+                        if (File.Exists(textBoxSeqDir.Text.Substring(0, textBoxSeqDir.Text.Length - 5) + Path.DirectorySeparatorChar + "attributes.txt"))                            
+                        {
+                            foreach (string line in File.ReadLines(textBoxSeqDir.Text.Substring(0, textBoxSeqDir.Text.Length - 5) + Path.DirectorySeparatorChar + "attributes.txt"))
+                            {
+                                if (line.Contains(filenameListArray[p, 1]))
+                                {
+                                    if (line.Contains("product-name:"))
+                                    { 
+                                        productName = line.Substring(line.IndexOf("product-name:") + 13, line.IndexOf(" ", line.IndexOf("product-name:") + 13) - (line.IndexOf("product-name:")+13));
+                                    }
+                                    if (line.Contains("dosageform:"))
+                                    { 
+                                        dosageForm = line.Substring(line.IndexOf("dosageform:") + 11, line.IndexOf(" ", line.IndexOf("dosageform:") + 11) - (line.IndexOf("dosageform:") + 11));
+                                    }
+                                    if (line.Contains("manufacturer:"))
+                                    { 
+                                        fpm = line.Substring(line.IndexOf("manufacturer:") + 13, line.IndexOf(" ", line.IndexOf("manufacturer:") + 13) - (line.IndexOf("manufacturer:") + 13)); 
+                                    }
+                                }
+                            }
+                        }
+                        swr.WriteLine("            <m2-3-p-drug-product product-name=\"{0}\" dosageform=\"{1}\" manufacturer=\"{2}\">", productName, dosageForm, fpm);
                         m23popen = true;
                     }
                     if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "23-qos" + Path.DirectorySeparatorChar + "drug-product"))
-                    {
+                    {                        
                         swr.WriteLine("                <leaf ID=\"m23p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                         swr.WriteLine("                    checksum=\"{0}\"", filenameListArray[p, 2]);
                         if (filenameListArray[p, 4] != "") { swr.WriteLine("                    modified-file=\"{0}\"", filenameListArray[p, 4]); }
@@ -1861,17 +1888,20 @@ namespace WindowsApplication1
 
                     if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "23-qos" + Path.DirectorySeparatorChar + "drug-substance"))
                     {
-                        if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "23-qos" + Path.DirectorySeparatorChar + "drug-substance.pdf") == false && filenameListArray[p, 0].Contains("-manufacturer-"))
+                        api = "";
+                        manufacturer = "";
+                        if (File.Exists(textBoxSeqDir.Text.Substring(0, textBoxSeqDir.Text.Length - 5) + Path.DirectorySeparatorChar + "attributes.txt"))
                         {
-                            apiIndex = filenameListArray[p, 0].IndexOf(Path.DirectorySeparatorChar + "23-qos" + Path.DirectorySeparatorChar + "drug-substance-");
-                            manufacturerIndex = filenameListArray[p, 0].IndexOf("-manufacturer-");
-                            api = filenameListArray[p, 0].Substring(apiIndex + 23, (manufacturerIndex - (apiIndex + 23)));
-                            manufacturer = filenameListArray[p, 0].Substring(manufacturerIndex + 14, filenameListArray[p, 0].Length - (manufacturerIndex + 14 + 4));
-                        }
-                        else
-                        {
-                            api = "";
-                            manufacturer = "";
+                            foreach (string line in File.ReadLines(textBoxSeqDir.Text.Substring(0, textBoxSeqDir.Text.Length - 5) + Path.DirectorySeparatorChar + "attributes.txt"))
+                            { 
+                                if (line.Contains(filenameListArray[p,1]))
+                                {
+                                    if(line.Contains("substance:"))
+                                    { api = line.Substring(line.IndexOf("substance:") + 10, line.IndexOf(" ", line.IndexOf("substance:") + 10) - (line.IndexOf("substance:")+10)); }
+                                    if (line.Contains("manufacturer:"))
+                                    { manufacturer = line.Substring(line.IndexOf("manufacturer:") + 13, line.IndexOf(" ", line.IndexOf("manufacturer:") + 13) - (line.IndexOf("manufacturer:") + 13)); }
+                                }
+                            }
                         }
 
                         swr.WriteLine("            <m2-3-s-drug-substance substance=\"{0}\" manufacturer=\"{1}\">", api, manufacturer);
@@ -2224,7 +2254,36 @@ namespace WindowsApplication1
                     }
                     if (filenameListArray[p, 0].Contains("m3" + Path.DirectorySeparatorChar + "32-body-data" + Path.DirectorySeparatorChar + "32a-app" + Path.DirectorySeparatorChar + "32a1-fac-equip") == true && m32a1open == false)
                     {
-                        swr.WriteLine("                <m3-2-a-1-facilities-and-equipment>");
+                        productName = "";
+                        dosageForm = "";
+                        fpm = "";
+                        api = "";
+                        if (File.Exists(textBoxSeqDir.Text.Substring(0, textBoxSeqDir.Text.Length - 5) + Path.DirectorySeparatorChar + "attributes.txt"))
+                        {
+                            foreach (string line in File.ReadLines(textBoxSeqDir.Text.Substring(0, textBoxSeqDir.Text.Length - 5) + Path.DirectorySeparatorChar + "attributes.txt"))
+                            {                         
+                                if (line.Contains(filenameListArray[p, 1]))
+                                {
+                                    if (line.Contains("product-name:"))
+                                    { 
+                                        productName = line.Substring(line.IndexOf("product-name:") + 13, line.IndexOf(" ", line.IndexOf("product-name:") + 13)-(line.IndexOf("product-name:") + 13));                             
+                                    }
+                                    if (line.Contains("dosageform:"))
+                                    { 
+                                        dosageForm = line.Substring(line.IndexOf("dosageform:") + 11, line.IndexOf(" ", line.IndexOf("dosageform:") + 11)-(line.IndexOf("dosageform:") + 11));
+                                    }
+                                    if (line.Contains("manufacturer:"))
+                                    { 
+                                        fpm = line.Substring(line.IndexOf("manufacturer:") + 13, line.IndexOf(" ", line.IndexOf("manufacturer:") + 13)-(line.IndexOf("manufacturer:") + 13));
+                                    }
+                                    if (line.Contains("substance:"))
+                                    { 
+                                        api = line.Substring(line.IndexOf("substance:") + 10, line.IndexOf(" ", line.IndexOf("substance:") + 10)-(line.IndexOf("substance:") + 10));
+                                    }
+                                }
+                            }
+                        }
+                        swr.WriteLine("                <m3-2-a-1-facilities-and-equipment manufacturer=\"{0}\" substance=\"{1}\" dosageform=\"{2}\" product-name=\"{3}\">", fpm, api, dosageForm, productName);
                         m32a1open = true;
                     }
                     if (filenameListArray[p, 0].Contains("m3" + Path.DirectorySeparatorChar + "32-body-data" + Path.DirectorySeparatorChar + "32a-app" + Path.DirectorySeparatorChar + "32a1-fac-equip") == true)
@@ -2245,7 +2304,28 @@ namespace WindowsApplication1
                     }
                     if (filenameListArray[p, 0].Contains("m3" + Path.DirectorySeparatorChar + "32-body-data" + Path.DirectorySeparatorChar + "32a-app" + Path.DirectorySeparatorChar + "32a2-advent-agent") == true && m32a2open == false)
                     {
-                        swr.WriteLine("                <m3-2-a-2-adventitious-agents-safety-evaluation>");
+                        productName = "";
+                        dosageForm = "";
+                        fpm = "";
+                        api = "";
+                        if (File.Exists(textBoxSeqDir.Text.Substring(0, textBoxSeqDir.Text.Length - 5) + Path.DirectorySeparatorChar + "attributes.txt"))
+                        {
+                            foreach (string line in File.ReadLines(textBoxSeqDir.Text.Substring(0, textBoxSeqDir.Text.Length - 5) + Path.DirectorySeparatorChar + "attributes.txt"))
+                            {
+                                if (line.Contains(filenameListArray[p, 1]))
+                                {
+                                    if (line.Contains("product-name:"))
+                                    { productName = line.Substring(line.IndexOf("product-name:") + 13, line.IndexOf(" ", line.IndexOf("product-name:") + 13) - (line.IndexOf("product-name:") + 13)); }
+                                    if (line.Contains("dosageform:"))
+                                    { dosageForm = line.Substring(line.IndexOf("dosageform:") + 11, line.IndexOf(" ", line.IndexOf("dosageform:") + 11) - (line.IndexOf("dosageform:") + 11)); }
+                                    if (line.Contains("manufacturer:"))
+                                    { fpm = line.Substring(line.IndexOf("manufacturer:") + 13, line.IndexOf(" ", line.IndexOf("manufacturer:") + 13) - (line.IndexOf("manufacturer:") + 13)); }
+                                    if (line.Contains("substance:"))
+                                    { api = line.Substring(line.IndexOf("substance:") + 10, line.IndexOf(" ", line.IndexOf("substance:") + 10) - (line.IndexOf("substance:") + 10)); }
+                                }
+                            }
+                        }
+                        swr.WriteLine("                <m3-2-a-2-adventitious-agents-safety-evaluation manufacturer=\"{0}\" substance=\"{1}\" dosageform=\"{2}\" product-name=\"{3}\">", fpm, api, dosageForm, productName);
                         m32a2open = true;
                     }
                     if (filenameListArray[p, 0].Contains("m3" + Path.DirectorySeparatorChar + "32-body-data" + Path.DirectorySeparatorChar + "32a-app" + Path.DirectorySeparatorChar + "32a2-advent-agent") == true)
@@ -2292,26 +2372,39 @@ namespace WindowsApplication1
                         m32aopen = false;
                     }
                     if (filenameListArray[p, 0].Contains("m3" + Path.DirectorySeparatorChar + "32-body-data" + Path.DirectorySeparatorChar + "32p-drug-prod") && m32popen == false)
-                    {
-                        charindex = filenameListArray[p, 0].IndexOf(Path.DirectorySeparatorChar + "32p-drug-prod");
-                        startposition = charindex + 15;
-                        endposition = filenameListArray[p, 0].Length - startposition;
-                        product = filenameListArray[p, 0].Substring(startposition, endposition);
-                        charindex = product.IndexOf(Path.DirectorySeparatorChar);
-                        product = product.Substring(0, charindex);
-                        swr.WriteLine("            <m3-2-p-drug-product product-name=\"{0}\">", product);
+                    {                        
+                        productName = "";
+                        dosageForm = "";
+                        fpm = "";
+                        current32p = filenameListArray[p, 0].Substring(0, filenameListArray[p, 0].IndexOf(Path.DirectorySeparatorChar, filenameListArray[p, 0].IndexOf("32p-drug-prod") + 14));
+                        if (File.Exists(textBoxSeqDir.Text.Substring(0, textBoxSeqDir.Text.Length - 5) + Path.DirectorySeparatorChar + "attributes.txt"))
+                        {
+                            foreach (string line in File.ReadLines(textBoxSeqDir.Text.Substring(0, textBoxSeqDir.Text.Length - 5) + Path.DirectorySeparatorChar + "attributes.txt"))
+                            {
+                                if ((line.Contains(current32p.Replace("\\","/").Substring(current32p.IndexOf("32p-drug-prod")))) && (line.Contains("32p4-contr-excip") == false))
+                                {
+                                    if (line.Contains("product-name:"))
+                                    {
+                                        productName = line.Substring(line.IndexOf("product-name:") + 13, line.IndexOf(" ", line.IndexOf("product-name:") + 13) - (line.IndexOf("product-name:") + 13));
+                                    }
+                                    if (line.Contains("dosageform:"))
+                                    {
+                                        dosageForm = line.Substring(line.IndexOf("dosageform:") + 11, line.IndexOf(" ", line.IndexOf("dosageform:") + 11) - (line.IndexOf("dosageform:") + 11));
+                                    }
+                                    if (line.Contains("manufacturer:"))
+                                    { 
+                                        fpm = line.Substring(line.IndexOf("manufacturer:") + 13, line.IndexOf(" ", line.IndexOf("manufacturer:") + 13) - (line.IndexOf("manufacturer:") + 13)); 
+                                    }
+                                }
+                            }
+                        }
+                        swr.WriteLine("            <m3-2-p-drug-product product-name=\"{0}\" dosageform=\"{1}\" manufacturer=\"{2}\">", productName, dosageForm, fpm);
                         m32popen = true;
                         idcounter = 0;
                     }
                     if (filenameListArray[p, 0].Contains("m3" + Path.DirectorySeparatorChar + "32-body-data" + Path.DirectorySeparatorChar + "32p-drug-prod") && m32popen == true)
                     {
-                        charindex = filenameListArray[p, 0].IndexOf(Path.DirectorySeparatorChar + "32p-drug-prod");
-                        startposition = charindex + 15;
-                        endposition = filenameListArray[p, 0].Length - startposition;
-                        product1 = filenameListArray[p, 0].Substring(startposition, endposition);
-                        charindex = product1.IndexOf(Path.DirectorySeparatorChar);
-                        product1 = product1.Substring(0, charindex);
-                        if (string.Equals(product, product1) == false)
+                        if (filenameListArray[p,0].Contains(current32p) == false)
                         {
                             if (m32p1open)
                             {
@@ -2403,9 +2496,33 @@ namespace WindowsApplication1
                                 swr.WriteLine("                </m3-2-p-8-stability>");
                                 m32p8open = false;
                             }
-                            swr.WriteLine("            </m3-2-p-drug-product>");
-                            swr.WriteLine("            <m3-2-p-drug-product product-name=\"{0}\">", product1);
-                            product = product1;
+                            swr.WriteLine("            </m3-2-p-drug-product>");                            
+                            productName = "";
+                            dosageForm = "";
+                            fpm = "";
+                            current32p = filenameListArray[p, 0].Substring(0, filenameListArray[p, 0].IndexOf(Path.DirectorySeparatorChar, filenameListArray[p, 0].IndexOf("32p-drug-prod") + 14));
+                            if (File.Exists(textBoxSeqDir.Text.Substring(0, textBoxSeqDir.Text.Length - 5) + Path.DirectorySeparatorChar + "attributes.txt"))
+                            {
+                                foreach (string line in File.ReadLines(textBoxSeqDir.Text.Substring(0, textBoxSeqDir.Text.Length - 5) + Path.DirectorySeparatorChar + "attributes.txt"))
+                                {
+                                    if ((line.Contains(current32p.Replace("\\", "/").Substring(current32p.IndexOf("32p-drug-prod")))) && (line.Contains("32p4-contr-excip") == false))
+                                    {
+                                        if (line.Contains("product-name:"))
+                                        {
+                                            productName = line.Substring(line.IndexOf("product-name:") + 13, line.IndexOf(" ", line.IndexOf("product-name:") + 13) - (line.IndexOf("product-name:") + 13));
+                                        }
+                                        if (line.Contains("dosageform:"))
+                                        {
+                                            dosageForm = line.Substring(line.IndexOf("dosageform:") + 11, line.IndexOf(" ", line.IndexOf("dosageform:") + 11) - (line.IndexOf("dosageform:") + 11));
+                                        }
+                                        if (line.Contains("manufacturer:"))
+                                        {
+                                            fpm = line.Substring(line.IndexOf("manufacturer:") + 13, line.IndexOf(" ", line.IndexOf("manufacturer:") + 13) - (line.IndexOf("manufacturer:") + 13));
+                                        }
+                                    }
+                                }
+                            }
+                            swr.WriteLine("            <m3-2-p-drug-product product-name=\"{0}\" dosageform=\"{1}\" manufacturer=\"{2}\">", productName, dosageForm, fpm);
                         }
                     }
                     if (filenameListArray[p, 0].Contains("m3" + Path.DirectorySeparatorChar + "32-body-data" + Path.DirectorySeparatorChar + "32p-drug-prod")
@@ -2569,37 +2686,46 @@ namespace WindowsApplication1
                     }
                     if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32p4-contr-excip" + Path.DirectorySeparatorChar) && m32p4open == false)
                     {
-                        charindex = filenameListArray[p, 0].IndexOf(Path.DirectorySeparatorChar + "32p4-contr-excip");
-                        startposition = charindex + 18;
-                        endposition = filenameListArray[p, 0].Length - startposition;
-                        excipient = filenameListArray[p, 0].Substring(startposition, endposition);
-                        charindex = excipient.IndexOf(Path.DirectorySeparatorChar);
-                        if (charindex > 0)
+                        current32p4 = filenameListArray[p, 0].Substring(0, filenameListArray[p, 0].IndexOf(Path.DirectorySeparatorChar, filenameListArray[p, 0].IndexOf("32p4-contr-excip") + 17));
+                        excipient = "";
+                        if (File.Exists(textBoxSeqDir.Text.Substring(0, textBoxSeqDir.Text.Length - 5) + Path.DirectorySeparatorChar + "attributes.txt"))
                         {
-                            excipient = excipient.Substring(0, charindex);
+                            foreach (string line in File.ReadLines(textBoxSeqDir.Text.Substring(0, textBoxSeqDir.Text.Length - 5) + Path.DirectorySeparatorChar + "attributes.txt"))
+                            {
+                                if ((line.Contains(current32p4.Replace("\\","/").Substring(current32p4.IndexOf("32p4-contr-excip")))) && (line.Contains(current32p.Replace("\\", "/").Substring(current32p.IndexOf("32p-drug-prod")))))
+                                {
+                                    if (line.Contains("excipient:"))
+                                    { 
+                                        excipient = line.Substring(line.IndexOf("excipient:") + 10, line.IndexOf(" ", line.IndexOf("excipient:") + 10)-(line.IndexOf("excipient:")+10));
+                                    }
+                                }
+                            }
                         }
-                        else excipient = "";
                         swr.WriteLine("                <m3-2-p-4-control-of-excipients excipient=\"{0}\">", excipient);
                         m32p4open = true;
                     }
                     if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32p4-contr-excip" + Path.DirectorySeparatorChar) && m32p4open == true)
                     {
-                        charindex = filenameListArray[p, 0].IndexOf(Path.DirectorySeparatorChar + "32p4-contr-excip");
-                        startposition = charindex + 18;
-                        endposition = filenameListArray[p, 0].Length - startposition;
-                        excipient1 = filenameListArray[p, 0].Substring(startposition, endposition);
-                        charindex = excipient1.IndexOf(Path.DirectorySeparatorChar);
-                        if (charindex > 0)
-                        {
-                            excipient1 = excipient1.Substring(0, charindex);
-                        }
-                        else excipient1 = "";
-                        if (string.Equals(excipient, excipient1) == false)
+                        if (filenameListArray[p, 0].Contains(current32p4) == false)
                         {
                             swr.WriteLine("                </m3-2-p-4-control-of-excipients>");
-                            swr.WriteLine("                <m3-2-p-4-control-of-excipients excipient=\"{0}\">", excipient1);
-                            excipient = excipient1;
-                        }
+                            current32p4 = filenameListArray[p, 0].Substring(0, filenameListArray[p, 0].IndexOf(Path.DirectorySeparatorChar, filenameListArray[p, 0].IndexOf("32p4-contr-excip") + 17));
+                            excipient = "";
+                            if (File.Exists(textBoxSeqDir.Text.Substring(0, textBoxSeqDir.Text.Length - 5) + Path.DirectorySeparatorChar + "attributes.txt"))
+                            {
+                                foreach (string line in File.ReadLines(textBoxSeqDir.Text.Substring(0, textBoxSeqDir.Text.Length - 5) + Path.DirectorySeparatorChar + "attributes.txt"))
+                                {
+                                    if ((line.Contains(current32p4.Replace("\\", "/").Substring(current32p4.IndexOf("32p4-contr-excip")))) && (line.Contains(current32p.Replace("\\", "/").Substring(current32p.IndexOf("32p-drug-prod")))))
+                                    {
+                                        if (line.Contains("excipient:"))
+                                        {
+                                            excipient = line.Substring(line.IndexOf("excipient:") + 10, line.IndexOf(" ", line.IndexOf("excipient:") + 10) - (line.IndexOf("excipient:") + 10));
+                                        }
+                                    }
+                                }
+                            }
+                            swr.WriteLine("                <m3-2-p-4-control-of-excipients excipient=\"{0}\">", excipient);
+                        }                        
                     }
                     if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32p4-contr-excip" + Path.DirectorySeparatorChar)
                         && filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "specifications") == false
@@ -3015,37 +3141,28 @@ namespace WindowsApplication1
                     }
                     if (filenameListArray[p, 0].Contains("m3" + Path.DirectorySeparatorChar + "32-body-data" + Path.DirectorySeparatorChar + "32s-drug-sub") && m32sopen == false)
                     {
-                        charindex = filenameListArray[p, 0].IndexOf(Path.DirectorySeparatorChar + "32s-drug-sub");
-                        startposition = charindex + 14;
-                        endposition = filenameListArray[p, 0].Length - startposition;
-                        substance = filenameListArray[p, 0].Substring(startposition, endposition);
-                        charindex = substance.IndexOf(Path.DirectorySeparatorChar);
-                        substance = substance.Substring(0, charindex);
-                        if (filenameListArray[p, 0].Contains("-manufacturer-") && filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32s-drug-sub" + Path.DirectorySeparatorChar + "substance-"))
+                        current32s = filenameListArray[p, 0].Substring(0, filenameListArray[p, 0].IndexOf(Path.DirectorySeparatorChar, filenameListArray[p,0].IndexOf("32s-drug-sub")+14));
+                        api = "";
+                        manufacturer = "";                        
+                        if (File.Exists(textBoxSeqDir.Text.Substring(0, textBoxSeqDir.Text.Length - 5) + Path.DirectorySeparatorChar + "attributes.txt"))
                         {
-                            apiIndex = filenameListArray[p, 0].IndexOf(Path.DirectorySeparatorChar + "32s-drug-sub" + Path.DirectorySeparatorChar + "substance-");
-                            manufacturerIndex = filenameListArray[p, 0].IndexOf("-manufacturer-");
-                            api = filenameListArray[p, 0].Substring(apiIndex + 24, (manufacturerIndex - (apiIndex + 24)));
-                            manufacturer = filenameListArray[p, 0].Substring(manufacturerIndex + 14);
-                            manufacturer = manufacturer.Substring(0, manufacturer.IndexOf(Path.DirectorySeparatorChar));
-                        }
-                        else
-                        {
-                            api = "";
-                            manufacturer = "";
+                            foreach (string line in File.ReadLines(textBoxSeqDir.Text.Substring(0, textBoxSeqDir.Text.Length - 5) + Path.DirectorySeparatorChar + "attributes.txt"))
+                            {
+                                if (line.Contains(current32s.Replace("\\","/").Substring(current32s.IndexOf("32s-drug-sub"))))
+                                {
+                                    if (line.Contains("substance:"))
+                                    { api = line.Substring(line.IndexOf("substance:") + 10, line.IndexOf(" ", line.IndexOf("substance:") + 10) - (line.IndexOf("substance:") + 10)); }
+                                    if (line.Contains("manufacturer:"))
+                                    { manufacturer = line.Substring(line.IndexOf("manufacturer:") + 13, line.IndexOf(" ", line.IndexOf("manufacturer:") + 13) - (line.IndexOf("manufacturer:") + 13)); }
+                                }
+                            }
                         }
                         swr.WriteLine("            <m3-2-s-drug-substance substance=\"{0}\" manufacturer=\"{1}\">", api, manufacturer);
                         m32sopen = true;
                     }
                     if (filenameListArray[p, 0].Contains("m3" + Path.DirectorySeparatorChar + "32-body-data" + Path.DirectorySeparatorChar + "32s-drug-sub") && m32sopen == true)
                     {
-                        charindex = filenameListArray[p, 0].IndexOf(Path.DirectorySeparatorChar + "32s-drug-sub");
-                        startposition = charindex + 14;
-                        endposition = filenameListArray[p, 0].Length - startposition;
-                        substance1 = filenameListArray[p, 0].Substring(startposition, endposition);
-                        charindex = substance1.IndexOf(Path.DirectorySeparatorChar);
-                        substance1 = substance1.Substring(0, charindex);
-                        if (string.Equals(substance, substance1) == false)
+                        if (filenameListArray[p,0].Contains(current32s) == false)
                         {
                             if (m32s11open)
                             {
@@ -3178,22 +3295,23 @@ namespace WindowsApplication1
                                 m32s7open = false;
                             }
                             swr.WriteLine("            </m3-2-s-drug-substance>");
-
-                            if (filenameListArray[p, 0].Contains("-manufacturer-") && filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32s-drug-sub" + Path.DirectorySeparatorChar + "substance-"))
+                            current32s = filenameListArray[p, 0].Substring(0, filenameListArray[p, 0].IndexOf(Path.DirectorySeparatorChar, filenameListArray[p, 0].IndexOf("32s-drug-sub") + 14));
+                            api = "";
+                            manufacturer = "";
+                            if (File.Exists(textBoxSeqDir.Text.Substring(0, textBoxSeqDir.Text.Length - 5) + Path.DirectorySeparatorChar + "attributes.txt"))
                             {
-                                apiIndex = filenameListArray[p, 0].IndexOf(Path.DirectorySeparatorChar + "32s-drug-sub" + Path.DirectorySeparatorChar + "substance-");
-                                manufacturerIndex = filenameListArray[p, 0].IndexOf("-manufacturer-");
-                                api = filenameListArray[p, 0].Substring(apiIndex + 24, (manufacturerIndex - (apiIndex + 24)));
-                                manufacturer = filenameListArray[p, 0].Substring(manufacturerIndex + 14);
-                                manufacturer = manufacturer.Substring(0, manufacturer.IndexOf(Path.DirectorySeparatorChar));
-                            }
-                            else
-                            {
-                                api = "";
-                                manufacturer = "";
+                                foreach (string line in File.ReadLines(textBoxSeqDir.Text.Substring(0, textBoxSeqDir.Text.Length - 5) + Path.DirectorySeparatorChar + "attributes.txt"))
+                                {
+                                    if (line.Contains(current32s.Replace("\\", "/").Substring(current32s.IndexOf("32s-drug-sub"))))
+                                    {
+                                        if (line.Contains("substance:"))
+                                        { api = line.Substring(line.IndexOf("substance:") + 10, line.IndexOf(" ", line.IndexOf("substance:") + 10) - (line.IndexOf("substance:") + 10)); }
+                                        if (line.Contains("manufacturer:"))
+                                        { manufacturer = line.Substring(line.IndexOf("manufacturer:") + 13, line.IndexOf(" ", line.IndexOf("manufacturer:") + 13) - (line.IndexOf("manufacturer:") + 13)); }
+                                    }
+                                }
                             }
                             swr.WriteLine("            <m3-2-s-drug-substance substance=\"{0}\" manufacturer=\"{1}\">", api, manufacturer);
-                            substance = substance1;
                         }
                     }
                     if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32s1-gen-info") && m32s1open == false)
@@ -5481,7 +5599,7 @@ namespace WindowsApplication1
             SElang.Add("sv");
             List<string> UKlang = new List<string>();
             UKlang.Add("en");
-            
+
             //Create a dictionary with member states and official languages, to be used for generating language folders in 1.3.1
             Dictionary<string, List<string>> language = new Dictionary<string, List<string>>();
             language.Add("at", ATlang);
@@ -5553,7 +5671,7 @@ namespace WindowsApplication1
 
             rootDirectory.CreateSubdirectory("m1" + Path.DirectorySeparatorChar + "eu" + Path.DirectorySeparatorChar + "13-pi");
             rootDirectory.CreateSubdirectory("m1" + Path.DirectorySeparatorChar + "eu" + Path.DirectorySeparatorChar + "13-pi" + Path.DirectorySeparatorChar + "131-spclabelpl");
-            rootDirectory.CreateSubdirectory("m1" + Path.DirectorySeparatorChar + "eu" + Path.DirectorySeparatorChar + "13-pi" + Path.DirectorySeparatorChar + "131-spclabelpl" + Path.DirectorySeparatorChar + "common");
+            rootDirectory.CreateSubdirectory("m1" + Path.DirectorySeparatorChar + "eu" + Path.DirectorySeparatorChar + "13-pi" + Path.DirectorySeparatorChar + "131-spclabelpl" + Path.DirectorySeparatorChar + "common" + Path.DirectorySeparatorChar + "en");
             if (memberStateList.Count > 0)
             {
                 foreach (string memberState in memberStateList)
@@ -5868,7 +5986,7 @@ namespace WindowsApplication1
             uuidNode = mySourceDoc.SelectSingleNode("//identifier");
             if (uuidNode != null)
             {
-                this.label9.Text = uuidNode.InnerText;
+                textBoxUUID.Text = uuidNode.InnerText;
             }
 
             XmlNodeList envelope;
