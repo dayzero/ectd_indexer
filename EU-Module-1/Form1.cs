@@ -2706,7 +2706,7 @@ namespace WindowsApplication1
                     }
                     if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32p4-contr-excip" + Path.DirectorySeparatorChar) && m32p4open == true)
                     {
-                        if (filenameListArray[p, 0].Contains(current32p4) == false)
+                        if (filenameListArray[p, 0].Contains(current32p4) == false && (filenameListArray[p,0].Contains("excipients-human-animal.pdf") == false && filenameListArray[p,0].Contains("novel-excipients.pdf")==false))
                         {
                             swr.WriteLine("                </m3-2-p-4-control-of-excipients>");
                             current32p4 = filenameListArray[p, 0].Substring(0, filenameListArray[p, 0].IndexOf(Path.DirectorySeparatorChar, filenameListArray[p, 0].IndexOf("32p4-contr-excip") + 17));
