@@ -766,13 +766,9 @@ namespace WindowsApplication1
                     {
                         if (((CheckBox)control).Checked == true)
                         {
-                            if (((CheckBox)control).Tag.ToString() == "EMA")
+                            if (((CheckBox)control).Tag.ToString() == "EMA" || ((CheckBox)control).Tag.ToString() == "EDQM")
                             {
-                                envelopeCountry = "EMA";
-                            }
-                            if (((CheckBox)control).Tag.ToString() == "EDQM")
-                            {
-                                envelopeCountry = "EDQM";
+                                envelopeCountry = ((CheckBox)control).Tag.ToString();
                             }
                             else
                             {
