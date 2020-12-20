@@ -1,5 +1,5 @@
 //eCTD indexer (EU Module 1)
-//Copyright 2007-2017 Ymir Vesteinsson, ymir@ectd.is
+//Copyright 2007-2020 Ymir Vesteinsson, ymir@ectd.is
 
 //This file is part of eCTD-indexer.
 
@@ -50,7 +50,7 @@ namespace WindowsApplication1
             this.textBoxTrackNo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxProcType = new System.Windows.Forms.ComboBox();
-			this.comboBoxSubmUnit = new System.Windows.Forms.ComboBox ();
+            this.comboBoxSubmUnit = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBoxSubmType = new System.Windows.Forms.ComboBox();
@@ -60,7 +60,7 @@ namespace WindowsApplication1
             this.textBoxINN = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.textBoxSubmDescr = new System.Windows.Forms.TextBox();
-			this.labelSubmissionUnit = new System.Windows.Forms.Label ();
+            this.labelSubmissionUnit = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.textBoxMD5 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -79,7 +79,7 @@ namespace WindowsApplication1
             this.checkBoxDK = new System.Windows.Forms.CheckBox();
             this.checkBoxEE = new System.Windows.Forms.CheckBox();
             this.checkBoxEU = new System.Windows.Forms.CheckBox();
-			this.checkBoxED = new System.Windows.Forms.CheckBox();
+            this.checkBoxED = new System.Windows.Forms.CheckBox();
             this.checkBoxFI = new System.Windows.Forms.CheckBox();
             this.checkBoxFR = new System.Windows.Forms.CheckBox();
             this.checkBoxDE = new System.Windows.Forms.CheckBox();
@@ -113,7 +113,7 @@ namespace WindowsApplication1
             this.textBoxCZ = new System.Windows.Forms.TextBox();
             this.textBoxDK = new System.Windows.Forms.TextBox();
             this.textBoxEE = new System.Windows.Forms.TextBox();
-			this.textBoxED = new System.Windows.Forms.TextBox();
+            this.textBoxED = new System.Windows.Forms.TextBox();
             this.textBoxEU = new System.Windows.Forms.TextBox();
             this.textBoxFI = new System.Windows.Forms.TextBox();
             this.textBoxFR = new System.Windows.Forms.TextBox();
@@ -148,7 +148,7 @@ namespace WindowsApplication1
             this.textBoxDEApp = new System.Windows.Forms.TextBox();
             this.textBoxFRApp = new System.Windows.Forms.TextBox();
             this.textBoxFIApp = new System.Windows.Forms.TextBox();
-			this.textBoxEDApp = new System.Windows.Forms.TextBox();
+            this.textBoxEDApp = new System.Windows.Forms.TextBox();
             this.textBoxEUApp = new System.Windows.Forms.TextBox();
             this.textBoxEEApp = new System.Windows.Forms.TextBox();
             this.textBoxDKApp = new System.Windows.Forms.TextBox();
@@ -187,13 +187,13 @@ namespace WindowsApplication1
             this.label8 = new System.Windows.Forms.Label();
             this.comboBoxMode = new System.Windows.Forms.ComboBox();
             this.labelSequence = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.textBoxHRApp = new System.Windows.Forms.TextBox();
             this.textBoxHR = new System.Windows.Forms.TextBox();
             this.checkBoxHR = new System.Windows.Forms.CheckBox();
             this.textBoxDE2App = new System.Windows.Forms.TextBox();
             this.textBoxDE2 = new System.Windows.Forms.TextBox();
             this.checkBoxDE2 = new System.Windows.Forms.CheckBox();
+            this.textBoxUUID = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textBoxTrackNo
@@ -225,23 +225,23 @@ namespace WindowsApplication1
             this.comboBoxProcType.Name = "comboBoxProcType";
             this.comboBoxProcType.Size = new System.Drawing.Size(212, 21);
             this.comboBoxProcType.TabIndex = 1;
-			// 
-			// comboBoxSubmUnit
-			// 
-			this.comboBoxSubmUnit.FormattingEnabled = true;
-			this.comboBoxSubmUnit.Items.AddRange(new object[] {
-				"initial",
-				"validation-response",
-				"response",
-				"additional-info",
-				"closing",
-				"consolidating",
-				"corrigendum",
-				"reformat"});
-			this.comboBoxSubmUnit.Location = new System.Drawing.Point(425, 130);
-			this.comboBoxSubmUnit.Name = "comboBoxSubmUnit";
-			this.comboBoxSubmUnit.Size = new System.Drawing.Size(212, 21);
-			this.comboBoxSubmUnit.TabIndex = 105;
+            // 
+            // comboBoxSubmUnit
+            // 
+            this.comboBoxSubmUnit.FormattingEnabled = true;
+            this.comboBoxSubmUnit.Items.AddRange(new object[] {
+            "initial",
+            "validation-response",
+            "response",
+            "additional-info",
+            "closing",
+            "consolidating",
+            "corrigendum",
+            "reformat"});
+            this.comboBoxSubmUnit.Location = new System.Drawing.Point(425, 130);
+            this.comboBoxSubmUnit.Name = "comboBoxSubmUnit";
+            this.comboBoxSubmUnit.Size = new System.Drawing.Size(212, 21);
+            this.comboBoxSubmUnit.TabIndex = 105;
             // 
             // label5
             // 
@@ -265,57 +265,57 @@ namespace WindowsApplication1
             // 
             this.comboBoxSubmType.FormattingEnabled = true;
             this.comboBoxSubmType.Items.AddRange(new object[] {
-			"maa",
-			"var-type1a",
-			"var-type1ain",
-			"var-type1b",
-			"var-type2",
-			"var-nat",
-			"extension",
-			"rup",
-			"psur",
-			"psusa",
-			"rmp",
-			"renewal",
-			"pam-sob",
-			"pam-anx",
-			"pam-mea",
-			"pam-leg",
-			"pam-sda",
-			"pam-capa",
-			"pam-p45",
-			"pam-p46",
-			"pam-paes",
-			"pam-rec",
-			"pass107n",
-			"pass107q",
-			"asmf",
-			"pmf",
-			"referral-20",
-			"referral-294",
-			"referral-29p",
-			"referral-30",
-			"referral-31",
-			"referral-35",
-			"referral-5-3",
-			"referral-107i",
-			"referral-16c1c",
-			"referral-16c4",
-			"annual-reassessment",
-			"usr",
-			"clin-data-pub-rp",
-			"clin-data-pub-fv",
-			"paed-7-8-30",
-			"paed-29",
-			"paed-45",
-			"paed-46",
-			"article-58",
-			"notification-61-3",
-			"transfer-ma",
-			"lifting-suspension",
-			"withdrawal",
-			"cep",
-			"none"});
+            "maa",
+            "var-type1a",
+            "var-type1ain",
+            "var-type1b",
+            "var-type2",
+            "var-nat",
+            "extension",
+            "rup",
+            "psur",
+            "psusa",
+            "rmp",
+            "renewal",
+            "pam-sob",
+            "pam-anx",
+            "pam-mea",
+            "pam-leg",
+            "pam-sda",
+            "pam-capa",
+            "pam-p45",
+            "pam-p46",
+            "pam-paes",
+            "pam-rec",
+            "pass107n",
+            "pass107q",
+            "asmf",
+            "pmf",
+            "referral-20",
+            "referral-294",
+            "referral-29p",
+            "referral-30",
+            "referral-31",
+            "referral-35",
+            "referral-5-3",
+            "referral-107i",
+            "referral-16c1c",
+            "referral-16c4",
+            "annual-reassessment",
+            "usr",
+            "clin-data-pub-rp",
+            "clin-data-pub-fv",
+            "paed-7-8-30",
+            "paed-29",
+            "paed-45",
+            "paed-46",
+            "article-58",
+            "notification-61-3",
+            "transfer-ma",
+            "lifting-suspension",
+            "withdrawal",
+            "cep",
+            "none"});
             this.comboBoxSubmType.Location = new System.Drawing.Point(103, 78);
             this.comboBoxSubmType.Name = "comboBoxSubmType";
             this.comboBoxSubmType.Size = new System.Drawing.Size(212, 21);
@@ -374,15 +374,15 @@ namespace WindowsApplication1
             this.textBoxSubmDescr.Name = "textBoxSubmDescr";
             this.textBoxSubmDescr.Size = new System.Drawing.Size(213, 20);
             this.textBoxSubmDescr.TabIndex = 7;
-			//
-			//labelSubmissionUnit
-			//
-			this.labelSubmissionUnit.AutoSize = true;
-			this.labelSubmissionUnit.Location = new System.Drawing.Point(335, 133);
-			this.labelSubmissionUnit.Name = "labelSubmissionUnit";
-			this.labelSubmissionUnit.Size = new System.Drawing.Size(78, 13);
-			this.labelSubmissionUnit.TabIndex = 87;
-			this.labelSubmissionUnit.Text = "Submission unit";
+            // 
+            // labelSubmissionUnit
+            // 
+            this.labelSubmissionUnit.AutoSize = true;
+            this.labelSubmissionUnit.Location = new System.Drawing.Point(335, 133);
+            this.labelSubmissionUnit.Name = "labelSubmissionUnit";
+            this.labelSubmissionUnit.Size = new System.Drawing.Size(80, 13);
+            this.labelSubmissionUnit.TabIndex = 87;
+            this.labelSubmissionUnit.Text = "Submission unit";
             // 
             // label15
             // 
@@ -480,7 +480,7 @@ namespace WindowsApplication1
             this.checkBoxAT.Size = new System.Drawing.Size(72, 17);
             this.checkBoxAT.TabIndex = 9;
             this.checkBoxAT.Tag = "AT";
-			this.checkBoxAT.Text = "AT-BASG";
+            this.checkBoxAT.Text = "AT-BASG";
             this.checkBoxAT.UseVisualStyleBackColor = true;
             this.checkBoxAT.CheckedChanged += new System.EventHandler(this.checkBoxAT_CheckedChanged);
             // 
@@ -537,7 +537,7 @@ namespace WindowsApplication1
             this.checkBoxDK.AutoSize = true;
             this.checkBoxDK.Location = new System.Drawing.Point(14, 342);
             this.checkBoxDK.Name = "checkBoxDK";
-            this.checkBoxDK.Size = new System.Drawing.Size(76, 17);
+            this.checkBoxDK.Size = new System.Drawing.Size(75, 17);
             this.checkBoxDK.TabIndex = 30;
             this.checkBoxDK.Tag = "DK";
             this.checkBoxDK.Text = "DK-DKMA";
@@ -555,18 +555,6 @@ namespace WindowsApplication1
             this.checkBoxEE.Text = "EE-SAM";
             this.checkBoxEE.UseVisualStyleBackColor = true;
             this.checkBoxEE.CheckedChanged += new System.EventHandler(this.checkBoxEE_CheckedChanged);
-			// 
-			// checkBoxED
-			// 
-			this.checkBoxED.AutoSize = true;
-			this.checkBoxED.Location = new System.Drawing.Point(338, 523);
-			this.checkBoxED.Name = "checkBoxED";
-			this.checkBoxED.Size = new System.Drawing.Size(67, 17);
-			this.checkBoxED.TabIndex = 105;
-			this.checkBoxED.Tag = "EDQM";
-			this.checkBoxED.Text = "EU-EDQM";
-			this.checkBoxED.UseVisualStyleBackColor = true;
-			this.checkBoxED.CheckedChanged += new System.EventHandler(this.checkBoxED_CheckedChanged);
             // 
             // checkBoxEU
             // 
@@ -579,6 +567,18 @@ namespace WindowsApplication1
             this.checkBoxEU.Text = "EU-EMA";
             this.checkBoxEU.UseVisualStyleBackColor = true;
             this.checkBoxEU.CheckedChanged += new System.EventHandler(this.checkBoxEU_CheckedChanged);
+            // 
+            // checkBoxED
+            // 
+            this.checkBoxED.AutoSize = true;
+            this.checkBoxED.Location = new System.Drawing.Point(338, 523);
+            this.checkBoxED.Name = "checkBoxED";
+            this.checkBoxED.Size = new System.Drawing.Size(76, 17);
+            this.checkBoxED.TabIndex = 105;
+            this.checkBoxED.Tag = "EDQM";
+            this.checkBoxED.Text = "EU-EDQM";
+            this.checkBoxED.UseVisualStyleBackColor = true;
+            this.checkBoxED.CheckedChanged += new System.EventHandler(this.checkBoxED_CheckedChanged);
             // 
             // checkBoxFI
             // 
@@ -657,7 +657,7 @@ namespace WindowsApplication1
             this.checkBoxIE.AutoSize = true;
             this.checkBoxIE.Location = new System.Drawing.Point(15, 526);
             this.checkBoxIE.Name = "checkBoxIE";
-            this.checkBoxIE.Size = new System.Drawing.Size(58, 17);
+            this.checkBoxIE.Size = new System.Drawing.Size(69, 17);
             this.checkBoxIE.TabIndex = 54;
             this.checkBoxIE.Tag = "IE";
             this.checkBoxIE.Text = "IE-HPRA";
@@ -669,10 +669,10 @@ namespace WindowsApplication1
             this.checkBoxIT.AutoSize = true;
             this.checkBoxIT.Location = new System.Drawing.Point(338, 178);
             this.checkBoxIT.Name = "checkBoxIT";
-            this.checkBoxIT.Size = new System.Drawing.Size(60, 17);
+            this.checkBoxIT.Size = new System.Drawing.Size(62, 17);
             this.checkBoxIT.TabIndex = 60;
             this.checkBoxIT.Tag = "IT";
-			this.checkBoxIT.Text = "IT-AIFA";
+            this.checkBoxIT.Text = "IT-AIFA";
             this.checkBoxIT.UseVisualStyleBackColor = true;
             this.checkBoxIT.CheckedChanged += new System.EventHandler(this.checkBoxIT_CheckedChanged);
             // 
@@ -945,15 +945,15 @@ namespace WindowsApplication1
             this.textBoxEE.Size = new System.Drawing.Size(100, 20);
             this.textBoxEE.TabIndex = 34;
             this.textBoxEE.Tag = "EE";
-			// 
-			// textBoxED
-			// 
-			this.textBoxED.Enabled = false;
-			this.textBoxED.Location = new System.Drawing.Point(432, 523);
-			this.textBoxED.Name = "textBoxED";
-			this.textBoxED.Size = new System.Drawing.Size(100, 20);
-			this.textBoxED.TabIndex = 106;
-			this.textBoxED.Tag = "EDQM";
+            // 
+            // textBoxED
+            // 
+            this.textBoxED.Enabled = false;
+            this.textBoxED.Location = new System.Drawing.Point(432, 523);
+            this.textBoxED.Name = "textBoxED";
+            this.textBoxED.Size = new System.Drawing.Size(100, 20);
+            this.textBoxED.TabIndex = 106;
+            this.textBoxED.Tag = "EDQM";
             // 
             // textBoxEU
             // 
@@ -1260,15 +1260,15 @@ namespace WindowsApplication1
             this.textBoxFIApp.Size = new System.Drawing.Size(100, 20);
             this.textBoxFIApp.TabIndex = 44;
             this.textBoxFIApp.Tag = "FI";
-			// 
-			// textBoxEDApp
-			// 
-			this.textBoxEDApp.Enabled = false;
-			this.textBoxEDApp.Location = new System.Drawing.Point(538, 523);
-			this.textBoxEDApp.Name = "textBoxEDApp";
-			this.textBoxEDApp.Size = new System.Drawing.Size(100, 20);
-			this.textBoxEDApp.TabIndex = 107;
-			this.textBoxEDApp.Tag = "EDQM";
+            // 
+            // textBoxEDApp
+            // 
+            this.textBoxEDApp.Enabled = false;
+            this.textBoxEDApp.Location = new System.Drawing.Point(538, 523);
+            this.textBoxEDApp.Name = "textBoxEDApp";
+            this.textBoxEDApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxEDApp.TabIndex = 107;
+            this.textBoxEDApp.Tag = "EDQM";
             // 
             // textBoxEUApp
             // 
@@ -1521,7 +1521,7 @@ namespace WindowsApplication1
             this.label2.Text = "Rel. Sequence";
             // 
             // textBoxRelSeq
-            //             
+            // 
             this.textBoxRelSeq.Location = new System.Drawing.Point(425, 78);
             this.textBoxRelSeq.Name = "textBoxRelSeq";
             this.textBoxRelSeq.Size = new System.Drawing.Size(213, 20);
@@ -1601,18 +1601,9 @@ namespace WindowsApplication1
             this.labelSequence.AutoSize = true;
             this.labelSequence.Location = new System.Drawing.Point(335, 55);
             this.labelSequence.Name = "labelSequence";
-            this.labelSequence.Size = new System.Drawing.Size(56, 13);
+            this.labelSequence.Size = new System.Drawing.Size(47, 13);
             this.labelSequence.TabIndex = 120;
             this.labelSequence.Text = "Identifier";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(425, 55);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(193, 13);
-            this.label9.TabIndex = 121;
-            this.label9.Text = "";
             // 
             // textBoxHRApp
             // 
@@ -1674,21 +1665,28 @@ namespace WindowsApplication1
             this.checkBoxDE2.UseVisualStyleBackColor = true;
             this.checkBoxDE2.CheckedChanged += new System.EventHandler(this.checkBoxDE2_CheckedChanged);
             // 
+            // textBoxUUID
+            // 
+            this.textBoxUUID.Location = new System.Drawing.Point(425, 52);
+            this.textBoxUUID.Name = "textBoxUUID";
+            this.textBoxUUID.Size = new System.Drawing.Size(213, 20);
+            this.textBoxUUID.TabIndex = 122;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(655, 702);
+            this.Controls.Add(this.textBoxUUID);
             this.Controls.Add(this.textBoxDE2App);
             this.Controls.Add(this.textBoxDE2);
             this.Controls.Add(this.checkBoxDE2);
             this.Controls.Add(this.textBoxHRApp);
             this.Controls.Add(this.textBoxHR);
             this.Controls.Add(this.checkBoxHR);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.labelSequence);
             this.Controls.Add(this.comboBoxMode);
-			this.Controls.Add (this.comboBoxSubmUnit);
+            this.Controls.Add(this.comboBoxSubmUnit);
             this.Controls.Add(this.textBoxNumber);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label10);
@@ -1723,7 +1721,7 @@ namespace WindowsApplication1
             this.Controls.Add(this.textBoxDEApp);
             this.Controls.Add(this.textBoxFRApp);
             this.Controls.Add(this.textBoxFIApp);
-			this.Controls.Add(this.textBoxEDApp);
+            this.Controls.Add(this.textBoxEDApp);
             this.Controls.Add(this.textBoxEUApp);
             this.Controls.Add(this.textBoxEEApp);
             this.Controls.Add(this.textBoxDKApp);
@@ -1757,7 +1755,7 @@ namespace WindowsApplication1
             this.Controls.Add(this.textBoxDE);
             this.Controls.Add(this.textBoxFR);
             this.Controls.Add(this.textBoxFI);
-			this.Controls.Add(this.textBoxED);
+            this.Controls.Add(this.textBoxED);
             this.Controls.Add(this.textBoxEU);
             this.Controls.Add(this.textBoxEE);
             this.Controls.Add(this.textBoxDK);
@@ -1793,7 +1791,7 @@ namespace WindowsApplication1
             this.Controls.Add(this.checkBoxFR);
             this.Controls.Add(this.checkBoxFI);
             this.Controls.Add(this.checkBoxEU);
-			this.Controls.Add(this.checkBoxED);
+            this.Controls.Add(this.checkBoxED);
             this.Controls.Add(this.checkBoxEE);
             this.Controls.Add(this.checkBoxDK);
             this.Controls.Add(this.checkBoxCZ);
@@ -1812,7 +1810,7 @@ namespace WindowsApplication1
             this.Controls.Add(this.textBoxMD5);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.textBoxSubmDescr);
-			this.Controls.Add (this.labelSubmissionUnit);
+            this.Controls.Add(this.labelSubmissionUnit);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.textBoxINN);
             this.Controls.Add(this.label12);
@@ -1827,7 +1825,7 @@ namespace WindowsApplication1
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Tag = "6";
-            this.Text = "eCTD indexer 2017-01 EU M1 v.3.0.1, eCTD v.3.2";
+            this.Text = "eCTD indexer 2020-06 EU M1 v.3.0.3, eCTD v.3.2";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1975,12 +1973,13 @@ namespace WindowsApplication1
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox comboBoxMode;
         private System.Windows.Forms.Label labelSequence;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBoxHRApp;
         private System.Windows.Forms.TextBox textBoxHR;
         private System.Windows.Forms.CheckBox checkBoxHR;
         private System.Windows.Forms.TextBox textBoxDE2App;
         private System.Windows.Forms.TextBox textBoxDE2;
         private System.Windows.Forms.CheckBox checkBoxDE2;
+        private System.Windows.Forms.TextBox textBoxUUID;
     }
 }
+
