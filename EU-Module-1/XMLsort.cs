@@ -32,10 +32,11 @@ namespace WindowsApplication1
     {
         public void m2m5sort(string xmlFile)
         {            
-            XmlTextReader myReader = new XmlTextReader(xmlFile);
             XmlDocument mySourceDoc = new XmlDocument();
-            mySourceDoc.Load(myReader);
-            myReader.Close();
+            using (XmlTextReader myReader = new XmlTextReader(xmlFile))
+            {
+                mySourceDoc.Load(myReader);
+            }
 
             //order elements in 2.3
             //put introduction first
@@ -421,17 +422,20 @@ namespace WindowsApplication1
                 }
             }
 
-            XmlTextWriter writer = new XmlTextWriter(xmlFile, null);
-            writer.Formatting = Formatting.Indented;
-            mySourceDoc.Save(writer);            
+            using (XmlTextWriter writer = new XmlTextWriter(xmlFile, null))
+            {
+                writer.Formatting = Formatting.Indented;
+                mySourceDoc.Save(writer);            
+            }
         }
 		
 		public void m1sort(string xmlFile)
         {            
-            XmlTextReader myReader = new XmlTextReader(xmlFile);
             XmlDocument mySourceDoc = new XmlDocument();
-            mySourceDoc.Load(myReader);
-            myReader.Close();
+            using (XmlTextReader myReader = new XmlTextReader(xmlFile))
+            {
+                mySourceDoc.Load(myReader);
+            }
 
             //put Module 1.10 in the right place (appears between 1.1 and 1.2 after indexing)            
             XmlNodeList m1paediatrics;
@@ -466,9 +470,10 @@ namespace WindowsApplication1
 				}
 			}
 
-            XmlTextWriter writer = new XmlTextWriter(xmlFile, null);
-            writer.Formatting = Formatting.Indented;
-            mySourceDoc.Save(writer);            
+            using (XmlTextWriter writer = new XmlTextWriter(xmlFile, null)) {
+                writer.Formatting = Formatting.Indented;
+                mySourceDoc.Save(writer);            
+            }
         }
 		
         public string modifiedFile(string seqIndexPath, string leafFilePath)
@@ -476,10 +481,11 @@ namespace WindowsApplication1
             string leafID = "";
             if (File.Exists(seqIndexPath))
             {
-                XmlTextReader myNewReader = new XmlTextReader(seqIndexPath);
                 XmlDocument myNewSourceDoc = new XmlDocument();
-                myNewSourceDoc.Load(myNewReader);
-                myNewReader.Close();
+                using (XmlTextReader myNewReader = new XmlTextReader(seqIndexPath))
+                {
+                    myNewSourceDoc.Load(myNewReader);
+                }
 
                 leafID = "";                
 

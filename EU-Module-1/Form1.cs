@@ -6091,12 +6091,10 @@ namespace WindowsApplication1
         public string ComputeMD5Checksum(string path)
         {
             using (FileStream fs = System.IO.File.OpenRead(path))
+            using (var md5 = MD5.Create())
             {
-                MD5 md5 = new MD5CryptoServiceProvider();
-                byte[] fileData = new byte[fs.Length];
-                fs.Read(fileData, 0, (int)fs.Length);
-                byte[] checkSum = md5.ComputeHash(fileData);
-                string result = BitConverter.ToString(checkSum).Replace("-", String.Empty);
+                var checkSum = md5.ComputeHash(fs);
+                var result = BitConverter.ToString(checkSum).Replace("-", String.Empty);
                 return result.ToLower();
             }
         }
