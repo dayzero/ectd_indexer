@@ -5949,7 +5949,7 @@ namespace WindowsApplication1
             sourceFile = WindowsApplication1.Properties.Resources.eu_regional;
             System.IO.File.WriteAllText(rootDirectory + "" + Path.DirectorySeparatorChar + "util" + Path.DirectorySeparatorChar + "dtd" + Path.DirectorySeparatorChar + "eu-regional.dtd", sourceFile);
             sourceFile = WindowsApplication1.Properties.Resources.eu_regional1;
-            System.IO.File.WriteAllText(rootDirectory + "" + Path.DirectorySeparatorChar + "util" + Path.DirectorySeparatorChar + "style" + Path.DirectorySeparatorChar + "eu-regional.xsl", sourceFile, Encoding.GetEncoding(1252));
+            System.IO.File.WriteAllText(rootDirectory + "" + Path.DirectorySeparatorChar + "util" + Path.DirectorySeparatorChar + "style" + Path.DirectorySeparatorChar + "eu-regional.xsl", sourceFile);
             sourceFile = WindowsApplication1.Properties.Resources.eu_envelope;
             System.IO.File.WriteAllText(rootDirectory + "" + Path.DirectorySeparatorChar + "util" + Path.DirectorySeparatorChar + "dtd" + Path.DirectorySeparatorChar + "eu-envelope.mod", sourceFile);
             sourceFile = WindowsApplication1.Properties.Resources.eu_leaf;
