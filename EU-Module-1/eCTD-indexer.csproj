@@ -33,7 +33,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>52</ApplicationRevision>
+    <ApplicationRevision>53</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -138,10 +138,10 @@
     <None Include="Resources\ectd-2-0.xsl" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\eu-envelope.txt" />
+    <None Include="Resources\eu-envelope.mod" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\eu-leaf.txt" />
+    <None Include="Resources\eu-leaf.mod" />
     <None Include="Resources\eu-regional.dtd" />
   </ItemGroup>
   <ItemGroup>
