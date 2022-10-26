@@ -5942,24 +5942,26 @@ namespace WindowsApplication1
             rootDirectory.CreateSubdirectory("util");
             rootDirectory.CreateSubdirectory("util" + Path.DirectorySeparatorChar + "dtd");
             rootDirectory.CreateSubdirectory("util" + Path.DirectorySeparatorChar + "style");
-            sourceFile = WindowsApplication1.Properties.Resources.ich_ectd_3_2;
-            System.IO.File.WriteAllText(rootDirectory + "" + Path.DirectorySeparatorChar + "util" + Path.DirectorySeparatorChar + "dtd" + Path.DirectorySeparatorChar + "ich-ectd-3-2.dtd", sourceFile);
-            sourceFile = WindowsApplication1.Properties.Resources.ectd_2_0;
-            System.IO.File.WriteAllText(rootDirectory + "" + Path.DirectorySeparatorChar + "util" + Path.DirectorySeparatorChar + "style" + Path.DirectorySeparatorChar + "ectd-2-0.xsl", sourceFile);
-            sourceFile = WindowsApplication1.Properties.Resources.eu_regional;
-            System.IO.File.WriteAllText(rootDirectory + "" + Path.DirectorySeparatorChar + "util" + Path.DirectorySeparatorChar + "dtd" + Path.DirectorySeparatorChar + "eu-regional.dtd", sourceFile);
-            sourceFile = WindowsApplication1.Properties.Resources.eu_regional1;
-            System.IO.File.WriteAllText(rootDirectory + "" + Path.DirectorySeparatorChar + "util" + Path.DirectorySeparatorChar + "style" + Path.DirectorySeparatorChar + "eu-regional.xsl", sourceFile);
-            sourceFile = WindowsApplication1.Properties.Resources.eu_envelope;
-            System.IO.File.WriteAllText(rootDirectory + "" + Path.DirectorySeparatorChar + "util" + Path.DirectorySeparatorChar + "dtd" + Path.DirectorySeparatorChar + "eu-envelope.mod", sourceFile);
-            sourceFile = WindowsApplication1.Properties.Resources.eu_leaf;
-            System.IO.File.WriteAllText(rootDirectory + "" + Path.DirectorySeparatorChar + "util" + Path.DirectorySeparatorChar + "dtd" + Path.DirectorySeparatorChar + "eu-leaf.mod", sourceFile);
+            writeResource(WindowsApplication1.Properties.Resources.ich_ectd_3_2, rootDirectory + "" + Path.DirectorySeparatorChar + "util" + Path.DirectorySeparatorChar + "dtd" + Path.DirectorySeparatorChar + "ich-ectd-3-2.dtd");
+            writeResource(WindowsApplication1.Properties.Resources.ectd_2_0, rootDirectory + "" + Path.DirectorySeparatorChar + "util" + Path.DirectorySeparatorChar + "style" + Path.DirectorySeparatorChar + "ectd-2-0.xsl");
+            writeResource(WindowsApplication1.Properties.Resources.eu_regional, rootDirectory + "" + Path.DirectorySeparatorChar + "util" + Path.DirectorySeparatorChar + "dtd" + Path.DirectorySeparatorChar + "eu-regional.dtd");
+            writeResource(WindowsApplication1.Properties.Resources.eu_regional1, rootDirectory + "" + Path.DirectorySeparatorChar + "util" + Path.DirectorySeparatorChar + "style" + Path.DirectorySeparatorChar + "eu-regional.xsl");
+            writeResource(WindowsApplication1.Properties.Resources.eu_envelope, rootDirectory + "" + Path.DirectorySeparatorChar + "util" + Path.DirectorySeparatorChar + "dtd" + Path.DirectorySeparatorChar + "eu-envelope.mod");
+            writeResource(WindowsApplication1.Properties.Resources.eu_leaf, rootDirectory + "" + Path.DirectorySeparatorChar + "util" + Path.DirectorySeparatorChar + "dtd" + Path.DirectorySeparatorChar + "eu-leaf.mod");
 
             DialogResult result;
             result = MessageBox.Show("Open directory: " + rootDirectory.ToString() + "?", "Directory tree complete", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 System.Diagnostics.Process.Start(rootDirectory.ToString());
+            }
+        }
+
+        private void writeResource(byte[] source, string toPath)
+        {
+            using (FileStream fs = System.IO.File.OpenWrite(toPath))
+            {
+                fs.Write(source, 0, source.Length);
             }
         }
 
