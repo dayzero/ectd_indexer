@@ -630,6 +630,9 @@ namespace WindowsApplication1
             bool m17open = false;
             bool m18open = false;
             bool m181open = false;
+            bool m182open = false;
+            bool m19open = false;
+            bool m110open = false;
             bool m1responsesopen = false;
             bool m1additionalopen = false;
 
@@ -1283,9 +1286,13 @@ namespace WindowsApplication1
                             sr.WriteLine("          </m1-8-1-pharmacovigilance-system>");
                             m181open = false;
                         }
-                        if (filenameListArray[p, 0].Contains("182-riskmgt-system"))
+                        if (filenameListArray[p, 0].Contains("182-riskmgt-system") && m182open == false)
                         {
                             sr.WriteLine("          <m1-8-2-risk-management-system>");
+                            m182open = true;
+                        }
+                        if (filenameListArray[p, 0].Contains("182-riskmgt-system"))
+                        {
                             sr.WriteLine("              <leaf ID=\"m18-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                             sr.WriteLine("                  checksum=\"{0}\"", filenameListArray[p, 2]);
                             if (filenameListArray[p, 4] != "")
@@ -1293,8 +1300,12 @@ namespace WindowsApplication1
                             sr.WriteLine("                  xlink:href=\"{0}\">", filenameListArray[p, 1]);
                             sr.WriteLine("                  <title>Risk-management System</title>");
                             sr.WriteLine("              </leaf>");
-                            sr.WriteLine("          </m1-8-2-risk-management-system>");
                             idcounter++;
+                        }
+                        if (filenameListArray[p, 0].Contains("182-riskmgt-system") == false && m182open == true)
+                        {
+                            sr.WriteLine("          </m1-8-2-risk-management-system>");
+                            m182open = false;
                         }
                         if (filenameListArray[p, 0].Contains("18-pharmacovigilance") == false && m18open == true)
                         {
@@ -1302,29 +1313,45 @@ namespace WindowsApplication1
                             m18open = false;
                             idcounter = 0;
                         }
-                        if (filenameListArray[p, 0].Contains("19-clinical-trials"))
+                        if (filenameListArray[p, 0].Contains("19-clinical-trials") && m19open == false)
                         {
                             sr.WriteLine("      <m1-9-clinical-trials>");
+                            m19open = true;
+                        }
+                        if (filenameListArray[p, 0].Contains("19-clinical-trials"))
+                        {                            
                             sr.WriteLine("          <leaf ID=\"m19\" operation=\"{0}\" checksum-type=\"md5\"", filenameListArray[p, 3]);
                             sr.WriteLine("              checksum=\"{0}\"", filenameListArray[p, 2]);
                             if (filenameListArray[p, 4] != "")
                             { sr.WriteLine("              modified-file=\"{0}\"", filenameListArray[p, 4]); }
                             sr.WriteLine("              xlink:href=\"{0}\">", filenameListArray[p, 1]);
                             sr.WriteLine("              <title>Information relating to Clinical Trials</title>");
-                            sr.WriteLine("          </leaf>");
-                            sr.WriteLine("      </m1-9-clinical-trials>");
+                            sr.WriteLine("          </leaf>");                            
                         }
-                        if (filenameListArray[p, 0].Contains("110-paediatrics"))
+                        if (filenameListArray[p, 0].Contains("19-clinical-trials") == false && m19open == true)
+                        {
+                            sr.WriteLine("      </m1-9-clinical-trials>");
+                            m19open = false;
+                        }
+                        if (filenameListArray[p, 0].Contains("110-paediatrics") && m110open == false)
                         {
                             sr.WriteLine("      <m1-10-paediatrics>");
+                            m110open = true;
+                        }
+                        if (filenameListArray[p, 0].Contains("110-paediatrics"))
+                        {                            
                             sr.WriteLine("          <leaf ID=\"m110\" operation=\"{0}\" checksum-type=\"md5\"", filenameListArray[p, 3]);
                             sr.WriteLine("              checksum=\"{0}\"", filenameListArray[p, 2]);
                             if (filenameListArray[p, 4] != "")
                             { sr.WriteLine("              modified-file=\"{0}\"", filenameListArray[p, 4]); }
                             sr.WriteLine("              xlink:href=\"{0}\">", filenameListArray[p, 1]);
                             sr.WriteLine("              <title>Information relating to Paediatrics</title>");
-                            sr.WriteLine("          </leaf>");
+                            sr.WriteLine("          </leaf>");                            
+                        }
+                        if (filenameListArray[p, 0].Contains("110-paediatrics") == false && m110open == true)
+                        {
                             sr.WriteLine("      </m1-10-paediatrics>");
+                            m110open = false;
                         }
                         if (filenameListArray[p, 0].Contains("additional-data") && m1additionalopen == false)
                         {
@@ -1396,7 +1423,10 @@ namespace WindowsApplication1
                     if (m16open == true) sr.WriteLine("      </m1-6-environrisk>");
                     if (m17open == true) sr.WriteLine("      </m1-7-orphan>");
                     if (m181open == true) sr.WriteLine("          </m1-8-1-pharmacovigilance-system>");
+                    if (m182open == true) sr.WriteLine("          </m1-8-2-risk-management-system>");
                     if (m18open == true) sr.WriteLine("      </m1-8-pharmacovigilance>");
+                    if (m19open == true) sr.WriteLine("      </m1-9-clinical-trials");
+                    if (m110open == true) sr.WriteLine("      </m1-10-paediatrics");
                     if (m1additionalopen == true) sr.WriteLine("      </m1-additional-data>");
                     if (m1responsesopen == true) sr.WriteLine("      </m1-responses>");
                     sr.WriteLine("  </m1-eu>");
@@ -1853,15 +1883,15 @@ namespace WindowsApplication1
                                     {
                                         if (line.Contains("product-name:"))
                                         {
-                                            productName = line.Substring(line.IndexOf("product-name:") + 13, line.IndexOf(" ", line.IndexOf("product-name:") + 13) - (line.IndexOf("product-name:") + 13));
+                                            productName = line.Substring(line.IndexOf("product-name:") + 13, line.IndexOf(";", line.IndexOf("product-name:") + 13) - (line.IndexOf("product-name:") + 13));
                                         }
                                         if (line.Contains("dosageform:"))
                                         {
-                                            dosageForm = line.Substring(line.IndexOf("dosageform:") + 11, line.IndexOf(" ", line.IndexOf("dosageform:") + 11) - (line.IndexOf("dosageform:") + 11));
+                                            dosageForm = line.Substring(line.IndexOf("dosageform:") + 11, line.IndexOf(";", line.IndexOf("dosageform:") + 11) - (line.IndexOf("dosageform:") + 11));
                                         }
                                         if (line.Contains("manufacturer:"))
                                         {
-                                            fpm = line.Substring(line.IndexOf("manufacturer:") + 13, line.IndexOf(" ", line.IndexOf("manufacturer:") + 13) - (line.IndexOf("manufacturer:") + 13));
+                                            fpm = line.Substring(line.IndexOf("manufacturer:") + 13, line.IndexOf(";", line.IndexOf("manufacturer:") + 13) - (line.IndexOf("manufacturer:") + 13));
                                         }
                                     }
                                 }
@@ -1896,9 +1926,9 @@ namespace WindowsApplication1
                                     if (line.Contains(filenameListArray[p, 1]))
                                     {
                                         if (line.Contains("substance:"))
-                                        { api = line.Substring(line.IndexOf("substance:") + 10, line.IndexOf(" ", line.IndexOf("substance:") + 10) - (line.IndexOf("substance:") + 10)); }
+                                        { api = line.Substring(line.IndexOf("substance:") + 10, line.IndexOf(";", line.IndexOf("substance:") + 10) - (line.IndexOf("substance:") + 10)); }
                                         if (line.Contains("manufacturer:"))
-                                        { manufacturer = line.Substring(line.IndexOf("manufacturer:") + 13, line.IndexOf(" ", line.IndexOf("manufacturer:") + 13) - (line.IndexOf("manufacturer:") + 13)); }
+                                        { manufacturer = line.Substring(line.IndexOf("manufacturer:") + 13, line.IndexOf(";", line.IndexOf("manufacturer:") + 13) - (line.IndexOf("manufacturer:") + 13)); }
                                     }
                                 }
                             }
@@ -2265,19 +2295,19 @@ namespace WindowsApplication1
                                     {
                                         if (line.Contains("product-name:"))
                                         {
-                                            productName = line.Substring(line.IndexOf("product-name:") + 13, line.IndexOf(" ", line.IndexOf("product-name:") + 13) - (line.IndexOf("product-name:") + 13));
+                                            productName = line.Substring(line.IndexOf("product-name:") + 13, line.IndexOf(";", line.IndexOf("product-name:") + 13) - (line.IndexOf("product-name:") + 13));
                                         }
                                         if (line.Contains("dosageform:"))
                                         {
-                                            dosageForm = line.Substring(line.IndexOf("dosageform:") + 11, line.IndexOf(" ", line.IndexOf("dosageform:") + 11) - (line.IndexOf("dosageform:") + 11));
+                                            dosageForm = line.Substring(line.IndexOf("dosageform:") + 11, line.IndexOf(";", line.IndexOf("dosageform:") + 11) - (line.IndexOf("dosageform:") + 11));
                                         }
                                         if (line.Contains("manufacturer:"))
                                         {
-                                            fpm = line.Substring(line.IndexOf("manufacturer:") + 13, line.IndexOf(" ", line.IndexOf("manufacturer:") + 13) - (line.IndexOf("manufacturer:") + 13));
+                                            fpm = line.Substring(line.IndexOf("manufacturer:") + 13, line.IndexOf(";", line.IndexOf("manufacturer:") + 13) - (line.IndexOf("manufacturer:") + 13));
                                         }
                                         if (line.Contains("substance:"))
                                         {
-                                            api = line.Substring(line.IndexOf("substance:") + 10, line.IndexOf(" ", line.IndexOf("substance:") + 10) - (line.IndexOf("substance:") + 10));
+                                            api = line.Substring(line.IndexOf("substance:") + 10, line.IndexOf(";", line.IndexOf("substance:") + 10) - (line.IndexOf("substance:") + 10));
                                         }
                                     }
                                 }
@@ -2314,13 +2344,13 @@ namespace WindowsApplication1
                                     if (line.Contains(filenameListArray[p, 1]))
                                     {
                                         if (line.Contains("product-name:"))
-                                        { productName = line.Substring(line.IndexOf("product-name:") + 13, line.IndexOf(" ", line.IndexOf("product-name:") + 13) - (line.IndexOf("product-name:") + 13)); }
+                                        { productName = line.Substring(line.IndexOf("product-name:") + 13, line.IndexOf(";", line.IndexOf("product-name:") + 13) - (line.IndexOf("product-name:") + 13)); }
                                         if (line.Contains("dosageform:"))
-                                        { dosageForm = line.Substring(line.IndexOf("dosageform:") + 11, line.IndexOf(" ", line.IndexOf("dosageform:") + 11) - (line.IndexOf("dosageform:") + 11)); }
+                                        { dosageForm = line.Substring(line.IndexOf("dosageform:") + 11, line.IndexOf(";", line.IndexOf("dosageform:") + 11) - (line.IndexOf("dosageform:") + 11)); }
                                         if (line.Contains("manufacturer:"))
-                                        { fpm = line.Substring(line.IndexOf("manufacturer:") + 13, line.IndexOf(" ", line.IndexOf("manufacturer:") + 13) - (line.IndexOf("manufacturer:") + 13)); }
+                                        { fpm = line.Substring(line.IndexOf("manufacturer:") + 13, line.IndexOf(";", line.IndexOf("manufacturer:") + 13) - (line.IndexOf("manufacturer:") + 13)); }
                                         if (line.Contains("substance:"))
-                                        { api = line.Substring(line.IndexOf("substance:") + 10, line.IndexOf(" ", line.IndexOf("substance:") + 10) - (line.IndexOf("substance:") + 10)); }
+                                        { api = line.Substring(line.IndexOf("substance:") + 10, line.IndexOf(";", line.IndexOf("substance:") + 10) - (line.IndexOf("substance:") + 10)); }
                                     }
                                 }
                             }
@@ -2384,15 +2414,15 @@ namespace WindowsApplication1
                                     {
                                         if (line.Contains("product-name:"))
                                         {
-                                            productName = line.Substring(line.IndexOf("product-name:") + 13, line.IndexOf(" ", line.IndexOf("product-name:") + 13) - (line.IndexOf("product-name:") + 13));
+                                            productName = line.Substring(line.IndexOf("product-name:") + 13, line.IndexOf(";", line.IndexOf("product-name:") + 13) - (line.IndexOf("product-name:") + 13));
                                         }
                                         if (line.Contains("dosageform:"))
                                         {
-                                            dosageForm = line.Substring(line.IndexOf("dosageform:") + 11, line.IndexOf(" ", line.IndexOf("dosageform:") + 11) - (line.IndexOf("dosageform:") + 11));
+                                            dosageForm = line.Substring(line.IndexOf("dosageform:") + 11, line.IndexOf(";", line.IndexOf("dosageform:") + 11) - (line.IndexOf("dosageform:") + 11));
                                         }
                                         if (line.Contains("manufacturer:"))
                                         {
-                                            fpm = line.Substring(line.IndexOf("manufacturer:") + 13, line.IndexOf(" ", line.IndexOf("manufacturer:") + 13) - (line.IndexOf("manufacturer:") + 13));
+                                            fpm = line.Substring(line.IndexOf("manufacturer:") + 13, line.IndexOf(";", line.IndexOf("manufacturer:") + 13) - (line.IndexOf("manufacturer:") + 13));
                                         }
                                     }
                                 }
@@ -2508,15 +2538,15 @@ namespace WindowsApplication1
                                         {
                                             if (line.Contains("product-name:"))
                                             {
-                                                productName = line.Substring(line.IndexOf("product-name:") + 13, line.IndexOf(" ", line.IndexOf("product-name:") + 13) - (line.IndexOf("product-name:") + 13));
+                                                productName = line.Substring(line.IndexOf("product-name:") + 13, line.IndexOf(";", line.IndexOf("product-name:") + 13) - (line.IndexOf("product-name:") + 13));
                                             }
                                             if (line.Contains("dosageform:"))
                                             {
-                                                dosageForm = line.Substring(line.IndexOf("dosageform:") + 11, line.IndexOf(" ", line.IndexOf("dosageform:") + 11) - (line.IndexOf("dosageform:") + 11));
+                                                dosageForm = line.Substring(line.IndexOf("dosageform:") + 11, line.IndexOf(";", line.IndexOf("dosageform:") + 11) - (line.IndexOf("dosageform:") + 11));
                                             }
                                             if (line.Contains("manufacturer:"))
                                             {
-                                                fpm = line.Substring(line.IndexOf("manufacturer:") + 13, line.IndexOf(" ", line.IndexOf("manufacturer:") + 13) - (line.IndexOf("manufacturer:") + 13));
+                                                fpm = line.Substring(line.IndexOf("manufacturer:") + 13, line.IndexOf(";", line.IndexOf("manufacturer:") + 13) - (line.IndexOf("manufacturer:") + 13));
                                             }
                                         }
                                     }
@@ -2695,7 +2725,7 @@ namespace WindowsApplication1
                                     {
                                         if (line.Contains("excipient:"))
                                         {
-                                            excipient = line.Substring(line.IndexOf("excipient:") + 10, line.IndexOf(" ", line.IndexOf("excipient:") + 10) - (line.IndexOf("excipient:") + 10));
+                                            excipient = line.Substring(line.IndexOf("excipient:") + 10, line.IndexOf(";", line.IndexOf("excipient:") + 10) - (line.IndexOf("excipient:") + 10));
                                         }
                                     }
                                 }
@@ -2718,7 +2748,7 @@ namespace WindowsApplication1
                                         {
                                             if (line.Contains("excipient:"))
                                             {
-                                                excipient = line.Substring(line.IndexOf("excipient:") + 10, line.IndexOf(" ", line.IndexOf("excipient:") + 10) - (line.IndexOf("excipient:") + 10));
+                                                excipient = line.Substring(line.IndexOf("excipient:") + 10, line.IndexOf(";", line.IndexOf("excipient:") + 10) - (line.IndexOf("excipient:") + 10));
                                             }
                                         }
                                     }
@@ -3150,9 +3180,9 @@ namespace WindowsApplication1
                                     if (line.Contains(current32s.Replace("\\", "/").Substring(current32s.IndexOf("32s-drug-sub"))))
                                     {
                                         if (line.Contains("substance:"))
-                                        { api = line.Substring(line.IndexOf("substance:") + 10, line.IndexOf(" ", line.IndexOf("substance:") + 10) - (line.IndexOf("substance:") + 10)); }
+                                        { api = line.Substring(line.IndexOf("substance:") + 10, line.IndexOf(";", line.IndexOf("substance:") + 10) - (line.IndexOf("substance:") + 10)); }
                                         if (line.Contains("manufacturer:"))
-                                        { manufacturer = line.Substring(line.IndexOf("manufacturer:") + 13, line.IndexOf(" ", line.IndexOf("manufacturer:") + 13) - (line.IndexOf("manufacturer:") + 13)); }
+                                        { manufacturer = line.Substring(line.IndexOf("manufacturer:") + 13, line.IndexOf(";", line.IndexOf("manufacturer:") + 13) - (line.IndexOf("manufacturer:") + 13)); }
                                     }
                                 }
                             }
@@ -3304,9 +3334,9 @@ namespace WindowsApplication1
                                         if (line.Contains(current32s.Replace("\\", "/").Substring(current32s.IndexOf("32s-drug-sub"))))
                                         {
                                             if (line.Contains("substance:"))
-                                            { api = line.Substring(line.IndexOf("substance:") + 10, line.IndexOf(" ", line.IndexOf("substance:") + 10) - (line.IndexOf("substance:") + 10)); }
+                                            { api = line.Substring(line.IndexOf("substance:") + 10, line.IndexOf(";", line.IndexOf("substance:") + 10) - (line.IndexOf("substance:") + 10)); }
                                             if (line.Contains("manufacturer:"))
-                                            { manufacturer = line.Substring(line.IndexOf("manufacturer:") + 13, line.IndexOf(" ", line.IndexOf("manufacturer:") + 13) - (line.IndexOf("manufacturer:") + 13)); }
+                                            { manufacturer = line.Substring(line.IndexOf("manufacturer:") + 13, line.IndexOf(";", line.IndexOf("manufacturer:") + 13) - (line.IndexOf("manufacturer:") + 13)); }
                                         }
                                     }
                                 }
