@@ -1825,7 +1825,7 @@ namespace WindowsApplication1
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Tag = "6";
-            this.Text = "eCTD indexer 2022-10 EU M1 v.3.0.3, eCTD v.3.2";
+            this.Text = "eCTD indexer 2023-08 EU M1 v.3.0.4, eCTD v.3.2";
             this.ResumeLayout(false);
             this.PerformLayout();
 
