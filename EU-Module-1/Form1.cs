@@ -1425,8 +1425,8 @@ namespace WindowsApplication1
                     if (m181open == true) sr.WriteLine("          </m1-8-1-pharmacovigilance-system>");
                     if (m182open == true) sr.WriteLine("          </m1-8-2-risk-management-system>");
                     if (m18open == true) sr.WriteLine("      </m1-8-pharmacovigilance>");
-                    if (m19open == true) sr.WriteLine("      </m1-9-clinical-trials");
-                    if (m110open == true) sr.WriteLine("      </m1-10-paediatrics");
+                    if (m19open == true) sr.WriteLine("      </m1-9-clinical-trials>");
+                    if (m110open == true) sr.WriteLine("      </m1-10-paediatrics>");
                     if (m1additionalopen == true) sr.WriteLine("      </m1-additional-data>");
                     if (m1responsesopen == true) sr.WriteLine("      </m1-responses>");
                     sr.WriteLine("  </m1-eu>");
