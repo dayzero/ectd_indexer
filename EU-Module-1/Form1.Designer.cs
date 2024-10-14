@@ -194,6 +194,10 @@ namespace WindowsApplication1
             this.textBoxDE2 = new System.Windows.Forms.TextBox();
             this.checkBoxDE2 = new System.Windows.Forms.CheckBox();
             this.textBoxUUID = new System.Windows.Forms.TextBox();
+            this.textBoxXIApp = new System.Windows.Forms.TextBox();
+            this.textBoxXI = new System.Windows.Forms.TextBox();
+            this.checkBoxXI = new System.Windows.Forms.CheckBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBoxTrackNo
@@ -237,7 +241,8 @@ namespace WindowsApplication1
             "closing",
             "consolidating",
             "corrigendum",
-            "reformat"});
+            "reformat",
+            "re-examination"});
             this.comboBoxSubmUnit.Location = new System.Drawing.Point(425, 130);
             this.comboBoxSubmUnit.Name = "comboBoxSubmUnit";
             this.comboBoxSubmUnit.Size = new System.Drawing.Size(212, 21);
@@ -315,6 +320,7 @@ namespace WindowsApplication1
             "lifting-suspension",
             "withdrawal",
             "cep",
+            "article-18",
             "none"});
             this.comboBoxSubmType.Location = new System.Drawing.Point(103, 78);
             this.comboBoxSubmType.Name = "comboBoxSubmType";
@@ -325,7 +331,7 @@ namespace WindowsApplication1
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(120, 632);
+            this.button1.Location = new System.Drawing.Point(120, 638);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 111;
@@ -387,7 +393,7 @@ namespace WindowsApplication1
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(380, 591);
+            this.label15.Location = new System.Drawing.Point(380, 597);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(190, 13);
             this.label15.TabIndex = 26;
@@ -395,14 +401,14 @@ namespace WindowsApplication1
             // 
             // textBoxMD5
             // 
-            this.textBoxMD5.Location = new System.Drawing.Point(382, 607);
+            this.textBoxMD5.Location = new System.Drawing.Point(382, 613);
             this.textBoxMD5.Name = "textBoxMD5";
             this.textBoxMD5.Size = new System.Drawing.Size(226, 20);
             this.textBoxMD5.TabIndex = 115;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(382, 632);
+            this.button2.Location = new System.Drawing.Point(382, 638);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(51, 23);
             this.button2.TabIndex = 117;
@@ -412,14 +418,14 @@ namespace WindowsApplication1
             // 
             // textBoxNewMD5
             // 
-            this.textBoxNewMD5.Location = new System.Drawing.Point(439, 632);
+            this.textBoxNewMD5.Location = new System.Drawing.Point(439, 638);
             this.textBoxNewMD5.Name = "textBoxNewMD5";
             this.textBoxNewMD5.Size = new System.Drawing.Size(149, 20);
             this.textBoxNewMD5.TabIndex = 118;
             // 
             // textBoxSeqDir
             // 
-            this.textBoxSeqDir.Location = new System.Drawing.Point(16, 607);
+            this.textBoxSeqDir.Location = new System.Drawing.Point(16, 613);
             this.textBoxSeqDir.Name = "textBoxSeqDir";
             this.textBoxSeqDir.Size = new System.Drawing.Size(311, 20);
             this.textBoxSeqDir.TabIndex = 108;
@@ -428,7 +434,7 @@ namespace WindowsApplication1
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(12, 578);
+            this.label16.Location = new System.Drawing.Point(12, 584);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(49, 13);
             this.label16.TabIndex = 31;
@@ -437,7 +443,7 @@ namespace WindowsApplication1
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(12, 591);
+            this.label17.Location = new System.Drawing.Point(12, 597);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(191, 13);
             this.label17.TabIndex = 32;
@@ -445,7 +451,7 @@ namespace WindowsApplication1
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(201, 632);
+            this.button3.Location = new System.Drawing.Point(201, 638);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 112;
@@ -455,7 +461,7 @@ namespace WindowsApplication1
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(282, 632);
+            this.button4.Location = new System.Drawing.Point(282, 638);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 113;
@@ -739,7 +745,7 @@ namespace WindowsApplication1
             // checkBoxUK
             // 
             this.checkBoxUK.AutoSize = true;
-            this.checkBoxUK.Location = new System.Drawing.Point(338, 500);
+            this.checkBoxUK.Location = new System.Drawing.Point(338, 571);
             this.checkBoxUK.Name = "checkBoxUK";
             this.checkBoxUK.Size = new System.Drawing.Size(76, 17);
             this.checkBoxUK.TabIndex = 102;
@@ -1057,7 +1063,7 @@ namespace WindowsApplication1
             // textBoxUK
             // 
             this.textBoxUK.Enabled = false;
-            this.textBoxUK.Location = new System.Drawing.Point(432, 500);
+            this.textBoxUK.Location = new System.Drawing.Point(432, 569);
             this.textBoxUK.Name = "textBoxUK";
             this.textBoxUK.Size = new System.Drawing.Size(100, 20);
             this.textBoxUK.TabIndex = 103;
@@ -1345,7 +1351,7 @@ namespace WindowsApplication1
             // textBoxUKApp
             // 
             this.textBoxUKApp.Enabled = false;
-            this.textBoxUKApp.Location = new System.Drawing.Point(538, 500);
+            this.textBoxUKApp.Location = new System.Drawing.Point(538, 569);
             this.textBoxUKApp.Name = "textBoxUKApp";
             this.textBoxUKApp.Size = new System.Drawing.Size(100, 20);
             this.textBoxUKApp.TabIndex = 104;
@@ -1479,7 +1485,7 @@ namespace WindowsApplication1
             // 
             // folderButton2
             // 
-            this.folderButton2.Location = new System.Drawing.Point(333, 605);
+            this.folderButton2.Location = new System.Drawing.Point(333, 611);
             this.folderButton2.Name = "folderButton2";
             this.folderButton2.Size = new System.Drawing.Size(24, 23);
             this.folderButton2.TabIndex = 109;
@@ -1489,7 +1495,7 @@ namespace WindowsApplication1
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(17, 632);
+            this.button5.Location = new System.Drawing.Point(17, 638);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(98, 23);
             this.button5.TabIndex = 110;
@@ -1499,7 +1505,7 @@ namespace WindowsApplication1
             // 
             // fileButton1
             // 
-            this.fileButton1.Location = new System.Drawing.Point(614, 604);
+            this.fileButton1.Location = new System.Drawing.Point(614, 610);
             this.fileButton1.Name = "fileButton1";
             this.fileButton1.Size = new System.Drawing.Size(26, 23);
             this.fileButton1.TabIndex = 116;
@@ -1529,7 +1535,7 @@ namespace WindowsApplication1
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(594, 632);
+            this.button6.Location = new System.Drawing.Point(594, 638);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(46, 23);
             this.button6.TabIndex = 119;
@@ -1539,7 +1545,7 @@ namespace WindowsApplication1
             // 
             // currentDossierButton
             // 
-            this.currentDossierButton.Location = new System.Drawing.Point(17, 661);
+            this.currentDossierButton.Location = new System.Drawing.Point(17, 667);
             this.currentDossierButton.Name = "currentDossierButton";
             this.currentDossierButton.Size = new System.Drawing.Size(158, 23);
             this.currentDossierButton.TabIndex = 114;
@@ -1549,7 +1555,7 @@ namespace WindowsApplication1
             // 
             // copyEnvelopeButton
             // 
-            this.copyEnvelopeButton.Location = new System.Drawing.Point(531, 661);
+            this.copyEnvelopeButton.Location = new System.Drawing.Point(531, 667);
             this.copyEnvelopeButton.Name = "copyEnvelopeButton";
             this.copyEnvelopeButton.Size = new System.Drawing.Size(109, 23);
             this.copyEnvelopeButton.TabIndex = 8;
@@ -1672,11 +1678,54 @@ namespace WindowsApplication1
             this.textBoxUUID.Size = new System.Drawing.Size(213, 20);
             this.textBoxUUID.TabIndex = 122;
             // 
+            // textBoxXIApp
+            // 
+            this.textBoxXIApp.Enabled = false;
+            this.textBoxXIApp.Location = new System.Drawing.Point(538, 500);
+            this.textBoxXIApp.Name = "textBoxXIApp";
+            this.textBoxXIApp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxXIApp.TabIndex = 125;
+            this.textBoxXIApp.Tag = "XI";
+            // 
+            // textBoxXI
+            // 
+            this.textBoxXI.Enabled = false;
+            this.textBoxXI.Location = new System.Drawing.Point(432, 500);
+            this.textBoxXI.Name = "textBoxXI";
+            this.textBoxXI.Size = new System.Drawing.Size(100, 20);
+            this.textBoxXI.TabIndex = 124;
+            this.textBoxXI.Tag = "XI";
+            // 
+            // checkBoxXI
+            // 
+            this.checkBoxXI.AutoSize = true;
+            this.checkBoxXI.Location = new System.Drawing.Point(338, 500);
+            this.checkBoxXI.Name = "checkBoxXI";
+            this.checkBoxXI.Size = new System.Drawing.Size(76, 17);
+            this.checkBoxXI.TabIndex = 123;
+            this.checkBoxXI.Tag = "XI";
+            this.checkBoxXI.Text = "UK-MHRA";
+            this.checkBoxXI.UseVisualStyleBackColor = true;
+            this.checkBoxXI.CheckedChanged += new System.EventHandler(this.checkBoxXI_CheckedChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(407, 501);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(23, 13);
+            this.label9.TabIndex = 126;
+            this.label9.Text = "(XI)";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(655, 702);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.textBoxXIApp);
+            this.Controls.Add(this.textBoxXI);
+            this.Controls.Add(this.checkBoxXI);
             this.Controls.Add(this.textBoxUUID);
             this.Controls.Add(this.textBoxDE2App);
             this.Controls.Add(this.textBoxDE2);
@@ -1825,7 +1874,7 @@ namespace WindowsApplication1
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Tag = "6";
-            this.Text = "eCTD indexer 2023-08 EU M1 v.3.0.4, eCTD v.3.2";
+            this.Text = "eCTD indexer 2024-10 EU M1 v.3.1, eCTD v.3.2";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1980,6 +2029,10 @@ namespace WindowsApplication1
         private System.Windows.Forms.TextBox textBoxDE2;
         private System.Windows.Forms.CheckBox checkBoxDE2;
         private System.Windows.Forms.TextBox textBoxUUID;
+        private System.Windows.Forms.TextBox textBoxXIApp;
+        private System.Windows.Forms.TextBox textBoxXI;
+        private System.Windows.Forms.CheckBox checkBoxXI;
+        private System.Windows.Forms.Label label9;
     }
 }
 

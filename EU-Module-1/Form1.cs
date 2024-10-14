@@ -551,6 +551,20 @@ namespace WindowsApplication1
             }
         }
 
+        private void checkBoxXI_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxXI.Checked == true)
+            {
+                textBoxXI.Enabled = true;
+                textBoxXIApp.Enabled = true;
+            }
+            else
+            {
+                textBoxXI.Enabled = false;
+                textBoxXIApp.Enabled = false;
+            }
+        }
+
         //enables the Mode and Number textboxes for variations and line extension type submissions        
         private void comboBoxSubmType_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -5629,6 +5643,9 @@ namespace WindowsApplication1
             SElang.Add("sv");
             List<string> UKlang = new List<string>();
             UKlang.Add("en");
+            List<string> XIlang = new List<string>();
+            XIlang.Add("en");
+            XIlang.Add("ga");
 
             //Create a dictionary with member states and official languages, to be used for generating language folders in 1.3.1
             Dictionary<string, List<string>> language = new Dictionary<string, List<string>>();
@@ -5662,6 +5679,7 @@ namespace WindowsApplication1
             language.Add("si", SIlang);
             language.Add("se", SElang);
             language.Add("uk", UKlang);
+            language.Add("xi", XIlang);
 
             List<string> memberStateList = new List<string>();
             foreach (Control chkbx in this.Controls)
