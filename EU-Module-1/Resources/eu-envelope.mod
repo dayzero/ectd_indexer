@@ -25,7 +25,13 @@ Version 3.0.1
 May 2016
 
 Contributors:
-BFARM (Klaus Menges)-->
+BFARM (Klaus Menges)
+
+Version 3.1
+June 2024
+
+Contributors:
+EMA (Mihaela Pereteatcu)-->
 
 <!-- ................................................................... -->
 <!ELEMENT eu-envelope (
@@ -63,13 +69,13 @@ BFARM (Klaus Menges)-->
 
 <!-- ................................................................... -->
 <!ATTLIST submission
-type (maa | var-type1a | var-type1ain | var-type1b | var-type2 | var-nat | extension | rup | psur | psusa | rmp | renewal | pam-sob | pam-anx | pam-mea | pam-leg | pam-sda | pam-capa | pam-p45 | pam-p46 | pam-paes | pam-rec | pass107n | pass107q | asmf | pmf | referral-20 | referral-294 | referral-29p | referral-30 | referral-31 | referral-35 | referral-5-3 | referral-107i | referral-16c1c | referral-16c4 | annual-reassessment | usr | clin-data-pub-rp | clin-data-pub-fv | paed-7-8-30 | paed-29 | paed-45 | paed-46 | article-58 | notification-61-3 | transfer-ma | lifting-suspension | withdrawal | cep | none) #REQUIRED
+type (maa | var-type1a | var-type1ain | var-type1b | var-type2 | var-nat | extension | rup | psur | psusa | rmp | renewal | pam-sob | pam-anx | pam-mea | pam-leg | pam-sda | pam-capa | pam-p45 | pam-p46 | pam-paes | pam-rec | pass107n | pass107q | asmf | pmf | referral-20 | referral-294 | referral-29p | referral-30 | referral-31 | referral-35 | referral-5-3 | referral-107i | referral-16c1c | referral-16c4 | annual-reassessment | usr | clin-data-pub-rp | clin-data-pub-fv | paed-7-8-30 | paed-29 | paed-45 | paed-46 | article-58 | notification-61-3 | transfer-ma | lifting-suspension | withdrawal | cep | article-18 | none) #REQUIRED
 mode ( single | grouping | worksharing ) #IMPLIED
 >
 
 <!-- ................................................................... -->
 <!ATTLIST submission-unit
-type (initial | validation-response | response | additional-info | closing | consolidating | corrigendum | reformat ) #REQUIRED
+type (initial | validation-response | response | additional-info | closing | consolidating | corrigendum | reformat | re-examination ) #REQUIRED
 >
 
 <!-- ................................................................... -->
@@ -87,7 +93,7 @@ code ( AT-BASG | BE-FAMHP | BG-BDA | CY-PHS | CZ-SUKL | DE-BFARM | DE-PEI | DK-D
 >
 
 <!-- ................................................................... -->
-<!ENTITY % env-countries "(at|be|bg|cy|cz|de|dk|edqm|ee|el|ema|es|fi|fr|hr|hu|ie|is|it|li|lt|lu|lv|mt|nl|no|pl|pt|ro|se|si|sk|uk)">
+<!ENTITY % env-countries "(at|be|bg|cy|cz|de|dk|edqm|ee|el|ema|es|fi|fr|hr|hu|ie|is|it|li|lt|lu|lv|mt|nl|no|pl|pt|ro|se|si|sk|uk|xi)">
 
 <!-- ................................................................... -->
 <!ATTLIST envelope country %env-countries; #REQUIRED >

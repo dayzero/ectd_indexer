@@ -3,8 +3,8 @@
 <!--
 	EU Module 1 Style-Sheet
 
-	Version 3.0.1
-	May 2016
+	Version 3.1
+	June 2024
 -->
 
 <xsl:stylesheet version="3.1"
@@ -55,39 +55,39 @@
 	
 	<xsl:template match="*|@*" mode="agency"> 
 		<xsl:choose>
-			<xsl:when test="@code='AT-BASG'">Austria - BASG- Austrian Federal Office for Safety in Health Care / Austrian Medicines and Medical Devices Agency</xsl:when>
-			<xsl:when test="@code='BE-FAMHP'">Belgium - Agence Fédérale des Médicaments et des Produits de Santé</xsl:when>
+			<xsl:when test="@code='AT-BASG'">Austria - Austrian Federal Office for Safety in Health Care / Austrian Medicines and Medical Devices Agency</xsl:when>
+			<xsl:when test="@code='BE-FAMHP'">Belgium - Federal agency for medicines and health products</xsl:when>
 			<xsl:when test="@code='BG-BDA'">Bulgaria - Bulgarian Drug Agency</xsl:when>
 			<xsl:when test="@code='CY-PHS'">Cyprus - Pharmaceutical Services, Ministry of Health</xsl:when>
 			<xsl:when test="@code='CZ-SUKL'">Czech Rep - State Institute for Drug Control</xsl:when>
-			<xsl:when test="@code='DE-BFARM'">Germany - BfArM - Bundesinstitut für Arzneimittel und Medizinprodukte</xsl:when>
-			<xsl:when test="@code='DE-PEI'">Germany - Paul-Ehrlich Institut</xsl:when>
+			<xsl:when test="@code='DE-BFARM'">Germany - BfArM - Federal Institute for Drugs and Medical Devices</xsl:when>
+			<xsl:when test="@code='DE-PEI'">Germany - PEI - Federal Institute for Vaccines and Biomedicines</xsl:when>
 			<xsl:when test="@code='DK-DKMA'">Denmark - Danish Medicines Agency</xsl:when>
 			<xsl:when test="@code='EE-SAM'">Estonia - State Agency of Medicines</xsl:when>
-			<xsl:when test="@code='EL-EOF'">Greece - EOF - National Drug Organisation</xsl:when>
-			<xsl:when test="@code='ES-AEMPS'">Spain - Agencia Española de Medicamentos y Productos Sanitarios</xsl:when>
+			<xsl:when test="@code='EL-EOF'">Greece - National Drug Organisation</xsl:when>
+			<xsl:when test="@code='ES-AEMPS'">Spain - Spanish Agency for Medicines and Health Products</xsl:when>
 			<xsl:when test="@code='EU-EDQM'">EDQM - European Directorate for the Quality of Medicines &amp; HealthCare</xsl:when>
 			<xsl:when test="@code='FI-FIMEA'">Finland - Finnish Medicines Agency</xsl:when>
-			<xsl:when test="@code='FR-ANSM'">France - ANSM - Agence national de sécurité du médicament et des produits de santé</xsl:when>
+			<xsl:when test="@code='FR-ANSM'">France - National Agency for the Safety of Medicines and Health Products</xsl:when>
 			<xsl:when test="@code='HR-HALMED'">Croatia - Agency for Medicinal Products and Medical Devices of Croatia </xsl:when>
-			<xsl:when test="@code='HU-OGYI'">Hungary - National Institute for Quality and Organizational Development in Healthcare and Medicines, National Institute of Pharmacy</xsl:when>
+			<xsl:when test="@code='HU-OGYI'">Hungary - National Center for Public Health and Pharmacy</xsl:when>
 			<xsl:when test="@code='IE-HPRA'">Ireland - The Health Products Regulatory Authority</xsl:when>
 			<xsl:when test="@code='IS-IMCA'">Iceland - Icelandic Medicines Control Agency</xsl:when>
-			<xsl:when test="@code='IT-AIFA'">Italy - Agenzia Italiana del Farmaco</xsl:when>
-			<xsl:when test="@code='LI-LLV'">Liechtenstein - Kontrollstelle für Arzneimittel beim Amt für Lebensmittelkontrolle und Veterinärwesen</xsl:when>
+			<xsl:when test="@code='IT-AIFA'">Italy - Italian Medicines Agency</xsl:when>
+			<xsl:when test="@code='LI-LLV'">Liechtenstein - Office of Health / Department of Pharmaceuticals</xsl:when>
 			<xsl:when test="@code='LT-SMCA'">Lithuania - State Medicines Control Agency</xsl:when>
-			<xsl:when test="@code='LU-MINSANT'">Luxembourg - Direction de la Santé Villa Louvigny Division de la Pharmacie et des Medicaments</xsl:when>
+			<xsl:when test="@code='LU-MINSANT'">Luxembourg - Ministry of Health</xsl:when>
 			<xsl:when test="@code='LV-ZVA'">Latvia - State Agency of Medicines</xsl:when>
 			<xsl:when test="@code='MT-MEDAUTH'">Malta - Medicines Authority Divizjoni Tas-Sahha Bezzjoni Ghar-Regolazzjoni Tal-Medicini</xsl:when>
-			<xsl:when test="@code='NL-MEB'">Netherlands - College ter Beoordeling van Geneesmiddelen Medicines Evaluation Board</xsl:when>
-			<xsl:when test="@code='NO-NOMA'">Norway - The Norwegian Medicines Agency</xsl:when>
+			<xsl:when test="@code='NL-MEB'">Netherlands - Medicines Evaluation Board</xsl:when>
+			<xsl:when test="@code='NO-NOMA'">Norway - Norwegian Medical Products Agency</xsl:when>
 			<xsl:when test="@code='PL-URPL'">Poland - Office for Registration of Medicinal Products, Medical Devices and Biocidal Products</xsl:when>
-			<xsl:when test="@code='PT-INFARMED'">Portugal - INFARMED - Instituto Nacional da Farmácia e do Medicamento Parque da Saúde de Lisboa</xsl:when>
-			<xsl:when test="@code='RO-ANMMD'">Romania- National Agency for Medicines and Medical Devices</xsl:when>
+			<xsl:when test="@code='PT-INFARMED'">Portugal - National Authority of Medicines and Health Products</xsl:when>
+			<xsl:when test="@code='RO-ANMMD'">Romania - National Agency for Medicines and Medical Devices</xsl:when>
 			<xsl:when test="@code='SE-MPA'">Sweden - Medical Products Agency</xsl:when>
-			<xsl:when test="@code='SI-JAZMP'">Slovenia - Javna agencija Republike Slovenije za zdravila in medicinske pripomocke</xsl:when>
+			<xsl:when test="@code='SI-JAZMP'">Slovenia - Agency for Medicinal Products and Medical Devices of the Republic of Slovenia</xsl:when>
 			<xsl:when test="@code='SK-SIDC'">Slovak Rep - State Institute for Drug Control</xsl:when>
-			<xsl:when test="@code='UK-MHRA'">Medicines and Healthcare products Regulatory Agency</xsl:when>
+			<xsl:when test="@code='UK-MHRA'">UK - Medicines and Healthcare products Regulatory Agency</xsl:when>
 			<xsl:when test="@code='EU-EMA'">EMA - European Medicines Agency</xsl:when>
 		</xsl:choose>
 		<xsl:text> </xsl:text>(<xsl:value-of select="@code"/>)
@@ -146,6 +146,7 @@
 			<xsl:when test="@type='withdrawal'">Withdrawal during Assessment or Withdrawal of MA</xsl:when>
 			<xsl:when test="@type='cep'">CEP application</xsl:when>
 			<xsl:when test="@type='rmp'">Risk Management Plan (outside any procedure)</xsl:when>
+			<xsl:when test="@type='article-18'">Article 18</xsl:when>
 			<xsl:when test="@type='none'">The submission is not a regulatory activity</xsl:when>
 		</xsl:choose>		
 		<br/>
@@ -182,6 +183,7 @@
 			<xsl:when test="@type='closing'">Final documents in the centralised procedure</xsl:when>
 			<xsl:when test="@type='consolidating'">Consolidates the application after several information in the MRP or DCP handled outside the eCTD application</xsl:when>
 			<xsl:when test="@type='reformat'">Reformatting of an existing submission application</xsl:when>
+			<xsl:when test="@type='re-examination'">Re-examination</xsl:when>
 			</xsl:choose>
 		</xsl:if>
 		<br/>

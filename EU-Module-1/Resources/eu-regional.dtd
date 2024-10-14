@@ -1,5 +1,5 @@
 <!--
-PUBLIC "-//EU//DTD eCTD EU Backbone 3.0.1//EN"
+PUBLIC "-//EU//DTD eCTD EU Backbone 3.1//EN"
 In the eCTD File Organisation: "util/dtd/eu-regional.dtd"
 
 August 2009
@@ -24,6 +24,11 @@ May 2016
 Contributors:
 BFARM (Klaus Menges)
 
+June 2024
+
+Contributors:
+EMA (Mihaela Pereteatcu)
+
 Meaning or value of the suffixes:
 ? : element must appear 0 or 1 time
 * : element must appear 0 or more time
@@ -32,8 +37,8 @@ Meaning or value of the suffixes:
 -->
 
 <!-- General declarations, external modules references................... -->
-<!ENTITY % countries "(at|be|bg|common|cy|cz|de|dk|edqm|ee|el|es|ema|fi|fr|hr|hu|ie|is|it|li|lt|lu|lv|mt|nl|no|pl|pt|ro|se|si|sk|uk)">
-<!ENTITY % languages "(bg|cs|da|de|el|en|es|et|fi|fr|hr|hu|is|it|lt|lv|mt|nl|no|pl|pt|ro|sk|sl|sv)">
+<!ENTITY % countries "(at|be|bg|common|cy|cz|de|dk|edqm|ee|el|es|ema|fi|fr|hr|hu|ie|is|it|li|lt|lu|lv|mt|nl|no|pl|pt|ro|se|si|sk|uk|xi)">
+<!ENTITY % languages "(bg|cs|da|de|el|en|es|et|fi|fr|ga|hr|hu|is|it|lt|lv|mt|nl|no|pl|pt|ro|sk|sl|sv)">
 
 <!ENTITY % leaf-node "(( leaf | node-extension )*)">
 
@@ -67,7 +72,7 @@ m1-eu
 xmlns:eu CDATA #FIXED "http://europa.eu.int"
 xmlns:xlink CDATA #FIXED "http://www.w3c.org/1999/xlink"
 xml:lang CDATA #IMPLIED
-dtd-version CDATA #FIXED "3.0.1"
+dtd-version CDATA #FIXED "3.1"
 >
 
 <!-- ................................................................... -->
