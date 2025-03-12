@@ -1,5 +1,5 @@
 //eCTD indexer (EU Module 1)
-//Copyright 2007-2020 Ymir Vesteinsson, ymir@ectd.is
+//Copyright 2007-2025 Ymir Vesteinsson, ymir@ectd.is
 
 //This file is part of eCTD-indexer.
 
@@ -775,7 +775,7 @@ namespace WindowsApplication1
                     sr.WriteLine("<!-- Generated {0} using eCTD indexer - http://ectd.is -->", dt.ToString());
                     sr.WriteLine("<eu:eu-backbone xmlns:eu=\"http://europa.eu.int\"");
                     sr.WriteLine("      xmlns:xlink=\"http://www.w3c.org/1999/xlink\"");
-                    sr.WriteLine("      xml:lang=\"en\" dtd-version=\"3.0.1\">");
+                    sr.WriteLine("      xml:lang=\"en\" dtd-version=\"3.1\">");
                     sr.WriteLine("  <eu-envelope>");
 
                     foreach (Control control in this.Controls)
@@ -2948,7 +2948,7 @@ namespace WindowsApplication1
                             if (filenameListArray[p, 4] != "")
                             { swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]); }
                             swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
-                            swr.WriteLine("                            <title>3.2.P.5.3 Validation of Analytical Procedures</title>");
+                            swr.WriteLine("                            <title>3.2.P.5.3 Validation of Analytical Procedures - {0}</title>", filenameListArray[p, 0].Substring(filenameListArray[p, 0].LastIndexOf(Path.DirectorySeparatorChar) + 1, (filenameListArray[p, 0].Length - (filenameListArray[p, 0].LastIndexOf(Path.DirectorySeparatorChar) + 5))));
                             swr.WriteLine("                        </leaf>");
                             idcounter++; indexed = true;
                         }
@@ -3592,9 +3592,13 @@ namespace WindowsApplication1
                             swr.WriteLine("                    </leaf>");
                             idcounter++; indexed = true;
                         }
-                        if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32s3-charac" + Path.DirectorySeparatorChar + "elucidation-of-structure"))
+                        if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32s3-charac" + Path.DirectorySeparatorChar + "elucidation-of-structure") && m32s31open == false)
                         {
                             swr.WriteLine("                    <m3-2-s-3-1-elucidation-of-structure-and-other-characteristics>");
+                            m32s31open = true;
+                        }
+                        if (filenameListArray[p,0].Contains(Path.DirectorySeparatorChar + "32s3-charac" + Path.DirectorySeparatorChar + "elucidation-of-structure") && m32s31open == true)
+                        { 
                             swr.WriteLine("                        <leaf ID=\"m3-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                             swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
                             if (filenameListArray[p, 4] != "")
@@ -3602,21 +3606,33 @@ namespace WindowsApplication1
                             swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                             swr.WriteLine("                            <title>3.2.S.3.1 Elucidation of Structure and Other Characteristics</title>");
                             swr.WriteLine("                        </leaf>");
-                            swr.WriteLine("                    </m3-2-s-3-1-elucidation-of-structure-and-other-characteristics>");
                             idcounter++; indexed = true;
                         }
-                        if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32s3-charac" + Path.DirectorySeparatorChar + "impurities"))
+                        if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32s3-charac" + Path.DirectorySeparatorChar + "elucidation-of-structure") == false && m32s31open == true)
+                        {
+                            swr.WriteLine("                    </m3-2-s-3-1-elucidation-of-structure-and-other-characteristics>");
+                            m32s31open = false;
+                        }
+                        if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32s3-charac" + Path.DirectorySeparatorChar + "impurities") && m32s32open == false)
                         {
                             swr.WriteLine("                    <m3-2-s-3-2-impurities>");
+                            m32s32open = true;
+                        }
+                        if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32s3-charac" + Path.DirectorySeparatorChar + "impurities") && m32s32open == true)
+                        {
                             swr.WriteLine("                        <leaf ID=\"m3-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                             swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
                             if (filenameListArray[p, 4] != "")
                             { swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]); }
                             swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                             swr.WriteLine("                            <title>3.2.S.3.2 Impurities</title>");
-                            swr.WriteLine("                        </leaf>");
-                            swr.WriteLine("                    </m3-2-s-3-2-impurities>");
+                            swr.WriteLine("                        </leaf>");                            
                             idcounter++; indexed = true;
+                        }
+                        if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32s3-charac" + Path.DirectorySeparatorChar + "impurities") == false && m32s32open == true)
+                        {
+                            swr.WriteLine("                    </m3-2-s-3-2-impurities>");
+                            m32s32open = false;
                         }
                         if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32s3-charac") == false && m32s3open == true)
                         {
@@ -3698,7 +3714,7 @@ namespace WindowsApplication1
                             if (filenameListArray[p, 4] != "")
                             { swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]); }
                             swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
-                            swr.WriteLine("                            <title>3.2.S.4.3 Validation of Analytical Procedures</title>");
+                            swr.WriteLine("                            <title>3.2.S.4.3 Validation of Analytical Procedures - {0}</title>", filenameListArray[p, 0].Substring(filenameListArray[p, 0].LastIndexOf(Path.DirectorySeparatorChar) + 1, (filenameListArray[p, 0].Length - (filenameListArray[p, 0].LastIndexOf(Path.DirectorySeparatorChar) + 5))));
                             swr.WriteLine("                        </leaf>");
                             idcounter++; indexed = true;
                         }
@@ -4892,7 +4908,7 @@ namespace WindowsApplication1
                             if (filenameListArray[p, 4] != "")
                             { swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]); }
                             swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
-                            swr.WriteLine("             <title>5.3.1.1 Bioavailability (BA) Study Reports</title>");
+                            swr.WriteLine("             <title>5.3.1.1 Bioavailability (BA) Study Reports - {0}</title>", filenameListArray[p, 0].Substring(filenameListArray[p, 0].LastIndexOf(Path.DirectorySeparatorChar) + 1, (filenameListArray[p, 0].Length - (filenameListArray[p, 0].LastIndexOf(Path.DirectorySeparatorChar) + 5))));
                             swr.WriteLine("          </leaf>");
                             idcounter++; indexed = true;
                         }
@@ -4913,8 +4929,8 @@ namespace WindowsApplication1
                             if (filenameListArray[p, 4] != "")
                             { swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]); }
                             swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
-                            swr.WriteLine("             <title>5.3.1.2 Comparative BA and Bioequivalence (BE) Study Reports</title>");
-                            swr.WriteLine("          </leaf>");
+                            swr.WriteLine("             <title>5.3.1.2 Comparative BA and Bioequivalence (BE) Study Reports - {0}</title>", filenameListArray[p, 0].Substring(filenameListArray[p, 0].LastIndexOf(Path.DirectorySeparatorChar) + 1, (filenameListArray[p, 0].Length - (filenameListArray[p, 0].LastIndexOf(Path.DirectorySeparatorChar) + 5))));
+                    swr.WriteLine("          </leaf>");
                             idcounter++; indexed = true;
                         }
                         if (filenameListArray[p, 0].Contains("m5" + Path.DirectorySeparatorChar + "53-clin-stud-rep" + Path.DirectorySeparatorChar + "531-rep-biopharm-stud" + Path.DirectorySeparatorChar + "5312-compar-ba-be-stud-rep") == false && m5312open == true)
@@ -4934,7 +4950,7 @@ namespace WindowsApplication1
                             if (filenameListArray[p, 4] != "")
                             { swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]); }
                             swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
-                            swr.WriteLine("             <title>5.3.1.3 In vitro - In vivo Correlation Study Reports</title>");
+                            swr.WriteLine("             <title>5.3.1.3 In vitro - In vivo Correlation Study Reports - {0}</title>", filenameListArray[p, 0].Substring(filenameListArray[p, 0].LastIndexOf(Path.DirectorySeparatorChar) + 1, (filenameListArray[p, 0].Length - (filenameListArray[p, 0].LastIndexOf(Path.DirectorySeparatorChar) + 5))));
                             swr.WriteLine("          </leaf>");
                             idcounter++; indexed = true;
                         }
@@ -4955,7 +4971,7 @@ namespace WindowsApplication1
                             if (filenameListArray[p, 4] != "")
                             { swr.WriteLine("             modified-file=\"{0}\"", filenameListArray[p, 4]); }
                             swr.WriteLine("             xlink:href=\"{0}\">", filenameListArray[p, 1]);
-                            swr.WriteLine("             <title>5.3.1.4 Reports of Bioanalytical and Analytical Methods for Human Studies</title>");
+                            swr.WriteLine("             <title>5.3.1.4 Reports of Bioanalytical and Analytical Methods for Human Studies - {0}</title>", filenameListArray[p, 0].Substring(filenameListArray[p, 0].LastIndexOf(Path.DirectorySeparatorChar) + 1, (filenameListArray[p, 0].Length - (filenameListArray[p, 0].LastIndexOf(Path.DirectorySeparatorChar) + 5))));
                             swr.WriteLine("          </leaf>");
                             idcounter++; indexed = true;
                         }
