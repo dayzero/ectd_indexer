@@ -5636,6 +5636,9 @@ namespace WindowsApplication1
             LIlang.Add("de");
             List<string> LTlang = new List<string>();
             LTlang.Add("lt");
+            List<string> LUlang = new List<string>();
+            LUlang.Add("de");
+            LUlang.Add("fr");
             List<string> LVlang = new List<string>();
             LVlang.Add("lv");
             List<string> MTlang = new List<string>();
@@ -5684,6 +5687,7 @@ namespace WindowsApplication1
             language.Add("it", ITlang);
             language.Add("li", LIlang);
             language.Add("lt", LTlang);
+            language.Add("lu", LUlang);
             language.Add("lv", LVlang);
             language.Add("mt", MTlang);
             language.Add("nl", NLlang);
