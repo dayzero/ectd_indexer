@@ -1549,6 +1549,12 @@ namespace WindowsApplication1
             bool m32p34open = false;
             bool m32p35open = false;
             bool m32p4open = false;
+            bool m32p41open = false;
+            bool m32p42open = false;
+            bool m32p43open = false;
+            bool m32p44open = false;
+            bool m32p45open = false;
+            bool m32p46open = false;
             bool m32p5open = false;
             bool m32p51open = false;
             bool m32p52open = false;
@@ -2493,6 +2499,36 @@ namespace WindowsApplication1
                                     swr.WriteLine("                </m3-2-p-3-manufacture>");
                                     m32p3open = false;
                                 }
+                                if (m32p41open)
+                                {
+                                    swr.WriteLine("                    </m3-2-p-4-1-specifications>");
+                                    m32p41open = false;
+                                }
+                                if (m32p42open)
+                                {
+                                    swr.WriteLine("                    </m3-2-p-4-2-analytical-procedures>");
+                                    m32p42open = false;
+                                }
+                                if (m32p43open)
+                                {
+                                    swr.WriteLine("                    </m3-2-p-4-3-validation-of-analytical-procedures>");
+                                    m32p43open = false;
+                                }
+                                if (m32p44open)
+                                {
+                                    swr.WriteLine("                    </m3-2-p-4-4-justification-of-specifications>");
+                                    m32p44open = false;
+                                }
+                                if (m32p45open)
+                                {
+                                    swr.WriteLine("                    </m3-2-p-4-5-excipients-of-human-or-animal-origin>");
+                                    m32p45open = false;
+                                }
+                                if (m32p46open)
+                                {
+                                    swr.WriteLine("                    </m3-2-p-4-6-novel-excipients>");
+                                    m32p46open = false;
+                                }
                                 if (m32p4open)
                                 {
                                     swr.WriteLine("                </m3-2-p-4-control-of-excipients>");
@@ -2762,7 +2798,7 @@ namespace WindowsApplication1
                             swr.WriteLine("                            <title>3.2.P.3.4 Controls of Critical Steps and Intermediates</title>");
                             swr.WriteLine("                        </leaf>");
                             idcounter++; indexed = true;
-                        }                        
+                        }
                         if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32p3-manuf") && filenameListArray[p, 0].Contains("process-validation") && m32p35open == false)
                         {
                             swr.WriteLine("                    <m3-2-p-3-5-process-validation-and-or-evaluation>");
@@ -2783,9 +2819,39 @@ namespace WindowsApplication1
                             swr.WriteLine("                </m3-2-p-3-manufacture>");
                             m32p3open = false;
                         }
+                        if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32p4-contr-excip" + Path.DirectorySeparatorChar) && filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "excipients-human-animal") == false && m32p45open == true)
+                        {
+                            swr.WriteLine("                    </m3-2-p-4-5-excipients-of-human-or-animal-origin>");
+                            m32p45open = false;
+                        }
+                        if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32p4-contr-excip" + Path.DirectorySeparatorChar) && filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "novel-excipients") == false && m32p46open == true)
+                        {
+                            swr.WriteLine("                    </m3-2-p-4-6-novel-excipients>");
+                            m32p46open = false;
+                        }
+                        if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32p4-contr-excip" + Path.DirectorySeparatorChar) && filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "analytical-procedures") == false && m32p42open == true)
+                        {
+                            swr.WriteLine("                    </m3-2-p-4-2-analytical-procedures>");
+                            m32p42open = false;
+                        }
+                        if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32p4-contr-excip" + Path.DirectorySeparatorChar) && filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "justification-of-specifications") == false && m32p44open == true)
+                        {
+                            swr.WriteLine("                    </m3-2-p-4-4-justification-of-specifications>");
+                            m32p44open = false;
+                        }
+                        if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32p4-contr-excip" + Path.DirectorySeparatorChar) && filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "specifications") == false && m32p41open == true)
+                        {
+                            swr.WriteLine("                    </m3-2-p-4-1-specifications>");
+                            m32p41open = false;
+                        }
+                        if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32p4-contr-excip" + Path.DirectorySeparatorChar) && filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "validation-analyt-procedures") == false && m32p43open == true)
+                        {
+                            swr.WriteLine("                    </m3-2-p-4-3-validation-of-analytical-procedures>");
+                            m32p43open = false;
+                        }
                         if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32p4-contr-excip" + Path.DirectorySeparatorChar) && m32p4open == false)
                         {
-                            excipient = excipientName(filenameListArray[p, 0], textBoxSeqDir.Text.Substring(0, textBoxSeqDir.Text.Length - 5) + Path.DirectorySeparatorChar + "attributes.txt");                            
+                            excipient = excipientName(filenameListArray[p, 0], textBoxSeqDir.Text.Substring(0, textBoxSeqDir.Text.Length - 5) + Path.DirectorySeparatorChar + "attributes.txt");
                             swr.WriteLine("                <m3-2-p-4-control-of-excipients excipient=\"{0}\">", excipient);
                             m32p4open = true;
                         }
@@ -2793,6 +2859,36 @@ namespace WindowsApplication1
                         {
                             if (excipient != excipientName(filenameListArray[p, 0], textBoxSeqDir.Text.Substring(0, textBoxSeqDir.Text.Length - 5) + Path.DirectorySeparatorChar + "attributes.txt"))
                             {
+                                if (m32p45open == true)
+                                {
+                                    swr.WriteLine("                    </m3-2-p-4-5-excipients-of-human-or-animal-origin>");
+                                    m32p45open = false;
+                                }
+                                if (m32p46open == true)
+                                {
+                                    swr.WriteLine("                    </m3-2-p-4-6-novel-excipients>");
+                                    m32p46open = false;
+                                }
+                                if (m32p42open == true)
+                                {
+                                    swr.WriteLine("                    </m3-2-p-4-2-analytical-procedures>");
+                                    m32p42open = false;
+                                }
+                                if (m32p44open == true)
+                                {
+                                    swr.WriteLine("                    </m3-2-p-4-4-justification-of-specifications>");
+                                    m32p44open = false;
+                                }
+                                if (m32p41open == true)
+                                {
+                                    swr.WriteLine("                    </m3-2-p-4-1-specifications>");
+                                    m32p41open = false;
+                                }
+                                if (m32p43open == true)
+                                {
+                                    swr.WriteLine("                    </m3-2-p-4-3-validation-of-analytical-procedures>");
+                                    m32p43open = false;
+                                }
                                 swr.WriteLine("                </m3-2-p-4-control-of-excipients>");
                                 //current32p4 = filenameListArray[p, 0].Substring(0, filenameListArray[p, 0].IndexOf(Path.DirectorySeparatorChar, filenameListArray[p, 0].IndexOf("32p4-contr-excip") + 17));
                                 excipient = excipientName(filenameListArray[p, 0], textBoxSeqDir.Text.Substring(0, textBoxSeqDir.Text.Length - 5) + Path.DirectorySeparatorChar + "attributes.txt");                                
@@ -2816,9 +2912,13 @@ namespace WindowsApplication1
                             swr.WriteLine("                    </leaf>");
                             idcounter++; indexed = true;
                         }
-                        if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32p4-contr-excip" + Path.DirectorySeparatorChar) && filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "specifications"))
+                        if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32p4-contr-excip" + Path.DirectorySeparatorChar) && filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "specifications") && m32p41open == false)
                         {
                             swr.WriteLine("                    <m3-2-p-4-1-specifications>");
+                            m32p41open = true;
+                        }
+                        if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32p4-contr-excip" + Path.DirectorySeparatorChar) && filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "specifications"))
+                        {
                             swr.WriteLine("                        <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                             swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
                             if (filenameListArray[p, 4] != "")
@@ -2826,25 +2926,31 @@ namespace WindowsApplication1
                             swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                             swr.WriteLine("                            <title>3.2.P.4.1 Specifications</title>");
                             swr.WriteLine("                        </leaf>");
-                            swr.WriteLine("                    </m3-2-p-4-1-specifications>");
                             idcounter++; indexed = true;
                         }
-                        if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32p4-contr-excip" + Path.DirectorySeparatorChar) && filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "analytical-procedures"))
+                        if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32p4-contr-excip" + Path.DirectorySeparatorChar) && filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "analytical-procedures") && m32p42open == false)
                         {
                             swr.WriteLine("                    <m3-2-p-4-2-analytical-procedures>");
+                            m32p42open = true;
+                        }
+                        if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32p4-contr-excip" + Path.DirectorySeparatorChar) && filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "analytical-procedures"))
+                        {                            
                             swr.WriteLine("                        <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                             swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
                             if (filenameListArray[p, 4] != "")
                             { swr.WriteLine("                            modified-file=\"{0}\"", filenameListArray[p, 4]); }
                             swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                             swr.WriteLine("                            <title>3.2.P.4.2 Analytical Procedures</title>");
-                            swr.WriteLine("                        </leaf>");
-                            swr.WriteLine("                    </m3-2-p-4-2-analytical-procedures>");
+                            swr.WriteLine("                        </leaf>");                            
                             idcounter++; indexed = true;
-                        }
-                        if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32p4-contr-excip" + Path.DirectorySeparatorChar) && filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "validation-analyt-procedures"))
+                        }                        
+                        if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32p4-contr-excip" + Path.DirectorySeparatorChar) && filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "validation-analyt-procedures") && m32p43open == false)
                         {
                             swr.WriteLine("                    <m3-2-p-4-3-validation-of-analytical-procedures>");
+                            m32p43open = true;
+                        }
+                        if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32p4-contr-excip" + Path.DirectorySeparatorChar) && filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "validation-analyt-procedures"))
+                        {                            
                             swr.WriteLine("                        <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                             swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
                             if (filenameListArray[p, 4] != "")
@@ -2852,12 +2958,15 @@ namespace WindowsApplication1
                             swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                             swr.WriteLine("                            <title>3.2.P.4.3 Validation of Analytical Procedures</title>");
                             swr.WriteLine("                        </leaf>");
-                            swr.WriteLine("                    </m3-2-p-4-3-validation-of-analytical-procedures>");
                             idcounter++; indexed = true;
+                        }
+                        if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32p4-contr-excip" + Path.DirectorySeparatorChar) && filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "justification-of-specifications") && m32p44open == false)
+                        {
+                            swr.WriteLine("                    <m3-2-p-4-4-justification-of-specifications>");
+                            m32p44open = true;
                         }
                         if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32p4-contr-excip" + Path.DirectorySeparatorChar) && filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "justification-of-specifications"))
                         {
-                            swr.WriteLine("                    <m3-2-p-4-4-justification-of-specifications>");
                             swr.WriteLine("                        <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                             swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
                             if (filenameListArray[p, 4] != "")
@@ -2865,12 +2974,15 @@ namespace WindowsApplication1
                             swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                             swr.WriteLine("                            <title>3.2.P.4.4 Justification of Specifications</title>");
                             swr.WriteLine("                        </leaf>");
-                            swr.WriteLine("                    </m3-2-p-4-4-justification-of-specifications>");
                             idcounter++; indexed = true;
                         }
-                        if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32p4-contr-excip" + Path.DirectorySeparatorChar) && filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "excipients-human-animal"))
+                        if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32p4-contr-excip" + Path.DirectorySeparatorChar) && filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "excipients-human-animal") && m32p45open == false)
                         {
                             swr.WriteLine("                    <m3-2-p-4-5-excipients-of-human-or-animal-origin>");
+                            m32p45open = true;
+                        }
+                        if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32p4-contr-excip" + Path.DirectorySeparatorChar) && filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "excipients-human-animal"))
+                        {                            
                             swr.WriteLine("                        <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                             swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
                             if (filenameListArray[p, 4] != "")
@@ -2878,12 +2990,15 @@ namespace WindowsApplication1
                             swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                             swr.WriteLine("                            <title>3.2.P.4.5 Excipients of Human or Animal Origin</title>");
                             swr.WriteLine("                        </leaf>");
-                            swr.WriteLine("                    </m3-2-p-4-5-excipients-of-human-or-animal-origin>");
                             idcounter++; indexed = true;
+                        }
+                        if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32p4-contr-excip" + Path.DirectorySeparatorChar) && filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "novel-excipients") && m32p46open == false)
+                        {
+                            swr.WriteLine("                    <m3-2-p-4-6-novel-excipients>");
+                            m32p46open = true;
                         }
                         if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32p4-contr-excip" + Path.DirectorySeparatorChar + "novel-excipients"))
                         {
-                            swr.WriteLine("                    <m3-2-p-4-6-novel-excipients>");
                             swr.WriteLine("                        <leaf ID=\"m32p-{0}\" operation=\"{1}\" checksum-type=\"md5\"", idcounter, filenameListArray[p, 3]);
                             swr.WriteLine("                            checksum=\"{0}\"", filenameListArray[p, 2]);
                             if (filenameListArray[p, 4] != "")
@@ -2891,11 +3006,40 @@ namespace WindowsApplication1
                             swr.WriteLine("                            xlink:href=\"{0}\">", filenameListArray[p, 1]);
                             swr.WriteLine("                            <title>3.2.P.4.6 Novel Excipients</title>");
                             swr.WriteLine("                        </leaf>");
-                            swr.WriteLine("                    </m3-2-p-4-6-novel-excipients>");
                             idcounter++; indexed = true;
                         }
                         if (filenameListArray[p, 0].Contains(Path.DirectorySeparatorChar + "32p4-contr-excip" + Path.DirectorySeparatorChar) == false && m32p4open == true)
                         {
+                            if (m32p45open == true)
+                            {
+                                swr.WriteLine("                    </m3-2-p-4-5-excipients-of-human-or-animal-origin>");
+                                m32p45open = false;
+                            }
+                            if (m32p46open == true)
+                            {
+                                swr.WriteLine("                    </m3-2-p-4-6-novel-excipients>");
+                                m32p46open = false;
+                            }
+                            if (m32p42open == true)
+                            {
+                                swr.WriteLine("                    </m3-2-p-4-2-analytical-procedures>");
+                                m32p42open = false;
+                            }
+                            if (m32p44open == true)
+                            {
+                                swr.WriteLine("                    </m3-2-p-4-4-justification-of-specifications>");
+                                m32p44open = false;
+                            }
+                            if (m32p41open == true)
+                            {
+                                swr.WriteLine("                    </m3-2-p-4-1-specifications>");
+                                m32p41open = false;
+                            }
+                            if (m32p43open == true)
+                            {
+                                swr.WriteLine("                    </m3-2-p-4-3-validation-of-analytical-procedures>");
+                                m32p43open = false;
+                            }
                             swr.WriteLine("                </m3-2-p-4-control-of-excipients>");
                             m32p4open = false;
                         }
@@ -5575,32 +5719,47 @@ namespace WindowsApplication1
         private static string excipientName(string filePath, string attributeFile)
         {
             string excipient = "";
-            if (filePath.Contains(Path.DirectorySeparatorChar + "excipients-human-animal"))
+            if (File.Exists(attributeFile))
             {
-                excipient = "human-animal";
-            }
-            if (filePath.Contains(Path.DirectorySeparatorChar + "novel-excipients"))
-            {
-                excipient = "novel";
-            }
-            if ((filePath.Contains(Path.DirectorySeparatorChar + "excipients-human-animal") == false && (filePath.Contains(Path.DirectorySeparatorChar + "novel-excipients")) == false))
-            {
-                if (File.Exists(attributeFile))
+                foreach (string line in File.ReadLines(attributeFile))
                 {
-                    foreach (string line in File.ReadLines(attributeFile))
+                    //if ((line.Contains(current32p4.Replace("\\", "/").Substring(current32p4.IndexOf("32p4-contr-excip")))) && (line.Contains(current32p.Replace("\\", "/").Substring(current32p.IndexOf("32p-drug-prod")))))
+                    //string attributePath = filePath.Replace("\\", "/").Substring(filePath.IndexOf(Path.DirectorySeparatorChar + "m3"))
+                    if (attributeFile.Replace("\\", "/").Contains(line.Substring(0, line.IndexOf(";"))))
                     {
-                        //if ((line.Contains(current32p4.Replace("\\", "/").Substring(current32p4.IndexOf("32p4-contr-excip")))) && (line.Contains(current32p.Replace("\\", "/").Substring(current32p.IndexOf("32p-drug-prod")))))
-                        //string attributePath = filePath.Replace("\\", "/").Substring(filePath.IndexOf(Path.DirectorySeparatorChar + "m3"))
-                        if (attributeFile.Replace("\\", "/").Contains(line.Substring(0, line.IndexOf(";"))))
+                        if (line.Contains("excipient:"))
                         {
-                            if (line.Contains("excipient:"))
-                            {
-                                excipient = line.Substring(line.IndexOf("excipient:") + 10, line.IndexOf(";", line.IndexOf("excipient:") + 10) - (line.IndexOf("excipient:") + 10));
-                            }
+                            excipient = line.Substring(line.IndexOf("excipient:") + 10, line.IndexOf(";", line.IndexOf("excipient:") + 10) - (line.IndexOf("excipient:") + 10));
                         }
                     }
                 }
-                else
+                if (excipient == "")
+                {
+                    if (filePath.Contains(Path.DirectorySeparatorChar + "excipients-human-animal"))
+                    {
+                        excipient = "human-animal";
+                    }
+                    if (filePath.Contains(Path.DirectorySeparatorChar + "novel-excipients"))
+                    {
+                        excipient = "novel";
+                    }
+                    if ((filePath.Contains(Path.DirectorySeparatorChar + "excipients-human-animal") == false && (filePath.Contains(Path.DirectorySeparatorChar + "novel-excipients")) == false))
+                    {
+                        excipient = filePath.Substring(filePath.IndexOf("32p4-contr-excip") + 17, filePath.LastIndexOf(Path.DirectorySeparatorChar) - (filePath.IndexOf("32p4-contr-excip") + 17));
+                    }
+                }
+            }
+            else
+            {
+                if (filePath.Contains(Path.DirectorySeparatorChar + "excipients-human-animal"))
+                {
+                    excipient = "human-animal";
+                }
+                if (filePath.Contains(Path.DirectorySeparatorChar + "novel-excipients"))
+                {
+                    excipient = "novel";
+                }
+                if ((filePath.Contains(Path.DirectorySeparatorChar + "excipients-human-animal") == false && (filePath.Contains(Path.DirectorySeparatorChar + "novel-excipients")) == false))
                 {
                     excipient = filePath.Substring(filePath.IndexOf("32p4-contr-excip") + 17, filePath.LastIndexOf(Path.DirectorySeparatorChar) - (filePath.IndexOf("32p4-contr-excip") + 17));
                 }
